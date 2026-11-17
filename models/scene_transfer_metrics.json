@@ -1,0 +1,218 @@
+{
+  "scope": "development scene seeds0..4; evaluation associates depth proposal XY to simulator object centers only to score; pixel-only model input",
+  "correct": 15,
+  "total": 15,
+  "expected_total": 15,
+  "rows": [
+    {
+      "seed": 0,
+      "expected": "UNKNOWN",
+      "prediction": "UNKNOWN",
+      "confidence": 2.9450682632159442e-05,
+      "distance": 1.6291625499725342,
+      "bbox": [
+        168,
+        277,
+        32,
+        28
+      ],
+      "xy_error_m": 0.0005548099669606611
+    },
+    {
+      "seed": 0,
+      "expected": "SKU-RED-B",
+      "prediction": "SKU-RED-B",
+      "confidence": 0.9994414448738098,
+      "distance": 0.2671986520290375,
+      "bbox": [
+        292,
+        306,
+        34,
+        29
+      ],
+      "xy_error_m": 0.0003649777247363774
+    },
+    {
+      "seed": 0,
+      "expected": "SKU-RED-A",
+      "prediction": "SKU-RED-A",
+      "confidence": 0.9992376565933228,
+      "distance": 0.7127552628517151,
+      "bbox": [
+        231,
+        319,
+        33,
+        29
+      ],
+      "xy_error_m": 0.0012088672920170375
+    },
+    {
+      "seed": 1,
+      "expected": "UNKNOWN",
+      "prediction": "UNKNOWN",
+      "confidence": 4.3096391891594976e-05,
+      "distance": 1.598164439201355,
+      "bbox": [
+        161,
+        283,
+        33,
+        27
+      ],
+      "xy_error_m": 0.00102167297224734
+    },
+    {
+      "seed": 1,
+      "expected": "SKU-RED-B",
+      "prediction": "SKU-RED-B",
+      "confidence": 0.9991415739059448,
+      "distance": 0.3935883045196533,
+      "bbox": [
+        294,
+        294,
+        33,
+        28
+      ],
+      "xy_error_m": 0.0016805918504932448
+    },
+    {
+      "seed": 1,
+      "expected": "SKU-RED-A",
+      "prediction": "SKU-RED-A",
+      "confidence": 0.9998286962509155,
+      "distance": 0.5094835758209229,
+      "bbox": [
+        228,
+        303,
+        34,
+        30
+      ],
+      "xy_error_m": 0.0012608805758817254
+    },
+    {
+      "seed": 2,
+      "expected": "UNKNOWN",
+      "prediction": "UNKNOWN",
+      "confidence": 3.5226537875132635e-05,
+      "distance": 1.6144611835479736,
+      "bbox": [
+        164,
+        279,
+        34,
+        28
+      ],
+      "xy_error_m": 0.00044987262965312985
+    },
+    {
+      "seed": 2,
+      "expected": "SKU-RED-B",
+      "prediction": "SKU-RED-B",
+      "confidence": 0.9994145631790161,
+      "distance": 0.28063124418258667,
+      "bbox": [
+        300,
+        305,
+        35,
+        30
+      ],
+      "xy_error_m": 0.000675508623996706
+    },
+    {
+      "seed": 2,
+      "expected": "SKU-RED-A",
+      "prediction": "SKU-RED-A",
+      "confidence": 0.9998030066490173,
+      "distance": 0.5530304312705994,
+      "bbox": [
+        223,
+        318,
+        33,
+        30
+      ],
+      "xy_error_m": 0.0005924110107132523
+    },
+    {
+      "seed": 3,
+      "expected": "UNKNOWN",
+      "prediction": "UNKNOWN",
+      "confidence": 4.0138489566743374e-05,
+      "distance": 1.6038457155227661,
+      "bbox": [
+        157,
+        282,
+        34,
+        29
+      ],
+      "xy_error_m": 0.00032446180991234396
+    },
+    {
+      "seed": 3,
+      "expected": "SKU-RED-B",
+      "prediction": "SKU-RED-B",
+      "confidence": 0.9994470477104187,
+      "distance": 0.25559529662132263,
+      "bbox": [
+        300,
+        298,
+        35,
+        30
+      ],
+      "xy_error_m": 0.0008427612686437703
+    },
+    {
+      "seed": 3,
+      "expected": "SKU-RED-A",
+      "prediction": "SKU-RED-A",
+      "confidence": 0.9697673916816711,
+      "distance": 0.9785853624343872,
+      "bbox": [
+        219,
+        320,
+        32,
+        28
+      ],
+      "xy_error_m": 0.0009269675538588995
+    },
+    {
+      "seed": 4,
+      "expected": "UNKNOWN",
+      "prediction": "UNKNOWN",
+      "confidence": 3.6286477552494034e-05,
+      "distance": 1.6119167804718018,
+      "bbox": [
+        164,
+        282,
+        34,
+        30
+      ],
+      "xy_error_m": 0.000678791171897883
+    },
+    {
+      "seed": 4,
+      "expected": "SKU-RED-B",
+      "prediction": "SKU-RED-B",
+      "confidence": 0.9994382262229919,
+      "distance": 0.2621634304523468,
+      "bbox": [
+        302,
+        305,
+        35,
+        30
+      ],
+      "xy_error_m": 0.0009124796278539926
+    },
+    {
+      "seed": 4,
+      "expected": "SKU-RED-A",
+      "prediction": "SKU-RED-A",
+      "confidence": 0.9998286962509155,
+      "distance": 0.4941542148590088,
+      "bbox": [
+        238,
+        313,
+        33,
+        30
+      ],
+      "xy_error_m": 0.0003966250268925481
+    }
+  ]
+}

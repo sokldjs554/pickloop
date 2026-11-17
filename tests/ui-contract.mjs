@@ -1,0 +1,28 @@
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {dirname,resolve} from 'node:path';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const html=readFileSync(resolve(root,'web/index.html'),'utf8');
+const js=readFileSync(resolve(root,'web/app.js'),'utf8');
+const css=readFileSync(resolve(root,'web/styles.css'),'utf8');
+new vm.Script(js,{filename:'app.js'});
+const context={URL};vm.createContext(context);vm.runInContext(js,context);
+const {normalizeRun,resolveFrameUrl,frameAtTime,retries,statusLabel,failureSummary,isTerminal}=context.PickLoopContract;
+let checks=0;
+function check(name,fn){fn();checks++;console.log(`ok ${checks} - ${name}`);}
+check('HTML is Korean and references actual local assets',()=>{assert.match(html,/<html lang="ko">/);assert.match(html,/href="styles.css"/);assert.match(html,/defer src="app.js"/);});
+check('every script ID reference has a unique HTML element',()=>{const ids=[...(html+js).matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);const staticIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(staticIds).size,staticIds.length);for(const [,id] of js.matchAll(/\$\('([^']+)'\)/g))assert.ok(ids.includes(id),`missing #${id}`);});
+check('static view cannot start or cancel live compute',()=>{assert.match(html,/<button id="mode-live" disabled/);assert.match(html,/<button id="start-job"[^>]*hidden/);assert.match(html,/<button id="cancel-job"[^>]*hidden/);assert.match(js,/health\.mode!=='live'/);assert.match(js,/state\.mode!=='live'\|\|!state\.liveAvailable\|\|state\.jobId/);});
+check('all visible controls have handlers or native behavior',()=>{for(const id of ['mode-replay','mode-live','play-toggle','scrubber','speed','event-detail-toggle','close-dialog','cancel-job'])assert.ok(js.includes(`$('${id}').addEventListener`),`missing handler for ${id}`);assert.match(js,/\$\('run-form'\)\.addEventListener\('submit'/);assert.match(html,/id="download-log"[^>]*download/);assert.doesNotMatch(html,/href="#"/);});
+check('missing run payload fields normalize to honest empty arrays',()=>{const r=normalizeRun(null);assert.equal(r.frames.length,0);assert.equal(r.events.length,0);assert.equal(statusLabel(r),'—');assert.equal(retries(r),null);});
+check('frames are sorted and invalid timestamps rejected',()=>{const r=normalizeRun({frames:[{sim_time:2},{sim_time:0},null,{sim_time:'3'},{}],events:[{sim_time:4},{sim_time:1}]});assert.equal(r.frames.map(f=>f.sim_time).join(','),'0,2');assert.equal(r.events[0].sim_time,1);});
+check('frame paths resolve against run manifest, including nested hosting',()=>{assert.equal(resolveFrameUrl('frames/00001-camera.jpg','data/runs/r1/run.json','https://demo.test/project/'),'https://demo.test/project/data/runs/r1/frames/00001-camera.jpg');assert.equal(resolveFrameUrl('/runs/r1/frames/1.jpg','/api/jobs/1','http://localhost:8000/'),'http://localhost:8000/runs/r1/frames/1.jpg');assert.equal(resolveFrameUrl('javascript:alert(1)','data/run.json','https://demo.test/'),null);assert.equal(resolveFrameUrl(undefined,'data/run.json','https://demo.test/'),null);});
+check('playback floors timestamps and clamps outside recording',()=>{const f=[{sim_time:1},{sim_time:2},{sim_time:4}];assert.equal(frameAtTime(f,0),0);assert.equal(frameAtTime(f,2.5),1);assert.equal(frameAtTime(f,99),2);assert.equal(frameAtTime([],2),-1);});
+check('event seek prioritizes exact log binding over shared observation',()=>{const f=[{sim_time:1,log_event_id:'e1',observation_id:'o1'},{sim_time:2,log_event_id:'e2',observation_id:'o1'},{sim_time:3,log_event_id:'e3'}];assert.equal(frameAtTime(f,2,{event_id:'e2',observation_id:'o1'}),1);assert.equal(frameAtTime(f,2.8,{event_id:'missing'}),2);});
+check('terminal and retry outcomes derive from data',()=>{assert.equal(statusLabel({status:'COMPLETED',success:true,retries:1}),'복구 완료');assert.equal(statusLabel({status:'HOLD_SUCTION_FAILED',success:false}),'보류');assert.equal(retries({events:[{attempt:1},{attempt:3}]}),2);assert.equal(isTerminal({status:'RUNNING'}),false);assert.equal(isTerminal({status:'HOLD_RECOVERY_REQUIRED'}),true);assert.equal(statusLabel({status:'HELD'}),'보류');assert.equal(isTerminal({status:'HELD'}),true);});
+check('failure summary preserves stage and actual reason',()=>{assert.equal(failureSummary({events:[{event:'seal_failed',state:'SEAL',data:{reason:'PRESSURE_NOT_ESTABLISHED'}}]}),'흡착 / PRESSURE_NOT_ESTABLISHED');assert.equal(failureSummary({events:[]}),'감지된 실패 없음');});
+check('image failure and empty frames have explicit UI states',()=>{assert.match(js,/img\.onerror/);assert.match(js,/저장된 프레임 없음/);assert.match(js,/프레임 파일을 불러오지 못했습니다/);assert.match(js,/프레임 경로 없음/);});
+check('layout supports desktop and narrow screens without simulated robot graphics',()=>{assert.match(css,/@media\(max-width:700px\)/);assert.match(css,/grid-template-columns:220px minmax\(440px,1fr\) 284px/);assert.doesNotMatch(html,/<canvas/);assert.match(html,/<img id="scene-image"/);assert.match(html,/<img id="camera-image"/);});
+console.log(`\n${checks} UI contract checks passed.`);

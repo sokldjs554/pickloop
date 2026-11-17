@@ -1,0 +1,92 @@
+{"epoch": 1, "loss": 0.9952354939778646, "validation_closed_known_accuracy": 0.5583333373069763}
+{"epoch": 2, "loss": 0.46698682222101423, "validation_closed_known_accuracy": 0.8958333134651184}
+{"epoch": 3, "loss": 0.16550743028107617, "validation_closed_known_accuracy": 1.0}
+{"epoch": 4, "loss": 0.10617623375521766, "validation_closed_known_accuracy": 0.987500011920929}
+{"epoch": 5, "loss": 0.070955855258637, "validation_closed_known_accuracy": 0.9958333373069763}
+{"epoch": 6, "loss": 0.04393131565509571, "validation_closed_known_accuracy": 0.9958333373069763}
+{"epoch": 7, "loss": 0.04018576552470525, "validation_closed_known_accuracy": 0.9958333373069763}
+{"epoch": 8, "loss": 0.02818702067765925, "validation_closed_known_accuracy": 0.9958333373069763}
+{"epoch": 9, "loss": 0.019146707347697682, "validation_closed_known_accuracy": 0.9791666865348816}
+{"epoch": 10, "loss": 0.07186445922901233, "validation_closed_known_accuracy": 1.0}
+{"epoch": 11, "loss": 0.024971134300447173, "validation_closed_known_accuracy": 0.9833333492279053}
+{"epoch": 12, "loss": 0.014939176143250531, "validation_closed_known_accuracy": 1.0}
+{"epoch": 13, "loss": 0.00888891524117854, "validation_closed_known_accuracy": 1.0}
+{"epoch": 14, "loss": 0.009646760806855227, "validation_closed_known_accuracy": 0.9958333373069763}
+{"epoch": 15, "loss": 0.007118886565375659, "validation_closed_known_accuracy": 1.0}
+{"epoch": 16, "loss": 0.0051964643569145765, "validation_closed_known_accuracy": 1.0}
+{"epoch": 17, "loss": 0.0020687798669354785, "validation_closed_known_accuracy": 1.0}
+{"epoch": 18, "loss": 0.0015240513098736604, "validation_closed_known_accuracy": 1.0}
+{"epoch": 19, "loss": 0.0011849339412421816, "validation_closed_known_accuracy": 1.0}
+{"epoch": 20, "loss": 0.0010244058783993953, "validation_closed_known_accuracy": 1.0}
+{"epoch": 21, "loss": 0.0008979898692470871, "validation_closed_known_accuracy": 1.0}
+{"epoch": 22, "loss": 0.0008138715330925253, "validation_closed_known_accuracy": 1.0}
+{"epoch": 23, "loss": 0.0007334634322776562, "validation_closed_known_accuracy": 1.0}
+{"epoch": 24, "loss": 0.0006757864718221956, "validation_closed_known_accuracy": 1.0}
+{"epoch": 25, "loss": 0.0006203505250677052, "validation_closed_known_accuracy": 1.0}
+{"epoch": 26, "loss": 0.0005766126865314113, "validation_closed_known_accuracy": 1.0}
+{"epoch": 27, "loss": 0.0005377682484686375, "validation_closed_known_accuracy": 1.0}
+{"epoch": 28, "loss": 0.0005002270073681655, "validation_closed_known_accuracy": 1.0}
+{"epoch": 29, "loss": 0.00046995391234910735, "validation_closed_known_accuracy": 1.0}
+{"epoch": 30, "loss": 0.0004396740664055364, "validation_closed_known_accuracy": 1.0}
+{"epoch": 31, "loss": 0.0004150056751031015, "validation_closed_known_accuracy": 1.0}
+{"epoch": 32, "loss": 0.00039199866600231163, "validation_closed_known_accuracy": 1.0}
+{"epoch": 33, "loss": 0.0003691093563490237, "validation_closed_known_accuracy": 1.0}
+{"epoch": 34, "loss": 0.00034940991550683973, "validation_closed_known_accuracy": 1.0}
+{"epoch": 35, "loss": 0.0003316760129786821, "validation_closed_known_accuracy": 1.0}
+{
+  "eager": {
+    "known_accuracy": 0.9916666746139526,
+    "known_reject_rate": 0.004166666883975267,
+    "unknown_false_accept_rate": 0.0,
+    "known_count": 240,
+    "unknown_count": 120,
+    "confusion_rows_true_A_B_UNKNOWN_cols_pred_A_B_UNKNOWN": [
+      [
+        120,
+        0,
+        0
+      ],
+      [
+        1,
+        118,
+        1
+      ],
+      [
+        0,
+        0,
+        120
+      ]
+    ]
+  },
+  "baseline_color_mean": {
+    "known_accuracy": 0.25833332538604736,
+    "known_reject_rate": 0.4791666567325592,
+    "unknown_false_accept_rate": 0.125,
+    "known_count": 240,
+    "unknown_count": 120,
+    "confusion_rows_true_A_B_UNKNOWN_cols_pred_A_B_UNKNOWN": [
+      [
+        35,
+        26,
+        59
+      ],
+      [
+        37,
+        27,
+        56
+      ],
+      [
+        11,
+        4,
+        105
+      ]
+    ]
+  },
+  "export": {
+    "max_abs_logit_error": 0.0,
+    "max_abs_embedding_error": 0.0,
+    "prediction_disagreements": 0,
+    "eager_bytes": 192245,
+    "torchscript_bytes": 208346
+  }
+}

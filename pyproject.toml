@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "pickloop"
+version = "0.1.0"
+description = "Evidence-driven logistics picking and recovery in MuJoCo"
+requires-python = ">=3.11,<3.14"
+dependencies = ["mujoco==3.3.7", "numpy==2.2.6", "scipy==1.15.3", "opencv-python-headless==4.11.0.86", "Pillow==11.2.1", "py-trees==2.3.0", "fastapi==0.115.12", "uvicorn==0.34.2"]
+[project.optional-dependencies]
+ml = ["torch==2.7.1"]
+test = ["pytest==8.3.5", "httpx==0.28.1"]
+[project.scripts]
+pickloop = "pickloop.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: physics-based end-to-end tests"]

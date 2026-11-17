@@ -1,0 +1,61 @@
+{
+  "eager": {
+    "known_accuracy": 1.0,
+    "known_reject_rate": 0.0,
+    "unknown_false_accept_rate": 0.0,
+    "known_count": 240,
+    "unknown_count": 120,
+    "confusion_rows_true_A_B_UNKNOWN_cols_pred_A_B_UNKNOWN": [
+      [
+        120,
+        0,
+        0
+      ],
+      [
+        0,
+        120,
+        0
+      ],
+      [
+        0,
+        0,
+        120
+      ]
+    ],
+    "closed_known_accuracy_before_rejection": 1.0
+  },
+  "baseline_color_mean": {
+    "known_accuracy": 0.23749999701976776,
+    "known_reject_rate": 0.4833333194255829,
+    "unknown_false_accept_rate": 0.10833333432674408,
+    "known_count": 240,
+    "unknown_count": 120,
+    "confusion_rows_true_A_B_UNKNOWN_cols_pred_A_B_UNKNOWN": [
+      [
+        33,
+        31,
+        56
+      ],
+      [
+        36,
+        24,
+        60
+      ],
+      [
+        10,
+        3,
+        107
+      ]
+    ],
+    "closed_known_accuracy_before_rejection": 0.49166667461395264
+  },
+  "export": {
+    "max_abs_logit_error": 0.0,
+    "max_abs_embedding_error": 0.0,
+    "prediction_disagreements": 0,
+    "eager_bytes": 192245,
+    "torchscript_bytes": 208346,
+    "checkpoint_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "torchscript_sha256": "1609873b39978f51f6cd158d4685923c2bfdec6788490d4025adb895d712cdbb"
+  }
+}

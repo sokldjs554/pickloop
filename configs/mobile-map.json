@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "frame": "map: right-handed x-east/y-north metres, yaw counterclockwise radians",
+  "bounds_m": [0.0, 0.0, 8.0, 6.0],
+  "grid_resolution_m": 0.1,
+  "robot_radius_m": 0.24,
+  "planning_margin_m": 0.13,
+  "obstacles_m": [[2.7, 1.7, 3.7, 3.7], [4.6, 4.6, 5.6, 5.6]],
+  "landmarks_m": [[0.5, 0.5], [7.5, 0.5], [7.5, 5.5], [0.5, 5.5]],
+  "robot_starts_m_rad": {"amr-1": [1.0, 1.0, 0.0], "amr-2": [1.0, 4.8, 0.0]},
+  "dock_m_rad": [6.6, 2.8, 0.0],
+  "exit_m_rad": [6.6, 4.9, 1.5707963267948966],
+  "next_task_m_rad": [2.5, 4.8, 0.0],
+  "shared_zone_m": [4.0, 0.5, 7.3, 4.0]
+}
