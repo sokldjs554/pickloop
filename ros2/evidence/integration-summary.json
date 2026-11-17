@@ -1,0 +1,83 @@
+{
+  "normal": {
+    "result": {
+      "action_status": 4,
+      "success": true,
+      "status": "COMPLETED",
+      "run_id": "normal-7-recovery-a63bfd",
+      "reason": ""
+    },
+    "feedback_messages": 86
+  },
+  "cancel": {
+    "result": {
+      "action_status": 5,
+      "success": false,
+      "status": "CANCELLED",
+      "run_id": "normal-7-recovery-3b11b0",
+      "reason": "CANCELLED"
+    },
+    "feedback_messages": 10
+  },
+  "duplicate": {
+    "result": {
+      "action_status": 4,
+      "success": true,
+      "status": "COMPLETED",
+      "run_id": "normal-7-recovery-a63bfd",
+      "reason": ""
+    },
+    "feedback_messages": 1
+  },
+  "topics": {
+    "counts": {
+      "clock": 95,
+      "events": 74,
+      "joints": 72,
+      "camera": 72
+    },
+    "samples": {
+      "clock": {
+        "sec": 0,
+        "nanosec": 950000000
+      },
+      "events": {
+        "job_id": "ros-cancel-20261117-1",
+        "run_id": "normal-7-recovery-3b11b0",
+        "status": "CANCELLED",
+        "phase": "CANCELLED",
+        "sim_time": 0.95,
+        "attempt": 1
+      },
+      "joints": {
+        "names": [
+          "shoulder",
+          "elbow",
+          "vertical",
+          "wrist"
+        ],
+        "position": [
+          -1.8549350496779127,
+          1.8090943694396109,
+          -0.12,
+          0.04584068023830179
+        ]
+      },
+      "camera": {
+        "format": "jpeg",
+        "bytes": 17297
+      }
+    }
+  },
+  "base_image_digest": "sha256:00b8d47a6e6384a2834e3d01fa87ae767876543baa574f2d64a75c04ea33c698",
+  "built_image_id": "sha256:d2c48671d5648f5cc524eead381ba8b31e649cd85c579d71a5354d4263261742",
+  "action_test_image_id": "sha256:14cbfad5779ef34937de9b5908836616566976245bcab30a928c7bc8c2a5b172",
+  "final_image_replay": {
+    "action_status": 4,
+    "success": true,
+    "status": "COMPLETED",
+    "run_id": "normal-7-recovery-a63bfd",
+    "reason": ""
+  },
+  "final_idle_shutdown_exit_code": 0
+}

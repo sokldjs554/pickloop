@@ -93,7 +93,7 @@ class Cell:
         self.robot_geoms={mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_GEOM,n) for n in ['link1','link2','shaft','cup']}
         self.attempt=1; self.valve=False; self.attached=None; self.pressure_kpa=0.; self.attach_time=0.
         self.drop_count=0; self.collision_count=0; self._drop_used=False; self._obs_count=0
-        self.on_step=None; self.cancel=None; self.closed=False; self._command_velocity=np.zeros(4); self._stopping=False; self._active_contacts=set()
+        self.on_step=None; self.output_source=None; self.cancel=None; self.closed=False; self._command_velocity=np.zeros(4); self._stopping=False; self._active_contacts=set()
         self.renderer=mujoco.Renderer(self.model,height=480,width=480)
         self.scene_renderer=mujoco.Renderer(self.model,height=480,width=640)
         self.K=camera_matrix(480,480,45)
@@ -162,9 +162,12 @@ class Cell:
 
     def _release(self,drop=False):
         if self.attached is not None:
+            p=self.data.xpos[self.object_bodies[self.attached]]
+            support=.072 if np.all(np.abs(p[:2]-BIN_CENTER)<BIN_HALF) else .060
+            unsupported_clearance=float(p[2]-.025-support)
             self.data.eq_active[self.attached]=False
             self.attached=None
-            if drop: self.drop_count+=1
+            if drop or unsupported_clearance>.040:self.drop_count+=1
         self.pressure_kpa=0.
 
     def _vacuum_physics(self):
@@ -196,9 +199,10 @@ class Cell:
                 break
 
     def step(self):
-        if self.cancel is not None and self.cancel():
+        if not self._stopping and self.cancel is not None and self.cancel():
             self.data.ctrl[:]=self.data.qpos[:4]
             raise OperationError('CANCELLED')
+        if self.output_source is not None:self.command_suction(self.output_source())
         self._vacuum_physics()
         # Catalog payload mass feed-forward, enabled only by pressure feedback.
         self.data.qfrc_applied[2]=.08*9.81 if self.pressure_kpa < -35 else 0.
@@ -206,7 +210,7 @@ class Cell:
         contacts=self._prohibited_contacts(self.data)
         self.collision_count+=len(contacts-self._active_contacts)
         self._active_contacts=contacts
-        if contacts: raise OperationError('COLLISION',{'pairs':sorted(contacts)})
+        if contacts and not self._stopping: raise OperationError('COLLISION',{'pairs':sorted(contacts)})
         if self.on_step: self.on_step(self)
 
     def step_for(self,seconds):
@@ -252,18 +256,22 @@ class Cell:
         duration=max(.10,float(np.max(np.abs(v0)/ACCELERATION))*np.pi/2)
         n=int(np.ceil(duration/self.model.opt.timestep));duration=n*self.model.opt.timestep
         target=q0+v0*duration/2
-        if np.any(target<JOINT_LOWER) or np.any(target>JOINT_UPPER):
-            self.data.ctrl[:]=self.joints;self._command_velocity[:]=0
-            raise OperationError('STOP_DISTANCE_LIMIT')
+        distance_limited=bool(np.any(target<JOINT_LOWER) or np.any(target>JOINT_UPPER))
+        if distance_limited or self._active_contacts:
+            q0=self.joints;v0=np.zeros(4);self.data.ctrl[:]=q0
         self._stopping=True
         try:
             for i in range(1,n+1):
                 t=i*self.model.opt.timestep
                 self.data.ctrl[:]=q0+v0*(t/2+duration*np.sin(np.pi*t/duration)/(2*np.pi))
                 self.step()
+                if self._active_contacts:
+                    self.data.ctrl[:]=self.joints
+                    break
             self._command_velocity[:]=0
             for _ in range(70):self.step()
         finally:self._stopping=False
+        return {'motion_settled':bool(np.max(np.abs(self.data.qvel[:4]))<.02),'distance_limited':distance_limited,'contact_pairs':sorted(self._active_contacts),'valve_retained':self.valve}
 
     def move_to(self,xyz,allow_contact=True):
         try: target=scara_ik(np.array(xyz))

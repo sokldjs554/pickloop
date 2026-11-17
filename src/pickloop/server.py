@@ -1,5 +1,7 @@
 """Local simulation service. Serves recorded evidence and computes new CPU runs."""
 import json
+import fcntl
+import sqlite3
 import re
 import threading
 import uuid
@@ -14,6 +16,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from .engine import run_job,FAULTS
 from .simulation import ROOT
+from .journal import JobStore
 
 class JobRequest(BaseModel):
     seed:int=Field(default=7,ge=0,le=2**31-1,strict=True)
@@ -28,6 +31,12 @@ def create_app(run_dir=None):
     jobs={};configs={};cancels={};lock=threading.RLock();pool=ThreadPoolExecutor(max_workers=1,thread_name_prefix='pickloop')
     @asynccontextmanager
     async def lifespan(app):
+        # Only the owner of the simulator lease may fence interrupted jobs.
+        with (directory/'.runner.lock').open('a') as lease:
+            try:fcntl.flock(lease,fcntl.LOCK_EX|fcntl.LOCK_NB)
+            except BlockingIOError:pass  # another active process owns the physical cell
+            else:
+                recovery_store=JobStore(directory/'jobs.sqlite');recovery_store.close()
         yield
         for event in cancels.values():event.set()
         pool.shutdown(wait=True,cancel_futures=True)
@@ -72,6 +81,13 @@ def create_app(run_dir=None):
         for path in directory.glob('*/run.json'):
             data=json.loads(path.read_text())
             if data['job_id']==job_id:return data
+        ledger=directory/'jobs.sqlite'
+        if ledger.exists():
+            with sqlite3.connect(ledger) as db:
+                row=db.execute('SELECT config,run_id,state,result FROM jobs WHERE id=?',(job_id,)).fetchone()
+            if row:
+                if row[3]:return json.loads(row[3])
+                return dict(job_id=job_id,run_id=row[1],status=row[2],state=row[2],success=False,reason='RESTART_REQUIRES_RECONCILIATION' if row[2]=='HOLD_RECOVERY_REQUIRED' else 'ACTIVE_IN_OTHER_RUNNER',frames=[],events=[],**json.loads(row[0]))
         raise HTTPException(404,'Unknown job ID')
     @app.post('/api/jobs/{job_id}/cancel')
     def cancel(job_id:str):

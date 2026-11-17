@@ -57,6 +57,7 @@ class Controller:
         self.max_joint_velocity=np.zeros(4);self.max_joint_acceleration=np.zeros(4);self._last_velocity=cell.data.qvel[:4].copy()
         self.device.set_feedback(cell.pressure_kpa,cell.attached is not None)
         self.cell.on_step=self.on_step
+        self.cell.output_source=self.device.output_valve
         if record:(directory/'frames').mkdir(exist_ok=True)
     def guard(self):
         if self.cancel_event.is_set():raise OperationError('CANCELLED')
@@ -96,7 +97,8 @@ class Controller:
     def plan(self):
         if self.carrying:return
         if self.target_detection is None:raise OperationError('NO_TARGET')
-        self.last_observation.validate(self.cell.sim_time)
+        try:self.last_observation.validate(self.cell.sim_time)
+        except ValueError as e:raise OperationError(str(e)) from e
         p=self.target_detection.position
         if not (.10<p[0]<.58 and -.30<p[1]<.10):raise OperationError('TARGET_OUTSIDE_SOURCE')
         self.emit('PLAN_READY',target=p.tolist(),lift_height_m=.30 if self.attempt==1 else .40,planner='analytic_SCARA_IK_quintic_dense_collision_check')
@@ -115,7 +117,6 @@ class Controller:
         if self.cell.fault=='connection_loss' and self.attempt==1 and on:self.device.inject_fault('drop_ack')
         status=self.client.command(self.command_id,bool(on))
         if status['error']!='none':raise OperationError('DEVICE_UNCERTAIN')
-        self.cell.command_suction(status['valve'])
         self.emit('DEVICE_ACK',command_id=self.command_id,status=status)
     def seal(self):
         if self.carrying:return
@@ -156,7 +157,9 @@ class Controller:
         self.state='RECOVERY'
         if self.first_failure_time is None:self.first_failure_time=self.cell.sim_time
         self.emit('RECOVERY_BEGIN',reason=self.last_error.code)
-        self.cell.stop_motion()
+        stop_report=self.cell.stop_motion()
+        self.emit('STOP_REPORT',**stop_report)
+        if self.cell.collision_count:raise OperationError('COLLISION')
         self.attempt+=1;self.cell.attempt=self.attempt
         if not self.carrying:
             self.set_valve(False)
@@ -203,7 +206,8 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
         reason=None if status=='COMPLETED' else c.last_error.code
         if status!='COMPLETED':
             # Hold current command; never release an unconfirmed load on cancellation.
-            cell.stop_motion()
+            stop_report=cell.stop_motion()
+            c.emit('STOP_REPORT',**stop_report)
             if status=='CANCELLED' and c.command_id:
                 try:client.cancel(c.command_id)
                 except (DeviceError,TimeoutError):reason='CANCELLED_DEVICE_UNCERTAIN'

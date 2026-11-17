@@ -1,0 +1,35 @@
+# 기여·재사용·실행 주체
+
+이 프로젝트는 사용자의 채용 지원 목표와 상세 요구에 따라 **AI 코딩 에이전트가 조사·설계·구현·학습·시험·문서 작업을 수행한 결과물**이다. 저장소 소유와 코드 생성 주체, 사용자가 직접 수행한 경험을 구분한다. 이 문서를 사용자가 모든 코드를 직접 작성·실험·배포했다는 진술로 바꾸면 안 된다.
+
+| 주체/범위 | 확인된 내용 | 현재 주장할 수 없는 내용 |
+|---|---|---|
+| 사용자 — 문제·요구 정의 | 회사·공고·GitHub·프로젝트 목표 지정. 물체 운반·배치 확인, 실패 복구, 실제 추론·프로토콜, 정답 유입 금지, 근거/한계/기여 분리 요구 | 이것만으로 구현 전체·모델 학습·시험 수행을 직접 했다는 경력 |
+| 사용자 — PCB 자기 보고 | PADS·ATmega128, 회로 설계·부품 배치·배선, 도구 검증 success. 복잡한 배선을 재배치하고 숙련 동료 조언으로 정리 | KiCAD, 실물 발주/실장·전기 기능 측정·로봇 연결. success 검사 종류와 측정 장비 미확인 |
+| AI 에이전트 — 조사 | Wanted 원문·제품/UI·8개 기존 repo 코드/결과/기여 이력 감사. 고정 커밋·출처·일부 독립 재실행 구분 | 기존 repo 모든 실험·브라우저·실물 결과를 이번에 재현했다는 주장 |
+| AI 에이전트 — 신규 소프트웨어 | MuJoCo SCARA, 외부 보정·RGB-D 분할, CNN/prototype, BT coordinator, TCP emulator·독립 C++ client, journal/API·운영 UI, 모바일/ROS2 코드 | 사용자 단독 수작업 구현, 현장 로봇 제품 출시/인증 |
+| AI 에이전트 — 학습·검증 | 합성 텍스처/데이터 생성·CPU 학습·TorchScript export·평가·시험 명령 수행. 최종 결과는 원본 로그와 보고서 참조 | 실상품/실카메라 일반화·실물 로봇 모델 배포·실제 PLC/충전기 검증 |
+| 사용자 — 이후 직접 검토 | 현재 세션에서 직접 재현·수정·시험한 추가 내용은 아직 별도 확인되지 않음 | AI 실행 결과를 사용자의 개인 실험 결과로 소급 기재 |
+
+PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른다. `ondevice-pcb-inspection`은 별도 PCB 영상 검사 소프트웨어이며 같은 보드나 동일 제작 경험으로 합치지 않는다.
+
+## 기존 프로젝트 재사용 장부
+
+**이번 신규 구현에는 조사한 기존 GitHub 저장소의 소스 파일을 복사·수정하여 가져오지 않았다.** 코드 참고를 통해 문제와 검증 원칙을 파악했으며 신규 코드로 작성했다. 기존 프로젝트 성과 수치를 PickLoop 결과로 합산하지 않는다. 커밋별 근거와 원 저자의 AI 활용 공개는 [기존 감사](research/existing-projects.md)에 보존한다.
+
+| 기존 프로젝트 | 참고한 아이디어/한계 | 이번 신규 구현 경계 |
+|---|---|---|
+| ReachBench | 이미 존재하는 물리 집기·운반·배치·가림 복구; RGB-D/IK·짝 실험 | 새 SCARA/흡착·CNN·PnP·제약 경로·BT·장치 내구 계약·영상 완료 확인. Panda 코드/모델을 복사하지 않음 |
+| ondevice-pcb-inspection | 분류 정확도와 시스템 검사 지표 분리, 변환/버스 시험 원칙 | 상품용 신규 합성 데이터·CNN·prototype/TorchScript. PCB 모델·DeepPCB 데이터를 재사용하지 않음 |
+| SceneProof | execution/event identity·시간·증거 연결과 bounded queue 원칙 | 새 job/command journal·run/image trace. 기존 dedup를 물리 exactly-once로 확대 주장하지 않음 |
+| EdgeSight-SoC | register·fault/testbench 경계 | 신규 Modbus map·emulator·TCP/C++ 시험. RTL/IP 복사 없음 |
+| NPULoop | export 전후 출력·정확도·실측 지연 분리 | PyTorch/TorchScript 비교. NPU/Vela 결과 이식 없음 |
+| 추가 3개 repo | RTLS·깊이 역투영·deadline 원칙 | 개념만 참고. 지도/SLAM·기존 CAD 경력으로 과장하지 않음 |
+
+라이브러리의 기능도 직접 만든 기능과 나눈다. MuJoCo는 강체 적분·접촉·렌더링, OpenCV는 PnP/연결 성분, PyTorch는 학습/추론/export, py_trees는 BT 기본 실행, FastAPI는 HTTP/Pydantic 경계를 제공한다. 직접 추가한 부분은 셀 모델/흡착 조건, 관측 계약·선택/완료 gate, 복구 정책·내구 ID·프로토콜, 데이터/평가 조건·원본 기록·운영 연결이다. 일반 충돌 탐색/ROS robot driver/SLAM은 해당 라이브러리를 썼다는 이유로 구현되었다고 하지 않는다.
+
+`assets/textures/`는 이번에 생성한 독자 합성 자산이며 해당 [사용 조건](../assets/textures/LICENSE.txt)을 따른다. 모델·학습 데이터 출처/분할과 초기 개발 데이터 재사용 구분은 [vision-model.md](vision-model.md)에 있다. 외부 UI 이미지는 조사 참고이며 PickLoop 실행 증거로 사용하지 않는다.
+
+## 사용자가 이후 직접 수행할 때 추가할 기록
+
+기존 AI 기여를 지우지 않고, 수행일·기준 commit/model hash·수정 파일/이유·실행 명령·관찰한 실패·원본 결과·검토자가 설명 가능한 설계 판단을 별도 항목으로 추가한다. 예를 들어 직접 다른 unknown 패턴을 추가하고 임계값 변화·오거부/오수락·작업 결과를 재평가했다면 그 구체적 변경만 사용자 기여로 기록한다. 아직 실행하지 않은 예를 완료 이력으로 채우지 않는다.

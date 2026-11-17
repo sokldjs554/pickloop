@@ -19,6 +19,7 @@ def test_dynamic_lift_and_release():
         cell.step_for(.8)
         assert cell.attached is None
         assert cell.truth_summary()['objects'][0]['position'][2] < .12
+        assert cell.drop_count==1  # unsupported release, distinct from near-support placement
 
 
 def test_seal_failure_does_not_attach():

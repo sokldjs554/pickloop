@@ -163,6 +163,14 @@ class DeviceEmulator:
             self._db = None
             self._server = None
 
+    def output_valve(self):
+        """Plant-side digital output, independent of client ACK/reconciliation.
+
+        This is an emulator wiring interface, never a coordinator observation.
+        """
+        with self._lock:
+            return bool(self._db.execute('SELECT valve FROM controller WHERE singleton=1').fetchone()[0])
+
     def set_feedback(self, pressure_kpa, attached):
         if not math.isfinite(pressure_kpa) or not -3276.8 <= pressure_kpa <= 3276.7:
             raise ValueError("pressure must be finite and fit signed 0.1 kPa register")

@@ -71,3 +71,64 @@ def test_blocked_path_replans_with_payload_clearance(tmp_path):
     assert r['success'],r['reason']
     assert r['metrics']['retries']==1
     assert r['metrics']['collisions']==0
+
+@pytest.mark.integration
+def test_cancel_during_lift_brakes_and_keeps_vacuum(tmp_path):
+    cancelled=threading.Event()
+    def monitor(snapshot):
+        frame=snapshot['frames'][-1]
+        if frame['state']=='LIFT' and frame['attached'] and frame['tcp'][2]>.20:
+            cancelled.set()
+    r=run_job(seed=5,out_dir=tmp_path,record=True,cancel=cancelled,progress=monitor)
+    assert cancelled.is_set() and r['status']=='CANCELLED'
+    assert r['final_truth']['attached'] is not None
+    assert r['metrics']['drops']==0
+    assert r['metrics']['max_joint_acceleration'][2] <= .8
+
+@pytest.mark.integration
+def test_executed_but_unconfirmed_valve_still_affects_physics(tmp_path,monkeypatch):
+    from pickloop.device import DeviceEmulator
+    original=DeviceEmulator._process
+    armed=set()
+    def lose_ack_and_status(self,pdu,stopping):
+        if pdu[0]==16 and int.from_bytes(pdu[-2:],'big')==1 and id(self) not in armed:
+            armed.add(id(self));self.inject_fault('drop_ack')
+            response=original(self,pdu,stopping);self.inject_fault('delay_response');return response
+        return original(self,pdu,stopping)
+    monkeypatch.setattr(DeviceEmulator,'_process',lose_ack_and_status)
+    r=run_job(seed=4,out_dir=tmp_path,record=False)
+    assert r['status']=='HELD' and r['reason']=='DEVICE_UNCERTAIN'
+    assert r['final_truth']['attached'] is not None
+    import sqlite3
+    with sqlite3.connect(tmp_path/r['run_id']/'device.sqlite') as db:
+        assert db.execute('SELECT valve,execution_count FROM controller').fetchone()==(1,1)
+
+@pytest.mark.integration
+def test_dynamic_collision_has_durable_terminal_evidence(tmp_path,monkeypatch):
+    from pickloop.simulation import Cell
+    import mujoco,numpy as np
+    original=Cell.step
+    injected=set()
+    def block_during_motion(cell):
+        if cell.attached is not None and cell.tcp[2]>.25 and cell.tcp[1]>-.16 and np.linalg.norm(cell.data.qvel[:2])>.15:
+            gid=mujoco.mj_name2id(cell.model,mujoco.mjtObj.mjOBJ_GEOM,'blocker')
+            cell.model.geom_pos[gid,2]=.20;injected.add(id(cell))
+        original(cell)
+    monkeypatch.setattr(Cell,'step',block_during_motion)
+    r=run_job(seed=4,out_dir=tmp_path,record=False)
+    assert injected
+    assert r['status']=='HELD' and not r['success']
+    assert r['metrics']['collisions']>0
+    assert (tmp_path/r['run_id']/'result.json').is_file()
+    assert (tmp_path/r['run_id']/'run.json').is_file()
+
+def test_stale_observation_at_planning_becomes_recoverable_error():
+    from pickloop.engine import Controller
+    from pickloop.simulation import Cell
+    from pickloop.perception import Perception
+    from pickloop.types import OperationError
+    with Cell(seed=1) as cell:
+        obs=cell.observe();target,_=Perception().target(obs,cell.sim_time,'SKU-RED-A')
+        cell.step_for(.5)
+        c=Controller.__new__(Controller);c.carrying=False;c.target_detection=target;c.last_observation=obs;c.cell=cell
+        with pytest.raises(OperationError,match='OBSERVATION_STALE'):c.plan()

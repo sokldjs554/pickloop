@@ -1,0 +1,15 @@
+string job_id
+string sku
+string fault
+string policy
+uint32 seed
+---
+bool success
+string status
+string run_id
+string reason
+---
+string phase
+string run_id
+float64 sim_time
+uint32 attempt

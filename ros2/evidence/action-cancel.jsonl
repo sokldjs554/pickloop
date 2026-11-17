@@ -1,0 +1,12 @@
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"cancel_requested": true}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "normal-7-recovery-3b11b0", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "normal-7-recovery-3b11b0", "sim_time": 0.7, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "normal-7-recovery-3b11b0", "sim_time": 0.9, "attempt": 1}}
+{"feedback": {"phase": "CANCELLED", "run_id": "normal-7-recovery-3b11b0", "sim_time": 0.95, "attempt": 1}}
+{"result": {"action_status": 5, "success": false, "status": "CANCELLED", "run_id": "normal-7-recovery-3b11b0", "reason": "CANCELLED"}}

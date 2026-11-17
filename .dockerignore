@@ -1,0 +1,6 @@
+.venv
+.git
+work
+runs
+web/data
+__pycache__

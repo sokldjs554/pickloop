@@ -1,0 +1,766 @@
+{
+  "audit_date_utc": "2026-11-17T15:31:17.781226+00:00",
+  "scope": "public repositories only; read-only source audit; no source copied into PickLoop by this audit",
+  "access": [
+    "Connected GitHub get_repo/fetch/fetch_file/search_repositories first",
+    "Public GitHub REST profile list fallback after plugin profile URL unsupported",
+    "git clone fallback to inspect complete trees and raw artifacts"
+  ],
+  "repositories": [
+    {
+      "name": "sokldjs554/reachbench",
+      "url": "https://github.com/sokldjs554/reachbench",
+      "commit": "9fc431b31156536dc2d4a18ba1cb69c17d381d30",
+      "local_path": "/workspace/work/research/repos/reachbench",
+      "shallow": false,
+      "history_commits_observed": 5,
+      "author_counts_observed": {
+        "Codex": 5
+      },
+      "head_metadata": {
+        "commit": "9fc431b31156536dc2d4a18ba1cb69c17d381d30",
+        "author": "Codex",
+        "committer": "Codex",
+        "author_date": "2026-11-17T10:31:10Z",
+        "subject": "Record passing public demo checks and source integrity"
+      },
+      "license": "MIT; Panda model Apache-2.0 and additional assets per docs/v3/LICENSES.md",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "c38ad33be5499b22857f231fd157b064056a1e63c91aeba3b84ec0b6b6852a58",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "93bbc2b52642c6818a635a3dc9b123aaa934b0d78f05354907e2e335e7247045",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/LICENSE"
+        },
+        {
+          "path": "manipulation/controller.py",
+          "sha256": "f359eb2fc5f91707400f67b64b87e5bc96511fec7dac665801abccf4303516c1",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/manipulation/controller.py"
+        },
+        {
+          "path": "manipulation/world.py",
+          "sha256": "eb010cac2d6837ad2420be8919d904cb57f4ff2da24804ef0d30151236d1a01a",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/manipulation/world.py"
+        },
+        {
+          "path": "manipulation/perception.py",
+          "sha256": "68f5c6911aaae0e6cbac4ef2ebe3767883caf147928aaa395484b33f088bd8f4",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/manipulation/perception.py"
+        },
+        {
+          "path": "manipulation/evaluate.py",
+          "sha256": "a3164300adee7d2d3acb76c733bdac4149cf57f2518075fa1ef593bcb26d7399",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/manipulation/evaluate.py"
+        },
+        {
+          "path": "tests/test_manipulation.py",
+          "sha256": "2640b7aaf684cfa63338c368f4e7b4e39fca986324b9acd63cc43ce1d4cb708c",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/tests/test_manipulation.py"
+        },
+        {
+          "path": "tests/test_studio.mjs",
+          "sha256": "3378dbe7ff7f09c78a9e1dccaee0b3ccafbb935216906c1c447d6aeda93842a1",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/tests/test_studio.mjs"
+        },
+        {
+          "path": "dist/studio-engine.mjs",
+          "sha256": "e3e5a5370481a9780873d3929c8833e4e482d2806115279d3cff8fce5277a0c3",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/dist/studio-engine.mjs"
+        },
+        {
+          "path": "dist/bench/config.json",
+          "sha256": "5c9fc60b16c53e04d2b2f1c5d33909164c73128f7516d23b25358be8a78abaab",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/dist/bench/config.json"
+        },
+        {
+          "path": "dist/bench/summary.json",
+          "sha256": "8896b8b54881f5879e3592754f3bf76a36d84b6e7884c52636eeaeff218defe3",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/dist/bench/summary.json"
+        },
+        {
+          "path": "dist/bench/episodes.json",
+          "sha256": "af1c03588f70424146997abd6dde663a08d1fd86853b9577948c6019208207de",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/dist/bench/episodes.json"
+        },
+        {
+          "path": "docs/v3/LICENSES.md",
+          "sha256": "f612431c03f0efdd5fec88e81e55cdba4e7b6891fdb76016477cabb083c40b6d",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/docs/v3/LICENSES.md"
+        },
+        {
+          "path": "docs/v3/INTERVIEW.md",
+          "sha256": "0492e7f3e08df305ca76d589e6d11c6641e1750d3f2886f1ddd99de84ac662b3",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/docs/v3/INTERVIEW.md"
+        },
+        {
+          "path": "docs/v3/VALIDATION.md",
+          "sha256": "f9072fa61c7e48b55d67e5c1249a0255da9ac2440510679b91b5ad8fabdf4d79",
+          "url": "https://github.com/sokldjs554/reachbench/blob/9fc431b31156536dc2d4a18ba1cb69c17d381d30/docs/v3/VALIDATION.md"
+        }
+      ]
+    },
+    {
+      "name": "sokldjs554/ondevice-pcb-inspection",
+      "url": "https://github.com/sokldjs554/ondevice-pcb-inspection",
+      "commit": "648eeb8c455d97017aeae07605f090e169ecc4b8",
+      "local_path": "/workspace/work/research/repos/ondevice-pcb-inspection",
+      "shallow": true,
+      "history_commits_observed": 50,
+      "author_counts_observed": {
+        "sokldjs554": 50
+      },
+      "head_metadata": {
+        "commit": "648eeb8c455d97017aeae07605f090e169ecc4b8",
+        "author": "sokldjs554",
+        "committer": "sokldjs554",
+        "author_date": "2026-08-14T06:18:11Z",
+        "subject": "README 도입부를 비교형 문장에서 프로젝트 중심 서술로 수정"
+      },
+      "license": "No root LICENSE/COPYING found in audited tree; no blanket reuse grant inferred",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "d4990b8d80ff60f236bc5ed7cb68c347e843c23bd259e406abe03a9de33427dc",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/README.md"
+        },
+        {
+          "path": "src/train.py",
+          "sha256": "635264e89187fcbf45843009e04e07e88c35b44118f84c19afe4148832a47e94",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/src/train.py"
+        },
+        {
+          "path": "src/train_qat.py",
+          "sha256": "97b984bf8fa769fd47dc9c1a6975a8e0fa2f42f150eaf4b88cc33568d560acd1",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/src/train_qat.py"
+        },
+        {
+          "path": "data/prepare_patches.py",
+          "sha256": "df939d77459ef4967d4a5c98a8d8ed4456eab06e9449c54f2e1ffd00067ba492",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/data/prepare_patches.py"
+        },
+        {
+          "path": "deploy/detect_board.py",
+          "sha256": "430f7ad74b5d9ab9809a610b6224fa44b9e9d3d7869e72556e37edf6f0d64804",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/deploy/detect_board.py"
+        },
+        {
+          "path": "deploy/eval_detection.py",
+          "sha256": "031310599d93f9ca62ccdb0923dc12878d2e4b01cd5f1a111de4815c58b7666b",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/deploy/eval_detection.py"
+        },
+        {
+          "path": "deploy/cpp/src/serial_bus.cpp",
+          "sha256": "e98a12a69a6f33d7818b0376184d192840eb086212ed83215eda3b444ff4c698",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/deploy/cpp/src/serial_bus.cpp"
+        },
+        {
+          "path": "deploy/cpp/src/serial_bus.h",
+          "sha256": "dda5123767d03a00d5105bb930e25ebb42c689fe30c72fd5efa87f99ac3c96dd",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/deploy/cpp/src/serial_bus.h"
+        },
+        {
+          "path": "deploy/cpp/compare_with_python.py",
+          "sha256": "ce1edee88f69e16acd567dec2d1f0d182ea444cd6d79e4eeb196cc7d29b7c241",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/deploy/cpp/compare_with_python.py"
+        },
+        {
+          "path": "results/metrics_mobilenet_v2.json",
+          "sha256": "e03ec55c1efc7f8c592d43ff3d20a006dff481c3e57985e2194720ea54ac274a",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/results/metrics_mobilenet_v2.json"
+        },
+        {
+          "path": "results/benchmark.json",
+          "sha256": "1539d0e2b494f6f1c976c2f480d9ea449734aeeea4c7724a96f6a0d3898e9a5c",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/results/benchmark.json"
+        },
+        {
+          "path": "results/npu_compile.json",
+          "sha256": "d561587e8730e48817bf7ddece24c41caa81399e61656e701aee0c86c8677df4",
+          "url": "https://github.com/sokldjs554/ondevice-pcb-inspection/blob/648eeb8c455d97017aeae07605f090e169ecc4b8/results/npu_compile.json"
+        }
+      ]
+    },
+    {
+      "name": "sokldjs554/sceneproof",
+      "url": "https://github.com/sokldjs554/sceneproof",
+      "commit": "1733a4cc0e2175969cd08852c6131bfa50699764",
+      "local_path": "/workspace/work/research/repos/sceneproof",
+      "shallow": true,
+      "history_commits_observed": 61,
+      "author_counts_observed": {
+        "Claude": 43,
+        "sokldjs554": 16,
+        "sceneproof-ci": 2
+      },
+      "head_metadata": {
+        "commit": "1733a4cc0e2175969cd08852c6131bfa50699764",
+        "author": "Claude",
+        "committer": "Claude",
+        "author_date": "2026-11-15T16:34:55Z",
+        "subject": "Colab run 2 of the channel measurement: 1 channel as built, 2 with ring_fps 10"
+      },
+      "license": "Apache-2.0; datasets/models separate conditions per THIRD_PARTY_NOTICES.md and docs/eval/bench/README.md",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "4bfcc934cbc23a3fb1fad9a4f91cdb41333106b4ab2c0e2341c9e8eb5ff0d471",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "cbaeaef4a78baac8450e3cbea988176422f2879939a2356ad8e9fdf6d3bbd99d",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/LICENSE"
+        },
+        {
+          "path": "THIRD_PARTY_NOTICES.md",
+          "sha256": "a29d7fc459dd731e3c6d0a23c4bb18e708a8cc349401523bae2d53971985d139",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/THIRD_PARTY_NOTICES.md"
+        },
+        {
+          "path": "src/sceneproof/server/groups.py",
+          "sha256": "4d0953f5bf5c74cad18b3fa873e44cb5b1ce19d94413de3b044e3268ff5fbb41",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/src/sceneproof/server/groups.py"
+        },
+        {
+          "path": "src/sceneproof/edge/detector.py",
+          "sha256": "50b2f07a542a2c150b79f345e4862710b12fef3c744662477b52e32f5a66bedc",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/src/sceneproof/edge/detector.py"
+        },
+        {
+          "path": "src/sceneproof/server/api.py",
+          "sha256": "fbb572b1519719063c27009c3c5a2dad32b5d676b872f9e21af152b299480cfb",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/src/sceneproof/server/api.py"
+        },
+        {
+          "path": "gateway/internal/queue/queue.go",
+          "sha256": "9a99b481b9f3271023ff1805e581201e34c305f375b8e3bfbb29c98e259e8699",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/gateway/internal/queue/queue.go"
+        },
+        {
+          "path": "tests/test_groups.py",
+          "sha256": "b00e24c3a9830f369b82acd3052d0bcd089aec90205de02c0f90822bf01d92c3",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/tests/test_groups.py"
+        },
+        {
+          "path": "tests/test_groups_gap.py",
+          "sha256": "e25bd0a13b43ff538fa8a210625fbfda2370853b05733d2d1e3e366692ebc0ff",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/tests/test_groups_gap.py"
+        },
+        {
+          "path": "tests/test_groups_edge_cases.py",
+          "sha256": "36f6b63635edd2ea065cae2ad2226710ea7e470b98b4e9c5ffcbc33f63fb7cae",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/tests/test_groups_edge_cases.py"
+        },
+        {
+          "path": "docs/experiments/entry-confirm-20261113/base.json",
+          "sha256": "135ef03121260c94a3583d72492074f85d1b77a60e0c9ca55f52314e82e67a8c",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/docs/experiments/entry-confirm-20261113/base.json"
+        },
+        {
+          "path": "docs/experiments/entry-confirm-20261113/slow.json",
+          "sha256": "77843a4b65de55b3d92e58761877a6116050d528f63ce80ae2d14c14cb0dccb3",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/docs/experiments/entry-confirm-20261113/slow.json"
+        },
+        {
+          "path": "docs/eval/bench/raw/bench_test_final.json",
+          "sha256": "d4c3fba82ffd6d1bd216044733aa63f6ceacefb9f33c9062c695466b40dfabbf",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/docs/eval/bench/raw/bench_test_final.json"
+        },
+        {
+          "path": "docs/eval/bench/raw/finetune_log.json",
+          "sha256": "deabc63a31fa4039d1a03df5ae4f2d547e64c26317b1c96ab0089f51ad52747a",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/docs/eval/bench/raw/finetune_log.json"
+        },
+        {
+          "path": "docs/eval/bench/README.md",
+          "sha256": "d1cfa3f5e50df0ea271394ef49d28abf964a92a6084e64877c889a060be85619",
+          "url": "https://github.com/sokldjs554/sceneproof/blob/1733a4cc0e2175969cd08852c6131bfa50699764/docs/eval/bench/README.md"
+        }
+      ]
+    },
+    {
+      "name": "sokldjs554/edgesight-soc",
+      "url": "https://github.com/sokldjs554/edgesight-soc",
+      "commit": "73ce8bb38c4594b16df470bf1711a210680ea7ba",
+      "local_path": "/workspace/work/research/repos/edgesight-soc",
+      "shallow": false,
+      "history_commits_observed": 1,
+      "author_counts_observed": {
+        "sokldjs554": 1
+      },
+      "head_metadata": {
+        "commit": "73ce8bb38c4594b16df470bf1711a210680ea7ba",
+        "author": "sokldjs554",
+        "committer": "sokldjs554",
+        "author_date": "2026-08-13T11:46:55+09:00",
+        "subject": "v2: QVGA + 2-layer CNN, BRAM-inferable memories"
+      },
+      "license": "No root LICENSE/COPYING found in audited tree; no blanket reuse grant inferred",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "1f96d59c8fe3556136aa51a60e748e60c050df1c1c7369793da368a4d6049957",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/README.md"
+        },
+        {
+          "path": "rtl/common/async_fifo.v",
+          "sha256": "85bd2afe158fc5a8d0915db656d098dc015adf41fcbea7de5ca412880738c128",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/rtl/common/async_fifo.v"
+        },
+        {
+          "path": "rtl/periph/spi_axil_bridge.v",
+          "sha256": "03c69682701209ff61c030531a9eb669179874f2d3d648a6307320cd45d98568",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/rtl/periph/spi_axil_bridge.v"
+        },
+        {
+          "path": "rtl/periph/axil_regs.v",
+          "sha256": "09277a145fa3e26ccab11952d2c04082e7219da6e55e6c852278b601de972d3f",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/rtl/periph/axil_regs.v"
+        },
+        {
+          "path": "rtl/npu/tinynpu2.v",
+          "sha256": "e49b6a310d90a292d7a228030d9807ed51ef07557ac5a13138b59c931596db7c",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/rtl/npu/tinynpu2.v"
+        },
+        {
+          "path": "tb/tb_edge_soc_e2e.v",
+          "sha256": "7c6e960004bc3984ee9ab05d98fea87d76fc5a11b32b9708c70c16105317b1ae",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/tb/tb_edge_soc_e2e.v"
+        },
+        {
+          "path": "tb/tb_spi_axil_bridge.v",
+          "sha256": "84fedc5718e0b8fc9692473245357049728d3eba72bc87a88f23971cd9fc32cb",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/tb/tb_spi_axil_bridge.v"
+        },
+        {
+          "path": "sim/Makefile",
+          "sha256": "e4c66c39f6b172a0ea5fd917a5259d0f4deb91b86e513c7f4c208ab3b5ceddc7",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/sim/Makefile"
+        },
+        {
+          "path": "sw/linux_driver/edgesight_drv.c",
+          "sha256": "ef079c1da3958ddc507a17e263254e8de045960ffb15365aaf623f2092fe5320",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/sw/linux_driver/edgesight_drv.c"
+        },
+        {
+          "path": "data/gen2/quant_report.json",
+          "sha256": "88cad1dab7f2c3c0f55d5787a46d381a4ba4b94058d81d3374970922099956be",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/data/gen2/quant_report.json"
+        },
+        {
+          "path": "docs/verification_report.md",
+          "sha256": "1b0d20e4a23c1a507e937b1615a339f68d78a491f856023720557eca185cc598",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/docs/verification_report.md"
+        },
+        {
+          "path": "docs/performance_report.md",
+          "sha256": "12831aa2f3f4fa0f2f77c1c74f8ea99c9eb8b3305a3a3d084e75ba567a18e6bb",
+          "url": "https://github.com/sokldjs554/edgesight-soc/blob/73ce8bb38c4594b16df470bf1711a210680ea7ba/docs/performance_report.md"
+        }
+      ]
+    },
+    {
+      "name": "sokldjs554/npuloop",
+      "url": "https://github.com/sokldjs554/npuloop",
+      "commit": "dd13cb558e49ef3a8ee87d54ab094df6aae06597",
+      "local_path": "/workspace/work/research/repos/npuloop",
+      "shallow": true,
+      "history_commits_observed": 50,
+      "author_counts_observed": {
+        "sokldjs554": 15,
+        "Claude": 35
+      },
+      "head_metadata": {
+        "commit": "dd13cb558e49ef3a8ee87d54ab094df6aae06597",
+        "author": "sokldjs554",
+        "committer": "sokldjs554",
+        "author_date": "2026-09-20T21:43:52+09:00",
+        "subject": "demo: align manuscript label and page count"
+      },
+      "license": "No root LICENSE/COPYING found in audited tree; no blanket reuse grant inferred",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "03484ce0b2f0795f20b26259d73a40816ba055a74b5677e766c01711b0688657",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/README.md"
+        },
+        {
+          "path": "npuloop/intengine/verify.py",
+          "sha256": "499acf924ab9279b9942786993e1c594decf35a3ccb9169ab63e22baf020127e",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/npuloop/intengine/verify.py"
+        },
+        {
+          "path": "npuloop/intengine/numpy_engine.py",
+          "sha256": "79a28e92cbc20027263dc6151c653278de9dc9d6390f94c4ef6e4054f16b241d",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/npuloop/intengine/numpy_engine.py"
+        },
+        {
+          "path": "npuloop/quant/adaround.py",
+          "sha256": "43b762776a898fde398ee0aa96fb99439412aecd272c4c389c93d3212a8e57ad",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/npuloop/quant/adaround.py"
+        },
+        {
+          "path": "tests/test_intengine.py",
+          "sha256": "760e19e270494eece97dbb78d7f35af0232046145e7e15062bfca8da69194d55",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/tests/test_intengine.py"
+        },
+        {
+          "path": "results/e11_tflite_crosscheck.json",
+          "sha256": "9fd24f4258275bda2fe0fc2d45d6e55b73e686ebd429664dc2e29c9f941daad5",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/results/e11_tflite_crosscheck.json"
+        },
+        {
+          "path": "results/e13_vela.json",
+          "sha256": "495623c7321c63f80cd2309d048f62598bc327b15e85caaa43e84f1aac88e1c1",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/results/e13_vela.json"
+        },
+        {
+          "path": "docs/VALIDATION_SCOPE.md",
+          "sha256": "a28184ef182196c186fb4af16057e50a12eec90ed7de2ef7a0c518da4e598f42",
+          "url": "https://github.com/sokldjs554/npuloop/blob/dd13cb558e49ef3a8ee87d54ab094df6aae06597/docs/VALIDATION_SCOPE.md"
+        }
+      ]
+    },
+    {
+      "name": "sokldjs554/rtls-foresight",
+      "url": "https://github.com/sokldjs554/rtls-foresight",
+      "commit": "5bef49b8968249f7681877e48a61cdc6badea072",
+      "local_path": "/workspace/work/research/repos/rtls-foresight",
+      "shallow": true,
+      "history_commits_observed": 1,
+      "author_counts_observed": {
+        "sokldjs554": 1
+      },
+      "head_metadata": {
+        "commit": "5bef49b8968249f7681877e48a61cdc6badea072",
+        "author": "sokldjs554",
+        "committer": "sokldjs554",
+        "author_date": "2026-09-18T07:34:25Z",
+        "subject": "results: 학습 시드 2 완료 (5분할) — 시드 3개 평균·표준편차로 재현 서술 갱신"
+      },
+      "license": "No root LICENSE/COPYING found in audited tree; no blanket reuse grant inferred",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "94077427d14cf664a8d8ff80e78299e3a6c73eca48ecd2eddaee64401ad9d4ce",
+          "url": "https://github.com/sokldjs554/rtls-foresight/blob/5bef49b8968249f7681877e48a61cdc6badea072/README.md"
+        },
+        {
+          "path": "src/foresight/serving/risk.py",
+          "sha256": "9ecb108168cc0ccac024c86e6e6caa5db9f44b022584f0845dcc048c375f0678",
+          "url": "https://github.com/sokldjs554/rtls-foresight/blob/5bef49b8968249f7681877e48a61cdc6badea072/src/foresight/serving/risk.py"
+        },
+        {
+          "path": "src/foresight/eval/collision.py",
+          "sha256": "bc37121cc7a54a5fe894a34f2dcd4240608a8860fc61ef55a46719f3b04b7ba8",
+          "url": "https://github.com/sokldjs554/rtls-foresight/blob/5bef49b8968249f7681877e48a61cdc6badea072/src/foresight/eval/collision.py"
+        },
+        {
+          "path": "src/foresight/models/social_stgcnn.py",
+          "sha256": "cf31d55177ad4a3178878b43177572515ae01ae320a144c6424028a1d1f01a40",
+          "url": "https://github.com/sokldjs554/rtls-foresight/blob/5bef49b8968249f7681877e48a61cdc6badea072/src/foresight/models/social_stgcnn.py"
+        },
+        {
+          "path": "tests/test_alert_policy_hysteresis.py",
+          "sha256": "9cb76243d6e24c905b14a6972eec7f747ee2992e7048140b7583640cb39b5d99",
+          "url": "https://github.com/sokldjs554/rtls-foresight/blob/5bef49b8968249f7681877e48a61cdc6badea072/tests/test_alert_policy_hysteresis.py"
+        },
+        {
+          "path": "results/collision_eval_dsafe2.json",
+          "sha256": "4a9b4c09573b7e60b104c637e78f193b05ed79421944f40d2c8d032e562dd81e",
+          "url": "https://github.com/sokldjs554/rtls-foresight/blob/5bef49b8968249f7681877e48a61cdc6badea072/results/collision_eval_dsafe2.json"
+        },
+        {
+          "path": "results/reproduction.json",
+          "sha256": "31f0861202553b16b1cfc78c0407ae4dcae8c0c1b706c6c3218cdbb761a950ff",
+          "url": "https://github.com/sokldjs554/rtls-foresight/blob/5bef49b8968249f7681877e48a61cdc6badea072/results/reproduction.json"
+        }
+      ]
+    },
+    {
+      "name": "sokldjs554/DriveSplat",
+      "url": "https://github.com/sokldjs554/DriveSplat",
+      "commit": "ac2b6cb228ed81eaf7482f2bba49ef5d37f7b0bc",
+      "local_path": "/workspace/work/research/repos/DriveSplat",
+      "shallow": true,
+      "history_commits_observed": 1,
+      "author_counts_observed": {
+        "sokldjs554": 1
+      },
+      "head_metadata": {
+        "commit": "ac2b6cb228ed81eaf7482f2bba49ef5d37f7b0bc",
+        "author": "sokldjs554",
+        "committer": "GitHub",
+        "author_date": "2026-06-28T13:20:25+09:00",
+        "subject": "Update README.md"
+      },
+      "license": "No root LICENSE/COPYING found in audited tree; no blanket reuse grant inferred",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "46dce34cad1d9878003463f7c14fadfd140b375ee793dd94d70fae60593ebbcb",
+          "url": "https://github.com/sokldjs554/DriveSplat/blob/ac2b6cb228ed81eaf7482f2bba49ef5d37f7b0bc/README.md"
+        },
+        {
+          "path": "RESULTS.md",
+          "sha256": "21542549285a0cc55918ea4114fd9121d1c668c506c2b995aa9a116749f2f12f",
+          "url": "https://github.com/sokldjs554/DriveSplat/blob/ac2b6cb228ed81eaf7482f2bba49ef5d37f7b0bc/RESULTS.md"
+        },
+        {
+          "path": "core/depth_to_pointcloud.py",
+          "sha256": "ab79b46168f609c6abd8a6acb1f1a1b7a5f3815f3e50a7b8f61d927f483aa8a7",
+          "url": "https://github.com/sokldjs554/DriveSplat/blob/ac2b6cb228ed81eaf7482f2bba49ef5d37f7b0bc/core/depth_to_pointcloud.py"
+        },
+        {
+          "path": "core/scale_alignment.py",
+          "sha256": "2f0101c087c2a3c1a65211c022d846494427f4ac3599d3ff359a5866ce1eae3a",
+          "url": "https://github.com/sokldjs554/DriveSplat/blob/ac2b6cb228ed81eaf7482f2bba49ef5d37f7b0bc/core/scale_alignment.py"
+        },
+        {
+          "path": "core/metrics.py",
+          "sha256": "47e50c43eca08165a941bbeae015e8e4854587a7c2342d7695b58c21364639ab",
+          "url": "https://github.com/sokldjs554/DriveSplat/blob/ac2b6cb228ed81eaf7482f2bba49ef5d37f7b0bc/core/metrics.py"
+        }
+      ]
+    },
+    {
+      "name": "sokldjs554/inference-rail",
+      "url": "https://github.com/sokldjs554/inference-rail",
+      "commit": "8a2c9a4400af176362b1ded0808bbc984c617112",
+      "local_path": "/workspace/work/research/repos/inference-rail",
+      "shallow": true,
+      "history_commits_observed": 1,
+      "author_counts_observed": {
+        "sokldjs554": 1
+      },
+      "head_metadata": {
+        "commit": "8a2c9a4400af176362b1ded0808bbc984c617112",
+        "author": "sokldjs554",
+        "committer": "sokldjs554",
+        "author_date": "2026-10-07T18:38:47+09:00",
+        "subject": "docs: promote v0.9 static demo and real Triton boundary proof"
+      },
+      "license": "All rights reserved; copying/modification prohibited without owner permission",
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "d154b9d8838a711aa064b1d78c230676abb6efd314e54d9c8ac9d6de1eabd20d",
+          "url": "https://github.com/sokldjs554/inference-rail/blob/8a2c9a4400af176362b1ded0808bbc984c617112/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "a09b5195041377f6c9319993dfb324a858502762082d5cd35af01c607381de32",
+          "url": "https://github.com/sokldjs554/inference-rail/blob/8a2c9a4400af176362b1ded0808bbc984c617112/LICENSE"
+        },
+        {
+          "path": "app/core/batcher.py",
+          "sha256": "2d1a533ed30092c310e90f6cd5559fcfa70d750ae40d514e4fff51da980e8241",
+          "url": "https://github.com/sokldjs554/inference-rail/blob/8a2c9a4400af176362b1ded0808bbc984c617112/app/core/batcher.py"
+        },
+        {
+          "path": "app/core/circuit_breaker.py",
+          "sha256": "5980b06300f9e20b8a1b9022435c40fdff091411c2ab9420ddac5b86b355c543",
+          "url": "https://github.com/sokldjs554/inference-rail/blob/8a2c9a4400af176362b1ded0808bbc984c617112/app/core/circuit_breaker.py"
+        },
+        {
+          "path": "tests/test_batcher.py",
+          "sha256": "0dca507a7c997028ca794ab1bb602a525573e3d42f022039a2e4fc6c8c1ad7d1",
+          "url": "https://github.com/sokldjs554/inference-rail/blob/8a2c9a4400af176362b1ded0808bbc984c617112/tests/test_batcher.py"
+        },
+        {
+          "path": "docs/evidence/triton-service-boundary-runtime-v0.9.json",
+          "sha256": "b2af546df1a871fd1acbcae023994f6e9b6d1f220b6cc09001cab8bb99e3a2ab",
+          "url": "https://github.com/sokldjs554/inference-rail/blob/8a2c9a4400af176362b1ded0808bbc984c617112/docs/evidence/triton-service-boundary-runtime-v0.9.json"
+        }
+      ]
+    }
+  ],
+  "independent_verification": [
+    {
+      "repository": "reachbench",
+      "command": "PYTHONPATH=/tmp/pickloop-repo-audit-deps MUJOCO_GL=egl python -m pytest -q -p no:cacheprovider tests/test_manipulation.py",
+      "result": "9 passed, 1 warning in 6.90s",
+      "exit_code": 0,
+      "environment": "Python 3.12; mujoco 4.0.1; opencv-python-headless 5.0.0.93; pytest 9.2.0; Mesa/EGL CPU rendering",
+      "scope": "RGB-D localization, actual motor motion, contact grasp/release, occlusion recovery, raw evaluation pairing, unreachable halt; not full 160-episode rerun"
+    },
+    {
+      "repository": "reachbench",
+      "command": "node --test tests/test_studio.mjs",
+      "result": "4 passed, 0 failed",
+      "exit_code": 0
+    },
+    {
+      "repository": "reachbench",
+      "command": "npm run check",
+      "result": "three JavaScript modules syntax checks passed",
+      "exit_code": 0
+    },
+    {
+      "repository": "sceneproof",
+      "command": "PYTHONPATH=/tmp/pickloop-repo-audit-deps:src python -m pytest -q -p no:cacheprovider tests/test_groups.py tests/test_groups_gap.py tests/test_groups_edge_cases.py",
+      "result": "13 passed, 1 warning in 0.03s",
+      "exit_code": 0,
+      "scope": "event grouping only; no new detector inference, fine-tuning, GPU or stream benchmark"
+    },
+    {
+      "repository": "edgesight-soc",
+      "result": "RTL tests inspected but not rerun: iverilog and verilator absent"
+    },
+    {
+      "repository": "ondevice-pcb-inspection",
+      "result": "Code and tracked metrics inspected; original DeepPCB data/training not downloaded or rerun"
+    },
+    {
+      "repository": "npuloop",
+      "result": "Integer engine and external crosscheck JSON inspected; no training/TFLite/Vela rerun"
+    }
+  ],
+  "authorship_policy": "Git author/committer strings and repository ownership do not prove human implementation; recorded counts may be shallow; explicit README provenance overrides broad ownership assumptions.",
+  "pcb_fabrication": "User states end-to-end personal PCB fabrication. CAD, MCU, purpose, date, processes and measurement equipment unknown; separate from ondevice-pcb-inspection.",
+  "reachbench_raw_recomputed": {
+    "rows": 160,
+    "methods": {
+      "one_shot": {
+        "n": 80,
+        "successes": 20,
+        "retries": 0,
+        "conditions": {
+          "normal": {
+            "n": 20,
+            "successes": 20
+          },
+          "occluded": {
+            "n": 20,
+            "successes": 0
+          },
+          "shifted": {
+            "n": 20,
+            "successes": 0
+          },
+          "unreachable": {
+            "n": 20,
+            "successes": 0
+          }
+        }
+      },
+      "feedback": {
+        "n": 80,
+        "successes": 60,
+        "retries": 1,
+        "conditions": {
+          "normal": {
+            "n": 20,
+            "successes": 20
+          },
+          "occluded": {
+            "n": 20,
+            "successes": 20
+          },
+          "shifted": {
+            "n": 20,
+            "successes": 20
+          },
+          "unreachable": {
+            "n": 20,
+            "successes": 0
+          }
+        }
+      }
+    },
+    "all_pairs_same_initial_target": true,
+    "source_hashes_match": true,
+    "retry_episode_ids": [
+      "shifted-107-feedback"
+    ]
+  },
+  "sceneproof_raw_read": {
+    "entry_confirm": {
+      "base.json": {
+        "tp": 12,
+        "fp": 0,
+        "missed": 0,
+        "duplicates": 6,
+        "boundary_hits": 0,
+        "duration_s": 248.5,
+        "gt_positives": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "false_alarms_per_hour": 0.0
+      },
+      "slow.json": {
+        "tp": 9,
+        "fp": 0,
+        "missed": 3,
+        "duplicates": 2,
+        "boundary_hits": 0,
+        "duration_s": 248.5,
+        "gt_positives": 12,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.857,
+        "false_alarms_per_hour": 0.0
+      }
+    },
+    "final_bench": {
+      "tiny-coco": {
+        "gt_intrusions": 207,
+        "tp": 160,
+        "fp": 11,
+        "missed": 47,
+        "duplicates": 18,
+        "neutral": 1,
+        "precision": 0.936,
+        "recall": 0.773,
+        "f1": 0.847,
+        "duration_s": 1649.1,
+        "false_alarms_per_hour": 24.0,
+        "start_mae_s": 1.06,
+        "end_mae_s": 1.35,
+        "dwell_agreement": "141/160"
+      },
+      "s-coco": {
+        "gt_intrusions": 207,
+        "tp": 177,
+        "fp": 16,
+        "missed": 30,
+        "duplicates": 21,
+        "neutral": 1,
+        "precision": 0.917,
+        "recall": 0.855,
+        "f1": 0.885,
+        "duration_s": 1649.1,
+        "false_alarms_per_hour": 34.9,
+        "start_mae_s": 0.81,
+        "end_mae_s": 1.2,
+        "dwell_agreement": "162/177"
+      },
+      "tiny-ft": {
+        "gt_intrusions": 207,
+        "tp": 198,
+        "fp": 12,
+        "missed": 9,
+        "duplicates": 49,
+        "neutral": 1,
+        "precision": 0.943,
+        "recall": 0.957,
+        "f1": 0.95,
+        "duration_s": 1649.1,
+        "false_alarms_per_hour": 26.2,
+        "start_mae_s": 0.55,
+        "end_mae_s": 0.94,
+        "dwell_agreement": "183/198"
+      }
+    }
+  },
+  "sceneproof_user_authored_feature_commits": [
+    "01b64cf6c294b650184c62a4be2ddfae15b00c20",
+    "606a0d3a9d2457615d90ab6bf8ed7917307ff553",
+    "7e3b23954844450c0c1422c468339ffc3223f2ea"
+  ]
+}
