@@ -1,0 +1,74 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__________ test_executed_but_unconfirmed_valve_still_affects_physics ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-31/test_executed_but_unconfirmed_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f077815a4e0>
+
+    @pytest.mark.integration
+    def test_executed_but_unconfirmed_valve_still_affects_physics(tmp_path,monkeypatch):
+        from pickloop.device import DeviceEmulator
+        original=DeviceEmulator._process
+        armed=set()
+        def lose_ack_and_status(self,pdu,stopping):
+            if pdu[0]==16 and int.from_bytes(pdu[-2:],'big')==1 and id(self) not in armed:
+                armed.add(id(self));self.inject_fault('drop_ack')
+                response=original(self,pdu,stopping);self.inject_fault('delay_response');return response
+            return original(self,pdu,stopping)
+        monkeypatch.setattr(DeviceEmulator,'_process',lose_ack_and_status)
+        r=run_job(seed=4,out_dir=tmp_path,record=False)
+        assert r['status']=='HELD' and r['reason']=='DEVICE_UNCERTAIN'
+>       assert r['final_truth']['attached'] is not None
+E       assert None is not None
+
+tests/test_engine.py:101: AssertionError
+_____________ test_dynamic_collision_has_durable_terminal_evidence _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-31/test_dynamic_collision_has_dur0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f076ba00f80>
+
+    @pytest.mark.integration
+    def test_dynamic_collision_has_durable_terminal_evidence(tmp_path,monkeypatch):
+        from pickloop.simulation import Cell
+        import mujoco,numpy as np
+        original=Cell.step
+        injected=set()
+        def block_during_motion(cell):
+            if cell.attached is not None and cell.tcp[2]>.25 and cell.tcp[1]>-.16 and np.linalg.norm(cell.data.qvel[:2])>.15:
+                gid=mujoco.mj_name2id(cell.model,mujoco.mjtObj.mjOBJ_GEOM,'blocker')
+                cell.model.geom_pos[gid,2]=.20;injected.add(id(cell))
+            original(cell)
+        monkeypatch.setattr(Cell,'step',block_during_motion)
+>       r=run_job(seed=4,out_dir=tmp_path,record=False)
+
+tests/test_engine.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/pickloop/engine.py:206: in run_job
+    cell.stop_motion()
+src/pickloop/simulation.py:263: in stop_motion
+    self.step()
+tests/test_engine.py:116: in block_during_motion
+    original(cell)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <pickloop.simulation.Cell object at 0x7f0767bb1cd0>
+
+    def step(self):
+        if self.cancel is not None and self.cancel():
+            self.data.ctrl[:]=self.data.qpos[:4]
+            raise OperationError('CANCELLED')
+        self._vacuum_physics()
+        # Catalog payload mass feed-forward, enabled only by pressure feedback.
+        self.data.qfrc_applied[2]=.08*9.81 if self.pressure_kpa < -35 else 0.
+        mujoco.mj_step(self.model,self.data)
+        contacts=self._prohibited_contacts(self.data)
+        self.collision_count+=len(contacts-self._active_contacts)
+        self._active_contacts=contacts
+>       if contacts: raise OperationError('COLLISION',{'pairs':sorted(contacts)})
+E       pickloop.types.OperationError: COLLISION
+
+src/pickloop/simulation.py:209: OperationError
+=========================== short test summary info ============================
+FAILED tests/test_engine.py::test_executed_but_unconfirmed_valve_still_affects_physics
+FAILED tests/test_engine.py::test_dynamic_collision_has_durable_terminal_evidence
+2 failed in 3.78s

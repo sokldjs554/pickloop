@@ -1,0 +1,15 @@
+ok 1 - HTML is Korean and references actual local assets
+ok 2 - every script ID reference has a unique HTML element
+ok 3 - static view cannot start or cancel live compute
+ok 4 - all visible controls have handlers or native behavior
+ok 5 - missing run payload fields normalize to honest empty arrays
+ok 6 - frames are sorted and invalid timestamps rejected
+ok 7 - frame paths resolve against run manifest, including nested hosting
+ok 8 - playback floors timestamps and clamps outside recording
+ok 9 - event seek prioritizes exact log binding over shared observation
+ok 10 - terminal and retry outcomes derive from data
+ok 11 - failure summary preserves stage and actual reason
+ok 12 - image failure and empty frames have explicit UI states
+ok 13 - layout supports desktop and narrow screens without simulated robot graphics
+
+13 UI contract checks passed.
