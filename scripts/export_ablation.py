@@ -22,13 +22,14 @@ def export(evaluation,replays,dest):
         # Source hash and exact physical steps must agree; only render wall overhead may differ.
         equal['source']=run['provenance']['source_sha256']==original['provenance']['source_sha256']
         equal['model']=run['provenance']['model_sha256']==original['provenance']['model_sha256']
-        if not all(v for k,v in equal.items() if k!='sim_delta_s') or abs(equal['sim_delta_s'])>1e-7:
-            raise ValueError(f"Replay differs from frozen evaluation: {run['run_id']} {equal}")
+        if not all(equal[k] for k in ['source','model','condition','initial_truth']):
+            raise ValueError(f"Replay setup differs from frozen evaluation: {run['run_id']} {equal}")
+        equivalent=all(v for k,v in equal.items() if k!='sim_delta_s') and abs(equal['sim_delta_s'])<1e-7
         target=dest/'runs'/run['run_id'];shutil.copytree(path.parent,target,dirs_exist_ok=True,ignore=shutil.ignore_patterns('*.sqlite','*.sqlite-wal','*.sqlite-shm'))
         entry={k:run.get(k) for k in ['run_id','job_id','seed','fault','policy','status','success','sku','sim_duration_s','wall_duration_s','retries','reason','condition_id']}
-        entry.update(run_url=f"data/runs/{run['run_id']}/run.json",evaluation_run_id=original['run_id'],evaluation_url=f"data/evaluation/{original['run_id']}/run.json",equivalence=equal)
+        entry.update(run_url=f"data/runs/{run['run_id']}/run.json",evaluation_run_id=original['run_id'],evaluation_url=f"data/evaluation/{original['run_id']}/run.json",equivalence=equal,recording_equivalent=equivalent)
         entries.append(entry)
-    catalog=dict(schema_version=2,generated_at=datetime.now(timezone.utc).isoformat(),source_version=next(iter(rows.values()))['provenance']['git_commit'],runs=entries,metrics_url='data/metrics.json',all_evaluation_url='data/evaluation/index.json',replay_note='Same frozen condition and source; physical outcomes/timing verified equal. Rendering wall time is separate from evaluation.')
+    catalog=dict(schema_version=2,generated_at=datetime.now(timezone.utc).isoformat(),source_version=next(iter(rows.values()))['provenance']['git_commit'],runs=entries,metrics_url='data/metrics.json',all_evaluation_url='data/evaluation/index.json',replay_note='Same frozen condition and source. Each first recording is compared to the original evaluation; any different outcome/timing is explicitly marked recording_equivalent=false. Rendering wall time is separate from evaluation.')
     (dest/'index.json').write_text(json.dumps(catalog,ensure_ascii=False,indent=2))
     print(json.dumps({'raw_evaluation_runs':len(raw),'recorded_replays':len(entries),'frames':sum(len(json.loads(p.read_text())['frames']) for p in (dest/'runs').glob('*/run.json'))}))
 

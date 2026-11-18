@@ -1,0 +1,47 @@
+"""Generate the submission summary from the complete frozen matrix, never partial results."""
+import json
+from pathlib import Path
+root=Path(__file__).resolve().parents[1]
+m=json.loads((root/'runs/ablation-heldout/metrics.json').read_text())
+catalog=json.loads((root/'web/data/index.json').read_text())
+policies={'baseline':'1회 기준','naive':'단순 재시도','reobserve':'재관측만','recovery':'재관측·재계획'}
+rows=[json.loads(p.read_text()) for p in (root/'runs/ablation-heldout').glob('*/result.json')]
+assert len(rows)==576 and all(v['n']==144 for v in m['aggregate'].values())
+lines=['# PickLoop 리뷰 반영 검증 결과','', '확인일: 2026-11-18 (Asia/Seoul).', '',
+'[공개 데모](https://pickloop-robot-ops.ykh13571.chatgpt.site) · [전체 평가 원문 목록](https://pickloop-robot-ops.ykh13571.chatgpt.site/data/evaluation/index.json) · [동결 명세](https://pickloop-robot-ops.ykh13571.chatgpt.site/data/manifest.json)','',
+'## 동일 예산 비교','',
+'처음 사용하는 seed3000..3011 × 12조건 × 4정책 = **576회** 실제 MuJoCo 실행. 개발 조건과 배치·자세·깊이 잡음·보정 편차·흡착·장애물·장애 지속시간 범위를 다르게 고정했다. 최종 결과를 보고 정책/모델을 재조정하지 않았다.','',
+'| 정책 | 최대 시도 | 완료 | 완료율 | 평균 sim 초 | 보류 | 낙하·강제 분리 | 잘못된 배치 | 충돌 |','|---|---:|---:|---:|---:|---:|---:|---:|---:|']
+for p,label in policies.items():
+ v=m['aggregate'][p];lines.append(f"| {label} | {1 if p=='baseline' else 3} | {v['completed']}/{v['n']} | {v['completion_rate']:.1%} | {v['mean_sim_s']:.2f} | {v['held']} | {v['drops']} | {v['wrong_placements']} | {v['collisions']} |")
+lines+=['','세 재시도 정책은 최대 3회·sim60초·wall90초로 같다. 안전 감속/정지는 완료하고 총 시간에 포함한다. 단순 재시도는 최초 유효 파지 좌표를 재사용한다(처음부터 목표가 없으면 다시 관측). 재관측만 정책은 목표 좌표를 다시 계산하지만 원래 운반 높이 0.30m를 유지한다. 재관측·재계획은 재시도 운반/복귀 높이를 0.40m로 바꾼다.','',
+'| 정책 비교 | 완료율 차이 | seed 군집 95% 구간 | 뒤 정책만 완료 | 앞 정책만 완료 |','|---|---:|---:|---:|---:|']
+for c in m['contrasts']:
+ lo,hi=c['seed_cluster_bootstrap95'];lines.append(f"| {policies[c['before']]} → {policies[c['after']]} | {100*c['completion_delta']:+.2f}%p | [{lo*100:+.1f}, {hi*100:+.1f}]%p | {c['after_only']} | {c['before_only']} |")
+lines+=['','관측된 27건 차이는 보정 오차12건·경로 차단10건·낙하3건·예정 외 TCP 명령 결과 미확인2건으로 구성된다. 마지막2건은 재관측 로직의 효과로 귀속할 수 없으며 원문만으로 네트워크/스케줄링 등 정확한 원인을 단정하지 않는다. 두 조건 쌍을 모든 정책에서 제외한 사후 민감도 분석은 142쌍에서 단순86건·재관측101건·재계획111건(완료율 차이25/142=17.61%p)이다. 주 결과576회를 대체하지 않는다.', '', '첫 비교는 재관측과 경로 변경을 합친 효과다. 나머지 두 비교는 각 요소를 분리하지만 위 명령 미확인 영향도 함께 고려해야 한다. 이 명시적 정책/합성 조건에 대한 결과이며, 산업 최적 정책이나 실제 창고 성능보다 우수하다는 주장은 아니다. 같은 seed의 조건을 묶어 10,000회 재표집했다. 12개 군집이라 불확실성이 크고 실물 일반화를 보장하지 않는다.','',
+'## 조건별 완료 / 12회','', '| 조건 | 1회 기준 | 단순 재시도 | 재관측만 | 재관측·재계획 |','|---|---:|---:|---:|---:|']
+groups={(v['fault'],v['policy']):v for v in m['conditions']}
+for fault in m['protocol']['faults']:lines.append('| '+fault+' | '+' | '.join(str(groups[fault,p]['completed'])+'/12' for p in policies)+' |')
+lines+=['','재계획의 평균 종료 시간은20.31sim초로 재관측만의18.06초보다 길다. 이 조건 혼합의 시뮬레이션 처리량은 재계획139.11건/h, 재관측만142.57건/h다. 완료율 향상이 모든 지표에서의 우위를 의미하지 않는다.', '', '장애는 시도 횟수에 의해 자동으로 해제되지 않는다. 사전에 고정한 절대 시뮬레이션 시간표를 모든 정책에 동일하게 적용했다. 정책이 관측하는 시각은 달라질 수 있다. 실제 TCP 명령 결과 미확인도 원문에 남겼다. 호스트 스케줄링 등의 가능성이 있지만 원문만으로 하위 원인을 단정하지 않는다.','',
+'## 재생·보류·기존 기술 증거','',
+f"공개 화면은 사전 지정한 첫 seed3000의 7조건 × 4정책 = {len(catalog['runs'])}개 대표 실행을 다시 기록했다. 전체 576회 원평가는 조건별 표에서 별도로 열 수 있다. 대표 재생은 성능 통계에 다시 포함하지 않는다."]
+divergent=[r for r in catalog['runs'] if not r['recording_equivalent']]
+lines.append(f"최초 재생 기록과 원평가의 조건/초기 상태/소스/모델을 검증했다. 결과·원인·재시도·sim 시간까지 일치한 기록은 {len(catalog['runs'])-len(divergent)}/{len(catalog['runs'])}개다. 차이가 있으면 화면에 표시하며 성공할 때까지 바꿔치기하지 않는다.")
+if divergent:
+ for r in divergent:lines.append(f"- 차이 기록: `{r['run_id']}` → 원평가 `{r['evaluation_run_id']}`; `{r['equivalence']}`")
+permanent=[r for r in rows if r['fault']=='suction_permanent']
+closed=sum(r['terminal_policy']['action']=='OFF_CONFIRMED' for r in permanent)
+lines+=['',f'지속 흡착 실패 {len(permanent)}회 중 빈 흡착기 OFF 확인 {closed}회. 정지 후 새 장치 상태로 분리·약한 압력·명령 응답을 확인한 경우에만 OFF를 보낸다. 부하·출력 불확실이면 유지하며 STOP_REPORT, RETRY_EXHAUSTED, HOLD_POLICY를 따로 기록한다. 이 판단은 물리 정지/단일 명령 작성자의 시뮬레이션 전제이며 실물 원자적 release interlock이나 안전 인증은 아니다.',
+'', '화면은 완료 단계 이력을 보존하고 실패/시도 소진/보류를 분리한다. 실패·재시도·배치 점프, 같은 경과 시간의 나란히 재생, −35kPa 판정선, 한국어 이벤트, 비확률 진단점수와 미등록 기준 안내, 첫 화면 집계 및 상세 ID/원문을 제공한다.',
+'', 'ROS2 Action/DDS·C++ Modbus TCP·모바일 측위/도킹의 기존 실행 증거를 5개 카드와 원문 링크로 노출했다. 새 실물 연결을 주장하지 않는다.',
+'', '## 검증과 자료 범위','',
+'- Python 118개, UI 계약/실행 검사 35개 통과. Starlette/AnyIO deprecation warning1개는 실패가 아니다.',
+'- 소스/모델 동결 해시, 정책별 조건 짝, 원본 result SHA, 모든 대표 이미지/이벤트/증거 링크 및 ZIP CRC를 검사한다.',
+'- 관리형 미리보기는 relay port4173 timeout으로 열리지 않았다. 브라우저 직접 클릭/시각 QA는 미완료이며 DOM 실행 검사를 브라우저 검증으로 부르지 않는다.',
+'- ZIP은 소스·모델·전체 최종 평가 원문·대표 이벤트/텔레메트리·ROS/mobile 증거를 포함한다. 용량을 줄이기 위해 replay JPEG는 제외했다. 전체 이미지는 공개 화면에 있으며 재현 명령은 REPLAY_MEDIA.md에 있다. MP4는 별도 다운로드다.',
+'', f"동결 실행 commit: `{m['protocol']['provenance']['git_commit']}`. Source SHA: `{m['protocol']['provenance']['source_sha256']}`. Model SHA: `{m['protocol']['provenance']['model_sha256']}`.",
+'', '과거 120회(16.7%→83.3%)는 runs/final에 보존했다. 시도 예산이 달라 복구 판단의 효과를 단독으로 입증하지 못하며 새 결과의 주 비교로 사용하지 않는다.',
+'', '실물 로봇/PLC/안전 회로/SLAM/충전·실물 모델 배포는 미검증이다. 모바일은 알려진 지도 EKF와 운동학, 카메라는 고정 PnP이며 AX=XB가 아니다. 사용자 PCB 경험은 확인된 PADS·ATmega128 회로/배치/배선·도구 검증으로 한정한다. 이번 코드/훈련/실험은 AI 에이전트 수행으로 기여를 공개하며 사용자 직접 작성·실물 배포 경력으로 표현하지 않는다.',
+'', 'GitHub 저장소 생성/push 및 원격 CI 실행은 수행하지 않았다. 로컬 소스/재현 명령/원시 증거와 공개 Site를 제공한다.']
+(root/'docs/submission-summary.md').write_text('\n'.join(lines)+'\n')
+print('Generated complete submission summary')

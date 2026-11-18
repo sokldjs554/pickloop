@@ -15,3 +15,20 @@
 .terminal-output{margin:0 15px 13px;padding:9px 10px;border:1px solid #49645e;border-radius:3px;color:#b9dbd1;background:#1e3631;font-size:10px;line-height:1.8;overflow-wrap:anywhere}
 .provenance-details .text-link{display:block;margin-top:9px;font-size:9px}.raw-index-link{display:inline-block;color:#86d9c6;font-size:10px;margin-top:12px}.raw-cases{margin-top:13px}.raw-cases a{display:block;font:9px/1.8 var(--mono);padding:7px 0;color:#90c7d5;overflow-wrap:anywhere}
 .evaluation-strip .cluster-interval{font:9px/1.7 var(--mono);margin-top:6px;color:#9fbac7}.metric-contrasts{margin:12px 0;border:1px solid #354d58;border-radius:3px}.metric-contrasts>p{font-size:10px;margin:0;padding:10px;color:#aec5d0;background:#1d3039}.metric-contrasts>div{padding:9px 10px;border-top:1px solid #354d58}.metric-contrasts span,.metric-contrasts strong,.metric-contrasts small{display:block;font-size:10px;line-height:1.8}.metric-contrasts strong{color:#9ae4d3;font-weight:500}.metric-contrasts small{color:#a1b9c5;font-size:9px}
+/* First-screen comparison and legibility refinements. */
+main>.evaluation-strip{margin:0 0 16px;border:1px solid var(--border);border-radius:4px}
+main>.evaluation-strip>div{flex:1 1 22%;padding:11px 14px}
+main>.evaluation-strip span{font-size:12px}
+main>.evaluation-strip strong{font-size:15px}
+main>.evaluation-strip .cluster-interval{font-size:11px}
+.run-story p{font-size:14px}.milestone-jumps button{font-size:12px}
+.conditions label,.conditions select{font-size:12px}.conditions .subtle,.local-note{font-size:11px}
+.event-row strong,.event-row small{font-size:12px}.event-row time{font-size:11px}
+.camera-caption,.diagnostic-help{font-size:12px}.compare-clock-note{font-size:12px}
+.compare-view>label,.compare-view>select,.compare-observation strong{font-size:12px}
+.compare-observation span{font-size:11px}.terminal-output{font-size:12px}
+.recovery-note strong{font-size:12px}.recovery-note span:not(.branch-icon){font-size:11px}
+#condition-list button,#condition-list button strong,#condition-runs button{font-size:12px}
+#evidence-items h3{font-size:14px}#evidence-items p,#evidence-items a{font-size:12px}
+.provenance-details>.key-values{padding:10px 0}.provenance-details>div{margin:10px 0;overflow-wrap:anywhere}
+@media(max-width:700px){main>.evaluation-strip>div{flex-basis:45%}.run-story p{font-size:13px}.diagnostic-help{font-size:11px}.paired-viewers{grid-template-columns:1fr}.compare-observation>img{width:72px;height:72px}.event-row strong,.event-row small{font-size:12px}.conditions select{font-size:12px}.compare-view>select{font-size:12px}}

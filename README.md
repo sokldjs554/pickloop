@@ -6,7 +6,8 @@ PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU �
 
 - [운영 데모](https://pickloop-robot-ops.ykh13571.chatgpt.site): 로그인 없이 링크로 접근 가능한 실제 기록 재생. 브라우저에서 새 물리 조건을 계산하는 화면이 아니다.
 - [공고 대응표](docs/job-requirements-matrix.md) · [아키텍처](docs/architecture.md) · [기여 기록](docs/contributions.md)
-- [동결 조건 비교 결과](runs/final/summary.md) · [원본 집계 JSON](runs/final/metrics.json) · [trial CSV](runs/final/trials.csv)
+- [4정책 비교 명세](docs/ablation-protocol.md) · 새 평가 원본: `runs/ablation-heldout/` (576회 완료, 원본·집계 공개)
+- [과거 120회 결과](runs/final/summary.md) · [과거 집계 JSON](runs/final/metrics.json) · [과거 trial CSV](runs/final/trials.csv): 1회 기준/3회 복구 비교이며 복구 판단의 단독 효과를 증명하지 않는다.
 - [학습·변환 평가](docs/vision-model.md) · [ROS2 실제 통신](docs/ros2-integration.md) · [모바일 확장](docs/mobile-extension.md)
 
 ## 설치와 첫 실행
@@ -44,11 +45,18 @@ export LIBGL_ALWAYS_SOFTWARE=1
 ## 재현 명령
 
 ```bash
-# 저장된 최종 평가를 원본 result.json에서 다시 집계
-.venv/bin/pickloop aggregate runs/final
+# 4정책 × 12조건 × 12 seed: 빈 출력 폴더에서 새 평가 실행
+.venv/bin/python -m pickloop.experiment --out runs/reproduced-ablation
 
-# 새 디렉터리에서 동일 120개 조건을 전부 재실행
-.venv/bin/pickloop evaluate --out runs/reproduced --seeds 1000 1001 1002 1003 1004
+# 완료된 새 평가만 원본 result.json에서 다시 집계
+.venv/bin/python -m pickloop.experiment --out runs/reproduced-ablation --aggregate
+
+# 평가와 동일 조건으로 대표 재생을 기록하고 원평가와 대조
+.venv/bin/python scripts/record_ablation.py runs/reproduced-ablation --out runs/reproduced-replay
+.venv/bin/python scripts/export_ablation.py runs/reproduced-ablation runs/reproduced-replay --dest work/reproduced-web-data
+
+# 과거 120회 기록 재집계: 새 4정책 실험과 합산하지 않음
+.venv/bin/pickloop aggregate runs/final
 
 # 모바일 이동→도킹→실제 피킹→셀 퇴장→다음 이동
 .venv/bin/python scripts/run_mobile.py --help
@@ -69,17 +77,30 @@ ROS2 Jazzy는 `ros2/Dockerfile`의 고정 공식 이미지로 빌드한다. [실
 
 ## 결과의 의미
 
-최종 비교는 개발 seed0..99와 분리한 seed1000..1004, 12개 조건, 기준/복구 2개 정책이다. 성공 조건·제한·출처 해시는 실행 전 `runs/final/manifest.json`에 고정했다. 원본 전체를 집계하며 유리한 사례만 선택하지 않는다. 각 조건 5개 표본은 현장 일반화나 통계적 성능 보장을 하기에는 작다.
+현재 동결 비교는 개발 seed200..209와 분리한 seed3000..3011, 12개 조건, 아래 4정책의 576회다. `runs/ablation-heldout` 576회를 완료했다. 최대 3회 정책의 완료율은 단순 재시도 86/144(59.7%), 재관측만 103/144(71.5%), 재관측·재계획 113/144(78.5%)다. 자세한 조건별 결과와 TCP 응답 기한 영향은 [검증 결과](docs/submission-summary.md)에 공개했다. 소스·모델·조건 해시를 고정하고 모든 원본 결과를 집계한다. [조건·동결·군집 부트스트랩 명세](docs/ablation-protocol.md)를 따른다.
 
-작업 완료율, 첫 시도 lift 성공률과 첫 시도 최종 완료율, 복구율, 잘못된 배치, 낙하, 금지 충돌, 보류, 재시도, 시간, 처리량을 구분한다. 실패 시간도 처리량 분모에 포함한다. simulator throughput과 measured CPU wall throughput은 별개이며 실물 현장 생산성·ROI를 주장하지 않는다. 장애 제거 조건과 지표 정의는 [아키텍처](docs/architecture.md)에 공개했다.
+| 정책 | 최대 시도 | 실패 후 목표 | 운반·복귀 높이 |
+|---|---:|---|---|
+| baseline | 1 | 재시도 없음 | 0.30m |
+| naive | 3 | 마지막 유효 목표 재사용 | 0.30m |
+| reobserve | 3 | RGB-D 재관측 | 0.30m |
+| recovery | 3 | RGB-D 재관측 | 재시도 때 0.40m |
+
+세 재시도 정책은 sim 60초/wall 90초의 같은 상한과 안전 검사를 쓴다. naive도 목표를 얻지 못한 상태라면 관측을 재시도하고, 압력으로 하중을 확인하면 어느 정책이든 재접근 대신 운반을 이어간다. `naive→reobserve`는 목표 갱신, `reobserve→recovery`는 경로 높이 변경을 비교한다. 이 특정 정책들에 한정한 절제 실험이며 모든 단순 재시도보다 우수하다는 주장은 아니다.
+
+과거 `runs/final`의 seed1000..1004·120회는 보존한다. 1회/3회라는 시도 예산과 정책이 함께 달라졌으므로 그 차이를 복구 판단의 인과 효과로 해석하지 않는다. 과거 결과와 새 576회는 조건 생성·소스가 달라 통계를 합치지 않는다. 새 조건 JSON의 장애는 정책·시도와 독립적인 절대 sim 시간표이고, `condition=None`인 과거·기본 CLI 시나리오는 첫 관측/첫 시도 기반 장애다.
+
+작업 완료율, 첫 시도 lift 성공률과 첫 시도 최종 완료율, 복구율, 잘못된 배치, 낙하, 금지 충돌, 보류, 재시도, 시간, 처리량을 구분한다. 실패 시간도 처리량 분모에 포함한다. simulator throughput과 measured CPU wall throughput은 별개이며 실물 현장 생산성·ROI를 주장하지 않는다. 장애 시간표·지표 정의는 [아키텍처](docs/architecture.md)와 [비교 명세](docs/ablation-protocol.md)에 공개했다. 종료 시 신선한 장치 응답으로 빈 상태가 확정된 경우에만 밸브 OFF를 확인하고, 부착·하중 추정·출력 불확실성은 유지/보류한다. [정지·출력 정책](docs/hold-policy.md)은 HELD와 밸브 ON을 같은 의미로 취급하지 않는다.
 
 학습 모델은 직접 생성한 두 가지 붉은 줄무늬 상자와 합성 미등록 패턴으로 검증했다. 최종 합성 평가에서 known240/240, 지정 unknown120/120을 구분했지만, 이 수치는 실제 상품·임의의 unknown 전반에 대한 성능이 아니다. 초기 확인한 평가 분할은 개발 자료로 재분류했고, 모델 동결 후 새로운 seed30000대에서 최종 평가했다.
 
 ## 코드 읽기 순서
 
-`types.py` → `geometry.py` → `perception.py`/`vision_model.py` → `simulation.py` → `device.py`와 `cpp/modbus_client.cpp` → `engine.py` → `journal.py`/`server.py` → `evaluation.py`. 관련 회귀 테스트와 `runs/final/*/events.jsonl`을 함께 읽는다. 자세한 질문·설계 판단은 [면접 가이드](docs/interview-guide.md)에 있다.
+`types.py` → `geometry.py` → `perception.py`/`vision_model.py` → `simulation.py` → `device.py`와 `cpp/modbus_client.cpp` → `engine.py` → `journal.py`/`server.py` → `evaluation.py`. 정책 비교는 `conditions.py` → `experiment.py`와 [절제 실험 명세](docs/ablation-protocol.md)를 이어서 읽고, 관련 회귀 테스트·각 실행의 `events.jsonl`을 대조한다. 자세한 질문·설계 판단은 [면접 가이드](docs/interview-guide.md)에 있다.
 
 ## 확인된 범위와 남은 공백
+
+운영 화면은 4정책 설명·동일 조건 비교·주요 지표·조건별 원본·시도별 실패 이력과 ROS2/C++/모바일 증거 링크를 제공한다. UNKNOWN의 진단점수는 등록 품목 간 softmax이며 보정된 확률이 아니다. 최종 평가 수치는 배치 완료와 원본 집계 후에만 제시한다.
 
 실제 물리 시뮬레이션, CPU 모델 훈련·추론·TorchScript, TCP Modbus/C++, ROS2 Action/DDS, 동일 작업 엔진을 호출하는 모바일 운동학 시나리오를 실행했다. 웹 데모는 해당 기록을 재생한다. 원본 소스에는 GitHub Actions CI 정의가 있으나 원격 GitHub CI 실행은 아직 수행하지 않았다.
 

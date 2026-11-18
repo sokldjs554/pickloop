@@ -32,7 +32,8 @@ flowchart LR
 | simulation | actuator 목표/실제 장치 출력 → 적분 상태/RGB-D/pressure | 5ms 적분, 물체 질량·중력·접촉·weld, 동적 충돌 감시 |
 | perception | timestamped RGB-D → SKU/UNKNOWN, 상면 XYZ/bbox/불확실성 | 깊이 높이 ROI와 연결 성분은 직접 구현, CNN은 PyTorch로 실제 훈련 |
 | device | 실제 TCP FC03/16 ↔ command ID/ack/valve/pressure | 별도 영속 intent/result, 중복 억제, 미확인 상태 보류 |
-| engine | 주문/관측/장치 feedback → 완료/HELD/CANCELLED | py_trees Sequence+bounded Recovery decorator, 최대 3회 |
+| engine | 주문/관측/장치 feedback → 완료/HELD/CANCELLED | py_trees Sequence+bounded Recovery decorator, baseline 1회/나머지 최대 3회 |
+| conditions/experiment | 사전 조건 JSON·4정책 → 고정 manifest/짝 평가/집계 | 절대 sim 시간 외란, 해시 일치 검사, seed 군집 비교 |
 | journal | job ID+payload → 영속 상태/결과 | 동일 ID 다른 payload 거부, 프로세스 재시작 중단 작업 fencing |
 | server | HTTP 요청/취소 → 동일 engine | 단일 runner file lease, SQLite 재시작 복원, 다른 origin의 쓰기 거부 |
 | ROS2 bridge | 실제 DDS Action → HTTP engine, feedback/telemetry | 로컬 Jazzy 컨테이너에서 실제 검증. ros2_control 자체 구현은 아님 |
@@ -60,9 +61,9 @@ flowchart LR
 
 ## 작업·복구·취소
 
-BT: Observe→Plan→Approach→Seal→Lift→Transport→Place→Release→Verify. 시퀀스 실패 시 최대 3회 시도(기준은 1회). 인식/깊이/일시적 압력 문제는 재관측, 경로 차단은 잡은 물체의 압력을 유지하며 더 높은 경로로 재계획한다. 불명확한 장치 실행, 취소, 시간 초과, 실제 충돌은 재시도하지 않는다.
+BT: Observe→Plan→Approach→Seal→Lift→Transport→Place→Release→Verify. baseline은 1회, naive/reobserve/recovery는 최대 3회이며 sim 60초/wall 90초 상한을 공유한다. naive는 마지막 유효 파지 목표와 0.30m 경로를 반복하고, 목표가 없을 때만 품목 위치를 다시 얻는다. 재시도 중에도 새 관측의 신선도·압력·충돌 검사를 유지한다. reobserve는 매 시도 RGB-D 목표를 갱신하되 경로 높이는 같고, recovery는 여기에 재시도 운반·복귀 높이 0.40m를 더한다. 압력으로 잡은 하중을 확인한 경우 세 정책 모두 재관측·접근·흡착을 건너뛰고 운반을 이어간다. 불명확한 장치 실행, 취소, 시간 초과, 실제 충돌은 재시도하지 않는다. 이는 정해진 높이와 관측 갱신의 비교이며 후보 파지 최적화·능동 시점 변경·일반 경로 탐색은 아니다.
 
-정상 정지/복구는 이전 명령 위치·속도에서 연속 감속한다. 물체를 들고 취소해도 밸브를 자동으로 끄지 않는다. 충돌 중 정지는 contact를 latch하고 최종 stop report를 남긴다. 물리 정지를 확인하지 못하면 이를 로그에 보존하며, 이 소프트웨어가 독립 비상정지 회로를 대체하지 않는다.
+정상 정지/복구는 이전 명령 위치·속도에서 연속 감속한다. 종료의 `STOP_REPORT`, 재시도 소진의 `RETRY_EXHAUSTED`, 밸브 결정의 `HOLD_POLICY`는 별도 사건이다. 멈춘 물리와 단일 제어 소유권 아래 새 TCP 상태를 읽고, ACK/max ID·오류·부착 해제·절대 압력 <10kPa가 모두 빈 상태를 확인하며 불확실성/하중 추정이 없을 때만 OFF를 허용한다. 부착 하중·불확실한 출력은 자동 해제하지 않는다. 복구의 빈 그리퍼 초기화에도 같은 helper를 적용하고 확인 불가면 보류한다. `RETAIN`은 쓰기를 하지 않았다는 뜻이며 ON 보장이 아니고, `OFF_UNCONFIRMED`는 OFF가 이미 적용되었을 수 있는 불확실성이다. [출력 정책의 race·freshness·실물 interlock 한계](hold-policy.md)를 따른다. 충돌 중 정지는 contact를 latch하고 최종 stop report를 남긴다. 물리 정지를 확인하지 못하면 이를 로그에 보존하며, 이 소프트웨어가 독립 비상정지 회로를 대체하지 않는다.
 
 SQLite는 작업 ID/내용과 terminal 결과를 보존한다. 동일 완료 요청은 기존 결과를 반환한다. 시작 시 runner lease를 얻은 프로세스만 중단 작업을 HOLD_RECOVERY_REQUIRED로 바꾸며 GET으로 조회 가능하다. 시뮬레이터 프로세스가 죽은 뒤 물리 상태를 자동 복원/재실행하지 않는다. 실물 재연결에서는 장치·하중을 사람이 재확인해야 한다.
 
@@ -72,4 +73,8 @@ SQLite는 작업 ID/내용과 terminal 결과를 보존한다. 동일 완료 요
 
 `drops`: 강제/과부하 흡착 상실 또는 물체 밑 지지면과 40mm 넘게 떨어진 상태에서 해제한 사건 수. 실제 충전/현장 파손률을 뜻하지 않는다. `collisions`: 인접 링크 접촉과 정상 지지 접촉을 제외한 로봇/파지 물체의 1mm 초과 침투 접촉 episode 수. 모든 물체 사이의 모든 접촉 수가 아니다.
 
-평가 장애는 사전에 정의된 합성 조건이다. 가림/깊이 누락/보정 패킷 오염은 첫 관측 시도에 적용되고 재관측 시 해소된다. 보정 오류는 x에28mm를 더한 일시적 패킷 오류이며 지속적인 카메라 이동을 자동으로 추정·복구한 실험이 아니다. 흡착 once는 첫 시도에만 누설, permanent는 모든 시도에 누설한다. 이 구성은 복구 로직의 작동을 비교하며 자연 발생 장애 분포의 현장 성공률을 예측하지 않는다.
+새 4정책 평가에는 `conditions.make_condition`의 고정 JSON을 전달한다. 배치·회전·깊이 잡음·지속/일시 좌표 편차·흡착 허용 오차/압력/힘·질량/마찰·장애물 높이·외란 시간표를 개발/heldout 분포에서 정하고 `condition_id`와 해시를 저장한다. 가림 ROI·깊이 결측·일시 보정 편차는 sensor release 시간, 흡착 공급 중단과 drop은 outage window, 통신은 communication window에 따라 절대 sim 시각으로 결정된다. 정책 이름·시도 수·관측 호출 수로 외란 해소 시점을 바꾸지 않는다. 깊이 잡음도 seed+20ms 구간에 묶어 녹화 호출의 난수 소비 영향을 막는다. 정책의 동작 시간이 달라 같은 외란 시간표의 다른 순간을 관측하는 것은 정책과 환경의 상호작용으로 포함한다.
+
+`condition=None`인 과거 `runs/final`과 기본 CLI fault는 첫 관측/첫 시도 장애·고정 28mm 일시 보정 편차 등의 기존 방식이다. 이를 새 조건의 정책 독립 외란으로 설명하거나 통계에 합치지 않는다. 새 보정 조건에도 지속 편차가 남고 일시 편차만 정해진 때 해소되며, 온라인 보정 drift 추정·카메라 이동 복구를 구현한 것은 아니다. 가림은 이미지 ROI 차폐 모사이고 실제 가림 물체 동역학이 아니다. suction 공급/힘 제한에 의한 강제 분리는 모두 공중 낙하를 뜻하지 않는다.
+
+과거 1회 기준/3회 복구 120회는 시도 예산 차이를 포함하므로 복구 판단의 인과 증거가 아니다. 현재 `runs/ablation-heldout`은 12 seed×12조건×4정책 576회를 완료했으며 원본과 집계를 공개했다. 모든 원본·짝 조건·소스/모델 해시를 검사하고 seed 군집 bootstrap으로 차이를 추정한다. [실험 명세와 재현](ablation-protocol.md)을 따르며 작은 합성 분포의 결과를 자연 발생 장애·현장 성능으로 일반화하지 않는다.

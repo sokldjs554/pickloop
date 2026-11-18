@@ -1,0 +1,10 @@
+{
+  "raw_runs": 576,
+  "recorded_runs": 28,
+  "recorded_frames": 2240,
+  "divergent_first_recordings": [
+    "suction_once-3000-naive-d3909b"
+  ],
+  "source_sha256": "73c58c5bc497f621e0a40535940295473c34b637a23450dd05d5b5422080c530",
+  "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec"
+}

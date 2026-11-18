@@ -1,0 +1,706 @@
+3000 normal               baseline   COMPLETED  -
+3000 normal               naive      COMPLETED  -
+3000 normal               reobserve  COMPLETED  -
+3000 normal               recovery   COMPLETED  -
+3000 occlusion            naive      COMPLETED  -
+3000 occlusion            reobserve  COMPLETED  -
+3000 occlusion            recovery   COMPLETED  -
+3000 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3000 depth_missing        reobserve  COMPLETED  -
+3000 depth_missing        recovery   COMPLETED  -
+3000 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3000 depth_missing        naive      COMPLETED  -
+3000 calibration_error    recovery   COMPLETED  -
+3000 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3000 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3000 calibration_error    reobserve  COMPLETED  -
+3000 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3000 suction_once         naive      HELD       DEVICE_UNCERTAIN
+3000 suction_once         reobserve  COMPLETED  -
+3000 suction_once         recovery   COMPLETED  -
+3000 communication_delay  naive      COMPLETED  -
+3000 communication_delay  reobserve  COMPLETED  -
+3000 communication_delay  recovery   COMPLETED  -
+3000 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3000 drop                 reobserve  HELD       TARGET_OUTSIDE_SOURCE
+3000 drop                 recovery   HELD       TARGET_OUTSIDE_SOURCE
+3000 drop                 baseline   HELD       VACUUM_LOSS
+3000 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3000 path_blocked         recovery   HELD       PATH_BLOCKED
+3000 path_blocked         baseline   HELD       PATH_BLOCKED
+3000 path_blocked         naive      HELD       PATH_BLOCKED
+3000 path_blocked         reobserve  HELD       PATH_BLOCKED
+3000 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3000 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3000 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3000 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3000 unknown              naive      HELD       TARGET_NOT_FOUND
+3000 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3000 unknown              recovery   HELD       TARGET_NOT_FOUND
+3000 unknown              baseline   HELD       TARGET_NOT_FOUND
+3000 stale_observation    reobserve  COMPLETED  -
+3000 stale_observation    recovery   COMPLETED  -
+3000 stale_observation    baseline   HELD       OBSERVATION_STALE
+3000 stale_observation    naive      COMPLETED  -
+3000 connection_loss      recovery   COMPLETED  -
+3000 connection_loss      baseline   COMPLETED  -
+3000 connection_loss      naive      COMPLETED  -
+3000 connection_loss      reobserve  COMPLETED  -
+3001 normal               naive      COMPLETED  -
+3001 normal               reobserve  COMPLETED  -
+3001 normal               recovery   COMPLETED  -
+3001 normal               baseline   COMPLETED  -
+3001 occlusion            reobserve  COMPLETED  -
+3001 occlusion            recovery   COMPLETED  -
+3001 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3001 occlusion            naive      COMPLETED  -
+3001 depth_missing        recovery   COMPLETED  -
+3001 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3001 depth_missing        naive      COMPLETED  -
+3001 depth_missing        reobserve  COMPLETED  -
+3001 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3001 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3001 calibration_error    reobserve  COMPLETED  -
+3001 calibration_error    recovery   COMPLETED  -
+3001 suction_once         naive      COMPLETED  -
+3001 suction_once         reobserve  COMPLETED  -
+3001 suction_once         recovery   COMPLETED  -
+3001 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3001 communication_delay  reobserve  COMPLETED  -
+3001 communication_delay  recovery   COMPLETED  -
+3001 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3001 communication_delay  naive      COMPLETED  -
+3001 drop                 recovery   COMPLETED  -
+3001 drop                 baseline   HELD       VACUUM_LOSS
+3001 drop                 naive      COMPLETED  -
+3001 drop                 reobserve  COMPLETED  -
+3001 path_blocked         baseline   HELD       PATH_BLOCKED
+3001 path_blocked         naive      HELD       PATH_BLOCKED
+3001 path_blocked         reobserve  HELD       PATH_BLOCKED
+3001 path_blocked         recovery   COMPLETED  -
+3001 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3001 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3001 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3001 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3001 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3001 unknown              recovery   HELD       TARGET_NOT_FOUND
+3001 unknown              baseline   HELD       TARGET_NOT_FOUND
+3001 unknown              naive      HELD       TARGET_NOT_FOUND
+3001 stale_observation    recovery   COMPLETED  -
+3001 stale_observation    baseline   HELD       OBSERVATION_STALE
+3001 stale_observation    naive      COMPLETED  -
+3001 stale_observation    reobserve  COMPLETED  -
+3001 connection_loss      baseline   COMPLETED  -
+3001 connection_loss      naive      COMPLETED  -
+3001 connection_loss      reobserve  COMPLETED  -
+3001 connection_loss      recovery   COMPLETED  -
+3002 normal               reobserve  COMPLETED  -
+3002 normal               recovery   COMPLETED  -
+3002 normal               baseline   COMPLETED  -
+3002 normal               naive      COMPLETED  -
+3002 occlusion            recovery   COMPLETED  -
+3002 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3002 occlusion            naive      COMPLETED  -
+3002 occlusion            reobserve  COMPLETED  -
+3002 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3002 depth_missing        naive      COMPLETED  -
+3002 depth_missing        reobserve  COMPLETED  -
+3002 depth_missing        recovery   COMPLETED  -
+3002 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3002 calibration_error    reobserve  COMPLETED  -
+3002 calibration_error    recovery   COMPLETED  -
+3002 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3002 suction_once         reobserve  COMPLETED  -
+3002 suction_once         recovery   COMPLETED  -
+3002 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3002 suction_once         naive      COMPLETED  -
+3002 communication_delay  recovery   COMPLETED  -
+3002 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3002 communication_delay  naive      COMPLETED  -
+3002 communication_delay  reobserve  COMPLETED  -
+3002 drop                 baseline   HELD       VACUUM_LOSS
+3002 drop                 naive      COMPLETED  -
+3002 drop                 reobserve  COMPLETED  -
+3002 drop                 recovery   COMPLETED  -
+3002 path_blocked         naive      HELD       PATH_BLOCKED
+3002 path_blocked         reobserve  HELD       PATH_BLOCKED
+3002 path_blocked         recovery   HELD       PATH_BLOCKED
+3002 path_blocked         baseline   HELD       PATH_BLOCKED
+3002 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3002 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3002 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3002 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3002 unknown              recovery   HELD       TARGET_NOT_FOUND
+3002 unknown              baseline   HELD       TARGET_NOT_FOUND
+3002 unknown              naive      HELD       TARGET_NOT_FOUND
+3002 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3002 stale_observation    baseline   HELD       OBSERVATION_STALE
+3002 stale_observation    naive      COMPLETED  -
+3002 stale_observation    reobserve  COMPLETED  -
+3002 stale_observation    recovery   COMPLETED  -
+3002 connection_loss      naive      COMPLETED  -
+3002 connection_loss      reobserve  COMPLETED  -
+3002 connection_loss      recovery   COMPLETED  -
+3002 connection_loss      baseline   COMPLETED  -
+3003 normal               recovery   COMPLETED  -
+3003 normal               baseline   COMPLETED  -
+3003 normal               naive      COMPLETED  -
+3003 normal               reobserve  COMPLETED  -
+3003 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3003 occlusion            naive      COMPLETED  -
+3003 occlusion            reobserve  COMPLETED  -
+3003 occlusion            recovery   COMPLETED  -
+3003 depth_missing        naive      COMPLETED  -
+3003 depth_missing        reobserve  COMPLETED  -
+3003 depth_missing        recovery   COMPLETED  -
+3003 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3003 calibration_error    reobserve  COMPLETED  -
+3003 calibration_error    recovery   COMPLETED  -
+3003 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3003 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3003 suction_once         recovery   COMPLETED  -
+3003 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3003 suction_once         naive      COMPLETED  -
+3003 suction_once         reobserve  COMPLETED  -
+3003 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3003 communication_delay  naive      COMPLETED  -
+3003 communication_delay  reobserve  COMPLETED  -
+3003 communication_delay  recovery   COMPLETED  -
+3003 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3003 drop                 reobserve  HELD       TARGET_OUTSIDE_SOURCE
+3003 drop                 recovery   HELD       TARGET_OUTSIDE_SOURCE
+3003 drop                 baseline   HELD       VACUUM_LOSS
+3003 path_blocked         reobserve  HELD       PATH_BLOCKED
+3003 path_blocked         recovery   COMPLETED  -
+3003 path_blocked         baseline   HELD       PATH_BLOCKED
+3003 path_blocked         naive      HELD       PATH_BLOCKED
+3003 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3003 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3003 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3003 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3003 unknown              baseline   HELD       TARGET_NOT_FOUND
+3003 unknown              naive      HELD       TARGET_NOT_FOUND
+3003 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3003 unknown              recovery   HELD       TARGET_NOT_FOUND
+3003 stale_observation    naive      COMPLETED  -
+3003 stale_observation    reobserve  COMPLETED  -
+3003 stale_observation    recovery   COMPLETED  -
+3003 stale_observation    baseline   HELD       OBSERVATION_STALE
+3003 connection_loss      reobserve  COMPLETED  -
+3003 connection_loss      recovery   COMPLETED  -
+3003 connection_loss      baseline   COMPLETED  -
+3003 connection_loss      naive      COMPLETED  -
+3004 normal               baseline   COMPLETED  -
+3004 normal               naive      COMPLETED  -
+3004 normal               reobserve  COMPLETED  -
+3004 normal               recovery   COMPLETED  -
+3004 occlusion            naive      COMPLETED  -
+3004 occlusion            reobserve  COMPLETED  -
+3004 occlusion            recovery   COMPLETED  -
+3004 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3004 depth_missing        reobserve  COMPLETED  -
+3004 depth_missing        recovery   COMPLETED  -
+3004 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3004 depth_missing        naive      COMPLETED  -
+3004 calibration_error    recovery   COMPLETED  -
+3004 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3004 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3004 calibration_error    reobserve  COMPLETED  -
+3004 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3004 suction_once         naive      COMPLETED  -
+3004 suction_once         reobserve  COMPLETED  -
+3004 suction_once         recovery   COMPLETED  -
+3004 communication_delay  naive      COMPLETED  -
+3004 communication_delay  reobserve  COMPLETED  -
+3004 communication_delay  recovery   COMPLETED  -
+3004 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3004 drop                 reobserve  HELD       TARGET_OUTSIDE_SOURCE
+3004 drop                 recovery   HELD       TARGET_OUTSIDE_SOURCE
+3004 drop                 baseline   HELD       VACUUM_LOSS
+3004 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3004 path_blocked         recovery   COMPLETED  -
+3004 path_blocked         baseline   HELD       PATH_BLOCKED
+3004 path_blocked         naive      HELD       PATH_BLOCKED
+3004 path_blocked         reobserve  HELD       PATH_BLOCKED
+3004 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3004 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3004 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3004 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3004 unknown              naive      HELD       TARGET_NOT_FOUND
+3004 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3004 unknown              recovery   HELD       TARGET_NOT_FOUND
+3004 unknown              baseline   HELD       TARGET_NOT_FOUND
+3004 stale_observation    reobserve  COMPLETED  -
+3004 stale_observation    recovery   COMPLETED  -
+3004 stale_observation    baseline   HELD       OBSERVATION_STALE
+3004 stale_observation    naive      COMPLETED  -
+3004 connection_loss      recovery   COMPLETED  -
+3004 connection_loss      baseline   COMPLETED  -
+3004 connection_loss      naive      COMPLETED  -
+3004 connection_loss      reobserve  COMPLETED  -
+3005 normal               naive      COMPLETED  -
+3005 normal               reobserve  COMPLETED  -
+3005 normal               recovery   COMPLETED  -
+3005 normal               baseline   COMPLETED  -
+3005 occlusion            reobserve  COMPLETED  -
+3005 occlusion            recovery   COMPLETED  -
+3005 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3005 occlusion            naive      COMPLETED  -
+3005 depth_missing        recovery   COMPLETED  -
+3005 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3005 depth_missing        naive      COMPLETED  -
+3005 depth_missing        reobserve  COMPLETED  -
+3005 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3005 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3005 calibration_error    reobserve  COMPLETED  -
+3005 calibration_error    recovery   COMPLETED  -
+3005 suction_once         naive      COMPLETED  -
+3005 suction_once         reobserve  COMPLETED  -
+3005 suction_once         recovery   COMPLETED  -
+3005 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3005 communication_delay  reobserve  COMPLETED  -
+3005 communication_delay  recovery   COMPLETED  -
+3005 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3005 communication_delay  naive      COMPLETED  -
+3005 drop                 recovery   COMPLETED  -
+3005 drop                 baseline   HELD       VACUUM_LOSS
+3005 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3005 drop                 reobserve  COMPLETED  -
+3005 path_blocked         baseline   HELD       PATH_BLOCKED
+3005 path_blocked         naive      HELD       PATH_BLOCKED
+3005 path_blocked         reobserve  HELD       PATH_BLOCKED
+3005 path_blocked         recovery   COMPLETED  -
+3005 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3005 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3005 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3005 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3005 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3005 unknown              recovery   HELD       TARGET_NOT_FOUND
+3005 unknown              baseline   HELD       TARGET_NOT_FOUND
+3005 unknown              naive      HELD       TARGET_NOT_FOUND
+3005 stale_observation    recovery   COMPLETED  -
+3005 stale_observation    baseline   HELD       OBSERVATION_STALE
+3005 stale_observation    naive      COMPLETED  -
+3005 stale_observation    reobserve  COMPLETED  -
+3005 connection_loss      baseline   COMPLETED  -
+3005 connection_loss      naive      COMPLETED  -
+3005 connection_loss      reobserve  COMPLETED  -
+3005 connection_loss      recovery   COMPLETED  -
+3006 normal               reobserve  COMPLETED  -
+3006 normal               recovery   COMPLETED  -
+3006 normal               baseline   COMPLETED  -
+3006 normal               naive      COMPLETED  -
+3006 occlusion            recovery   COMPLETED  -
+3006 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3006 occlusion            naive      COMPLETED  -
+3006 occlusion            reobserve  COMPLETED  -
+3006 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3006 depth_missing        naive      COMPLETED  -
+3006 depth_missing        reobserve  COMPLETED  -
+3006 depth_missing        recovery   COMPLETED  -
+3006 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3006 calibration_error    reobserve  COMPLETED  -
+3006 calibration_error    recovery   COMPLETED  -
+3006 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3006 suction_once         reobserve  COMPLETED  -
+3006 suction_once         recovery   COMPLETED  -
+3006 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3006 suction_once         naive      COMPLETED  -
+3006 communication_delay  recovery   COMPLETED  -
+3006 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3006 communication_delay  naive      COMPLETED  -
+3006 communication_delay  reobserve  COMPLETED  -
+3006 drop                 baseline   HELD       VACUUM_LOSS
+3006 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3006 drop                 reobserve  HELD       TARGET_OUTSIDE_SOURCE
+3006 drop                 recovery   HELD       TARGET_OUTSIDE_SOURCE
+3006 path_blocked         naive      HELD       PATH_BLOCKED
+3006 path_blocked         reobserve  HELD       PATH_BLOCKED
+3006 path_blocked         recovery   COMPLETED  -
+3006 path_blocked         baseline   HELD       PATH_BLOCKED
+3006 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3006 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3006 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3006 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3006 unknown              recovery   HELD       TARGET_NOT_FOUND
+3006 unknown              baseline   HELD       TARGET_NOT_FOUND
+3006 unknown              naive      HELD       TARGET_NOT_FOUND
+3006 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3006 stale_observation    baseline   HELD       OBSERVATION_STALE
+3006 stale_observation    naive      COMPLETED  -
+3006 stale_observation    reobserve  COMPLETED  -
+3006 stale_observation    recovery   COMPLETED  -
+3006 connection_loss      naive      COMPLETED  -
+3006 connection_loss      reobserve  COMPLETED  -
+3006 connection_loss      recovery   COMPLETED  -
+3006 connection_loss      baseline   COMPLETED  -
+3007 normal               recovery   COMPLETED  -
+3007 normal               baseline   COMPLETED  -
+3007 normal               naive      COMPLETED  -
+3007 normal               reobserve  COMPLETED  -
+3007 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3007 occlusion            naive      COMPLETED  -
+3007 occlusion            reobserve  COMPLETED  -
+3007 occlusion            recovery   COMPLETED  -
+3007 depth_missing        naive      COMPLETED  -
+3007 depth_missing        reobserve  COMPLETED  -
+3007 depth_missing        recovery   COMPLETED  -
+3007 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3007 calibration_error    reobserve  COMPLETED  -
+3007 calibration_error    recovery   COMPLETED  -
+3007 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3007 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3007 suction_once         recovery   COMPLETED  -
+3007 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3007 suction_once         naive      COMPLETED  -
+3007 suction_once         reobserve  COMPLETED  -
+3007 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3007 communication_delay  naive      COMPLETED  -
+3007 communication_delay  reobserve  COMPLETED  -
+3007 communication_delay  recovery   COMPLETED  -
+3007 drop                 naive      COMPLETED  -
+3007 drop                 reobserve  COMPLETED  -
+3007 drop                 recovery   COMPLETED  -
+3007 drop                 baseline   HELD       VACUUM_LOSS
+3007 path_blocked         reobserve  HELD       PATH_BLOCKED
+3007 path_blocked         recovery   COMPLETED  -
+3007 path_blocked         baseline   HELD       PATH_BLOCKED
+3007 path_blocked         naive      HELD       PATH_BLOCKED
+3007 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3007 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3007 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3007 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3007 unknown              baseline   HELD       TARGET_NOT_FOUND
+3007 unknown              naive      HELD       TARGET_NOT_FOUND
+3007 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3007 unknown              recovery   HELD       TARGET_NOT_FOUND
+3007 stale_observation    naive      COMPLETED  -
+3007 stale_observation    reobserve  COMPLETED  -
+3007 stale_observation    recovery   COMPLETED  -
+3007 stale_observation    baseline   HELD       OBSERVATION_STALE
+3007 connection_loss      reobserve  COMPLETED  -
+3007 connection_loss      recovery   COMPLETED  -
+3007 connection_loss      baseline   COMPLETED  -
+3007 connection_loss      naive      COMPLETED  -
+3008 normal               baseline   COMPLETED  -
+3008 normal               naive      COMPLETED  -
+3008 normal               reobserve  COMPLETED  -
+3008 normal               recovery   COMPLETED  -
+3008 occlusion            naive      COMPLETED  -
+3008 occlusion            reobserve  COMPLETED  -
+3008 occlusion            recovery   COMPLETED  -
+3008 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3008 depth_missing        reobserve  COMPLETED  -
+3008 depth_missing        recovery   COMPLETED  -
+3008 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3008 depth_missing        naive      COMPLETED  -
+3008 calibration_error    recovery   COMPLETED  -
+3008 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3008 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3008 calibration_error    reobserve  COMPLETED  -
+3008 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3008 suction_once         naive      COMPLETED  -
+3008 suction_once         reobserve  COMPLETED  -
+3008 suction_once         recovery   COMPLETED  -
+3008 communication_delay  naive      HELD       DEVICE_UNCERTAIN
+3008 communication_delay  reobserve  COMPLETED  -
+3008 communication_delay  recovery   COMPLETED  -
+3008 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3008 drop                 reobserve  COMPLETED  -
+3008 drop                 recovery   COMPLETED  -
+3008 drop                 baseline   HELD       VACUUM_LOSS
+3008 drop                 naive      COMPLETED  -
+3008 path_blocked         recovery   COMPLETED  -
+3008 path_blocked         baseline   HELD       PATH_BLOCKED
+3008 path_blocked         naive      HELD       PATH_BLOCKED
+3008 path_blocked         reobserve  HELD       PATH_BLOCKED
+3008 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3008 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3008 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3008 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3008 unknown              naive      HELD       TARGET_NOT_FOUND
+3008 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3008 unknown              recovery   HELD       TARGET_NOT_FOUND
+3008 unknown              baseline   HELD       TARGET_NOT_FOUND
+3008 stale_observation    reobserve  COMPLETED  -
+3008 stale_observation    recovery   COMPLETED  -
+3008 stale_observation    baseline   HELD       OBSERVATION_STALE
+3008 stale_observation    naive      COMPLETED  -
+3008 connection_loss      recovery   COMPLETED  -
+3008 connection_loss      baseline   COMPLETED  -
+3008 connection_loss      naive      COMPLETED  -
+3008 connection_loss      reobserve  COMPLETED  -
+3009 normal               naive      COMPLETED  -
+3009 normal               reobserve  COMPLETED  -
+3009 normal               recovery   COMPLETED  -
+3009 normal               baseline   COMPLETED  -
+3009 occlusion            reobserve  COMPLETED  -
+3009 occlusion            recovery   COMPLETED  -
+3009 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3009 occlusion            naive      COMPLETED  -
+3009 depth_missing        recovery   COMPLETED  -
+3009 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3009 depth_missing        naive      COMPLETED  -
+3009 depth_missing        reobserve  COMPLETED  -
+3009 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3009 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3009 calibration_error    reobserve  COMPLETED  -
+3009 calibration_error    recovery   COMPLETED  -
+3009 suction_once         naive      COMPLETED  -
+3009 suction_once         reobserve  COMPLETED  -
+3009 suction_once         recovery   COMPLETED  -
+3009 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3009 communication_delay  reobserve  COMPLETED  -
+3009 communication_delay  recovery   COMPLETED  -
+3009 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3009 communication_delay  naive      COMPLETED  -
+3009 drop                 recovery   COMPLETED  -
+3009 drop                 baseline   HELD       VACUUM_LOSS
+3009 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3009 drop                 reobserve  COMPLETED  -
+3009 path_blocked         baseline   HELD       PATH_BLOCKED
+3009 path_blocked         naive      HELD       PATH_BLOCKED
+3009 path_blocked         reobserve  HELD       PATH_BLOCKED
+3009 path_blocked         recovery   COMPLETED  -
+3009 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3009 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3009 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3009 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3009 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3009 unknown              recovery   HELD       TARGET_NOT_FOUND
+3009 unknown              baseline   HELD       TARGET_NOT_FOUND
+3009 unknown              naive      HELD       TARGET_NOT_FOUND
+3009 stale_observation    recovery   COMPLETED  -
+3009 stale_observation    baseline   HELD       OBSERVATION_STALE
+3009 stale_observation    naive      COMPLETED  -
+3009 stale_observation    reobserve  COMPLETED  -
+3009 connection_loss      baseline   COMPLETED  -
+3009 connection_loss      naive      COMPLETED  -
+3009 connection_loss      reobserve  COMPLETED  -
+3009 connection_loss      recovery   COMPLETED  -
+3010 normal               reobserve  COMPLETED  -
+3010 normal               recovery   COMPLETED  -
+3010 normal               baseline   COMPLETED  -
+3010 normal               naive      COMPLETED  -
+3010 occlusion            recovery   COMPLETED  -
+3010 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3010 occlusion            naive      COMPLETED  -
+3010 occlusion            reobserve  COMPLETED  -
+3010 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3010 depth_missing        naive      COMPLETED  -
+3010 depth_missing        reobserve  COMPLETED  -
+3010 depth_missing        recovery   COMPLETED  -
+3010 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3010 calibration_error    reobserve  COMPLETED  -
+3010 calibration_error    recovery   COMPLETED  -
+3010 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3010 suction_once         reobserve  COMPLETED  -
+3010 suction_once         recovery   COMPLETED  -
+3010 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3010 suction_once         naive      COMPLETED  -
+3010 communication_delay  recovery   COMPLETED  -
+3010 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3010 communication_delay  naive      COMPLETED  -
+3010 communication_delay  reobserve  COMPLETED  -
+3010 drop                 baseline   HELD       VACUUM_LOSS
+3010 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3010 drop                 reobserve  COMPLETED  -
+3010 drop                 recovery   COMPLETED  -
+3010 path_blocked         naive      HELD       PATH_BLOCKED
+3010 path_blocked         reobserve  HELD       PATH_BLOCKED
+3010 path_blocked         recovery   COMPLETED  -
+3010 path_blocked         baseline   HELD       PATH_BLOCKED
+3010 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3010 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3010 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3010 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3010 unknown              recovery   HELD       TARGET_NOT_FOUND
+3010 unknown              baseline   HELD       TARGET_NOT_FOUND
+3010 unknown              naive      HELD       TARGET_NOT_FOUND
+3010 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3010 stale_observation    baseline   HELD       OBSERVATION_STALE
+3010 stale_observation    naive      COMPLETED  -
+3010 stale_observation    reobserve  COMPLETED  -
+3010 stale_observation    recovery   COMPLETED  -
+3010 connection_loss      naive      COMPLETED  -
+3010 connection_loss      reobserve  COMPLETED  -
+3010 connection_loss      recovery   COMPLETED  -
+3010 connection_loss      baseline   COMPLETED  -
+3011 normal               recovery   COMPLETED  -
+3011 normal               baseline   COMPLETED  -
+3011 normal               naive      COMPLETED  -
+3011 normal               reobserve  COMPLETED  -
+3011 occlusion            baseline   HELD       TARGET_NOT_FOUND
+3011 occlusion            naive      COMPLETED  -
+3011 occlusion            reobserve  COMPLETED  -
+3011 occlusion            recovery   COMPLETED  -
+3011 depth_missing        naive      COMPLETED  -
+3011 depth_missing        reobserve  COMPLETED  -
+3011 depth_missing        recovery   COMPLETED  -
+3011 depth_missing        baseline   HELD       TARGET_NOT_FOUND
+3011 calibration_error    reobserve  COMPLETED  -
+3011 calibration_error    recovery   COMPLETED  -
+3011 calibration_error    baseline   HELD       SEAL_NOT_CONFIRMED
+3011 calibration_error    naive      HELD       SEAL_NOT_CONFIRMED
+3011 suction_once         recovery   COMPLETED  -
+3011 suction_once         baseline   HELD       SEAL_NOT_CONFIRMED
+3011 suction_once         naive      COMPLETED  -
+3011 suction_once         reobserve  COMPLETED  -
+3011 communication_delay  baseline   HELD       DEVICE_RESPONSE_DELAY
+3011 communication_delay  naive      COMPLETED  -
+3011 communication_delay  reobserve  COMPLETED  -
+3011 communication_delay  recovery   COMPLETED  -
+3011 drop                 naive      HELD       SEAL_NOT_CONFIRMED
+3011 drop                 reobserve  HELD       TARGET_OUTSIDE_SOURCE
+3011 drop                 recovery   HELD       TARGET_OUTSIDE_SOURCE
+3011 drop                 baseline   HELD       VACUUM_LOSS
+3011 path_blocked         reobserve  HELD       PATH_BLOCKED
+3011 path_blocked         recovery   COMPLETED  -
+3011 path_blocked         baseline   HELD       PATH_BLOCKED
+3011 path_blocked         naive      HELD       PATH_BLOCKED
+3011 suction_permanent    recovery   HELD       SEAL_NOT_CONFIRMED
+3011 suction_permanent    baseline   HELD       SEAL_NOT_CONFIRMED
+3011 suction_permanent    naive      HELD       SEAL_NOT_CONFIRMED
+3011 suction_permanent    reobserve  HELD       SEAL_NOT_CONFIRMED
+3011 unknown              baseline   HELD       TARGET_NOT_FOUND
+3011 unknown              naive      HELD       TARGET_NOT_FOUND
+3011 unknown              reobserve  HELD       TARGET_NOT_FOUND
+3011 unknown              recovery   HELD       TARGET_NOT_FOUND
+3011 stale_observation    naive      COMPLETED  -
+3011 stale_observation    reobserve  COMPLETED  -
+3011 stale_observation    recovery   COMPLETED  -
+3011 stale_observation    baseline   HELD       OBSERVATION_STALE
+3011 connection_loss      reobserve  COMPLETED  -
+3011 connection_loss      recovery   COMPLETED  -
+3011 connection_loss      baseline   COMPLETED  -
+3011 connection_loss      naive      COMPLETED  -
+{
+  "baseline": {
+    "n": 144,
+    "completed": 24,
+    "completion_rate": 0.16666666666666666,
+    "first_attempt_success_rate": 0.16666666666666666,
+    "first_attempt_pick_success_rate": 0.3333333333333333,
+    "first_attempt_failures": 120,
+    "recovered": 0,
+    "recovery_rate": 0.0,
+    "wrong_placements": 0,
+    "drops": 12,
+    "collisions": 0,
+    "held": 120,
+    "retries": 0,
+    "timeouts": 0,
+    "selection_precision": 1.0,
+    "known_task_selection_rate": 0.7272727272727273,
+    "position_error_mean_m": 0.00611203266149871,
+    "position_error_max_m": 0.03913281459429927,
+    "mean_sim_s": 5.44434027777789,
+    "mean_wall_s": 0.741567665875108,
+    "mean_recovery_sim_s": null,
+    "total_sim_s": 783.9850000000162,
+    "total_wall_s": 106.78574388601555,
+    "throughput_per_sim_hour": 110.2061901694525,
+    "throughput_per_wall_hour": 809.0967656902259,
+    "completion_rate_seed_std": 0.0,
+    "completion_seed_cluster95": [
+      0.16666666666666666,
+      0.16666666666666666
+    ]
+  },
+  "naive": {
+    "n": 144,
+    "completed": 86,
+    "completion_rate": 0.5972222222222222,
+    "first_attempt_success_rate": 0.16666666666666666,
+    "first_attempt_pick_success_rate": 0.3333333333333333,
+    "first_attempt_failures": 120,
+    "recovered": 62,
+    "recovery_rate": 0.5166666666666667,
+    "wrong_placements": 0,
+    "drops": 12,
+    "collisions": 0,
+    "held": 58,
+    "retries": 209,
+    "timeouts": 0,
+    "selection_precision": 1.0,
+    "known_task_selection_rate": 1.0,
+    "position_error_mean_m": 0.005011556693073818,
+    "position_error_max_m": 0.03913281459429927,
+    "mean_sim_s": 17.936770833333398,
+    "mean_wall_s": 1.8012038536461052,
+    "mean_recovery_sim_s": 15.494999999999942,
+    "total_sim_s": 2582.895000000009,
+    "total_wall_s": 259.37335492503917,
+    "throughput_per_sim_hour": 119.86549975899095,
+    "throughput_per_wall_hour": 1193.6461248668998,
+    "completion_rate_seed_std": 0.04811252243246879,
+    "completion_seed_cluster95": [
+      0.5694444444444444,
+      0.625
+    ]
+  },
+  "reobserve": {
+    "n": 144,
+    "completed": 103,
+    "completion_rate": 0.7152777777777778,
+    "first_attempt_success_rate": 0.16666666666666666,
+    "first_attempt_pick_success_rate": 0.3333333333333333,
+    "first_attempt_failures": 120,
+    "recovered": 79,
+    "recovery_rate": 0.6583333333333333,
+    "wrong_placements": 0,
+    "drops": 12,
+    "collisions": 0,
+    "held": 41,
+    "retries": 194,
+    "timeouts": 0,
+    "selection_precision": 1.0,
+    "known_task_selection_rate": 1.0,
+    "position_error_mean_m": 0.005011556693073818,
+    "position_error_max_m": 0.03913281459429927,
+    "mean_sim_s": 18.061319444444486,
+    "mean_wall_s": 1.8259639347294676,
+    "mean_recovery_sim_s": 15.644458333333246,
+    "total_sim_s": 2600.830000000006,
+    "total_wall_s": 262.9388066010433,
+    "throughput_per_sim_hour": 142.5698719255004,
+    "throughput_per_wall_hour": 1410.2140524377382,
+    "completion_rate_seed_std": 0.042910720878703124,
+    "completion_seed_cluster95": [
+      0.6944444444444445,
+      0.736111111111111
+    ]
+  },
+  "recovery": {
+    "n": 144,
+    "completed": 113,
+    "completion_rate": 0.7847222222222222,
+    "first_attempt_success_rate": 0.16666666666666666,
+    "first_attempt_pick_success_rate": 0.3333333333333333,
+    "first_attempt_failures": 120,
+    "recovered": 89,
+    "recovery_rate": 0.7416666666666667,
+    "wrong_placements": 0,
+    "drops": 12,
+    "collisions": 0,
+    "held": 31,
+    "retries": 184,
+    "timeouts": 0,
+    "selection_precision": 1.0,
+    "known_task_selection_rate": 1.0,
+    "position_error_mean_m": 0.005011556693073818,
+    "position_error_max_m": 0.03913281459429927,
+    "mean_sim_s": 20.307604166666465,
+    "mean_wall_s": 2.042580906277534,
+    "mean_recovery_sim_s": 18.339999999999623,
+    "total_sim_s": 2924.294999999971,
+    "total_wall_s": 294.1316505039649,
+    "throughput_per_sim_hour": 139.11045226285447,
+    "throughput_per_wall_hour": 1383.0541504220619,
+    "completion_rate_seed_std": 0.05571316028512681,
+    "completion_seed_cluster95": [
+      0.7500000000000001,
+      0.8125000000000001
+    ]
+  }
+}
