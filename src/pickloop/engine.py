@@ -13,9 +13,12 @@ from .journal import JobStore, EventLog, source_provenance
 from .perception import Perception
 from .simulation import Cell, ROOT, BIN_CENTER, BIN_HALF
 from .types import OperationError
+from .stop_policy import resolve_terminal_valve
 
 FAULTS=('normal','occlusion','depth_missing','calibration_error','suction_once','communication_delay','drop','path_blocked','suction_permanent','unknown','stale_observation','connection_loss')
 PHASES=('OBSERVE','PLAN','APPROACH','SEAL','LIFT','TRANSPORT','PLACE','RELEASE','VERIFY')
+POLICIES=('baseline','naive','reobserve','recovery')
+NON_RETRYABLE=('CANCELLED','WALL_TIMEOUT','SIM_TIMEOUT','DEVICE_UNCERTAIN','COLLISION')
 
 class Action(bt.behaviour.Behaviour):
     def __init__(self,name,controller):super().__init__(name);self.controller=controller
@@ -38,7 +41,7 @@ class Recovery(bt.decorators.Decorator):
     def update(self):
         c=self.c
         if self.decorated.status!=bt.common.Status.FAILURE:return self.decorated.status
-        if c.last_error.code in ('CANCELLED','WALL_TIMEOUT','SIM_TIMEOUT','DEVICE_UNCERTAIN','COLLISION') or c.attempt>=c.max_attempts:
+        if c.last_error.code in NON_RETRYABLE or c.attempt>=c.max_attempts:
             return bt.common.Status.FAILURE
         try:c.recover()
         except (OperationError,DeviceError,TimeoutError) as e:
@@ -91,6 +94,13 @@ class Controller:
     def observe(self):
         if self.carrying:return
         obs=self.cell.observe();self.last_observation=obs
+        if self.policy=='naive' and self.target_detection is not None and self.attempt>1:
+            # Fixed-target replay ablation. Freshness, pressure and collision guards
+            # remain active, but the grasp coordinates are deliberately not updated.
+            try:obs.validate(self.cell.sim_time)
+            except ValueError as e:raise OperationError(str(e)) from e
+            self.emit('TARGET_REUSED',target=self.target_detection.position.tolist(),source='last_valid_target',safety_observation_id=obs.observation_id)
+            return
         t=time.perf_counter();self.target_detection,self.detections=self.perception.target(obs,self.cell.sim_time,self.sku);self.inference_times.append(time.perf_counter()-t)
         self.position_estimates.append({'attempt':self.attempt,'position':self.target_detection.position.tolist(),'observation_id':obs.observation_id})
         self.emit('PERCEPTION',detections=[self.perception.serialize(d) for d in self.detections],inference_wall_s=self.inference_times[-1],calibration_id=obs.calibration_id)
@@ -101,20 +111,25 @@ class Controller:
         except ValueError as e:raise OperationError(str(e)) from e
         p=self.target_detection.position
         if not (.10<p[0]<.58 and -.30<p[1]<.10):raise OperationError('TARGET_OUTSIDE_SOURCE')
-        self.emit('PLAN_READY',target=p.tolist(),lift_height_m=.30 if self.attempt==1 else .40,planner='analytic_SCARA_IK_quintic_dense_collision_check')
+        self.emit('PLAN_READY',target=p.tolist(),lift_height_m=self.transport_height,planner='analytic_SCARA_IK_quintic_dense_collision_check')
+    @property
+    def transport_height(self):
+        return .40 if self.policy=='recovery' and self.attempt>1 else .30
     def approach(self):
         if self.carrying:return
         p=self.target_detection.position
         self.cell.move_to([*p[:2],.28],allow_contact=False)
         self.cell.move_to([*p[:2],p[2]],allow_contact=True)
     def set_valve(self,on):
-        self.command_id+=1
-        if self.cell.fault=='communication_delay' and self.attempt==1 and on:
+        window=self.cell.condition.get('communication_window_s',[0,0]) if self.cell.condition else None
+        transient = (window[0] <= self.cell.sim_time < window[1]) if window else self.attempt==1
+        if self.cell.fault=='communication_delay' and transient and on:
             # Delay an actual status RPC before actuation: no command was issued, safe to retry.
             self.device.inject_fault('delay_response')
             try:self.client.status()
             except TimeoutError as e:raise OperationError('DEVICE_RESPONSE_DELAY') from e
-        if self.cell.fault=='connection_loss' and self.attempt==1 and on:self.device.inject_fault('drop_ack')
+        self.command_id+=1
+        if self.cell.fault=='connection_loss' and transient and on:self.device.inject_fault('drop_ack')
         status=self.client.command(self.command_id,bool(on))
         if status['error']!='none':raise OperationError('DEVICE_UNCERTAIN')
         self.emit('DEVICE_ACK',command_id=self.command_id,status=status)
@@ -131,13 +146,13 @@ class Controller:
         if status['pressure_kpa']>-35:raise OperationError('VACUUM_LOSS')
         self.emit('LIFT_CONFIRMED',status=status,tcp=self.cell.tcp.tolist())
     def transport(self):
-        height=.30 if self.attempt==1 else .40
+        height=self.transport_height
         self.cell.move_to([*self.cell.tcp[:2],height],allow_contact=False)
         self.cell.move_to([*BIN_CENTER,height],allow_contact=False)
     def place(self):self.cell.move_to([*BIN_CENTER,.135],allow_contact=True)
     def release(self):
         self.carrying=False;self.set_valve(False);self.cell.step_for(.40)
-        clearance=.40 if self.attempt>1 else .30
+        clearance=self.transport_height
         self.cell.move_to([*BIN_CENTER,clearance],allow_contact=False)
         self.cell.move_to([.19,-.32,clearance],allow_contact=False)
         self.cell.move_to([.19,-.32,.34],allow_contact=False)
@@ -162,11 +177,14 @@ class Controller:
         if self.cell.collision_count:raise OperationError('COLLISION')
         self.attempt+=1;self.cell.attempt=self.attempt
         if not self.carrying:
-            self.set_valve(False)
+            reset=resolve_terminal_valve(self.client,'RECOVERY_RESET',self.command_id,carrying=self.carrying)
+            self.command_id=reset['command_id'];self.emit('RECOVERY_OUTPUT_POLICY',**reset)
+            if reset['action'] not in ('OFF_CONFIRMED','ALREADY_OFF'):
+                raise OperationError('RECOVERY_LOAD_UNCONFIRMED',reset)
             self.cell.move_to([*self.cell.tcp[:2],.34],allow_contact=True)
             self.cell.move_to([.19,-.32,.34],allow_contact=False)
             self.cell.step_for(.4)
-            self.target_detection=None
+            if self.policy!='naive':self.target_detection=None
         else:
             # Pressure-confirmed payload remains supported; retry transport at higher clearance.
             status=self.client.status()
@@ -174,8 +192,8 @@ class Controller:
         self.emit('RECOVERY_END',next_attempt=self.attempt,holding_payload=self.carrying)
 
 
-def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,record=True,cancel=None,progress=None,sku='SKU-RED-A'):
-    if fault not in FAULTS or policy not in ('baseline','recovery'):raise ValueError('Unsupported scenario/policy')
+def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,record=True,cancel=None,progress=None,sku='SKU-RED-A',condition=None):
+    if fault not in FAULTS or policy not in POLICIES:raise ValueError('Unsupported scenario/policy')
     if not isinstance(seed,int) or isinstance(seed,bool) or seed<0:raise ValueError('seed must be nonnegative integer')
     if sku not in ('SKU-RED-A','SKU-RED-B','UNREGISTERED'):raise ValueError('Unsupported order SKU')
     out=Path(out_dir);out.mkdir(parents=True,exist_ok=True)
@@ -183,6 +201,7 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
     try:fcntl.flock(lease,fcntl.LOCK_EX|fcntl.LOCK_NB)
     except BlockingIOError:lease.close();raise RuntimeError('RUNNER_BUSY')
     store=JobStore(out/'jobs.sqlite');config=dict(seed=seed,fault=fault,policy=policy,sku=sku)
+    if condition is not None:config['condition']=condition
     job_id=job_id or 'job-'+uuid.uuid4().hex[:10];run_id=f'{fault}-{seed}-{policy}-{uuid.uuid4().hex[:6]}'
     begun=store.begin(job_id,config,run_id)
     if not begun['created']:
@@ -192,7 +211,7 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
     directory=out/run_id;directory.mkdir();log=EventLog(directory,run_id,job_id)
     cell=None;device=None;c=None;start=time.monotonic()
     try:
-        cell=Cell(seed=seed,fault=fault,run_id=run_id)
+        cell=Cell(seed=seed,fault=fault,run_id=run_id,condition=condition)
         device=DeviceEmulator(journal_path=directory/'device.sqlite').start();client=DeviceClient('127.0.0.1',device.port,timeout=.12)
         c=Controller(cell,device,client,store,log,directory,job_id,policy,'UNREGISTERED' if fault=='unknown' else sku,record,cancel or threading.Event(),progress)
         initial_truth=cell.truth_summary()  # evaluation only; never supplied to controller/perception
@@ -204,10 +223,21 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
             if tree.root.status!=bt.common.Status.RUNNING:break
         status='COMPLETED' if tree.root.status==bt.common.Status.SUCCESS else ('CANCELLED' if c.last_error.code=='CANCELLED' else 'HELD')
         reason=None if status=='COMPLETED' else c.last_error.code
+        terminal_policy=None
         if status!='COMPLETED':
-            # Hold current command; never release an unconfirmed load on cancellation.
+            if c.attempt>=c.max_attempts and c.max_attempts>1 and reason not in NON_RETRYABLE:
+                c.emit('RETRY_EXHAUSTED',attempts=c.attempt,retries=c.attempt-1,failed_phase=c.state,reason=reason)
             stop_report=cell.stop_motion()
             c.emit('STOP_REPORT',**stop_report)
+            # Physics is paused and this coordinator exclusively owns the device.
+            # Uncertain output or a possible payload always vetoes release.
+            terminal_policy=resolve_terminal_valve(client,reason,c.command_id,carrying=c.carrying)
+            c.command_id=terminal_policy['command_id']
+            if terminal_policy['action']=='OFF_UNCONFIRMED':reason='DEVICE_UNCERTAIN_TERMINAL'
+            was_stopping=cell._stopping;cell._stopping=True
+            try:cell.step_for(.025)  # reflect actual output, even if its ACK was lost
+            finally:cell._stopping=was_stopping
+            c.emit('HOLD_POLICY',**terminal_policy,motion_settled=stop_report['motion_settled'])
             if status=='CANCELLED' and c.command_id:
                 try:client.cancel(c.command_id)
                 except (DeviceError,TimeoutError):reason='CANCELLED_DEVICE_UNCERTAIN'
@@ -226,7 +256,7 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
         sim_duration=cell.sim_time-c.start_sim;wall_duration=time.monotonic()-start
         metrics=dict(first_attempt_pick_success=any(e['event']=='LIFT_CONFIRMED' and e['attempt']==1 for e in log.events),first_attempt_success=success and c.attempt==1,attempts=c.attempt,retries=c.attempt-1,wrong_placements=wrong,drops=final_truth['drop_count'],collisions=final_truth['collision_count'],held=status=='HELD',cancelled=status=='CANCELLED',sim_duration_s=sim_duration,wall_duration_s=wall_duration,recovery_sim_s=None if c.first_failure_time is None else cell.sim_time-c.first_failure_time,selection_correct=selection_correct,selection_attempted=bool(c.position_estimates),position_error_m=errors[0] if errors else None,inference_wall_s=c.inference_times,verified_by_vision=c.verified,verified_by_truth=truth_ok,max_joint_velocity=c.max_joint_velocity.tolist(),max_joint_acceleration=c.max_joint_acceleration.tolist(),timeout=reason in ('SIM_TIMEOUT','WALL_TIMEOUT'))
         c.state=status;c.emit('TERMINAL',status=status,success=success,reason=reason,metrics=metrics)
-        result=dict(schema_version=1,run_id=run_id,job_id=job_id,seed=seed,fault=fault,policy=policy,sku=c.sku,status=status,success=success,reason=reason,sim_duration_s=sim_duration,wall_duration_s=wall_duration,retries=c.attempt-1,metrics=metrics,initial_truth=initial_truth,final_truth=final_truth,position_estimates=c.position_estimates,provenance=source_provenance(ROOT))
+        result=dict(schema_version=2,run_id=run_id,job_id=job_id,seed=seed,fault=fault,policy=policy,sku=c.sku,status=status,success=success,reason=reason,sim_duration_s=sim_duration,wall_duration_s=wall_duration,retries=c.attempt-1,metrics=metrics,initial_truth=initial_truth,final_truth=final_truth,position_estimates=c.position_estimates,provenance=source_provenance(ROOT),condition=condition,condition_id=condition.get('condition_id') if condition else None,terminal_policy=terminal_policy)
         (directory/'result.json').write_text(json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False))
         replay=dict(result,events=log.events,frames=c.frames,run_url=f'/runs/{run_id}/run.json')
         (directory/'run.json').write_text(json.dumps(replay,ensure_ascii=False,allow_nan=False))

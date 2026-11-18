@@ -1,0 +1,29 @@
+ok 1 - HTML is Korean and references actual local assets
+ok 2 - every script ID reference has a unique HTML element
+ok 3 - static view cannot start or cancel live compute
+ok 4 - all visible controls have handlers or native behavior
+ok 5 - missing run payload fields normalize to honest empty arrays
+ok 6 - frames are sorted and invalid timestamps rejected
+ok 7 - frame paths resolve against run manifest, including nested hosting
+ok 8 - playback floors timestamps and clamps outside recording
+ok 9 - event seek prioritizes exact log binding over shared observation
+ok 10 - terminal and retry outcomes derive from data
+ok 11 - failure summary preserves stage and actual reason
+ok 12 - image failure and empty frames have explicit UI states
+ok 13 - layout supports desktop and narrow screens without simulated robot graphics
+ok 14 - HELD retains successful STATE_OK phase history and separates failure from retry exhaustion
+ok 15 - comparison uses shared elapsed simulation time and freezes a shorter completed recording
+ok 16 - pairing excludes different seeds and distinct catalog condition IDs
+ok 17 - milestone jumps only exist for actual failure, retry start, or verified placement events
+ok 18 - diagnostic score is not probability and UNKNOWN explains registration rejection
+ok 19 - pressure domain always includes real seal threshold -35 kPa
+ok 20 - review controls expose synchronized comparison, provenance details and real jump handlers
+ok 21 - runtime initializes actual naive/recovery comparison and nested run-relative image URLs
+ok 22 - runtime scrubbing shares elapsed clock while short policy freezes final frame
+ok 23 - runtime failure jump selects the exact bound frame
+ok 24 - runtime terminal HELD keeps prior STATE_OK and distinguishes exhaustion and output policy
+ok 25 - runtime metric intervals use seed clusters and show paired denominators
+ok 26 - comparison policy change clears stale frames and disables playback while loading
+ok 27 - comparison policy change loads the selected real baseline recording
+
+27 UI contract checks passed.

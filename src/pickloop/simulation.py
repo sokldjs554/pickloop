@@ -10,6 +10,7 @@ import mujoco
 import numpy as np
 from .geometry import camera_matrix, estimate_extrinsics, scara_ik, quintic_trajectory, ACCELERATION, JOINT_LOWER, JOINT_UPPER
 from .types import Observation, OperationError
+from .conditions import copy_condition, in_window
 
 ROOT=Path(__file__).resolve().parents[2]
 BIN_CENTER=np.array([.38,.22])
@@ -17,9 +18,12 @@ BIN_HALF=np.array([.105,.085])
 FIDUCIALS=np.array([[x,y,.062] for y in [.335,-.29] for x in [.06,.33,.60]])
 
 
-def scene_xml(seed):
+def scene_xml(seed,condition=None):
     rng=np.random.default_rng(seed)
     positions=[(.34+rng.uniform(-.024,.024),-.19+rng.uniform(-.025,.025)),(.49+rng.uniform(-.012,.012),-.16+rng.uniform(-.015,.015)),(.20+rng.uniform(-.015,.015),-.12+rng.uniform(-.012,.012))]
+    if condition is not None:
+        condition=copy_condition(condition,seed)
+        positions=[obj['xy_m'] for obj in condition['objects']]
     textures=[]; materials=[]
     for name,file,color in [('a','red_a.png','.7 .12 .10 1'),('b','red_b.png','.7 .12 .10 1'),('u','unknown.png','.1 .65 .25 1')]:
         p=ROOT/'assets'/'textures'/file
@@ -30,9 +34,12 @@ def scene_xml(seed):
             materials.append(f'<material name="mat_{name}" rgba="{color}"/>')
     objects=[]
     for i,(name,xy) in enumerate(zip(['a','b','u'],positions)):
-        yaw=rng.uniform(-.12,.12)
-        objects.append(f'<body name="parcel_{name}" pos="{xy[0]} {xy[1]} .087" euler="0 0 {yaw}"><freejoint/><geom name="parcel_{name}" type="box" size=".032 .026 .025" mass=".08" material="mat_{name}" friction=".8 .01 .001" condim="4"/></body>')
+        yaw=rng.uniform(-.12,.12) if condition is None else condition['objects'][i]['yaw_rad']
+        mass=.08 if condition is None else condition['objects'][i]['mass_kg']
+        friction=.8 if condition is None else condition['objects'][i]['friction']
+        objects.append(f'<body name="parcel_{name}" pos="{xy[0]} {xy[1]} .087" euler="0 0 {yaw}"><freejoint/><geom name="parcel_{name}" type="box" size=".032 .026 .025" mass="{mass}" material="mat_{name}" friction="{friction} .01 .001" condim="4"/></body>')
     fid=''.join(f'<geom name="fid_{i}" type="cylinder" pos="{x} {y} .061" size=".010 .001" rgba=".9 .02 .9 1" contype="0" conaffinity="0"/>' for i,(x,y,z) in enumerate(FIDUCIALS))
+    blocker_z=-.5 if condition is None or condition['fault']!='path_blocked' else condition['blocker_top_m']-.14
     weld=''.join(f'<weld name="suction_{n}" body1="tool" body2="parcel_{n}" active="false" solref=".008 1" torquescale=".02"/>' for n in ['a','b','u'])
     return f'''<mujoco model="pickloop_scara">
  <compiler angle="radian"/>
@@ -67,7 +74,7 @@ def scene_xml(seed):
   <geom name="bin_left" type="box" pos=".271 .22 .095" size=".004 .085 .035" rgba=".13 .41 .52 1"/>
   <geom name="bin_right" type="box" pos=".489 .22 .095" size=".004 .085 .035" rgba=".13 .41 .52 1"/>
   <geom name="bin_front" type="box" pos=".38 .131 .095" size=".115 .004 .035" rgba=".13 .41 .52 1"/>
-  <geom name="blocker" type="box" pos=".37 .015 -.5" size=".09 .045 .14" rgba=".80 .50 .12 1"/>
+  <geom name="blocker" type="box" pos=".37 .015 {blocker_z}" size=".09 .045 .14" rgba=".80 .50 .12 1"/>
   {''.join(objects)}
  </worldbody>
  <actuator>
@@ -82,9 +89,10 @@ def scene_xml(seed):
 
 
 class Cell:
-    def __init__(self,seed=0,fault='normal',run_id=None):
+    def __init__(self,seed=0,fault='normal',run_id=None,condition=None):
         self.seed=seed; self.fault=fault; self.run_id=run_id or uuid.uuid4().hex[:12]
-        self.model=mujoco.MjModel.from_xml_string(scene_xml(seed)); self.data=mujoco.MjData(self.model)
+        self.condition=None if condition is None else copy_condition(condition,seed,fault)
+        self.model=mujoco.MjModel.from_xml_string(scene_xml(seed,self.condition)); self.data=mujoco.MjData(self.model)
         self.data.qpos[:4]=scara_ik([.19,-.32,.34]); self.data.ctrl[:]=self.data.qpos[:4]
         self.tcp_id=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_SITE,'tcp')
         self.tool_id=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_BODY,'tool')
@@ -111,7 +119,7 @@ class Cell:
         self.calibration={'kind':'fixed_camera_extrinsic_PnP','rms_px':self.calibration_rms_px,'K':self.K.tolist(),'T_base_camera':self.T_base_camera.tolist(),'image_points':np.array(centers).tolist(),'base_points':FIDUCIALS.tolist()}
         if fault=='path_blocked':
             idx=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_GEOM,'blocker')
-            self.model.geom_pos[idx,2]=.20
+            self.model.geom_pos[idx,2]=.20 if self.condition is None else self.condition['blocker_top_m']-.14
             mujoco.mj_forward(self.model,self.data)
 
     def __enter__(self): return self
@@ -138,18 +146,28 @@ class Cell:
         self._obs_count+=1
         rgb,depth=self._render_sensor()
         T=self.T_base_camera.copy()
-        if self.attempt==1:
-            # Faults belong to the sensor emulator and use predeclared image regions.
-            if self.fault=='occlusion':
-                rgb[260:385,175:275]=75; depth[260:385,175:275]=1.11
-            if self.fault=='depth_missing':
-                depth[260:385,175:275]=np.nan
-            if self.fault=='calibration_error':
-                T[0,3]+=.028
-        if self.fault=='unknown':
-            # Orders request an unregistered SKU; no manipulation truth is changed.
-            pass
-        obs_time=self.sim_time-.8 if self.fault=='stale_observation' and self.attempt==1 else self.sim_time
+        obs_time=self.sim_time
+        if self.condition is None:
+            # Legacy replay path; explicit experiment conditions below do not use attempts.
+            if self.attempt==1:
+                if self.fault=='occlusion':
+                    rgb[260:385,175:275]=75; depth[260:385,175:275]=1.11
+                if self.fault=='depth_missing':depth[260:385,175:275]=np.nan
+                if self.fault=='calibration_error':T[0,3]+=.028
+                if self.fault=='stale_observation':obs_time-=.8
+        else:
+            sensor=self.condition['sensor']
+            T[:3,3]+=np.asarray(sensor['persistent_bias_xyz_m'])
+            tick=int(np.floor((self.sim_time+1e-9)/sensor['noise_quantum_s']))
+            rng=np.random.default_rng(np.random.SeedSequence([sensor['noise_seed'],tick]))
+            depth+=rng.normal(0.,sensor['depth_noise_std_m'],depth.shape).astype(depth.dtype)
+            if in_window(self.sim_time,[0.,sensor['release_s']]):
+                x0,y0,x1,y1=sensor['region_xyxy_px']
+                if self.fault=='occlusion':
+                    rgb[y0:y1,x0:x1]=75; depth[y0:y1,x0:x1]=1.11
+                if self.fault=='depth_missing':depth[y0:y1,x0:x1]=np.nan
+                if self.fault=='calibration_error':T[:3,3]+=np.asarray(sensor['transient_bias_xyz_m'])
+                if self.fault=='stale_observation':obs_time-=sensor['stale_age_s']
         return Observation(self.run_id,f'{self.run_id}-obs-{self._obs_count:04}',obs_time,time.monotonic_ns(),rgb,depth,self.K.copy(),T,self.calibration_id)
 
     def render_scene(self):
@@ -173,29 +191,37 @@ class Cell:
     def _vacuum_physics(self):
         if not self.valve:
             self.pressure_kpa=0.; return
+        suction=None if self.condition is None else self.condition['suction']
+        supply_outage=suction is not None and (suction['permanent_outage'] or any(in_window(self.sim_time,w) for w in suction['outage_windows_s']))
         if self.attached is not None:
-            if self.fault=='drop' and not self._drop_used and self.tcp[2]>.25 and self.tcp[1]>-.08:
+            if supply_outage:
+                self._release(drop=True); self.pressure_kpa=-6.; return
+            if self.condition is None and self.fault=='drop' and not self._drop_used and self.tcp[2]>.25 and self.tcp[1]>-.08:
                 self._drop_used=True; self._release(drop=True); return
             # 55 kPa, 12 mm cup -> ~24.9 N; explicit wrench limit.
             eq_index=np.where(self.data.efc_type==mujoco.mjtConstraint.mjCNSTR_EQUALITY)[0]
-            if len(eq_index) and np.max(np.abs(self.data.efc_force[eq_index]))>26:
+            if len(eq_index) and np.max(np.abs(self.data.efc_force[eq_index]))>(26 if suction is None else suction['wrench_limit_n']):
                 self._release(drop=True); return
-            self.pressure_kpa=-55.; return
+            self.pressure_kpa=-55. if suction is None else suction['sealed_pressure_kpa']; return
         self.pressure_kpa=-6.
-        if self.fault=='suction_permanent' or (self.fault=='suction_once' and self.attempt==1): return
-        if self._drop_used and self.attempt==1: return
+        if supply_outage:return
+        if self.condition is None:
+            if self.fault=='suction_permanent' or (self.fault=='suction_once' and self.attempt==1): return
+            if self._drop_used and self.attempt==1: return
+        seal_halfwidth=[.020,.014] if suction is None else suction['seal_halfwidth_m']
+        seal_z=.0045 if suction is None else suction['seal_z_tolerance_m']
         tcp=self.tcp
         for index,body in enumerate(self.object_bodies):
             R=self.data.xmat[body].reshape(3,3)
             local=R.T@(tcp-self.data.xpos[body])
             # seal entirely inside flat top and normal aligned within 12 degrees
-            if abs(local[0])<.020 and abs(local[1])<.014 and abs(local[2]-.025)<.0045 and R[2,2]>.978:
+            if abs(local[0])<seal_halfwidth[0] and abs(local[1])<seal_halfwidth[1] and abs(local[2]-.025)<seal_z and R[2,2]>.978:
                 invq=np.empty(4); mujoco.mju_negQuat(invq,self.data.xquat[self.tool_id])
                 pos=np.empty(3); quat=np.empty(4)
                 mujoco.mju_rotVecQuat(pos,self.data.xpos[body]-self.data.xpos[self.tool_id],invq)
                 mujoco.mju_mulQuat(quat,invq,self.data.xquat[body])
                 self.model.eq_data[index,3:6]=pos; self.model.eq_data[index,6:10]=quat
-                self.data.eq_active[index]=True; self.attached=index; self.attach_time=self.sim_time; self.pressure_kpa=-55.
+                self.data.eq_active[index]=True; self.attached=index; self.attach_time=self.sim_time; self.pressure_kpa=-55. if suction is None else suction['sealed_pressure_kpa']
                 break
 
     def step(self):

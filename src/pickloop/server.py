@@ -21,7 +21,7 @@ from .journal import JobStore
 class JobRequest(BaseModel):
     seed:int=Field(default=7,ge=0,le=2**31-1,strict=True)
     fault:Literal['normal','occlusion','depth_missing','calibration_error','suction_once','communication_delay','drop','path_blocked','suction_permanent','unknown','stale_observation','connection_loss']='normal'
-    policy:Literal['baseline','recovery']='recovery'
+    policy:Literal['baseline','naive','reobserve','recovery']='recovery'
     sku:Literal['SKU-RED-A','SKU-RED-B','UNREGISTERED']='SKU-RED-A'
     job_id:str|None=Field(default=None,pattern=r'^[A-Za-z0-9_-]{1,100}$')
 
