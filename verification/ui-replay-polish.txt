@@ -1,0 +1,39 @@
+ok 1 - HTML is Korean and references actual local assets
+ok 2 - every script ID reference has a unique HTML element
+ok 3 - static view cannot start or cancel live compute
+ok 4 - all visible controls have handlers or native behavior
+ok 5 - missing run payload fields normalize to honest empty arrays
+ok 6 - frames are sorted and invalid timestamps rejected
+ok 7 - frame paths resolve against run manifest, including nested hosting
+ok 8 - playback floors timestamps and clamps outside recording
+ok 9 - event seek prioritizes exact log binding over shared observation
+ok 10 - terminal and retry outcomes derive from data
+ok 11 - failure summary preserves stage and actual reason
+ok 12 - image failure and empty frames have explicit UI states
+ok 13 - layout supports desktop and narrow screens without simulated robot graphics
+ok 14 - HELD retains successful STATE_OK phase history and separates failure from retry exhaustion
+ok 15 - comparison uses shared elapsed simulation time and freezes a shorter completed recording
+ok 16 - pairing excludes different seeds and distinct catalog condition IDs
+ok 17 - milestone jumps only exist for actual failure, retry start, or verified placement events
+ok 18 - diagnostic score is not probability and UNKNOWN explains registration rejection
+ok 19 - pressure domain always includes real seal threshold -35 kPa
+ok 20 - review controls expose synchronized comparison, provenance details and real jump handlers
+ok 21 - same-time STATE_OK is hidden beyond the frame log-event boundary
+ok 22 - terminal valve policy is hidden before terminal even at identical simulation time
+ok 23 - narrative translates known causes and reports the actual placement attempt
+ok 24 - exhausted hold reports all failed attempts and the recorded valve decision
+ok 25 - runtime initializes actual naive/recovery comparison and nested run-relative image URLs
+ok 26 - runtime scrubbing shares elapsed clock while short policy freezes final frame
+ok 27 - runtime failure jump selects the exact bound frame
+ok 28 - terminal output policy is not shown on the initial replay frame
+ok 29 - runtime terminal HELD keeps prior STATE_OK and distinguishes exhaustion and output policy
+ok 30 - runtime metric intervals use seed clusters and show paired denominators
+ok 31 - comparison policy change clears stale frames and disables playback while loading
+ok 32 - comparison policy change loads the selected real baseline recording
+ok 33 - compact IDs keep full values in titles and raw details
+ok 34 - interrupted recovery does not claim a subsequent attempt was executed
+ok 35 - carried-payload recovery describes replanning without claiming reobservation
+ok 36 - mismatch table contains both source records and resets when compare selection changes
+ok 37 - score help and confidence intervals start in closed native disclosures
+
+37 UI contract checks passed.
