@@ -26,3 +26,17 @@ jobs:
         with:
           name: ci-raw-run
           path: runs/ci
+  codespaces-lab:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run the first exercise in the Codespaces configuration
+        uses: devcontainers/ci@v0.3
+        with:
+          push: never
+          runCmd: |
+            python -c "import fastapi, pickloop"
+            python lab.py run my-before
+            python -c "import json; assert len(json.load(open('my-before/summary.json'))) == 5"
