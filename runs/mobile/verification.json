@@ -1,0 +1,59 @@
+[
+  {
+    "mission_id": "normal-seed-0-final",
+    "status": "COMPLETED",
+    "reason": null,
+    "raw_metrics_match": true,
+    "raw_sha256_match": true,
+    "picker_invocations": 1,
+    "source_sha256": "ad29703e37aa44659e3e7fec096453c8fc6fe063f13800de8d5d8badaaa5c5c3",
+    "metrics": {
+      "sample_count": 983,
+      "distance_m": 9.611033221572864,
+      "localization_rmse_m": 0.007224548957456908,
+      "max_wheel_speed_m_s": 0.4315668276645247,
+      "max_wheel_acceleration_m_s2": 0.8000000000000007,
+      "collision_count": 0,
+      "sim_duration_s": 55.85,
+      "zone_max_simultaneous_occupants": 1
+    }
+  },
+  {
+    "mission_id": "blocked-seed-1-final",
+    "status": "HELD",
+    "reason": "NO_PATH",
+    "raw_metrics_match": true,
+    "raw_sha256_match": true,
+    "picker_invocations": 0,
+    "source_sha256": "ad29703e37aa44659e3e7fec096453c8fc6fe063f13800de8d5d8badaaa5c5c3",
+    "metrics": {
+      "sample_count": 0,
+      "distance_m": 0.0,
+      "localization_rmse_m": null,
+      "max_wheel_speed_m_s": 0.0,
+      "max_wheel_acceleration_m_s2": 0.0,
+      "collision_count": 0,
+      "sim_duration_s": 0.0,
+      "zone_max_simultaneous_occupants": 0
+    }
+  },
+  {
+    "mission_id": "contention-seed-2-final",
+    "status": "HELD",
+    "reason": "ZONE_WAIT_TIMEOUT",
+    "raw_metrics_match": true,
+    "raw_sha256_match": true,
+    "picker_invocations": 0,
+    "source_sha256": "ad29703e37aa44659e3e7fec096453c8fc6fe063f13800de8d5d8badaaa5c5c3",
+    "metrics": {
+      "sample_count": 125,
+      "distance_m": 0.0,
+      "localization_rmse_m": 0.008552838084165636,
+      "max_wheel_speed_m_s": 0.0,
+      "max_wheel_acceleration_m_s2": 0.0,
+      "collision_count": 0,
+      "sim_duration_s": 5.0,
+      "zone_max_simultaneous_occupants": 1
+    }
+  }
+]

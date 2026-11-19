@@ -1,0 +1,37 @@
+{
+  "source_revision": "a686517067b889a3e25e2cbcedd069828e1b9641",
+  "files": {
+    "PCB-경험-정리.md": {
+      "bytes": 1842,
+      "sha256": "7a9350e377b37bf50d226183a8f1d5a8a233c39025f4f5ad943e3c1cceba83f2"
+    },
+    "PickLoop-소스와-실행증거.zip": {
+      "bytes": 20925699,
+      "sha256": "c13a8d4332c6cbfdda0cf150279ea8f6d6b6c0f9a412c959bd144caa2b9ca25f"
+    },
+    "PickLoop-실행-데모.mp4": {
+      "bytes": 1120033,
+      "sha256": "4b306997443d4b350b3118f834c5fc3a3227ada38fd42f16979dafb41bbd3da8"
+    },
+    "PickLoop-실행-장면.png": {
+      "bytes": 315343,
+      "sha256": "2ebaf341754970c0e767823baa3112f87847c024cf075afea4cc3da4b4c31ad2"
+    },
+    "검증-결과.md": {
+      "bytes": 7853,
+      "sha256": "a4e5875d49e215a20b83b07934915d9108ee12d108e67d5252443ec5fa0f0be2"
+    },
+    "공고-대응표.md": {
+      "bytes": 15317,
+      "sha256": "3258fa827e77a6b8623f8f1c0c5957505ceadbd2b5681258c735382776d19901"
+    },
+    "비교-지표.json": {
+      "bytes": 636181,
+      "sha256": "9e76dbd92700291fcf6f3c3c060425c97d83957cfcbae9a997d23ce94b7a890f"
+    },
+    "원본-실행목록.csv": {
+      "bytes": 93241,
+      "sha256": "95c3b4148d3fbd8f493d9699b581c65af933df8f3180f8000c5fe5288f9fc6df"
+    }
+  }
+}

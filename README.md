@@ -10,6 +10,16 @@ PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU �
 - [과거 120회 결과](runs/final/summary.md) · [과거 집계 JSON](runs/final/metrics.json) · [과거 trial CSV](runs/final/trials.csv): 1회 기준/3회 복구 비교이며 복구 판단의 단독 효과를 증명하지 않는다.
 - [학습·변환 평가](docs/vision-model.md) · [ROS2 실제 통신](docs/ros2-integration.md) · [모바일 확장](docs/mobile-extension.md)
 
+## Mac에서도 브라우저로 실습하기
+
+[GitHub Codespaces에서 PickLoop 열기](https://codespaces.new/sokldjs554/pickloop?ref=main)를 선택하세요. 처음 시작하면 Python과 시뮬레이션 패키지를 설치합니다. 준비가 끝나면 브라우저 터미널에서 아래 명령을 실행하세요.
+
+```bash
+python lab.py run my-before
+```
+
+마지막에 `기록 my-before/summary.json`이 출력되면 다섯 작업이 끝났습니다. [직접 실습 안내](docs/practice.md)를 따라 운반 높이 규칙 한 곳을 수정하고, 같은 조건에서 전후 로그를 비교하세요. 자신의 가설과 판단은 [기록지](RECORD.md)에 남길 수 있습니다.
+
 ## 설치와 첫 실행
 
 검증 환경: Linux x86_64, Python3.12, MuJoCo3.3.7, PyTorch2.7.1 CPU, EGL/Mesa 소프트웨어 렌더링, g++. 실물 로봇이나 GPU는 필요 없다. Linux와 다른 OS의 EGL/소켓/파일 잠금 호환성은 확인하지 않았다.

@@ -1,0 +1,2220 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-17T16:15:56.674646+00:00",
+  "aggregate": {
+    "baseline": {
+      "n": 60,
+      "completed": 10,
+      "completion_rate": 0.16666666666666666,
+      "completion_wilson95": [
+        0.09313077201321032,
+        0.28031851497207827
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 50,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 5,
+      "collisions": 0,
+      "held": 50,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 0.7272727272727273,
+      "position_error_mean_m": 0.004513285191776266,
+      "position_error_max_m": 0.028815991635239846,
+      "mean_sim_s": 5.372500000000106,
+      "mean_wall_s": 0.7568425033000116,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 322.3500000000064,
+      "total_wall_s": 45.41055019800069,
+      "throughput_per_sim_hour": 111.67985109352966,
+      "throughput_per_wall_hour": 792.7673160318808,
+      "completion_rate_seed_std": 0.0
+    },
+    "recovery": {
+      "n": 60,
+      "completed": 50,
+      "completion_rate": 0.8333333333333334,
+      "completion_wilson95": [
+        0.7196814850279217,
+        0.9068692279867897
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 50,
+      "recovered": 40,
+      "recovery_rate": 0.8,
+      "wrong_placements": 0,
+      "drops": 5,
+      "collisions": 0,
+      "held": 10,
+      "retries": 60,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.003586956444220934,
+      "position_error_max_m": 0.028815991635239846,
+      "mean_sim_s": 20.722416666666422,
+      "mean_wall_s": 2.0992138119500243,
+      "mean_recovery_sim_s": 18.951899999999576,
+      "total_sim_s": 1243.3449999999852,
+      "total_wall_s": 125.95282871700147,
+      "throughput_per_sim_hour": 144.77075952370592,
+      "throughput_per_wall_hour": 1429.1064506731725,
+      "completion_rate_seed_std": 0.0
+    }
+  },
+  "conditions": [
+    {
+      "fault": "calibration_error",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.02828905493732558,
+      "position_error_max_m": 0.028815991635239846,
+      "mean_sim_s": 4.081999999999924,
+      "mean_wall_s": 0.6025789174000238,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 20.409999999999624,
+      "total_wall_s": 3.012894587000119,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "calibration_error",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.02828905493732558,
+      "position_error_max_m": 0.028815991635239846,
+      "mean_sim_s": 27.291999999998758,
+      "mean_wall_s": 2.5932137081999826,
+      "mean_recovery_sim_s": 23.65999999999882,
+      "total_sim_s": 136.45999999999378,
+      "total_wall_s": 12.966068540999913,
+      "throughput_per_sim_hour": 131.90678587132362,
+      "throughput_per_wall_hour": 1388.2388438008275
+    },
+    {
+      "fault": "communication_delay",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 3.779999999999931,
+      "mean_wall_s": 0.6943177983999703,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 18.899999999999654,
+      "total_wall_s": 3.4715889919998517,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "communication_delay",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 26.886999999998835,
+      "mean_wall_s": 2.7705563742000776,
+      "mean_recovery_sim_s": 23.556999999998897,
+      "total_sim_s": 134.43499999999418,
+      "total_wall_s": 13.852781871000388,
+      "throughput_per_sim_hour": 133.89370327668226,
+      "throughput_per_wall_hour": 1299.3779998573036
+    },
+    {
+      "fault": "connection_loss",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 1.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 0,
+      "recovered": 0,
+      "recovery_rate": null,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 16.55700000000089,
+      "mean_wall_s": 1.5951991931997327,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 82.78500000000446,
+      "total_wall_s": 7.9759959659986635,
+      "throughput_per_sim_hour": 217.43069396628653,
+      "throughput_per_wall_hour": 2256.7714523343852
+    },
+    {
+      "fault": "connection_loss",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 1.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 0,
+      "recovered": 0,
+      "recovery_rate": null,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 16.55700000000089,
+      "mean_wall_s": 1.6732084803998077,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 82.78500000000446,
+      "total_wall_s": 8.366042401999039,
+      "throughput_per_sim_hour": 217.43069396628653,
+      "throughput_per_wall_hour": 2151.554956941045
+    },
+    {
+      "fault": "depth_missing",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": null,
+      "known_task_selection_rate": 0.0,
+      "position_error_mean_m": null,
+      "position_error_max_m": null,
+      "mean_sim_s": 0.45000000000000034,
+      "mean_wall_s": 0.3421994715999972,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 2.2500000000000018,
+      "total_wall_s": 1.710997357999986,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "depth_missing",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 20.247000000000156,
+      "mean_wall_s": 2.082310802199936,
+      "mean_recovery_sim_s": 20.247000000000156,
+      "total_sim_s": 101.23500000000078,
+      "total_wall_s": 10.41155401099968,
+      "throughput_per_sim_hour": 177.80411912875846,
+      "throughput_per_wall_hour": 1728.8485447017054
+    },
+    {
+      "fault": "drop",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 5,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 7.8189999999999005,
+      "mean_wall_s": 1.1487527396000587,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 39.0949999999995,
+      "total_wall_s": 5.7437636980002935,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "drop",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 5,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 31.105999999997994,
+      "mean_wall_s": 3.1795781744001035,
+      "mean_recovery_sim_s": 24.556999999998126,
+      "total_sim_s": 155.52999999998997,
+      "total_wall_s": 15.897890872000517,
+      "throughput_per_sim_hour": 115.73329904199294,
+      "throughput_per_wall_hour": 1132.2256609335352
+    },
+    {
+      "fault": "normal",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 1.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 0,
+      "recovered": 0,
+      "recovery_rate": null,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 16.55700000000089,
+      "mean_wall_s": 1.9720217018000767,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 82.78500000000446,
+      "total_wall_s": 9.860108509000383,
+      "throughput_per_sim_hour": 217.43069396628653,
+      "throughput_per_wall_hour": 1825.5377193435002
+    },
+    {
+      "fault": "normal",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 1.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 0,
+      "recovered": 0,
+      "recovery_rate": null,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 16.55700000000089,
+      "mean_wall_s": 1.9417336027999226,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 82.78500000000446,
+      "total_wall_s": 9.708668013999613,
+      "throughput_per_sim_hour": 217.43069396628653,
+      "throughput_per_wall_hour": 1854.0133388065726
+    },
+    {
+      "fault": "occlusion",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": null,
+      "known_task_selection_rate": 0.0,
+      "position_error_mean_m": null,
+      "position_error_max_m": null,
+      "mean_sim_s": 0.45000000000000034,
+      "mean_wall_s": 0.30490186320002977,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 2.2500000000000018,
+      "total_wall_s": 1.5245093160001488,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "occlusion",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 20.247000000000156,
+      "mean_wall_s": 2.1328317790000257,
+      "mean_recovery_sim_s": 20.247000000000156,
+      "total_sim_s": 101.23500000000078,
+      "total_wall_s": 10.664158895000128,
+      "throughput_per_sim_hour": 177.80411912875846,
+      "throughput_per_wall_hour": 1687.8968306107356
+    },
+    {
+      "fault": "path_blocked",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.001116747892444244,
+      "position_error_max_m": 0.0013642076950794871,
+      "mean_sim_s": 5.9149999999998855,
+      "mean_wall_s": 0.7356362826000804,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 29.574999999999427,
+      "total_wall_s": 3.6781814130004022,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "path_blocked",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 1.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.001116747892444244,
+      "position_error_max_m": 0.0013642076950794871,
+      "mean_sim_s": 19.69200000000027,
+      "mean_wall_s": 1.9323677672001396,
+      "mean_recovery_sim_s": 14.227000000000372,
+      "total_sim_s": 98.46000000000134,
+      "total_wall_s": 9.661838836000697,
+      "throughput_per_sim_hour": 182.81535648994267,
+      "throughput_per_wall_hour": 1862.9994047231178
+    },
+    {
+      "fault": "stale_observation",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": null,
+      "known_task_selection_rate": 0.0,
+      "position_error_mean_m": null,
+      "position_error_max_m": null,
+      "mean_sim_s": 0.45000000000000034,
+      "mean_wall_s": 0.23890160480004852,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 2.2500000000000018,
+      "total_wall_s": 1.1945080240002426,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "stale_observation",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 20.247000000000156,
+      "mean_wall_s": 1.9068404864001423,
+      "mean_recovery_sim_s": 20.247000000000156,
+      "total_sim_s": 101.23500000000078,
+      "total_wall_s": 9.534202432000711,
+      "throughput_per_sim_hour": 177.80411912875846,
+      "throughput_per_wall_hour": 1887.939775600378
+    },
+    {
+      "fault": "suction_once",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 3.9799999999999267,
+      "mean_wall_s": 0.60101564100014,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 19.899999999999633,
+      "total_wall_s": 3.0050782050007,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "suction_once",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 5,
+      "completion_rate": 1.0,
+      "completion_wilson95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 5,
+      "recovery_rate": 1.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 0,
+      "retries": 5,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 27.086999999998795,
+      "mean_wall_s": 2.511022819200025,
+      "mean_recovery_sim_s": 23.55699999999886,
+      "total_sim_s": 135.43499999999398,
+      "total_wall_s": 12.555114096000125,
+      "throughput_per_sim_hour": 132.90508361945436,
+      "throughput_per_wall_hour": 1433.678727438609
+    },
+    {
+      "fault": "suction_permanent",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 3.9799999999999267,
+      "mean_wall_s": 0.5375492194000799,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 19.899999999999633,
+      "total_wall_s": 2.6877460970003995,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "suction_permanent",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 10,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0011167464507400502,
+      "position_error_max_m": 0.0013642065606858092,
+      "mean_sim_s": 19.98000000000021,
+      "mean_wall_s": 1.8422155494000436,
+      "mean_recovery_sim_s": 16.450000000000273,
+      "total_sim_s": 99.90000000000106,
+      "total_wall_s": 9.211077747000218,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "unknown",
+      "policy": "baseline",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": null,
+      "known_task_selection_rate": null,
+      "position_error_mean_m": null,
+      "position_error_max_m": null,
+      "mean_sim_s": 0.45000000000000034,
+      "mean_wall_s": 0.30903560659990037,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 2.2500000000000018,
+      "total_wall_s": 1.5451780329995017,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    },
+    {
+      "fault": "unknown",
+      "policy": "recovery",
+      "n": 5,
+      "completed": 0,
+      "completion_rate": 0.0,
+      "completion_wilson95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "first_attempt_success_rate": 0.0,
+      "first_attempt_pick_success_rate": 0.0,
+      "first_attempt_failures": 5,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": 5,
+      "retries": 10,
+      "timeouts": 0,
+      "selection_precision": null,
+      "known_task_selection_rate": null,
+      "position_error_mean_m": null,
+      "position_error_max_m": null,
+      "mean_sim_s": 2.769999999999952,
+      "mean_wall_s": 0.6246862000000875,
+      "mean_recovery_sim_s": 2.769999999999952,
+      "total_sim_s": 13.84999999999976,
+      "total_wall_s": 3.123431000000437,
+      "throughput_per_sim_hour": 0.0,
+      "throughput_per_wall_hour": 0.0
+    }
+  ],
+  "seeds": [
+    {
+      "seed": 1000,
+      "policy": "baseline",
+      "n": 12,
+      "completed": 2,
+      "completion_rate": 0.16666666666666666,
+      "completion_wilson95": [
+        0.04696414761482223,
+        0.44803635738467273
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 10,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 0.7272727272727273,
+      "position_error_mean_m": 0.0046910054683586095,
+      "position_error_max_m": 0.028815991635239846,
+      "mean_sim_s": 5.388750000000107,
+      "mean_wall_s": 0.8123735411666454,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 64.66500000000129,
+      "total_wall_s": 9.748482493999745,
+      "throughput_per_sim_hour": 111.34307585246822,
+      "throughput_per_wall_hour": 738.5764917187519
+    },
+    {
+      "seed": 1000,
+      "policy": "recovery",
+      "n": 12,
+      "completed": 10,
+      "completion_rate": 0.8333333333333334,
+      "completion_wilson95": [
+        0.5519636426153274,
+        0.9530358523851776
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 8,
+      "recovery_rate": 0.8,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 2,
+      "retries": 12,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0037510708931910094,
+      "position_error_max_m": 0.028815991635239846,
+      "mean_sim_s": 20.745833333333085,
+      "mean_wall_s": 2.1550353016667336,
+      "mean_recovery_sim_s": 18.95899999999957,
+      "total_sim_s": 248.949999999997,
+      "total_wall_s": 25.8604236200008,
+      "throughput_per_sim_hour": 144.60735087367115,
+      "throughput_per_wall_hour": 1392.088564711566
+    },
+    {
+      "seed": 1001,
+      "policy": "baseline",
+      "n": 12,
+      "completed": 2,
+      "completion_rate": 0.16666666666666666,
+      "completion_wilson95": [
+        0.04696414761482223,
+        0.44803635738467273
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 10,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 0.7272727272727273,
+      "position_error_mean_m": 0.004723873112462748,
+      "position_error_max_m": 0.028719691285395314,
+      "mean_sim_s": 5.386666666666773,
+      "mean_wall_s": 0.7253869197500459,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 64.64000000000128,
+      "total_wall_s": 8.704643037000551,
+      "throughput_per_sim_hour": 111.38613861385919,
+      "throughput_per_wall_hour": 827.144774276807
+    },
+    {
+      "seed": 1001,
+      "policy": "recovery",
+      "n": 12,
+      "completed": 10,
+      "completion_rate": 0.8333333333333334,
+      "completion_wilson95": [
+        0.5519636426153274,
+        0.9530358523851776
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 8,
+      "recovery_rate": 0.8,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 2,
+      "retries": 12,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0037889710592086245,
+      "position_error_max_m": 0.028719691285395314,
+      "mean_sim_s": 20.75124999999975,
+      "mean_wall_s": 2.1221258438333734,
+      "mean_recovery_sim_s": 18.96999999999957,
+      "total_sim_s": 249.014999999997,
+      "total_wall_s": 25.46551012600048,
+      "throughput_per_sim_hour": 144.56960424071013,
+      "throughput_per_wall_hour": 1413.676766021024
+    },
+    {
+      "seed": 1002,
+      "policy": "baseline",
+      "n": 12,
+      "completed": 2,
+      "completion_rate": 0.16666666666666666,
+      "completion_wilson95": [
+        0.04696414761482223,
+        0.44803635738467273
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 10,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 0.7272727272727273,
+      "position_error_mean_m": 0.0047049268804180335,
+      "position_error_max_m": 0.02808996798414993,
+      "mean_sim_s": 5.374166666666773,
+      "mean_wall_s": 0.8158572798332671,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 64.49000000000127,
+      "total_wall_s": 9.790287357999205,
+      "throughput_per_sim_hour": 111.6452163126044,
+      "throughput_per_wall_hour": 735.422744677377
+    },
+    {
+      "seed": 1002,
+      "policy": "recovery",
+      "n": 12,
+      "completed": 10,
+      "completion_rate": 0.8333333333333334,
+      "completion_wilson95": [
+        0.5519636426153274,
+        0.9530358523851776
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 8,
+      "recovery_rate": 0.8,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 2,
+      "retries": 12,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.0037938213386728816,
+      "position_error_max_m": 0.02808996798414993,
+      "mean_sim_s": 20.723749999999757,
+      "mean_wall_s": 2.102631687249944,
+      "mean_recovery_sim_s": 18.950999999999578,
+      "total_sim_s": 248.68499999999707,
+      "total_wall_s": 25.23158024699933,
+      "throughput_per_sim_hour": 144.76144520176297,
+      "throughput_per_wall_hour": 1426.7834058582719
+    },
+    {
+      "seed": 1003,
+      "policy": "baseline",
+      "n": 12,
+      "completed": 2,
+      "completion_rate": 0.16666666666666666,
+      "completion_wilson95": [
+        0.04696414761482223,
+        0.44803635738467273
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 10,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 0.7272727272727273,
+      "position_error_mean_m": 0.004198055580402358,
+      "position_error_max_m": 0.02770528879161211,
+      "mean_sim_s": 5.363750000000106,
+      "mean_wall_s": 0.7364017710000704,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 64.36500000000127,
+      "total_wall_s": 8.836821252000846,
+      "throughput_per_sim_hour": 111.86203682125158,
+      "throughput_per_wall_hour": 814.7726195513761
+    },
+    {
+      "seed": 1003,
+      "policy": "recovery",
+      "n": 12,
+      "completed": 10,
+      "completion_rate": 0.8333333333333334,
+      "completion_wilson95": [
+        0.5519636426153274,
+        0.9530358523851776
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 8,
+      "recovery_rate": 0.8,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 2,
+      "retries": 12,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.003282189280472293,
+      "position_error_max_m": 0.02770528879161211,
+      "mean_sim_s": 20.70833333333309,
+      "mean_wall_s": 2.060596796000027,
+      "mean_recovery_sim_s": 18.945999999999582,
+      "total_sim_s": 248.4999999999971,
+      "total_wall_s": 24.727161552000325,
+      "throughput_per_sim_hour": 144.8692152917522,
+      "throughput_per_wall_hour": 1455.8888987032865
+    },
+    {
+      "seed": 1004,
+      "policy": "baseline",
+      "n": 12,
+      "completed": 2,
+      "completion_rate": 0.16666666666666666,
+      "completion_wilson95": [
+        0.04696414761482223,
+        0.44803635738467273
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 10,
+      "retries": 0,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 0.7272727272727273,
+      "position_error_mean_m": 0.0042485649172395775,
+      "position_error_max_m": 0.028114334990230694,
+      "mean_sim_s": 5.349166666666773,
+      "mean_wall_s": 0.6941930047500288,
+      "mean_recovery_sim_s": null,
+      "total_sim_s": 64.19000000000128,
+      "total_wall_s": 8.330316057000346,
+      "throughput_per_sim_hour": 112.16700420626043,
+      "throughput_per_wall_hour": 864.3129445190151
+    },
+    {
+      "seed": 1004,
+      "policy": "recovery",
+      "n": 12,
+      "completed": 10,
+      "completion_rate": 0.8333333333333334,
+      "completion_wilson95": [
+        0.5519636426153274,
+        0.9530358523851776
+      ],
+      "first_attempt_success_rate": 0.16666666666666666,
+      "first_attempt_pick_success_rate": 0.3333333333333333,
+      "first_attempt_failures": 10,
+      "recovered": 8,
+      "recovery_rate": 0.8,
+      "wrong_placements": 0,
+      "drops": 1,
+      "collisions": 0,
+      "held": 2,
+      "retries": 12,
+      "timeouts": 0,
+      "selection_precision": 1.0,
+      "known_task_selection_rate": 1.0,
+      "position_error_mean_m": 0.003318729649559861,
+      "position_error_max_m": 0.028114334990230694,
+      "mean_sim_s": 20.68291666666643,
+      "mean_wall_s": 2.055679431000044,
+      "mean_recovery_sim_s": 18.933499999999587,
+      "total_sim_s": 248.19499999999715,
+      "total_wall_s": 24.66815317200053,
+      "throughput_per_sim_hour": 145.0472410806036,
+      "throughput_per_wall_hour": 1459.3715122890362
+    }
+  ],
+  "pairs": [
+    {
+      "seed": 1000,
+      "fault": "calibration_error",
+      "baseline_run": "calibration_error-1000-baseline-0e6612",
+      "recovery_run": "calibration_error-1000-recovery-ecda52",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.234999999998816
+    },
+    {
+      "seed": 1000,
+      "fault": "communication_delay",
+      "baseline_run": "communication_delay-1000-baseline-ba4498",
+      "recovery_run": "communication_delay-1000-recovery-c5ca97",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.13499999999889
+    },
+    {
+      "seed": 1000,
+      "fault": "connection_loss",
+      "baseline_run": "connection_loss-1000-baseline-c51e21",
+      "recovery_run": "connection_loss-1000-recovery-a410a4",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1000,
+      "fault": "depth_missing",
+      "baseline_run": "depth_missing-1000-baseline-9f0e0a",
+      "recovery_run": "depth_missing-1000-recovery-a3dfea",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.765000000000164
+    },
+    {
+      "seed": 1000,
+      "fault": "drop",
+      "baseline_run": "drop-1000-baseline-80431b",
+      "recovery_run": "drop-1000-recovery-94f063",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.23999999999812
+    },
+    {
+      "seed": 1000,
+      "fault": "normal",
+      "baseline_run": "normal-1000-baseline-fd8d18",
+      "recovery_run": "normal-1000-recovery-a6081e",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1000,
+      "fault": "occlusion",
+      "baseline_run": "occlusion-1000-baseline-e02292",
+      "recovery_run": "occlusion-1000-recovery-43c409",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.765000000000164
+    },
+    {
+      "seed": 1000,
+      "fault": "path_blocked",
+      "baseline_run": "path_blocked-1000-baseline-be99b7",
+      "recovery_run": "path_blocked-1000-recovery-637938",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 13.68500000000039
+    },
+    {
+      "seed": 1000,
+      "fault": "stale_observation",
+      "baseline_run": "stale_observation-1000-baseline-2acad6",
+      "recovery_run": "stale_observation-1000-recovery-e55320",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.765000000000164
+    },
+    {
+      "seed": 1000,
+      "fault": "suction_once",
+      "baseline_run": "suction_once-1000-baseline-422134",
+      "recovery_run": "suction_once-1000-recovery-676ee5",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.134999999998854
+    },
+    {
+      "seed": 1000,
+      "fault": "suction_permanent",
+      "baseline_run": "suction_permanent-1000-baseline-08b648",
+      "recovery_run": "suction_permanent-1000-recovery-6bce0c",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 16.240000000000226
+    },
+    {
+      "seed": 1000,
+      "fault": "unknown",
+      "baseline_run": "unknown-1000-baseline-f739bb",
+      "recovery_run": "unknown-1000-recovery-4134f3",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 2.3199999999999514
+    },
+    {
+      "seed": 1001,
+      "fault": "calibration_error",
+      "baseline_run": "calibration_error-1001-baseline-289be1",
+      "recovery_run": "calibration_error-1001-recovery-1f99cf",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.224999999998822
+    },
+    {
+      "seed": 1001,
+      "fault": "communication_delay",
+      "baseline_run": "communication_delay-1001-baseline-84db77",
+      "recovery_run": "communication_delay-1001-recovery-7eb6cd",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.124999999998895
+    },
+    {
+      "seed": 1001,
+      "fault": "connection_loss",
+      "baseline_run": "connection_loss-1001-baseline-359da2",
+      "recovery_run": "connection_loss-1001-recovery-1dd950",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1001,
+      "fault": "depth_missing",
+      "baseline_run": "depth_missing-1001-baseline-7a9c5d",
+      "recovery_run": "depth_missing-1001-recovery-867d9b",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.78000000000016
+    },
+    {
+      "seed": 1001,
+      "fault": "drop",
+      "baseline_run": "drop-1001-baseline-dc6016",
+      "recovery_run": "drop-1001-recovery-a84d1f",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.374999999998067
+    },
+    {
+      "seed": 1001,
+      "fault": "normal",
+      "baseline_run": "normal-1001-baseline-e7f36c",
+      "recovery_run": "normal-1001-recovery-a45bc4",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1001,
+      "fault": "occlusion",
+      "baseline_run": "occlusion-1001-baseline-bd4c61",
+      "recovery_run": "occlusion-1001-recovery-f4252e",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.78000000000016
+    },
+    {
+      "seed": 1001,
+      "fault": "path_blocked",
+      "baseline_run": "path_blocked-1001-baseline-d20e87",
+      "recovery_run": "path_blocked-1001-recovery-231bf3",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 13.725000000000385
+    },
+    {
+      "seed": 1001,
+      "fault": "stale_observation",
+      "baseline_run": "stale_observation-1001-baseline-d58a38",
+      "recovery_run": "stale_observation-1001-recovery-7d78e6",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.78000000000016
+    },
+    {
+      "seed": 1001,
+      "fault": "suction_once",
+      "baseline_run": "suction_once-1001-baseline-fd0efd",
+      "recovery_run": "suction_once-1001-recovery-ad412e",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.12499999999886
+    },
+    {
+      "seed": 1001,
+      "fault": "suction_permanent",
+      "baseline_run": "suction_permanent-1001-baseline-25647f",
+      "recovery_run": "suction_permanent-1001-recovery-ce0292",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 16.14000000000025
+    },
+    {
+      "seed": 1001,
+      "fault": "unknown",
+      "baseline_run": "unknown-1001-baseline-b13b6d",
+      "recovery_run": "unknown-1001-recovery-bc6255",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 2.3199999999999514
+    },
+    {
+      "seed": 1002,
+      "fault": "calibration_error",
+      "baseline_run": "calibration_error-1002-baseline-9fedc6",
+      "recovery_run": "calibration_error-1002-recovery-d75c5f",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.214999999998827
+    },
+    {
+      "seed": 1002,
+      "fault": "communication_delay",
+      "baseline_run": "communication_delay-1002-baseline-27ed05",
+      "recovery_run": "communication_delay-1002-recovery-0fe260",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.1099999999989
+    },
+    {
+      "seed": 1002,
+      "fault": "connection_loss",
+      "baseline_run": "connection_loss-1002-baseline-75d91f",
+      "recovery_run": "connection_loss-1002-recovery-5184ea",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1002,
+      "fault": "depth_missing",
+      "baseline_run": "depth_missing-1002-baseline-3fc005",
+      "recovery_run": "depth_missing-1002-recovery-624fcc",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.79000000000016
+    },
+    {
+      "seed": 1002,
+      "fault": "drop",
+      "baseline_run": "drop-1002-baseline-57f774",
+      "recovery_run": "drop-1002-recovery-dc3237",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.269999999998106
+    },
+    {
+      "seed": 1002,
+      "fault": "normal",
+      "baseline_run": "normal-1002-baseline-25d9bb",
+      "recovery_run": "normal-1002-recovery-8d1e25",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1002,
+      "fault": "occlusion",
+      "baseline_run": "occlusion-1002-baseline-0ac05f",
+      "recovery_run": "occlusion-1002-recovery-ca55a0",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.79000000000016
+    },
+    {
+      "seed": 1002,
+      "fault": "path_blocked",
+      "baseline_run": "path_blocked-1002-baseline-325830",
+      "recovery_run": "path_blocked-1002-recovery-484967",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 13.760000000000383
+    },
+    {
+      "seed": 1002,
+      "fault": "stale_observation",
+      "baseline_run": "stale_observation-1002-baseline-cad207",
+      "recovery_run": "stale_observation-1002-recovery-76980a",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.79000000000016
+    },
+    {
+      "seed": 1002,
+      "fault": "suction_once",
+      "baseline_run": "suction_once-1002-baseline-ebd777",
+      "recovery_run": "suction_once-1002-recovery-297475",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.109999999998866
+    },
+    {
+      "seed": 1002,
+      "fault": "suction_permanent",
+      "baseline_run": "suction_permanent-1002-baseline-016fea",
+      "recovery_run": "suction_permanent-1002-recovery-0bf9ff",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 16.040000000000273
+    },
+    {
+      "seed": 1002,
+      "fault": "unknown",
+      "baseline_run": "unknown-1002-baseline-b8f77d",
+      "recovery_run": "unknown-1002-recovery-a99570",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 2.3199999999999514
+    },
+    {
+      "seed": 1003,
+      "fault": "calibration_error",
+      "baseline_run": "calibration_error-1003-baseline-98bbd9",
+      "recovery_run": "calibration_error-1003-recovery-616a40",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.199999999998838
+    },
+    {
+      "seed": 1003,
+      "fault": "communication_delay",
+      "baseline_run": "communication_delay-1003-baseline-c848cd",
+      "recovery_run": "communication_delay-1003-recovery-14fd2b",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.09499999999891
+    },
+    {
+      "seed": 1003,
+      "fault": "connection_loss",
+      "baseline_run": "connection_loss-1003-baseline-4c6470",
+      "recovery_run": "connection_loss-1003-recovery-31aaf9",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1003,
+      "fault": "depth_missing",
+      "baseline_run": "depth_missing-1003-baseline-09ddca",
+      "recovery_run": "depth_missing-1003-recovery-b2feb6",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.815000000000154
+    },
+    {
+      "seed": 1003,
+      "fault": "drop",
+      "baseline_run": "drop-1003-baseline-234b2c",
+      "recovery_run": "drop-1003-recovery-325a5b",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.274999999998094
+    },
+    {
+      "seed": 1003,
+      "fault": "normal",
+      "baseline_run": "normal-1003-baseline-864613",
+      "recovery_run": "normal-1003-recovery-5d1121",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1003,
+      "fault": "occlusion",
+      "baseline_run": "occlusion-1003-baseline-84d6db",
+      "recovery_run": "occlusion-1003-recovery-4bcd2d",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.815000000000154
+    },
+    {
+      "seed": 1003,
+      "fault": "path_blocked",
+      "baseline_run": "path_blocked-1003-baseline-2a2ee2",
+      "recovery_run": "path_blocked-1003-recovery-676e62",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 13.825000000000378
+    },
+    {
+      "seed": 1003,
+      "fault": "stale_observation",
+      "baseline_run": "stale_observation-1003-baseline-cf339f",
+      "recovery_run": "stale_observation-1003-recovery-7ba962",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.815000000000154
+    },
+    {
+      "seed": 1003,
+      "fault": "suction_once",
+      "baseline_run": "suction_once-1003-baseline-051b04",
+      "recovery_run": "suction_once-1003-recovery-98c536",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.094999999998876
+    },
+    {
+      "seed": 1003,
+      "fault": "suction_permanent",
+      "baseline_run": "suction_permanent-1003-baseline-fd3717",
+      "recovery_run": "suction_permanent-1003-recovery-e4f704",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 15.880000000000313
+    },
+    {
+      "seed": 1003,
+      "fault": "unknown",
+      "baseline_run": "unknown-1003-baseline-4abd6e",
+      "recovery_run": "unknown-1003-recovery-6fe73e",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 2.3199999999999514
+    },
+    {
+      "seed": 1004,
+      "fault": "calibration_error",
+      "baseline_run": "calibration_error-1004-baseline-828fd8",
+      "recovery_run": "calibration_error-1004-recovery-191dce",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.17499999999885
+    },
+    {
+      "seed": 1004,
+      "fault": "communication_delay",
+      "baseline_run": "communication_delay-1004-baseline-a9c053",
+      "recovery_run": "communication_delay-1004-recovery-663aa1",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.069999999998927
+    },
+    {
+      "seed": 1004,
+      "fault": "connection_loss",
+      "baseline_run": "connection_loss-1004-baseline-097c48",
+      "recovery_run": "connection_loss-1004-recovery-6ec620",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1004,
+      "fault": "depth_missing",
+      "baseline_run": "depth_missing-1004-baseline-26913c",
+      "recovery_run": "depth_missing-1004-recovery-6708ec",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.83500000000015
+    },
+    {
+      "seed": 1004,
+      "fault": "drop",
+      "baseline_run": "drop-1004-baseline-ef6c7f",
+      "recovery_run": "drop-1004-recovery-ae3e4c",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.274999999998094
+    },
+    {
+      "seed": 1004,
+      "fault": "normal",
+      "baseline_run": "normal-1004-baseline-1bc48e",
+      "recovery_run": "normal-1004-recovery-d941de",
+      "baseline_success": true,
+      "recovery_success": true,
+      "delta_sim_s": 0.0
+    },
+    {
+      "seed": 1004,
+      "fault": "occlusion",
+      "baseline_run": "occlusion-1004-baseline-3dc3cb",
+      "recovery_run": "occlusion-1004-recovery-3c21ca",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.83500000000015
+    },
+    {
+      "seed": 1004,
+      "fault": "path_blocked",
+      "baseline_run": "path_blocked-1004-baseline-3f54f5",
+      "recovery_run": "path_blocked-1004-recovery-4847ec",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 13.890000000000374
+    },
+    {
+      "seed": 1004,
+      "fault": "stale_observation",
+      "baseline_run": "stale_observation-1004-baseline-c2c5e9",
+      "recovery_run": "stale_observation-1004-recovery-32e303",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 19.83500000000015
+    },
+    {
+      "seed": 1004,
+      "fault": "suction_once",
+      "baseline_run": "suction_once-1004-baseline-93c545",
+      "recovery_run": "suction_once-1004-recovery-b9313d",
+      "baseline_success": false,
+      "recovery_success": true,
+      "delta_sim_s": 23.069999999998892
+    },
+    {
+      "seed": 1004,
+      "fault": "suction_permanent",
+      "baseline_run": "suction_permanent-1004-baseline-6c0da7",
+      "recovery_run": "suction_permanent-1004-recovery-fd2113",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 15.700000000000356
+    },
+    {
+      "seed": 1004,
+      "fault": "unknown",
+      "baseline_run": "unknown-1004-baseline-e1db71",
+      "recovery_run": "unknown-1004-recovery-b7fcd6",
+      "baseline_success": false,
+      "recovery_success": false,
+      "delta_sim_s": 2.3199999999999514
+    }
+  ],
+  "raw_files": [
+    {
+      "path": "calibration_error-1000-baseline-0e6612/result.json",
+      "sha256": "18568147ea6b4e04460013d4633531e9b0382685b58a8d485aa6ffbed62fd95f"
+    },
+    {
+      "path": "calibration_error-1000-recovery-ecda52/result.json",
+      "sha256": "545c06c9a61cf22439c978e215070a4cbfc95190f6ee71f855a241b2578e6e9e"
+    },
+    {
+      "path": "calibration_error-1001-baseline-289be1/result.json",
+      "sha256": "69959c69cbf63d8a98eaf0fa64fc1489d5075d21a8787c25f7d0ee35cf3adf6b"
+    },
+    {
+      "path": "calibration_error-1001-recovery-1f99cf/result.json",
+      "sha256": "d686bf4d33bb60bb8ad94bcb49c65fe0b59ce155af178bceafb119b7e87a346f"
+    },
+    {
+      "path": "calibration_error-1002-baseline-9fedc6/result.json",
+      "sha256": "fc3d104bcb5c5baac1d349f89774a09c898003853f4e5e4c925bb3ce0710914f"
+    },
+    {
+      "path": "calibration_error-1002-recovery-d75c5f/result.json",
+      "sha256": "855d52211625bf5793e5806c489dc0e563553758de9aca5867ca751e69a32250"
+    },
+    {
+      "path": "calibration_error-1003-baseline-98bbd9/result.json",
+      "sha256": "3b3f711cfa2c1b639b095549df724fd30bbd0c65a5f9ced9e856b8115acbfa3d"
+    },
+    {
+      "path": "calibration_error-1003-recovery-616a40/result.json",
+      "sha256": "c39a283c3cfc65d3d099e400c45908176a676bdde9e6877ec852b182a9e43633"
+    },
+    {
+      "path": "calibration_error-1004-baseline-828fd8/result.json",
+      "sha256": "7720c4b9ce2a53711b7f93b15aa1d990edfcd063ac44d36aea488b1c57e13663"
+    },
+    {
+      "path": "calibration_error-1004-recovery-191dce/result.json",
+      "sha256": "35d4de57a54552d7e3e16fef3c64f2b16f0ee86e6cf6c10c94a0353cb3a233a9"
+    },
+    {
+      "path": "communication_delay-1000-baseline-ba4498/result.json",
+      "sha256": "b123409fcba35ffae4655cfb046ba9a68a0d75c0fb7ed32d501c9a779e259a08"
+    },
+    {
+      "path": "communication_delay-1000-recovery-c5ca97/result.json",
+      "sha256": "00a286e41530889aa4479ce89e3397817ebff9c822891d783efaf370913bd2f6"
+    },
+    {
+      "path": "communication_delay-1001-baseline-84db77/result.json",
+      "sha256": "d6ded557a68831a2279f16daeefea1a616710495aa871d98385c0afecc523096"
+    },
+    {
+      "path": "communication_delay-1001-recovery-7eb6cd/result.json",
+      "sha256": "b004e2458bf2303ce7c6b970e364ed8b43e954df1bed9917b82da577fcda513d"
+    },
+    {
+      "path": "communication_delay-1002-baseline-27ed05/result.json",
+      "sha256": "e706fb8ad7cf4de287d61c2b02c9e1cf5b7667bb48873c5d2c999d5fe4b1bb97"
+    },
+    {
+      "path": "communication_delay-1002-recovery-0fe260/result.json",
+      "sha256": "6f8ae4754b59043a7ff63830f6b938e4c9e9a9ba337e790c17e78fc83bbf71e6"
+    },
+    {
+      "path": "communication_delay-1003-baseline-c848cd/result.json",
+      "sha256": "d1487037966b277aeec91916aa7d2227c87dc6a0554b2b50a0cf8fbe6d5d2da9"
+    },
+    {
+      "path": "communication_delay-1003-recovery-14fd2b/result.json",
+      "sha256": "4ae1145419625f8bec05d5117bda2fa99b4f0b4193879f18e8706e2631325cbb"
+    },
+    {
+      "path": "communication_delay-1004-baseline-a9c053/result.json",
+      "sha256": "49f4e9d0725b8c7175ae73e7cf5e913ec3da2a75d4e8d7e4d815bef6a629c4d3"
+    },
+    {
+      "path": "communication_delay-1004-recovery-663aa1/result.json",
+      "sha256": "46ff9d41550ca376a1a9c027b48ba3d8f9ed0170e7f59e747f0fc4e8a6dc60b7"
+    },
+    {
+      "path": "connection_loss-1000-baseline-c51e21/result.json",
+      "sha256": "79cce10195019651e2ac7e73e02502d1290402d8e723fd88e1d4e0331f3b3b3c"
+    },
+    {
+      "path": "connection_loss-1000-recovery-a410a4/result.json",
+      "sha256": "62d19f1769c91434472d84966ddaf28ce5d16f6ee1d3f0064e0e218af1a22b7f"
+    },
+    {
+      "path": "connection_loss-1001-baseline-359da2/result.json",
+      "sha256": "54fe08890ea721d66bb368c5d14dc7487d679b5d313ced3d727819cc451d24d1"
+    },
+    {
+      "path": "connection_loss-1001-recovery-1dd950/result.json",
+      "sha256": "b57c6456dbc81eb5d2c4205e5c93f353b93418635e629c389faf9b0989ad9962"
+    },
+    {
+      "path": "connection_loss-1002-baseline-75d91f/result.json",
+      "sha256": "d69937d32747c533acc2777701d484e787d206ac0409137485a11d9667ed8c2f"
+    },
+    {
+      "path": "connection_loss-1002-recovery-5184ea/result.json",
+      "sha256": "98bfbe25a8905411cd706a69349c1970c3bab3d64658cfc152926fd18912cae6"
+    },
+    {
+      "path": "connection_loss-1003-baseline-4c6470/result.json",
+      "sha256": "ad4aab0576733479a5cce5e4257f2e1d80c2478fc50143ee358c1ed20476c26d"
+    },
+    {
+      "path": "connection_loss-1003-recovery-31aaf9/result.json",
+      "sha256": "9168cf2fab85cb47ea44e0d607fb112e9d09d7961f56bff5485e709eb82c9ee2"
+    },
+    {
+      "path": "connection_loss-1004-baseline-097c48/result.json",
+      "sha256": "3811d84c8166eab29a0037875377d70086bd607b99770a194c07285c9961d872"
+    },
+    {
+      "path": "connection_loss-1004-recovery-6ec620/result.json",
+      "sha256": "b4c8b1239fca0fec668c46e5c87d97fa25e6e09de00f090d9e1c6b8aba0de034"
+    },
+    {
+      "path": "depth_missing-1000-baseline-9f0e0a/result.json",
+      "sha256": "f7726cacc71006d7bfcd4292df2dd11ac2a675812817e4923f6f9d50426da734"
+    },
+    {
+      "path": "depth_missing-1000-recovery-a3dfea/result.json",
+      "sha256": "27940ced2b5da2c69c72fd0e80d984717ebcae9377e05aea1b1edb88705d44ab"
+    },
+    {
+      "path": "depth_missing-1001-baseline-7a9c5d/result.json",
+      "sha256": "53e0fd198a6c184730bb7118e20e54b73ff35a6c5175e8f48abdb6fb99a79a57"
+    },
+    {
+      "path": "depth_missing-1001-recovery-867d9b/result.json",
+      "sha256": "27ef7c0fda97ef2528b99a37b6442164dee95d8ecd351be7e668f60c91e4a0a4"
+    },
+    {
+      "path": "depth_missing-1002-baseline-3fc005/result.json",
+      "sha256": "ba73f6b26fee327fdfa26b7f96ac7399164381dd53286fc573d644a31941eced"
+    },
+    {
+      "path": "depth_missing-1002-recovery-624fcc/result.json",
+      "sha256": "a7198d3d189ddb516bfc0117feb2c44f57008c16249d2e71092d194e130c1da9"
+    },
+    {
+      "path": "depth_missing-1003-baseline-09ddca/result.json",
+      "sha256": "4ad04c5cb01cd5bbffbb28660fa1a237e97e8e7dc63fc213d59d5c922f06008f"
+    },
+    {
+      "path": "depth_missing-1003-recovery-b2feb6/result.json",
+      "sha256": "09fb3eea4e11fd003c2c23c9cf971c7e7ac09e69bd9101056574e3386c1ba01d"
+    },
+    {
+      "path": "depth_missing-1004-baseline-26913c/result.json",
+      "sha256": "6fe6f25938574d2f4e65aa3546f1d9312675ed6552a57bb17e013326a4aacf52"
+    },
+    {
+      "path": "depth_missing-1004-recovery-6708ec/result.json",
+      "sha256": "4187e3ae86beb523d893732df9d0ed73c6027fa4841da4feff7ca26387c10d77"
+    },
+    {
+      "path": "drop-1000-baseline-80431b/result.json",
+      "sha256": "c14953a636ab7f9cbd46c461dd54d2f75a3ec08cb067a81e16fd379fe5dc21db"
+    },
+    {
+      "path": "drop-1000-recovery-94f063/result.json",
+      "sha256": "6d2690dafddcfe6dfa1e1cc717fb029b9b1380c7f14728eaa506af8eeb95e6c7"
+    },
+    {
+      "path": "drop-1001-baseline-dc6016/result.json",
+      "sha256": "564755b8b005c032297325af230c04909205aa132f30fe0e0eb2791d7fbfe72b"
+    },
+    {
+      "path": "drop-1001-recovery-a84d1f/result.json",
+      "sha256": "1d78f074116182ddd3859c61f074a281749f50440f4156f010e99d3719316d80"
+    },
+    {
+      "path": "drop-1002-baseline-57f774/result.json",
+      "sha256": "fa6d484cd3ad7039f89caaab59b8ff06216acbc6af281073dc223d8400928993"
+    },
+    {
+      "path": "drop-1002-recovery-dc3237/result.json",
+      "sha256": "b78aebfed737ce72d27b4b1aed9bdfdbc8fec6d5d2a119cd95f8f569839e242e"
+    },
+    {
+      "path": "drop-1003-baseline-234b2c/result.json",
+      "sha256": "4b7a719e60c4bd4e89fdefc49ec4d017e73195b4634f3e5432ee5ab606f2e542"
+    },
+    {
+      "path": "drop-1003-recovery-325a5b/result.json",
+      "sha256": "42d05033b66ddcba3a9db0d177f9b83c6e013eb0c09b1781eb467e74b800f042"
+    },
+    {
+      "path": "drop-1004-baseline-ef6c7f/result.json",
+      "sha256": "b7c2ce83064a380043cfc8fd820a96ab88dc95dd57f6665af9fa4710f7fe0fca"
+    },
+    {
+      "path": "drop-1004-recovery-ae3e4c/result.json",
+      "sha256": "638af9584aec442df70427e9cac7aaa20e9150da734fa2b738229ad99e1af614"
+    },
+    {
+      "path": "normal-1000-baseline-fd8d18/result.json",
+      "sha256": "46a55824562ac718d2512b45a0a88da30db129a76d35d1781643a22cf0777145"
+    },
+    {
+      "path": "normal-1000-recovery-a6081e/result.json",
+      "sha256": "ca63cbd2547984f11a64490bd50ac861efe09a0a2990967932a36495e00881d0"
+    },
+    {
+      "path": "normal-1001-baseline-e7f36c/result.json",
+      "sha256": "76c3abc82a891c5e9a0fa54f05260ade485906fd72cc13005e3b2dc709862dd8"
+    },
+    {
+      "path": "normal-1001-recovery-a45bc4/result.json",
+      "sha256": "a93024089b5ba4ace4601870ac1d85032f0b8b2ea9f96f885a210fe1b22be04e"
+    },
+    {
+      "path": "normal-1002-baseline-25d9bb/result.json",
+      "sha256": "2f74dbfc776d0b6af47c30fc3477e9e8d4bf8b665bd4bb70b0bfe691be3c9749"
+    },
+    {
+      "path": "normal-1002-recovery-8d1e25/result.json",
+      "sha256": "3f617497e8e6a9f46c5a27d139c98f48dc9d7db10dedf9860c0b4aec55a830b6"
+    },
+    {
+      "path": "normal-1003-baseline-864613/result.json",
+      "sha256": "5b104914d0e2b6c5045bd7c0dc8993f95385df013625f895d4331bb1825cb6b3"
+    },
+    {
+      "path": "normal-1003-recovery-5d1121/result.json",
+      "sha256": "d9a101c76966978bea628844781463adbe3357eaec1aeabff99cb20ddf26f3a4"
+    },
+    {
+      "path": "normal-1004-baseline-1bc48e/result.json",
+      "sha256": "1abbb15b2deea5289ddbd4cbc896efd36a3b12d76c05f2469ffdaf399dbe5fd4"
+    },
+    {
+      "path": "normal-1004-recovery-d941de/result.json",
+      "sha256": "6387dfb06df31094c3cefc60ea8684525e7a981ffdb2ef4e30054efba5f26d7a"
+    },
+    {
+      "path": "occlusion-1000-baseline-e02292/result.json",
+      "sha256": "41aa8a6a1942a3b9a89c4df7cc5637661cc49c37834ec497767992d73a5b604c"
+    },
+    {
+      "path": "occlusion-1000-recovery-43c409/result.json",
+      "sha256": "f3a9349092ef3fd0ae8d9ecfa21bb65039626e7c4b682682f3c07bf2780cefa7"
+    },
+    {
+      "path": "occlusion-1001-baseline-bd4c61/result.json",
+      "sha256": "61d782ea71830a6d117be27238e31abb40ccda3b4d047355d483345ddfe74fa4"
+    },
+    {
+      "path": "occlusion-1001-recovery-f4252e/result.json",
+      "sha256": "5782581465835f2ef6d011e175294ab68ba9071f31f4d749ee09131f5396611f"
+    },
+    {
+      "path": "occlusion-1002-baseline-0ac05f/result.json",
+      "sha256": "cff67bc4639f7fef3259cb4b100b6def308dfa8310833761c7be2fb9bbf1c8c0"
+    },
+    {
+      "path": "occlusion-1002-recovery-ca55a0/result.json",
+      "sha256": "daee511363a42559516268ade42cf4d6b4c10d31094b3054926735188f7423cb"
+    },
+    {
+      "path": "occlusion-1003-baseline-84d6db/result.json",
+      "sha256": "0fe453c6e03240fe1a138dc7eaa9d733ec0bf20205c02a6c53109b179680184d"
+    },
+    {
+      "path": "occlusion-1003-recovery-4bcd2d/result.json",
+      "sha256": "611043f259478d7759473e971d4f6e2b7e6cf74b511a52fa66642937f448caeb"
+    },
+    {
+      "path": "occlusion-1004-baseline-3dc3cb/result.json",
+      "sha256": "8b03f9cb4efedb3e93cc5c599885c4be3e10b281b2432c3c45651ccb1cd58498"
+    },
+    {
+      "path": "occlusion-1004-recovery-3c21ca/result.json",
+      "sha256": "727a589afdccf4452be0918f4f7371e547e885eca355316abd7ba40777c7f42b"
+    },
+    {
+      "path": "path_blocked-1000-baseline-be99b7/result.json",
+      "sha256": "840082199049e4b7c5b255922a619a5c31e0c2c17150b4f48385c4d1f1a408f2"
+    },
+    {
+      "path": "path_blocked-1000-recovery-637938/result.json",
+      "sha256": "92f88501577f2a91ab55f859069e079feb2c8048c3e7547aab635818d7d67d38"
+    },
+    {
+      "path": "path_blocked-1001-baseline-d20e87/result.json",
+      "sha256": "9ce5dd6e39da8d4949fc59d8ac04ce1d863a662c3b1898b4e388b0891192c13d"
+    },
+    {
+      "path": "path_blocked-1001-recovery-231bf3/result.json",
+      "sha256": "b004c8be560f0553f0303d3b2711bd968d17d352a41fa1eee2d15ebe6d06ecd1"
+    },
+    {
+      "path": "path_blocked-1002-baseline-325830/result.json",
+      "sha256": "5fe90e7d402c6a5f08cc136f1b178c3ee35f29aa23f7085c9c03370b71242bc7"
+    },
+    {
+      "path": "path_blocked-1002-recovery-484967/result.json",
+      "sha256": "41dc16e46d1391d15bba1e9977a3c6a3421bd8f829bc785bd25d5bc3d65cf0d2"
+    },
+    {
+      "path": "path_blocked-1003-baseline-2a2ee2/result.json",
+      "sha256": "01e49ff68aa9dfdde61dd77590a0c2d27716c0aff174c3eb4b2f0bdccf1ef26d"
+    },
+    {
+      "path": "path_blocked-1003-recovery-676e62/result.json",
+      "sha256": "4b494883057b1ba4da6c2ac7f27bfab9e8487c1f9f6209c4cb9740430966f155"
+    },
+    {
+      "path": "path_blocked-1004-baseline-3f54f5/result.json",
+      "sha256": "282469c526a9006ebe58efa68b23248fc03185873a0967c8062a757e70a9b092"
+    },
+    {
+      "path": "path_blocked-1004-recovery-4847ec/result.json",
+      "sha256": "38d32c328bfab0cb35854065c6b39fa98e83768f27905e398ddd10681a46affd"
+    },
+    {
+      "path": "stale_observation-1000-baseline-2acad6/result.json",
+      "sha256": "483a0942ac5242fc96557f9d538a9b1823aad1568dfeec4302c7250e93cc9290"
+    },
+    {
+      "path": "stale_observation-1000-recovery-e55320/result.json",
+      "sha256": "46e74a0c02a462fc49ecf7c78fd94f8dbdac346805968f70833bd492361ec050"
+    },
+    {
+      "path": "stale_observation-1001-baseline-d58a38/result.json",
+      "sha256": "803bc47ee9b827dd538a27eabc51f78fd3f0215ebdde0e59cd9a47ddf8d04a39"
+    },
+    {
+      "path": "stale_observation-1001-recovery-7d78e6/result.json",
+      "sha256": "6c9d7011b18c24569a4d72b864979fa373e609730918017f33c9ed903cc3b03f"
+    },
+    {
+      "path": "stale_observation-1002-baseline-cad207/result.json",
+      "sha256": "fd2f76f26743c75cc0aa86706f8602e3c548064bf3c001e9c9676d9176d7623e"
+    },
+    {
+      "path": "stale_observation-1002-recovery-76980a/result.json",
+      "sha256": "f2a5056a115393abc73836cfcafc32f5d8462a5217810cda8723db28c2b56065"
+    },
+    {
+      "path": "stale_observation-1003-baseline-cf339f/result.json",
+      "sha256": "36756f0c3356dae7ac6010ea2118c300c26ce7f9afa284fe572730cf3a659698"
+    },
+    {
+      "path": "stale_observation-1003-recovery-7ba962/result.json",
+      "sha256": "cd4194c4c87315ef0717e8725b718ce53f96c26758fdff48c237366e5e4fd97c"
+    },
+    {
+      "path": "stale_observation-1004-baseline-c2c5e9/result.json",
+      "sha256": "6c3719ee158c5d41663d7cc5ee09d78399ad9472aee4e40763786527766650bd"
+    },
+    {
+      "path": "stale_observation-1004-recovery-32e303/result.json",
+      "sha256": "7daad02abd57e2fe77c41fe220da5493f66521cf2cd9ec6d07b162409e299246"
+    },
+    {
+      "path": "suction_once-1000-baseline-422134/result.json",
+      "sha256": "37b984287c8c86d0ba46b2804bea9edec1d8264a0b87c3ce1ca3f80836fc242d"
+    },
+    {
+      "path": "suction_once-1000-recovery-676ee5/result.json",
+      "sha256": "fd8c940815457cca582401267f12d1126b3ccdf6a165a21d2dc3adb64f59bab6"
+    },
+    {
+      "path": "suction_once-1001-baseline-fd0efd/result.json",
+      "sha256": "652625a4793efadb3897207e0dcad4c2455a8813627a4b960d465cb88cb4266c"
+    },
+    {
+      "path": "suction_once-1001-recovery-ad412e/result.json",
+      "sha256": "5fbabe01ff2d89dca26866c33f0f162cbfcab836622c73bca01e273de843d660"
+    },
+    {
+      "path": "suction_once-1002-baseline-ebd777/result.json",
+      "sha256": "573e440579dd2c07d9a5133363dd4c9bfaf5bd2ce325631018cccdd8d758763d"
+    },
+    {
+      "path": "suction_once-1002-recovery-297475/result.json",
+      "sha256": "955e60290437d861494be8954b8081cdb88a1afe2fcc69ce426ad4cacd21dd42"
+    },
+    {
+      "path": "suction_once-1003-baseline-051b04/result.json",
+      "sha256": "058beeebdad7e16c0aa20c2055c7f056e1eed47a5ed5e22926a533b85d9e5a1c"
+    },
+    {
+      "path": "suction_once-1003-recovery-98c536/result.json",
+      "sha256": "9495e032d46787049eb6979349defac4c8ffad3e037e777ec580aa05f78d5c84"
+    },
+    {
+      "path": "suction_once-1004-baseline-93c545/result.json",
+      "sha256": "aa9476357b3b4b0ab78d47221e6580cab7f4e1291496da272f0154af6f854574"
+    },
+    {
+      "path": "suction_once-1004-recovery-b9313d/result.json",
+      "sha256": "18f4aac8efcb867381e4ebb76dd8ff7b76903e7a08f27e70512253ab62318398"
+    },
+    {
+      "path": "suction_permanent-1000-baseline-08b648/result.json",
+      "sha256": "0d81a4be3b46b7e3a979c314475f18ac2107e90a9e2914d6362be0770929d4af"
+    },
+    {
+      "path": "suction_permanent-1000-recovery-6bce0c/result.json",
+      "sha256": "b2a6957e2d61bb5f1a3a623a3bd6ebbab9406fe2cd6e96de79d7c5868c2af683"
+    },
+    {
+      "path": "suction_permanent-1001-baseline-25647f/result.json",
+      "sha256": "7d4a9a9ab93f2b6f97666f83f2836384da76529cf0a608178a3dc624327a5631"
+    },
+    {
+      "path": "suction_permanent-1001-recovery-ce0292/result.json",
+      "sha256": "900b9b89e90292b2bad6ebf8e9642d042e8f45e664bc436ac9559c3008a1e359"
+    },
+    {
+      "path": "suction_permanent-1002-baseline-016fea/result.json",
+      "sha256": "e021dc94f965962139731349fbbb9f0c321180f5ca2c327eed55f90f54638edc"
+    },
+    {
+      "path": "suction_permanent-1002-recovery-0bf9ff/result.json",
+      "sha256": "8306a259d18f30cbc37e13972e2d7ae1edafe69ebf026af4034b2f5e2b2c65f5"
+    },
+    {
+      "path": "suction_permanent-1003-baseline-fd3717/result.json",
+      "sha256": "e742a4d7acf42bf9e1f30575796e06f8a280501d3327913fb8d23881d037eda3"
+    },
+    {
+      "path": "suction_permanent-1003-recovery-e4f704/result.json",
+      "sha256": "af2e527045c38918a80c7ade2347d62a27d0bc1305fb65709a59f7c5d34358d4"
+    },
+    {
+      "path": "suction_permanent-1004-baseline-6c0da7/result.json",
+      "sha256": "df2e7912daa4d897d957becfe48cf56cf58c3d28e8a4605c0b1d0b297daa15a5"
+    },
+    {
+      "path": "suction_permanent-1004-recovery-fd2113/result.json",
+      "sha256": "e32ca39210c31c97b436bab02b91dea65f878589fa581fd718f737bcd5659fce"
+    },
+    {
+      "path": "unknown-1000-baseline-f739bb/result.json",
+      "sha256": "f47d35f824587dc436d677c007a1d3360446e4fb6cfbcc8dc2560483dd3f62e9"
+    },
+    {
+      "path": "unknown-1000-recovery-4134f3/result.json",
+      "sha256": "f46af766de5a819b120dfc916a6427fc1677e077414cda308ea688b69fe0be7f"
+    },
+    {
+      "path": "unknown-1001-baseline-b13b6d/result.json",
+      "sha256": "43d307a0227c4ab5fe030f1155bc163889e73410dd07213427f8909153a360c5"
+    },
+    {
+      "path": "unknown-1001-recovery-bc6255/result.json",
+      "sha256": "9e4e5b0a4cd5c042c8b4992c7b58c89aa9f353b5360613f9ffa548bf8460117c"
+    },
+    {
+      "path": "unknown-1002-baseline-b8f77d/result.json",
+      "sha256": "f6cdf4bec14ea152a6eb5950211ee3a99833e16cc8536963c9192474e7edfb96"
+    },
+    {
+      "path": "unknown-1002-recovery-a99570/result.json",
+      "sha256": "2d101df3ed21a6a71ea9deb897afdaade3280364292254c3c43d979ef9946149"
+    },
+    {
+      "path": "unknown-1003-baseline-4abd6e/result.json",
+      "sha256": "bcc7b1ea2cf2f28bf36acdccfad7ad451bb84124f8da777bc8f5a892129de235"
+    },
+    {
+      "path": "unknown-1003-recovery-6fe73e/result.json",
+      "sha256": "37c0cb8a8686eb1af910adfbeeecef0c727324e3973e81cc36353fa499c0adcb"
+    },
+    {
+      "path": "unknown-1004-baseline-e1db71/result.json",
+      "sha256": "508e3ee2cbfbac9b62544b11d8be03f17e3c3dd7bc7b5ba66412dda90ab21721"
+    },
+    {
+      "path": "unknown-1004-recovery-b7fcd6/result.json",
+      "sha256": "326a2ae26c6f77921250724894ed9bac75f0af42fa7e6f6c79888cb53dc72adc"
+    }
+  ]
+}

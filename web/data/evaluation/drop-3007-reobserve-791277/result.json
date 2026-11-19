@@ -1,0 +1,266 @@
+{
+  "schema_version": 2,
+  "run_id": "drop-3007-reobserve-791277",
+  "job_id": "job-d04309de56",
+  "seed": 3007,
+  "fault": "drop",
+  "policy": "reobserve",
+  "sku": "SKU-RED-A",
+  "status": "COMPLETED",
+  "success": true,
+  "reason": null,
+  "sim_duration_s": 25.884999999999035,
+  "wall_duration_s": 2.3760031260026153,
+  "retries": 1,
+  "metrics": {
+    "first_attempt_pick_success": true,
+    "first_attempt_success": false,
+    "attempts": 2,
+    "retries": 1,
+    "wrong_placements": 0,
+    "drops": 1,
+    "collisions": 0,
+    "held": false,
+    "cancelled": false,
+    "sim_duration_s": 25.884999999999035,
+    "wall_duration_s": 2.3760031260026153,
+    "recovery_sim_s": 20.00499999999915,
+    "selection_correct": true,
+    "selection_attempted": true,
+    "position_error_m": 0.0027974806172966988,
+    "inference_wall_s": [
+      0.022652352003206033,
+      0.03796766100276727
+    ],
+    "verified_by_vision": true,
+    "verified_by_truth": true,
+    "max_joint_velocity": [
+      0.8943924639424141,
+      0.17054976475799782,
+      0.20050825061001765,
+      0.7352408711898137
+    ],
+    "max_joint_acceleration": [
+      1.4270090833999882,
+      0.24646260632593397,
+      0.4537980850600875,
+      1.2314839662182164
+    ],
+    "timeout": false
+  },
+  "initial_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3672525622401445,
+          -0.15658891151284754,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842716380631e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5193180301438141,
+          -0.22728780696966733,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842716844866e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.24037079884175963,
+          -0.2417888404238753,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.83584271706384e-07,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "final_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.382756647128169,
+          0.22078720592252463,
+          0.09698658277545351
+        ],
+        "speed_m_s": 1.1061335796371794e-15,
+        "in_bin": true
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5193180301438141,
+          -0.22728780696966733,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.3153606392740817e-15,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.24037079884175963,
+          -0.2417888404238753,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.3004775251343294e-15,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 1,
+    "collision_count": 0
+  },
+  "position_estimates": [
+    {
+      "attempt": 1,
+      "position": [
+        0.36538728380679625,
+        -0.1585528741663954,
+        0.10928692717262445
+      ],
+      "observation_id": "drop-3007-reobserve-791277-obs-0001"
+    },
+    {
+      "attempt": 2,
+      "position": [
+        0.3675380730755149,
+        -0.1522664733499071,
+        0.1092958585584225
+      ],
+      "observation_id": "drop-3007-reobserve-791277-obs-0002"
+    }
+  ],
+  "provenance": {
+    "source_sha256": "73c58c5bc497f621e0a40535940295473c34b637a23450dd05d5b5422080c530",
+    "git_commit": "a1e412b7abd3fad6f3347af6472d9fff4fdd8a71",
+    "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "source_files": {
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/cli.py": "f2fa4b6959dc9248f4ca49f03d66b9ff69617d906b02bf99f4d90ddd7aca6839",
+      "src/pickloop/conditions.py": "bfc5f0dd765038d678a0ef5ae654322e38b79895121ff5d4710d8c1ea8e2d7b4",
+      "src/pickloop/device.py": "4eef1950d95eb30ac9341e24ae1fdf6da24190fe9b8947d522a5ca93851762f0",
+      "src/pickloop/engine.py": "1d8e65a9c03f2be91dd2c3647fe6952f0fbff955be90bdc03b3a42f558f07323",
+      "src/pickloop/evaluation.py": "9795d4eb80cf4d522a6b0c22ade561a6b9a6501fee2ee1df5c93a24a63f57ded",
+      "src/pickloop/experiment.py": "633df493a630547080a7126b15f80d18da5b49d6ed474102edd3ac9dca660707",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/mobile.py": "c853576e62540bfbd192cb07a7489a47aa7b334e0ee0c2e3da08bc8896457391",
+      "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+      "src/pickloop/server.py": "6fbf8f6b18db8453ca34c27feeefd816f0ca16c81423015553cf91227bd634ac",
+      "src/pickloop/simulation.py": "ea4eb6534e004344aaecc75b14de05f254ae23b67d7c5c89e89c9f3484dda23e",
+      "src/pickloop/stop_policy.py": "47895057f10ec7cfbd1787854769bd45094c0334544d3dcc0da2e6bc94849746",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "src/pickloop.egg-info/PKG-INFO": "3e894b816130337fd061158da9057a400d02af361ac6a36fdecd32edad96f182",
+      "src/pickloop.egg-info/SOURCES.txt": "46c5d6c607da3d657cef25d5893643822fb8a7ae07167b39ad670656eed11d86",
+      "src/pickloop.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/pickloop.egg-info/entry_points.txt": "b1e85b6b73a7bb219ab9b894a354cd2ddf8534e24f5197c840efe38bd9fee18a",
+      "src/pickloop.egg-info/requires.txt": "85a1f17c3f1ee4e4efe776a5a0aec01740066f80651c609f9a6a36283dfc832d",
+      "src/pickloop.egg-info/top_level.txt": "59f92b636959ccdc7cc7181a8b836fc707da94c56f71adeec1ec64b92e2d42e6",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    }
+  },
+  "condition": {
+    "schema": "pickloop-condition-v1",
+    "seed": 3007,
+    "fault": "drop",
+    "split": "heldout",
+    "objects": [
+      {
+        "name": "a",
+        "xy_m": [
+          0.36725256224024555,
+          -0.15658891151259074
+        ],
+        "yaw_rad": -0.7768768965977486,
+        "mass_kg": 0.10196380501693673,
+        "friction": 0.6640688047639807
+      },
+      {
+        "name": "b",
+        "xy_m": [
+          0.5193180301438347,
+          -0.22728780697009557
+        ],
+        "yaw_rad": -0.6735619231681595,
+        "mass_kg": 0.1026316366034653,
+        "friction": 0.581377579104653
+      },
+      {
+        "name": "u",
+        "xy_m": [
+          0.24037079884299858,
+          -0.24178884042540372
+        ],
+        "yaw_rad": 0.5754380744267272,
+        "mass_kg": 0.09984954747560859,
+        "friction": 0.6430473777622693
+      }
+    ],
+    "sensor": {
+      "depth_noise_std_m": 0.00044699918369357826,
+      "noise_quantum_s": 0.02,
+      "noise_seed": 695959697,
+      "persistent_bias_xyz_m": [
+        -0.00212201804342457,
+        -0.0009858600070420495,
+        0.0
+      ],
+      "transient_bias_xyz_m": [
+        0.036562305726598784,
+        0.0,
+        0.0
+      ],
+      "region_xyxy_px": [
+        233,
+        289,
+        281,
+        337
+      ],
+      "release_s": 2.319148055401899,
+      "stale_age_s": 1.0251650231414469
+    },
+    "suction": {
+      "outage_windows_s": [
+        [
+          6.371623265255304,
+          7.2079932710495545
+        ]
+      ],
+      "permanent_outage": false,
+      "sealed_pressure_kpa": -46.26886324772722,
+      "seal_halfwidth_m": [
+        0.01702137447654131,
+        0.010108986891420197
+      ],
+      "seal_z_tolerance_m": 0.0038943180274020684,
+      "wrench_limit_n": 19.20345453002875
+    },
+    "blocker_top_m": 0.33568812602754333,
+    "communication_window_s": [
+      0.0,
+      5.7561340560224314
+    ],
+    "history_basis": "absolute simulator time; fixed condition; no policy, attempt, or observation-count dependence",
+    "condition_id": "heldout-3007-drop-8e5dd1e1d29d"
+  },
+  "condition_id": "heldout-3007-drop-8e5dd1e1d29d",
+  "terminal_policy": null
+}

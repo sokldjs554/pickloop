@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "mission_id": "normal-seed-0",
+  "job_id": "normal-seed-0-pick",
+  "seed": 0,
+  "scenario": "normal",
+  "status": "COMPLETED",
+  "reason": null,
+  "pick_result": {
+    "schema_version": 1,
+    "run_id": "normal-0-recovery-031eb1",
+    "job_id": "normal-seed-0-pick",
+    "seed": 0,
+    "fault": "normal",
+    "policy": "recovery",
+    "sku": "SKU-RED-A",
+    "status": "COMPLETED",
+    "success": true,
+    "reason": null,
+    "sim_duration_s": 15.700000000001062,
+    "wall_duration_s": 1.9234345889999531,
+    "retries": 0,
+    "metrics": {
+      "first_attempt_success": true,
+      "attempts": 1,
+      "retries": 0,
+      "wrong_placements": 0,
+      "drops": 0,
+      "collisions": 0,
+      "held": false,
+      "cancelled": false,
+      "sim_duration_s": 15.700000000001062,
+      "wall_duration_s": 1.9234345889999531,
+      "recovery_sim_s": null,
+      "selection_correct": true,
+      "selection_attempted": true,
+      "position_error_m": 0.0013707392073278723,
+      "inference_wall_s": [
+        0.06288242999994509
+      ],
+      "verified_by_vision": true,
+      "verified_by_truth": true,
+      "max_joint_velocity": [
+        0.8943924639424141,
+        0.16147619996272627,
+        0.2004399014593482,
+        0.7540706492694469
+      ],
+      "max_joint_acceleration": [
+        1.4071994312785385,
+        0.3181152514239255,
+        0.46648782517120124,
+        1.1286048642260904
+      ],
+      "timeout": false
+    },
+    "initial_truth": {
+      "objects": [
+        {
+          "sku": "SKU-RED-A",
+          "position": [
+            0.34657416099668353,
+            -0.20151066431164463,
+            0.0849865591227995
+          ],
+          "speed_m_s": 4.835842716058303e-07,
+          "in_bin": false
+        },
+        {
+          "sku": "SKU-RED-B",
+          "position": [
+            0.47898336457458485,
+            -0.17450417093625187,
+            0.0849865591227995
+          ],
+          "speed_m_s": 4.83584271689097e-07,
+          "in_bin": false
+        },
+        {
+          "sku": "SKU-UNKNOWN",
+          "position": [
+            0.20939810717608953,
+            -0.11009386614743277,
+            0.0849865591227995
+          ],
+          "speed_m_s": 4.835842716335859e-07,
+          "in_bin": false
+        }
+      ],
+      "attached": null,
+      "drop_count": 0,
+      "collision_count": 0
+    },
+    "final_truth": {
+      "objects": [
+        {
+          "sku": "SKU-RED-A",
+          "position": [
+            0.38046641132957865,
+            0.22111526210617077,
+            0.09698658277545347
+          ],
+          "speed_m_s": 1.1173510948251958e-15,
+          "in_bin": true
+        },
+        {
+          "sku": "SKU-RED-B",
+          "position": [
+            0.47898336457458485,
+            -0.17450417093625187,
+            0.0849865827754535
+          ],
+          "speed_m_s": 1.3184492575357454e-15,
+          "in_bin": false
+        },
+        {
+          "sku": "SKU-UNKNOWN",
+          "position": [
+            0.20939810717608953,
+            -0.11009386614743286,
+            0.0849865827754535
+          ],
+          "speed_m_s": 1.2908128046799004e-15,
+          "in_bin": false
+        }
+      ],
+      "attached": null,
+      "drop_count": 0,
+      "collision_count": 0
+    },
+    "position_estimates": [
+      {
+        "attempt": 1,
+        "position": [
+          0.34610776277430677,
+          -0.2026259368468899,
+          0.10934036577340844
+        ],
+        "observation_id": "normal-0-recovery-031eb1-obs-0001"
+      }
+    ],
+    "provenance": {
+      "source_sha256": "0bccb1ef9655354bf39765b534b90f34cc92055d3336b2730542d46ba890037e",
+      "git_commit": "uncommitted",
+      "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+      "source_files": {
+        "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+        "src/pickloop/device.py": "ac4fd2d69c6ecca5cee160d49029c4c488af49ef3d4e628d749235d5f5bd07d0",
+        "src/pickloop/engine.py": "2bc2f75f2ccfb758e7febf75f25b22c92900892ad3279dbb6922dd56d081b054",
+        "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+        "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+        "src/pickloop/mobile.py": "8504d050f9372d89025b98732703e2085ea5e15b79b7e378c6889599e9eb83ad",
+        "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+        "src/pickloop/server.py": "1bc763434d427397b1c25ac1b71a1a32a6c4c7a9a51f3797e08f5a71fc18fab7",
+        "src/pickloop/simulation.py": "04f200617d51a02b9b2909a3c5e6e0e35b45fd58d45dd4d50a8ac70b68c852b6",
+        "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+        "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+        "src/pickloop.egg-info/PKG-INFO": "3e894b816130337fd061158da9057a400d02af361ac6a36fdecd32edad96f182",
+        "src/pickloop.egg-info/SOURCES.txt": "46c5d6c607da3d657cef25d5893643822fb8a7ae07167b39ad670656eed11d86",
+        "src/pickloop.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "src/pickloop.egg-info/entry_points.txt": "b1e85b6b73a7bb219ab9b894a354cd2ddf8534e24f5197c840efe38bd9fee18a",
+        "src/pickloop.egg-info/requires.txt": "85a1f17c3f1ee4e4efe776a5a0aec01740066f80651c609f9a6a36283dfc832d",
+        "src/pickloop.egg-info/top_level.txt": "59f92b636959ccdc7cc7181a8b836fc707da94c56f71adeec1ec64b92e2d42e6",
+        "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+        "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+        "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+        "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+        "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+        "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+      }
+    }
+  },
+  "next_task": {
+    "task_id": "normal-seed-0-reposition",
+    "robot": "amr-2",
+    "type": "reposition",
+    "status": "COMPLETED"
+  },
+  "physics_picker": true,
+  "metrics": {
+    "sample_count": 983,
+    "distance_m": 9.611033221572864,
+    "localization_rmse_m": 0.007224548957456908,
+    "max_wheel_speed_m_s": 0.4315668276645247,
+    "max_wheel_acceleration_m_s2": 0.8000000000000007,
+    "collision_count": 0,
+    "sim_duration_s": 55.02,
+    "zone_max_simultaneous_occupants": 1
+  },
+  "wall_duration_s": 4.0168887909999285,
+  "provenance": {
+    "source_sha256": "bfd74975a1e6a7aab97b491e472a440eb18eded3e578ccf7836f59b1ada6f4f7",
+    "source_files": {
+      "scripts/run_mobile.py": "31736d353734b614ce96909e1c310a2c65b9d93d77fd4153e68c6a0b82257d2d",
+      "models/appearance.pt": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/device.py": "ac4fd2d69c6ecca5cee160d49029c4c488af49ef3d4e628d749235d5f5bd07d0",
+      "src/pickloop/engine.py": "2bc2f75f2ccfb758e7febf75f25b22c92900892ad3279dbb6922dd56d081b054",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/mobile.py": "8504d050f9372d89025b98732703e2085ea5e15b79b7e378c6889599e9eb83ad",
+      "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+      "src/pickloop/server.py": "1bc763434d427397b1c25ac1b71a1a32a6c4c7a9a51f3797e08f5a71fc18fab7",
+      "src/pickloop/simulation.py": "04f200617d51a02b9b2909a3c5e6e0e35b45fd58d45dd4d50a8ac70b68c852b6",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "src/pickloop.egg-info/PKG-INFO": "3e894b816130337fd061158da9057a400d02af361ac6a36fdecd32edad96f182",
+      "src/pickloop.egg-info/SOURCES.txt": "46c5d6c607da3d657cef25d5893643822fb8a7ae07167b39ad670656eed11d86",
+      "src/pickloop.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/pickloop.egg-info/entry_points.txt": "b1e85b6b73a7bb219ab9b894a354cd2ddf8534e24f5197c840efe38bd9fee18a",
+      "src/pickloop.egg-info/requires.txt": "85a1f17c3f1ee4e4efe776a5a0aec01740066f80651c609f9a6a36283dfc832d",
+      "src/pickloop.egg-info/top_level.txt": "59f92b636959ccdc7cc7181a8b836fc707da94c56f71adeec1ec64b92e2d42e6",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    },
+    "trajectory_sha256": "225ab375076e79b368f72a90027406e6d4a14e9905965db444af68784f2193b5"
+  },
+  "model": "differential_drive_kinematic_known_map_EKF",
+  "slam_implemented": false,
+  "frame": "map: right-handed x-east/y-north metres, yaw counterclockwise radians",
+  "limits": {
+    "dt_s": 0.04,
+    "track_m": 0.38,
+    "max_wheel_speed_m_s": 0.55,
+    "max_wheel_accel_m_s2": 0.8,
+    "sim_deadline_s": 240.0,
+    "wall_deadline_s": 120.0
+  },
+  "final_zone": {
+    "owner": null,
+    "occupied": [],
+    "fenced": false
+  }
+}

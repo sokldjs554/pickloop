@@ -8,3 +8,6 @@ work/
 runs/dev*/
 *.db-wal
 *.db-shm
+
+/my-before/
+/my-after/

@@ -1,0 +1,156 @@
+[
+  {
+    "title": "ROS 2 · 실제 DDS 작업 실행",
+    "description": "정상 action은 COMPLETED, 초기 취소는 core 확인 후 CANCELLED로 종료했습니다. 중복 job ID와 최종 이미지 재접속도 같은 run_id(normal-7-recovery-a63bfd)를 반환했습니다. 취소는 파지 전 실험이며, ROS 작업→HTTP 브리지입니다. ros2_control·실물 로봇 제어 검증은 아닙니다.",
+    "links": [
+      {
+        "label": "정상 action 원문",
+        "url": "data/evidence/ros2-action-normal.jsonl"
+      },
+      {
+        "label": "취소 action 원문",
+        "url": "data/evidence/ros2-action-cancel.jsonl"
+      },
+      {
+        "label": "중복 작업 원문",
+        "url": "data/evidence/ros2-action-duplicate.jsonl"
+      },
+      {
+        "label": "최종 이미지 재접속",
+        "url": "data/evidence/ros2-action-final-replay.jsonl"
+      },
+      {
+        "label": "연결된 정상 물리 작업 결과",
+        "url": "data/evidence/ros2-physics-result.json"
+      },
+      {
+        "label": "core 취소 결과",
+        "url": "data/evidence/ros2-cancel-physics-result.json"
+      },
+      {
+        "label": "DDS 검증 요약",
+        "url": "data/evidence/ros2-integration-summary.json"
+      }
+    ]
+  },
+  {
+    "title": "ROS 2 · 빌드와 센서 메시지 수신",
+    "description": "Jazzy colcon 빌드에서 두 패키지를 생성했습니다. 별도 DDS probe는 clock 95개, 상태 74개, 관절 72개, 카메라 72개를 수신했습니다. 원문은 수신 횟수와 대표 샘플 메타데이터이며 rosbag 전체 스트림은 아닙니다. JPEG 링크는 정상 작업의 실제 관측 파일입니다. TF·CameraInfo·하드웨어 드라이버는 구현 범위 밖입니다.",
+    "links": [
+      {
+        "label": "실제 colcon 빌드 로그",
+        "url": "data/evidence/ros2-docker-build.log"
+      },
+      {
+        "label": "DDS 센서 probe 원문",
+        "url": "data/evidence/ros2-topics.json"
+      },
+      {
+        "label": "action·topic graph",
+        "url": "data/evidence/ros2-graph.log"
+      },
+      {
+        "label": "생성된 action 인터페이스",
+        "url": "data/evidence/ros2-interface.log"
+      },
+      {
+        "label": "관측 JPEG 원본",
+        "url": "data/evidence/ros2-normal-camera-sample.jpg"
+      },
+      {
+        "label": "정상 작업 프레임·이벤트 원문",
+        "url": "data/evidence/ros2-physics-run.json"
+      }
+    ]
+  },
+  {
+    "title": "C++ · 실제 Modbus TCP 소켓 검증",
+    "description": "독립 C++17 클라이언트를 g++로 컴파일하고 별도 subprocess로 실행해 TCP 에뮬레이터에 명령·중복·ACK 유실 복구·취소·상태 요청을 검증했습니다. verbose 실행 로그와 해당 테스트·클라이언트 소스를 함께 제공합니다. 실물 PLC 미연결이며, 밸브 명령 수락이 압력·흡착 성공을 뜻하지 않습니다.",
+    "links": [
+      {
+        "label": "실제 TCP·C++ 테스트 실행 로그",
+        "url": "data/evidence/device-tests.txt"
+      },
+      {
+        "label": "C++ POSIX 소켓 클라이언트",
+        "url": "data/evidence/modbus-client.cpp"
+      },
+      {
+        "label": "컴파일·subprocess 검증 코드",
+        "url": "data/evidence/device-tests.py"
+      },
+      {
+        "label": "프로토콜·복구 계약",
+        "url": "data/evidence/device-protocol.md"
+      }
+    ]
+  },
+  {
+    "title": "모바일 · 추정 주행 → 도킹 → 같은 피킹 작업",
+    "description": "seed 0: 9.611 m 이동, 위치 RMSE 7.225 mm. 도킹 추정 오차 26.44 mm / 진실 평가 오차 17.78 mm를 확인한 뒤 같은 job ID로 실제 MuJoCo 피킹을 실행했습니다. zone 이탈 후 두 번째 로봇의 재배치가 완료됐습니다. 알려진 지도 EKF이며 SLAM은 아닙니다. 차동구동 운동학이고 바퀴 접촉 물리가 아닙니다. 이동체와 팔 셀은 분리된 시뮬레이터입니다.",
+    "links": [
+      {
+        "label": "실제 계산 궤적",
+        "url": "data/evidence/mobile-normal-trajectory.svg"
+      },
+      {
+        "label": "encoder·LiDAR·EKF 전체 원문",
+        "url": "data/evidence/mobile-normal-trajectory.jsonl"
+      },
+      {
+        "label": "미션·도킹·메트릭 결과",
+        "url": "data/evidence/mobile-normal-result.json"
+      },
+      {
+        "label": "동일 작업의 물리 피킹 결과",
+        "url": "data/evidence/mobile-pick-result.json"
+      },
+      {
+        "label": "물리 피킹 이벤트",
+        "url": "data/evidence/mobile-pick-events.jsonl"
+      },
+      {
+        "label": "단위·좌표계·구현 한계",
+        "url": "data/evidence/mobile-extension.md"
+      }
+    ]
+  },
+  {
+    "title": "모바일 · 막힌 경로와 zone 경합에서 보류",
+    "description": "seed 1은 NO_PATH, seed 2는 5초 대기 후 ZONE_WAIT_TIMEOUT으로 보류했습니다. 두 경우 피킹 호출은 0회입니다. 정상 실행의 최대 기록 zone 점유는 1대, 충돌 판정 샘플은 0개였습니다. 별도 테스트는 lease 만료 후 점유·불확실 zone 재할당 거부와 취소 시 감속 정지를 확인합니다. 소규모 단일 프로세스 스케줄러이며 실차 안전 인증이 아닙니다.",
+    "links": [
+      {
+        "label": "막힌 경로 결과",
+        "url": "data/evidence/mobile-blocked-result.json"
+      },
+      {
+        "label": "막힌 경로 이벤트",
+        "url": "data/evidence/mobile-blocked-trajectory.jsonl"
+      },
+      {
+        "label": "zone 경합 결과",
+        "url": "data/evidence/mobile-contention-result.json"
+      },
+      {
+        "label": "zone 경합 센서·점유 원문",
+        "url": "data/evidence/mobile-contention-trajectory.jsonl"
+      },
+      {
+        "label": "lease·취소·추정 테스트 실행 로그",
+        "url": "data/evidence/mobile-tests.txt"
+      },
+      {
+        "label": "raw metric·SHA 재검증",
+        "url": "data/evidence/mobile-verification.json"
+      },
+      {
+        "label": "재생성 방법·검증 범위",
+        "url": "data/evidence/execution-evidence.md"
+      },
+      {
+        "label": "배포 원문의 SHA 목록",
+        "url": "data/evidence/manifest.json"
+      }
+    ]
+  }
+]

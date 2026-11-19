@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.3.5, pluggy-1.7.0 -- /workspace/work/pickloop/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/work/pickloop
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 29 items
+
+tests/test_device.py::test_duplicate_same_payload_is_not_reexecuted PASSED [  3%]
+tests/test_device.py::test_conflicting_duplicate_cannot_change_valve PASSED [  6%]
+tests/test_device.py::test_drop_ack_reconciles_without_reexecuting PASSED [ 10%]
+tests/test_device.py::test_delay_has_bounded_timeout_and_connection_recovers PASSED [ 13%]
+tests/test_device.py::test_feedback_is_external_and_survives_valve_change PASSED [ 17%]
+tests/test_device.py::test_cancel_held_command_retains_valve_and_blocks_replay PASSED [ 20%]
+tests/test_device.py::test_cancel_before_command_is_a_persistent_tombstone PASSED [ 24%]
+tests/test_device.py::test_old_duplicate_does_not_restore_outdated_valve PASSED [ 27%]
+tests/test_device.py::test_completed_commands_persist_on_restart PASSED  [ 31%]
+tests/test_device.py::test_unfinished_intent_at_restart_fails_closed_without_reexecution PASSED [ 34%]
+tests/test_device.py::test_invalid_command_ids_do_not_execute[0] PASSED  [ 37%]
+tests/test_device.py::test_invalid_command_ids_do_not_execute[-1] PASSED [ 41%]
+tests/test_device.py::test_invalid_command_ids_do_not_execute[4294967296] PASSED [ 44%]
+tests/test_device.py::test_invalid_command_ids_do_not_execute[True] PASSED [ 48%]
+tests/test_device.py::test_server_returns_modbus_exceptions_for_bad_pdus[\x04\x00\x00\x00\x01-\x84\x01] PASSED [ 51%]
+tests/test_device.py::test_server_returns_modbus_exceptions_for_bad_pdus[\x03\x00\x00\x00\x00-\x83\x03] PASSED [ 55%]
+tests/test_device.py::test_server_returns_modbus_exceptions_for_bad_pdus[\x03\x00c\x00\x01-\x83\x02] PASSED [ 58%]
+tests/test_device.py::test_server_returns_modbus_exceptions_for_bad_pdus[\x10\x00d\x00\x04\x08\x00\x00\x00\x01\x00\x01-\x90\x03] PASSED [ 62%]
+tests/test_device.py::test_server_returns_modbus_exceptions_for_bad_pdus[\x10\x00d\x00\x04\x08\x00\x00\x00\x01\x00\x01\x00\x02-\x90\x03] PASSED [ 65%]
+tests/test_device.py::test_client_rejects_error_and_malformed_responses[<lambda>0] PASSED [ 68%]
+tests/test_device.py::test_client_rejects_error_and_malformed_responses[<lambda>1] PASSED [ 72%]
+tests/test_device.py::test_client_rejects_error_and_malformed_responses[<lambda>2] PASSED [ 75%]
+tests/test_device.py::test_client_rejects_error_and_malformed_responses[<lambda>3] PASSED [ 79%]
+tests/test_device.py::test_client_rejects_error_and_malformed_responses[<lambda>4] PASSED [ 82%]
+tests/test_device.py::test_cpp_client_uses_same_tcp_device PASSED        [ 86%]
+tests/test_device.py::test_cancelling_older_id_acknowledges_that_id_without_releasing PASSED [ 89%]
+tests/test_device.py::test_concurrent_duplicate_clients_execute_only_once PASSED [ 93%]
+tests/test_device.py::test_uint32_boundary_is_not_truncated PASSED       [ 96%]
+tests/test_device.py::test_stop_closes_old_sessions_before_same_object_restart PASSED [100%]
+
+============================== 29 passed in 2.29s ==============================

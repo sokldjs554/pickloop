@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720">
+<rect width="900" height="720" fill="#fafafa"/>
+<text x="50" y="25" font-family="sans-serif" font-size="18">Computed trajectory: kinematic simulator (not wheel/contact physics)</text>
+<rect x="50" y="50" width="800" height="600" fill="white" stroke="#222"/>
+<rect x="320.0" y="280.0" width="100.0" height="200.0" fill="#ddd" stroke="#555"/>
+<rect x="509.99999999999994" y="90.0" width="100.0" height="100.0" fill="#ddd" stroke="#555"/>
+<rect x="370.0" y="50.0" width="50.0" height="600.0" fill="#ddd" stroke="#555"/>
+<rect x="450.0" y="250.0" width="330.0" height="350.0" fill="none" stroke="#555" stroke-dasharray="6 4"/>
+<polyline points="" fill="none" stroke="#164d9c" stroke-width="1.5"/>
+<polyline points="" fill="none" stroke="#f29d28" stroke-width="1.5"/>
+<polyline points="" fill="none" stroke="#177145" stroke-width="1.5"/>
+<polyline points="" fill="none" stroke="#a14b99" stroke-width="1.5"/>
+<circle cx="710.0" cy="370.0" r="6" fill="none" stroke="black"/>
+<text x="50" y="680" font-family="sans-serif" font-size="14">x east / y north [m]; room 8 x 6 m; dashed = exclusive zone; circle = dock</text>
+<text x="50" y="703" font-family="sans-serif" font-size="13">amr-1: blue truth / orange EKF; amr-2: green truth / purple EKF. Lines are measured samples.</text>
+</svg>

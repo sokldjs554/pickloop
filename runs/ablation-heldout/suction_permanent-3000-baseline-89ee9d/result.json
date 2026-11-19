@@ -1,0 +1,279 @@
+{
+  "schema_version": 2,
+  "run_id": "suction_permanent-3000-baseline-89ee9d",
+  "job_id": "job-79cb6ccbfc",
+  "seed": 3000,
+  "fault": "suction_permanent",
+  "policy": "baseline",
+  "sku": "SKU-RED-A",
+  "status": "HELD",
+  "success": false,
+  "reason": "SEAL_NOT_CONFIRMED",
+  "sim_duration_s": 4.2249999999999215,
+  "wall_duration_s": 0.5035884570024791,
+  "retries": 0,
+  "metrics": {
+    "first_attempt_pick_success": false,
+    "first_attempt_success": false,
+    "attempts": 1,
+    "retries": 0,
+    "wrong_placements": 0,
+    "drops": 0,
+    "collisions": 0,
+    "held": true,
+    "cancelled": false,
+    "sim_duration_s": 4.2249999999999215,
+    "wall_duration_s": 0.5035884570024791,
+    "recovery_sim_s": null,
+    "selection_correct": true,
+    "selection_attempted": true,
+    "position_error_m": 0.002817242503053146,
+    "inference_wall_s": [
+      0.028245517998584546
+    ],
+    "verified_by_vision": false,
+    "verified_by_truth": false,
+    "max_joint_velocity": [
+      0.7816074797042328,
+      0.2132037972547406,
+      0.18946314111409632,
+      0.5766210748357814
+    ],
+    "max_joint_acceleration": [
+      1.427548900320641,
+      0.38850118549131896,
+      0.34504360310169124,
+      1.0692622570463328
+    ],
+    "timeout": false
+  },
+  "initial_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3817968594050661,
+          -0.1649929978963672,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.83584271743964e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5019695657997494,
+          -0.21701468222358336,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.8358427171896e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.2593567010437723,
+          -0.21347529165054474,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.83584271659022e-07,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "final_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3817968594050661,
+          -0.1649929978963672,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.2922195411955493e-15,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5019695657997494,
+          -0.21701468222358336,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.296710269296465e-15,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.2593567010437723,
+          -0.21347529165054474,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.279016442027111e-15,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "position_estimates": [
+    {
+      "attempt": 1,
+      "position": [
+        0.38010863051410126,
+        -0.1671385172559962,
+        0.109291228115165
+      ],
+      "observation_id": "suction_permanent-3000-baseline-89ee9d-obs-0001"
+    }
+  ],
+  "provenance": {
+    "source_sha256": "73c58c5bc497f621e0a40535940295473c34b637a23450dd05d5b5422080c530",
+    "git_commit": "a1e412b7abd3fad6f3347af6472d9fff4fdd8a71",
+    "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "source_files": {
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/cli.py": "f2fa4b6959dc9248f4ca49f03d66b9ff69617d906b02bf99f4d90ddd7aca6839",
+      "src/pickloop/conditions.py": "bfc5f0dd765038d678a0ef5ae654322e38b79895121ff5d4710d8c1ea8e2d7b4",
+      "src/pickloop/device.py": "4eef1950d95eb30ac9341e24ae1fdf6da24190fe9b8947d522a5ca93851762f0",
+      "src/pickloop/engine.py": "1d8e65a9c03f2be91dd2c3647fe6952f0fbff955be90bdc03b3a42f558f07323",
+      "src/pickloop/evaluation.py": "9795d4eb80cf4d522a6b0c22ade561a6b9a6501fee2ee1df5c93a24a63f57ded",
+      "src/pickloop/experiment.py": "633df493a630547080a7126b15f80d18da5b49d6ed474102edd3ac9dca660707",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/mobile.py": "c853576e62540bfbd192cb07a7489a47aa7b334e0ee0c2e3da08bc8896457391",
+      "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+      "src/pickloop/server.py": "6fbf8f6b18db8453ca34c27feeefd816f0ca16c81423015553cf91227bd634ac",
+      "src/pickloop/simulation.py": "ea4eb6534e004344aaecc75b14de05f254ae23b67d7c5c89e89c9f3484dda23e",
+      "src/pickloop/stop_policy.py": "47895057f10ec7cfbd1787854769bd45094c0334544d3dcc0da2e6bc94849746",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "src/pickloop.egg-info/PKG-INFO": "3e894b816130337fd061158da9057a400d02af361ac6a36fdecd32edad96f182",
+      "src/pickloop.egg-info/SOURCES.txt": "46c5d6c607da3d657cef25d5893643822fb8a7ae07167b39ad670656eed11d86",
+      "src/pickloop.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/pickloop.egg-info/entry_points.txt": "b1e85b6b73a7bb219ab9b894a354cd2ddf8534e24f5197c840efe38bd9fee18a",
+      "src/pickloop.egg-info/requires.txt": "85a1f17c3f1ee4e4efe776a5a0aec01740066f80651c609f9a6a36283dfc832d",
+      "src/pickloop.egg-info/top_level.txt": "59f92b636959ccdc7cc7181a8b836fc707da94c56f71adeec1ec64b92e2d42e6",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    }
+  },
+  "condition": {
+    "schema": "pickloop-condition-v1",
+    "seed": 3000,
+    "fault": "suction_permanent",
+    "split": "heldout",
+    "objects": [
+      {
+        "name": "a",
+        "xy_m": [
+          0.38179685940662034,
+          -0.1649929978981388
+        ],
+        "yaw_rad": 0.42568086525185095,
+        "mass_kg": 0.10119431610722544,
+        "friction": 0.6063813927563343
+      },
+      {
+        "name": "b",
+        "xy_m": [
+          0.5019695657995911,
+          -0.21701468222381493
+        ],
+        "yaw_rad": 0.7308321443525964,
+        "mass_kg": 0.09593087482885508,
+        "friction": 0.6361761012696189
+      },
+      {
+        "name": "u",
+        "xy_m": [
+          0.2593567010454794,
+          -0.2134752916518432
+        ],
+        "yaw_rad": -0.6172076019307885,
+        "mass_kg": 0.09493934792580049,
+        "friction": 0.630031997970377
+      }
+    ],
+    "sensor": {
+      "depth_noise_std_m": 0.0004748261227145507,
+      "noise_quantum_s": 0.02,
+      "noise_seed": 1946945714,
+      "persistent_bias_xyz_m": [
+        -0.0023621767222944162,
+        -0.0009803963244752046,
+        0.0
+      ],
+      "transient_bias_xyz_m": [
+        0.03712468388141879,
+        0.0,
+        0.0
+      ],
+      "region_xyxy_px": [
+        238,
+        291,
+        290,
+        343
+      ],
+      "release_s": 2.6233969095757077,
+      "stale_age_s": 0.9840398834132049
+    },
+    "suction": {
+      "outage_windows_s": [],
+      "permanent_outage": true,
+      "sealed_pressure_kpa": -49.887370733256745,
+      "seal_halfwidth_m": [
+        0.016727849596648057,
+        0.011871507275515688
+      ],
+      "seal_z_tolerance_m": 0.0037431243693520216,
+      "wrench_limit_n": 20.672404913139513
+    },
+    "blocker_top_m": 0.3585839251285803,
+    "communication_window_s": [
+      0.0,
+      7.750670072564947
+    ],
+    "history_basis": "absolute simulator time; fixed condition; no policy, attempt, or observation-count dependence",
+    "condition_id": "heldout-3000-suction_permanent-3c54eba9d5e9"
+  },
+  "condition_id": "heldout-3000-suction_permanent-3c54eba9d5e9",
+  "terminal_policy": {
+    "action": "OFF_CONFIRMED",
+    "reason": "FRESH_CONFIRMED_UNLOADED_OFF",
+    "terminal_reason": "SEAL_NOT_CONFIRMED",
+    "status_before": {
+      "ack_id": 1,
+      "valve": true,
+      "pressure_kpa": -6.0,
+      "attached": false,
+      "error": "none",
+      "execution_count": 1,
+      "max_command_id": 1,
+      "cancelled": false
+    },
+    "status": {
+      "ack_id": 2,
+      "valve": false,
+      "pressure_kpa": -6.0,
+      "attached": false,
+      "error": "none",
+      "execution_count": 2,
+      "max_command_id": 2,
+      "cancelled": false
+    },
+    "command_id": 2,
+    "next_command_id": 3,
+    "release_attempted": true,
+    "output_uncertain": false
+  }
+}

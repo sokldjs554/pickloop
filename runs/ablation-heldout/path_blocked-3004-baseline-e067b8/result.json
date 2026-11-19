@@ -1,0 +1,279 @@
+{
+  "schema_version": 2,
+  "run_id": "path_blocked-3004-baseline-e067b8",
+  "job_id": "job-25006b0bff",
+  "seed": 3004,
+  "fault": "path_blocked",
+  "policy": "baseline",
+  "sku": "SKU-RED-A",
+  "status": "HELD",
+  "success": false,
+  "reason": "PATH_BLOCKED",
+  "sim_duration_s": 6.249999999999878,
+  "wall_duration_s": 0.7615195769976708,
+  "retries": 0,
+  "metrics": {
+    "first_attempt_pick_success": true,
+    "first_attempt_success": false,
+    "attempts": 1,
+    "retries": 0,
+    "wrong_placements": 0,
+    "drops": 0,
+    "collisions": 0,
+    "held": true,
+    "cancelled": false,
+    "sim_duration_s": 6.249999999999878,
+    "wall_duration_s": 0.7615195769976708,
+    "recovery_sim_s": null,
+    "selection_correct": true,
+    "selection_attempted": true,
+    "position_error_m": 0.0026765589565052334,
+    "inference_wall_s": [
+      0.0366376419988228
+    ],
+    "verified_by_vision": false,
+    "verified_by_truth": false,
+    "max_joint_velocity": [
+      0.8257528074998765,
+      0.2852587713983258,
+      0.2005348076990943,
+      0.5475078931325619
+    ],
+    "max_joint_acceleration": [
+      1.4294038370212037,
+      0.4928067280056292,
+      0.43757162399208,
+      0.960749616440093
+    ],
+    "timeout": false
+  },
+  "initial_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.40178196983688835,
+          -0.15304003808189273,
+          0.08498656154072086
+        ],
+        "speed_m_s": 4.835842716749682e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5121269734836628,
+          -0.21520651688122194,
+          0.08498656154072086
+        ],
+        "speed_m_s": 4.835842715359833e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.2587352810996589,
+          -0.21183134978105286,
+          0.08498656154072087
+        ],
+        "speed_m_s": 4.835842715958603e-07,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "final_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.4017819698373522,
+          -0.15304003808160338,
+          0.27533290846832503
+        ],
+        "speed_m_s": 1.5644593553562997e-09,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5121269734836628,
+          -0.21520651688122194,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.1523912470743604e-15,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.2587352810996589,
+          -0.21183134978105286,
+          0.08498658277545351
+        ],
+        "speed_m_s": 8.978067096822907e-16,
+        "in_bin": false
+      }
+    ],
+    "attached": 0,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "position_estimates": [
+    {
+      "attempt": 1,
+      "position": [
+        0.4030180670937842,
+        -0.15529992251067745,
+        0.10925926944831277
+      ],
+      "observation_id": "path_blocked-3004-baseline-e067b8-obs-0001"
+    }
+  ],
+  "provenance": {
+    "source_sha256": "73c58c5bc497f621e0a40535940295473c34b637a23450dd05d5b5422080c530",
+    "git_commit": "a1e412b7abd3fad6f3347af6472d9fff4fdd8a71",
+    "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "source_files": {
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/cli.py": "f2fa4b6959dc9248f4ca49f03d66b9ff69617d906b02bf99f4d90ddd7aca6839",
+      "src/pickloop/conditions.py": "bfc5f0dd765038d678a0ef5ae654322e38b79895121ff5d4710d8c1ea8e2d7b4",
+      "src/pickloop/device.py": "4eef1950d95eb30ac9341e24ae1fdf6da24190fe9b8947d522a5ca93851762f0",
+      "src/pickloop/engine.py": "1d8e65a9c03f2be91dd2c3647fe6952f0fbff955be90bdc03b3a42f558f07323",
+      "src/pickloop/evaluation.py": "9795d4eb80cf4d522a6b0c22ade561a6b9a6501fee2ee1df5c93a24a63f57ded",
+      "src/pickloop/experiment.py": "633df493a630547080a7126b15f80d18da5b49d6ed474102edd3ac9dca660707",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/mobile.py": "c853576e62540bfbd192cb07a7489a47aa7b334e0ee0c2e3da08bc8896457391",
+      "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+      "src/pickloop/server.py": "6fbf8f6b18db8453ca34c27feeefd816f0ca16c81423015553cf91227bd634ac",
+      "src/pickloop/simulation.py": "ea4eb6534e004344aaecc75b14de05f254ae23b67d7c5c89e89c9f3484dda23e",
+      "src/pickloop/stop_policy.py": "47895057f10ec7cfbd1787854769bd45094c0334544d3dcc0da2e6bc94849746",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "src/pickloop.egg-info/PKG-INFO": "3e894b816130337fd061158da9057a400d02af361ac6a36fdecd32edad96f182",
+      "src/pickloop.egg-info/SOURCES.txt": "46c5d6c607da3d657cef25d5893643822fb8a7ae07167b39ad670656eed11d86",
+      "src/pickloop.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/pickloop.egg-info/entry_points.txt": "b1e85b6b73a7bb219ab9b894a354cd2ddf8534e24f5197c840efe38bd9fee18a",
+      "src/pickloop.egg-info/requires.txt": "85a1f17c3f1ee4e4efe776a5a0aec01740066f80651c609f9a6a36283dfc832d",
+      "src/pickloop.egg-info/top_level.txt": "59f92b636959ccdc7cc7181a8b836fc707da94c56f71adeec1ec64b92e2d42e6",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    }
+  },
+  "condition": {
+    "schema": "pickloop-condition-v1",
+    "seed": 3004,
+    "fault": "path_blocked",
+    "split": "heldout",
+    "objects": [
+      {
+        "name": "a",
+        "xy_m": [
+          0.40178196983858244,
+          -0.15304003808183786
+        ],
+        "yaw_rad": -0.5920478489658269,
+        "mass_kg": 0.0974145511397095,
+        "friction": 0.5927172182023994
+      },
+      {
+        "name": "b",
+        "xy_m": [
+          0.5121269734849349,
+          -0.21520651687975836
+        ],
+        "yaw_rad": -0.5872344653064595,
+        "mass_kg": 0.09998925860430889,
+        "friction": 0.6422372828565225
+      },
+      {
+        "name": "u",
+        "xy_m": [
+          0.2587352810964606,
+          -0.21183134977837725
+        ],
+        "yaw_rad": 0.4734885461734865,
+        "mass_kg": 0.10298299140130686,
+        "friction": 0.641205280265039
+      }
+    ],
+    "sensor": {
+      "depth_noise_std_m": 0.00034813523414500494,
+      "noise_quantum_s": 0.02,
+      "noise_seed": 2012431067,
+      "persistent_bias_xyz_m": [
+        0.0012700546939868572,
+        -0.0018834065238639507,
+        0.0
+      ],
+      "transient_bias_xyz_m": [
+        0.0360247277739357,
+        0.0,
+        0.0
+      ],
+      "region_xyxy_px": [
+        248,
+        286,
+        300,
+        338
+      ],
+      "release_s": 2.236615446437887,
+      "stale_age_s": 0.8275340766784149
+    },
+    "suction": {
+      "outage_windows_s": [],
+      "permanent_outage": false,
+      "sealed_pressure_kpa": -50.61676042568763,
+      "seal_halfwidth_m": [
+        0.01611083213149868,
+        0.01071656742728989
+      ],
+      "seal_z_tolerance_m": 0.0036186195387264506,
+      "wrench_limit_n": 21.060028273565734
+    },
+    "blocker_top_m": 0.34810340085113467,
+    "communication_window_s": [
+      0.0,
+      6.084469408220875
+    ],
+    "history_basis": "absolute simulator time; fixed condition; no policy, attempt, or observation-count dependence",
+    "condition_id": "heldout-3004-path_blocked-995ad794f708"
+  },
+  "condition_id": "heldout-3004-path_blocked-995ad794f708",
+  "terminal_policy": {
+    "action": "RETAIN",
+    "reason": "CONTROLLER_LOAD_UNCONFIRMED",
+    "terminal_reason": "PATH_BLOCKED",
+    "status_before": {
+      "ack_id": 1,
+      "valve": true,
+      "pressure_kpa": -50.6,
+      "attached": true,
+      "error": "none",
+      "execution_count": 1,
+      "max_command_id": 1,
+      "cancelled": false
+    },
+    "status": {
+      "ack_id": 1,
+      "valve": true,
+      "pressure_kpa": -50.6,
+      "attached": true,
+      "error": "none",
+      "execution_count": 1,
+      "max_command_id": 1,
+      "cancelled": false
+    },
+    "command_id": 1,
+    "next_command_id": 2,
+    "release_attempted": false,
+    "output_uncertain": false
+  }
+}

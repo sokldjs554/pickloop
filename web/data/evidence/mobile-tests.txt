@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-8.3.5, pluggy-1.7.0 -- /workspace/work/pickloop/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/work/pickloop
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 13 items
+
+tests/test_mobile.py::test_footprint_astar_rejects_blocked_corridor PASSED [  7%]
+tests/test_mobile.py::test_ekf_corrects_encoder_drift_using_landmark_measurements PASSED [ 15%]
+tests/test_mobile.py::test_zone_lease_expiry_fences_owner_and_cannot_reassign_occupied_zone PASSED [ 23%]
+tests/test_mobile.py::test_fleet_allocator_never_double_assigns_robot_or_task PASSED [ 30%]
+tests/test_mobile.py::test_mission_drives_docks_picks_and_leaves_with_bounded_wheels[0] PASSED [ 38%]
+tests/test_mobile.py::test_mission_drives_docks_picks_and_leaves_with_bounded_wheels[1] PASSED [ 46%]
+tests/test_mobile.py::test_mission_drives_docks_picks_and_leaves_with_bounded_wheels[7] PASSED [ 53%]
+tests/test_mobile.py::test_unsafe_navigation_never_invokes_picker[blocked-NO_PATH] PASSED [ 61%]
+tests/test_mobile.py::test_unsafe_navigation_never_invokes_picker[zone_contention-ZONE_WAIT_TIMEOUT] PASSED [ 69%]
+tests/test_mobile.py::test_cancel_and_deadline_prevent_picker PASSED     [ 76%]
+tests/test_mobile.py::test_default_backend_is_not_reported_as_executed_when_route_blocks PASSED [ 84%]
+tests/test_mobile.py::test_docking_requires_both_estimator_and_independent_evaluator PASSED [ 92%]
+tests/test_mobile.py::test_cancellation_during_motion_logs_bounded_braking_to_rest PASSED [100%]
+
+============================== 13 passed in 1.49s ==============================

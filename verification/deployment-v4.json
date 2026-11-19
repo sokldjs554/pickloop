@@ -1,0 +1,12 @@
+{
+  "project_id": "appgprj_6afc79018e308191b6347bf15a4805ca",
+  "version_number": 4,
+  "version_id": "appgprj_6afc79018e308191b6347bf15a4805ca~appgver_e72dd90236588191882e49653eaa4f2f",
+  "deployment_id": "appgdep_6afd4e3e122081919a211648cc714a2b",
+  "status": "succeeded",
+  "url": "https://pickloop-robot-ops.ykh13571.chatgpt.site",
+  "site_source_commit": "00bd03d761ec24daa83d1b193b47fa176d269711",
+  "core_commit": "a1e412b7abd3fad6f3347af6472d9fff4fdd8a71",
+  "audience_preserved": "public",
+  "browser_qa": "unverified: managed relay port4173 timeout"
+}

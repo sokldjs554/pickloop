@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "url": "data/evidence/ros2-docker-build.log",
+      "source": "ros2/evidence/docker-build.log",
+      "sha256": "dd99298d815cb47f255786b5f79e1baf0d3d9f47e4f745d50461c20334f2d51d",
+      "bytes": 35082
+    },
+    {
+      "url": "data/evidence/ros2-integration-summary.json",
+      "source": "ros2/evidence/integration-summary.json",
+      "sha256": "63c9e9a6747f544bfbf9c8bcaef07cf44326e260476739feee3d3cd6d2d06361",
+      "bytes": 1934
+    },
+    {
+      "url": "data/evidence/ros2-action-normal.jsonl",
+      "source": "ros2/evidence/action-normal.jsonl",
+      "sha256": "04ba1ab7caba3c2ea9fb08b075573ef86cba3898836af020fcae14e238ed47a0",
+      "bytes": 9036
+    },
+    {
+      "url": "data/evidence/ros2-action-cancel.jsonl",
+      "source": "ros2/evidence/action-cancel.jsonl",
+      "sha256": "8d41c04957491e0870a1c1bae9ba997865fe9ef624d037f4f75bf27d9223280f",
+      "bytes": 1052
+    },
+    {
+      "url": "data/evidence/ros2-action-duplicate.jsonl",
+      "source": "ros2/evidence/action-duplicate.jsonl",
+      "sha256": "e777cdb57ca12b735da3485efe9ddfe2c5c50118301b05a2a801c49d120907c7",
+      "bytes": 234
+    },
+    {
+      "url": "data/evidence/ros2-action-final-replay.jsonl",
+      "source": "ros2/evidence/action-final-replay.jsonl",
+      "sha256": "e777cdb57ca12b735da3485efe9ddfe2c5c50118301b05a2a801c49d120907c7",
+      "bytes": 234
+    },
+    {
+      "url": "data/evidence/ros2-topics.json",
+      "source": "ros2/evidence/topics.json",
+      "sha256": "c90dfaeb4d7fbd8a2c173a90b963140ae157bf99c6892bf3f4dc3e46a3b852d1",
+      "bytes": 480
+    },
+    {
+      "url": "data/evidence/ros2-interface.log",
+      "source": "ros2/evidence/interface.log",
+      "sha256": "da8fa624bfef938b8e3daa666c1923b8f3bdf0faa5e2959529ca317b2eabefcd",
+      "bytes": 186
+    },
+    {
+      "url": "data/evidence/ros2-graph.log",
+      "source": "ros2/evidence/graph.log",
+      "sha256": "e3a12f82416c089d96e08608d818b69b57a33dbbd7c870da107cce2271062e45",
+      "bytes": 313
+    },
+    {
+      "url": "data/evidence/ros2-physics-result.json",
+      "source": "runs/live/normal-7-recovery-a63bfd/result.json",
+      "sha256": "2698aa4a2c6ec9109bcbfb3c2853be884e6d59c7ffe6382a171b66fef4fde1ba",
+      "bytes": 5763
+    },
+    {
+      "url": "data/evidence/ros2-physics-events.jsonl",
+      "source": "runs/live/normal-7-recovery-a63bfd/events.jsonl",
+      "sha256": "743ab0fd66a6d4f4c5c8188e0481d9b1daa21aa22f0f20020891a0c021905508",
+      "bytes": 11422
+    },
+    {
+      "url": "data/evidence/ros2-physics-run.json",
+      "source": "runs/live/normal-7-recovery-a63bfd/run.json",
+      "sha256": "f087c137c5253b03d064abd776a47f9c555e0efc00fc36772052a585684abeb4",
+      "bytes": 60104
+    },
+    {
+      "url": "data/evidence/ros2-cancel-physics-result.json",
+      "source": "runs/live/normal-7-recovery-3b11b0/result.json",
+      "sha256": "58581c5ad0aa78249617a510b424971dc1fbfc6a649b7c4d21a999a8bf2eb3f6",
+      "bytes": 5395
+    },
+    {
+      "url": "data/evidence/ros2-cancel-physics-events.jsonl",
+      "source": "runs/live/normal-7-recovery-3b11b0/events.jsonl",
+      "sha256": "436d750d10d5f6ee9b9b6b8a7a05da73d3330e758a0617e169066229de85310c",
+      "bytes": 2322
+    },
+    {
+      "url": "data/evidence/ros2-normal-camera-sample.jpg",
+      "source": "runs/live/normal-7-recovery-a63bfd/frames/00000-camera.jpg",
+      "sha256": "b28da78b6b30314786ea6d1e2b89c92d2d45d909a89d6761b8dcf86710e5df97",
+      "bytes": 17297
+    },
+    {
+      "url": "data/evidence/device-tests.txt",
+      "source": "web/data/evidence/device-tests.txt",
+      "sha256": "d6020e0d9c3a75e2d9bf0981e7e40fcbb2fb2b0148ce661d816fbe0aa69aca7c",
+      "bytes": 3189
+    },
+    {
+      "url": "data/evidence/modbus-client.cpp",
+      "source": "cpp/modbus_client.cpp",
+      "sha256": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "bytes": 8669
+    },
+    {
+      "url": "data/evidence/device-tests.py",
+      "source": "tests/test_device.py",
+      "sha256": "e3418c451c64acfaac0bd205fdafc3a5020f7ed80a687b88121e081d9e1a55ca",
+      "bytes": 9866
+    },
+    {
+      "url": "data/evidence/mobile-tests.txt",
+      "source": "web/data/evidence/mobile-tests.txt",
+      "sha256": "59642887abd005799aca2bca0e15147a01decc5659bd144cfac50ae74cad9da5",
+      "bytes": 1684
+    },
+    {
+      "url": "data/evidence/mobile-normal-result.json",
+      "source": "runs/mobile/normal-seed-0-final/result.json",
+      "sha256": "b1575fb68f9369f4add5081d189829eb3848f8393ab807b78e2f53f13eeec313",
+      "bytes": 10194
+    },
+    {
+      "url": "data/evidence/mobile-normal-trajectory.jsonl",
+      "source": "runs/mobile/normal-seed-0-final/trajectory.jsonl",
+      "sha256": "85f9348fceea77170f18b1bbb049f75199447e0d1f7aaf6d8c9ea89062ab4665",
+      "bytes": 1655059
+    },
+    {
+      "url": "data/evidence/mobile-normal-trajectory.svg",
+      "source": "runs/mobile/normal-seed-0-final/trajectory.svg",
+      "sha256": "007d24281e9327c504b4ec4b7c668f96986964bec75796e5ff4bf0bd8eeb8e94",
+      "bytes": 32737
+    },
+    {
+      "url": "data/evidence/mobile-blocked-result.json",
+      "source": "runs/mobile/blocked-seed-1-final/result.json",
+      "sha256": "76a9eb63c10a6370efb9fb99346fcbd329f12975767eb8b44bb174c668ecaa29",
+      "bytes": 3880
+    },
+    {
+      "url": "data/evidence/mobile-blocked-trajectory.jsonl",
+      "source": "runs/mobile/blocked-seed-1-final/trajectory.jsonl",
+      "sha256": "f7acecf2b9779631e45d8259df9d9a8f9f75861ba00867d3226e39784dee896c",
+      "bytes": 1302
+    },
+    {
+      "url": "data/evidence/mobile-blocked-trajectory.svg",
+      "source": "runs/mobile/blocked-seed-1-final/trajectory.svg",
+      "sha256": "b321debdcfa270cd648b422f284289a3b21afc74fab1aac2e2657e1e5be931a2",
+      "bytes": 1366
+    },
+    {
+      "url": "data/evidence/mobile-contention-result.json",
+      "source": "runs/mobile/contention-seed-2-final/result.json",
+      "sha256": "280918fdf6ae4a6f59722e8da62927981c01e1101a98896fa6c96950f146adf6",
+      "bytes": 3944
+    },
+    {
+      "url": "data/evidence/mobile-contention-trajectory.jsonl",
+      "source": "runs/mobile/contention-seed-2-final/trajectory.jsonl",
+      "sha256": "d8887f81aea283b727818042dcfb3e05fa128f73f7824beef619e5595f79d53b",
+      "bytes": 200932
+    },
+    {
+      "url": "data/evidence/mobile-contention-trajectory.svg",
+      "source": "runs/mobile/contention-seed-2-final/trajectory.svg",
+      "sha256": "e4ce46ada1ffbe707439bd75c69edc2e85f6b9113c263889897b9b8c5bdb3f6e",
+      "bytes": 5283
+    },
+    {
+      "url": "data/evidence/mobile-pick-result.json",
+      "source": "runs/mobile/normal-seed-0-final/pick/normal-0-recovery-97eb51/result.json",
+      "sha256": "44c0da8381626d29843f614cbc84af5c1beec628a9eb2ff220f57f7431aca8c8",
+      "bytes": 5808
+    },
+    {
+      "url": "data/evidence/mobile-pick-events.jsonl",
+      "source": "runs/mobile/normal-seed-0-final/pick/normal-0-recovery-97eb51/events.jsonl",
+      "sha256": "2502335c02bce2c987d55a77bceaafc3cbaa71d7aab2c8c7f772f0e565466b45",
+      "bytes": 11536
+    },
+    {
+      "url": "data/evidence/device-protocol.md",
+      "source": "docs/device-protocol.md",
+      "sha256": "43a23d5f67e72c9ec05588fb27acc7a2f902ca4829e4e82ec77fbd885449fa36",
+      "bytes": 7926
+    },
+    {
+      "url": "data/evidence/ros2-integration.md",
+      "source": "docs/ros2-integration.md",
+      "sha256": "f8348082f96c7f532db9cec61f525c112118d6bb4920404136f29991e29de6ec",
+      "bytes": 6232
+    },
+    {
+      "url": "data/evidence/mobile-extension.md",
+      "source": "docs/mobile-extension.md",
+      "sha256": "ff89a6c496b3ecd7cc388ac407688734c38449493f6ee5af7ee391a1918ecd2e",
+      "bytes": 9773
+    },
+    {
+      "url": "data/evidence/execution-evidence.md",
+      "source": "docs/execution-evidence.md",
+      "sha256": "18b87b00f3d9ce748a0a5a9c63f52336749b4de1398a82b038b5f3996ad46cad",
+      "bytes": 5175
+    },
+    {
+      "url": "data/evidence/mobile-verification.json",
+      "source": "runs/mobile/verification.json",
+      "sha256": "2caccc6e5e3259507ae341f2030da533b4fb6d7fde4348614c839f9b2c209d2d",
+      "bytes": 1779
+    }
+  ],
+  "checks": {
+    "ros_action_raw_summary_match": true,
+    "ros_duplicate_run_identity": true,
+    "ros_sensor_probe_summary_match": true,
+    "cpp_subprocess_socket_test_recorded_pass": true,
+    "mobile_raw_metrics_and_sha_match": true,
+    "mobile_gate_order_and_job_identity": true,
+    "mobile_negative_picker_calls": 0
+  },
+  "scope": "Recorded local simulation and TCP/DDS software execution; physical robot disconnected. Known-map EKF, no SLAM; kinematics, no wheel/contact physics; task bridge, no ros2_control; separate mobile/fixed-cell worlds."
+}

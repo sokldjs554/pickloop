@@ -1,0 +1,7 @@
+{
+  "name": "PickLoop · CPU simulation",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "python -m pip install -e '.[test]'"
+}

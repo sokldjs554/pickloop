@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "run_id": "suction_once-1003-recovery-98c536",
+  "job_id": "job-a8a8fc1bad",
+  "seed": 1003,
+  "fault": "suction_once",
+  "policy": "recovery",
+  "sku": "SKU-RED-A",
+  "status": "COMPLETED",
+  "success": true,
+  "reason": null,
+  "sim_duration_s": 27.044999999998804,
+  "wall_duration_s": 2.302091381000082,
+  "retries": 1,
+  "metrics": {
+    "first_attempt_pick_success": false,
+    "first_attempt_success": false,
+    "attempts": 2,
+    "retries": 1,
+    "wrong_placements": 0,
+    "drops": 0,
+    "collisions": 0,
+    "held": false,
+    "cancelled": false,
+    "sim_duration_s": 27.044999999998804,
+    "wall_duration_s": 2.302091381000082,
+    "recovery_sim_s": 23.54499999999887,
+    "selection_correct": true,
+    "selection_attempted": true,
+    "position_error_m": 0.0008398791473254537,
+    "inference_wall_s": [
+      0.020961051000085718,
+      0.020594351999989158
+    ],
+    "verified_by_vision": true,
+    "verified_by_truth": true,
+    "max_joint_velocity": [
+      0.8943924639424141,
+      0.19342247414205296,
+      0.2192063486395936,
+      0.7352408711898137
+    ],
+    "max_joint_acceleration": [
+      1.3981710671796876,
+      0.23591576666417702,
+      0.4664724802783994,
+      1.3226237599254675
+    ],
+    "timeout": false
+  },
+  "initial_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3250123536768855,
+          -0.2021647094892659,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842716439942e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.48987230385498354,
+          -0.15517625327545168,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842716439942e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.2075633858508931,
+          -0.11464565116711262,
+          0.08498655912279951
+        ],
+        "speed_m_s": 4.83584271425419e-07,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "final_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3803057452759464,
+          0.2204605576048286,
+          0.09698658277545347
+        ],
+        "speed_m_s": 1.2786607640190456e-15,
+        "in_bin": true
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.48987230385498354,
+          -0.15517625327545168,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.217996909131136e-15,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.2075633858508931,
+          -0.11464565116711271,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.3115790273071143e-15,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "position_estimates": [
+    {
+      "attempt": 1,
+      "position": [
+        0.32470659707053756,
+        -0.20262525805836812,
+        0.1093542578533997
+      ],
+      "observation_id": "suction_once-1003-recovery-98c536-obs-0001"
+    },
+    {
+      "attempt": 2,
+      "position": [
+        0.32470659707053756,
+        -0.20262525805836812,
+        0.1093542578533997
+      ],
+      "observation_id": "suction_once-1003-recovery-98c536-obs-0002"
+    }
+  ],
+  "provenance": {
+    "source_sha256": "4108010f88b6d6bd8cd5b547bde9ee3fac7c4fc5cc4ab2ea9fad3be3515469e3",
+    "git_commit": "6b4d93e165add7932e1897885f6126f81288971c",
+    "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "source_files": {
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/cli.py": "3f95c366129f08527330e990ad205968a02099a25347b4593fd2d7c02c1bb8b5",
+      "src/pickloop/device.py": "4eef1950d95eb30ac9341e24ae1fdf6da24190fe9b8947d522a5ca93851762f0",
+      "src/pickloop/engine.py": "5640666aa155aaa833b180fa02d2e8bfb8c6fdc0da278920456d217bfbcc7708",
+      "src/pickloop/evaluation.py": "9795d4eb80cf4d522a6b0c22ade561a6b9a6501fee2ee1df5c93a24a63f57ded",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/mobile.py": "c853576e62540bfbd192cb07a7489a47aa7b334e0ee0c2e3da08bc8896457391",
+      "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+      "src/pickloop/server.py": "a49aa8c58847cbc7c065d4d72a966d292af5a199167bb76abbb54fa7af565c63",
+      "src/pickloop/simulation.py": "25e69741a952befc39907dd39d20f49726df3f6072d7e55e9078cb3721bfa2d3",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "src/pickloop.egg-info/PKG-INFO": "3e894b816130337fd061158da9057a400d02af361ac6a36fdecd32edad96f182",
+      "src/pickloop.egg-info/SOURCES.txt": "46c5d6c607da3d657cef25d5893643822fb8a7ae07167b39ad670656eed11d86",
+      "src/pickloop.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/pickloop.egg-info/entry_points.txt": "b1e85b6b73a7bb219ab9b894a354cd2ddf8534e24f5197c840efe38bd9fee18a",
+      "src/pickloop.egg-info/requires.txt": "85a1f17c3f1ee4e4efe776a5a0aec01740066f80651c609f9a6a36283dfc832d",
+      "src/pickloop.egg-info/top_level.txt": "59f92b636959ccdc7cc7181a8b836fc707da94c56f71adeec1ec64b92e2d42e6",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    }
+  }
+}
