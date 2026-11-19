@@ -114,7 +114,9 @@ class Controller:
         self.emit('PLAN_READY',target=p.tolist(),lift_height_m=self.transport_height,planner='analytic_SCARA_IK_quintic_dense_collision_check')
     @property
     def transport_height(self):
-        return .40 if self.policy=='recovery' and self.attempt>1 else .30
+        path_blocked = self.last_error is not None and self.last_error.code == "PATH_BLOCKED"
+        return 0.40 if self.policy == "recovery" and self.attempt > 1 and path_blocked else 0.30
+
     def approach(self):
         if self.carrying:return
         p=self.target_detection.position

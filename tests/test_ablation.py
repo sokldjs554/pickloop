@@ -47,14 +47,28 @@ def test_naive_reuses_target_but_still_checks_fresh_observation():
     with pytest.raises(OperationError,match='OBSERVATION_STALE'):c.observe()
 
 
-def test_reobservation_and_path_ablation_are_independent():
+def test_reobserve_and_recovery_both_request_fresh_inference():
     for p in ['reobserve','recovery']:
         c=controller(p)
         with pytest.raises(RuntimeError,match='fresh inference'):c.observe()
-    assert controller('naive').transport_height==.30
-    assert controller('reobserve').transport_height==.30
-    assert controller('recovery').transport_height==.40
-    c=controller('recovery');c.attempt=1;assert c.transport_height==.30
+
+
+@pytest.mark.parametrize(("policy", "attempt", "error", "height"), [
+    ("baseline", 1, None, .30),
+    ("naive", 2, "PATH_BLOCKED", .30),
+    ("reobserve", 2, "PATH_BLOCKED", .30),
+    ("recovery", 1, None, .30),
+    ("recovery", 1, "PATH_BLOCKED", .30),
+    ("recovery", 2, None, .30),
+    ("recovery", 2, "SEAL_NOT_CONFIRMED", .30),
+    ("recovery", 2, "PATH_BLOCKED", .40),
+    ("recovery", 3, "PATH_BLOCKED", .40),
+])
+def test_transport_height_depends_on_last_failure(policy, attempt, error, height):
+    c = controller(policy)
+    c.attempt = attempt
+    c.last_error = OperationError(error) if error is not None else None
+    assert c.transport_height == height
 
 
 def test_checkpoint_change_invalidates_pair_even_if_source_is_identical():
