@@ -8,11 +8,11 @@
 <body>
   <header class="topbar">
     <a class="brand" href="./" aria-label="PickLoop 홈"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><strong>PickLoop<span>OPERATOR CONSOLE</span></strong></a>
-    <nav class="topnav" aria-label="관제 화면"><span class="nav-active">작업 관제</span><a href="#comparison">실행 비교</a></nav>
+    <nav class="topnav" aria-label="관제 화면"><span class="nav-active">작업 관제</span><a href="#comparison">실행 비교</a><a href="evidence.html">직무별 검증</a></nav>
     <div class="connection"><span class="dot"></span><span id="connection-label">기록 재생</span><span class="separator">/</span><span>실물 미연결</span></div>
   </header>
   <main>
-    <section class="page-heading"><div><div class="eyebrow">ROBOT OPERATIONS <span> / </span> CELL 01</div><h1>피킹 작업 모니터</h1><p>같은 조건·시도 예산에서 정책을 비교하고, 실패 장면과 실행 근거를 확인합니다.</p></div><div class="mode-switch" role="group" aria-label="실행 모드"><button id="mode-replay" class="active">기록 재생</button><button id="mode-live" disabled title="로컬 실행 서버 필요">로컬 실시간</button></div></section>
+    <section class="page-heading"><div><div class="eyebrow">ROBOT OPERATIONS <span> / </span> CELL 01</div><h1>피킹 작업 모니터</h1><p class="personal-trial"><a href="https://github.com/sokldjs554/pickloop/pull/1">직접 수정한 복구 규칙 · PR #1</a><span>개발 seed 200 · 경로 차단 복구 유지 · 보정 오차 작업 2.530초 단축</span></p><a class="evidence-mobile-link" href="evidence.html">직무별 검증 보기</a></div><div class="mode-switch" role="group" aria-label="실행 모드"><button id="mode-replay" class="active">기록 재생</button><button id="mode-live" disabled title="로컬 실행 서버 필요">로컬 실시간</button></div></section>
     <div id="notice" class="notice" role="status" hidden></div>
     <section class="mission-strip" aria-label="작업 요약"><div class="mission-main"><span class="label">대상 품목</span><strong id="sku">—</strong><span class="tag">SCARA · RGB-D</span></div><div><span class="label">최종 결과</span><strong id="final-status">불러오는 중</strong></div><div><span class="label">실패 단계 / 원인</span><strong id="failure-reason">—</strong></div><div><span class="label">재시도</span><strong id="retry-count">—</strong></div></section>
     <section class="run-story" aria-label="실패와 복구 요약"><p id="run-narrative">실행 이력을 불러오는 중입니다.</p><div class="milestone-jumps"><button id="jump-failure" disabled>실패 순간 ↗</button><button id="jump-retry" disabled>재시도 시작 ↗</button><button id="jump-placement" disabled>배치 완료 ↗</button></div></section>
@@ -47,18 +47,20 @@
     <section id="integration-evidence" class="panel integration-evidence" hidden><div class="panel-title"><h2>연동 실행 증거</h2><span class="panel-code">ROS2 · C++ · MOBILE</span></div><div id="evidence-items"></div></section>
     <footer><span><span class="dot"></span> PICKLOOP / REPRODUCIBLE ROBOTICS</span><span id="dataset-info">기록 데이터 확인 중</span><span>단위 m · rad · s · kPa</span></footer>
   <section id="handoff" class="panel" style="margin:24px 0;padding:22px;line-height:1.8">
-<h2 style="font-size:18px;margin-bottom:10px">제출 자료 다운로드</h2>
-<p style="color:#a8bec9;margin-bottom:14px">소스·새 평가 576회와 과거 120회 원문·체크포인트·테스트·공고 대응표를 제공합니다. ZIP은 재생 JPEG를 제외하며, 전체 장면은 위 화면에서 확인할 수 있습니다.</p>
+<h2 style="font-size:18px;margin-bottom:10px">코드와 실행 자료</h2>
+<p style="color:#a8bec9;margin-bottom:14px">현재 소스에서 지원자의 복구 규칙과 직무별 후속 검증을 확인할 수 있습니다. 관제 화면은 PR #1 이전의 동결 평가와 대표 실행을 재생합니다.</p>
 <div style="display:flex;flex-wrap:wrap;gap:12px">
-<a class="primary" href="https://pickloop-robot-ops.ykh13571.chatgpt.site/downloads/PickLoop-practice.zip" download="PickLoop-practice.zip">Mac·Linux 실습 ZIP 다운로드</a>
-<a class="primary" href="https://pickloop-robot-ops.ykh13571.chatgpt.site/downloads/pickloop-source.zip" download>소스와 원문 기록 ZIP</a>
+<a class="primary" href="https://github.com/sokldjs554/pickloop">현재 소스 · GitHub</a>
+<a href="evidence.html">본인 PR과 직무별 검증</a>
+<a class="primary" href="https://pickloop-robot-ops.ykh13571.chatgpt.site/downloads/PickLoop-practice.zip" download="PickLoop-practice.zip">변경 전 규칙 실습 ZIP</a>
+<a class="primary" href="https://pickloop-robot-ops.ykh13571.chatgpt.site/downloads/pickloop-source.zip" download>PR #1 이전 평가 소스·원문 ZIP</a>
 <a class="primary" href="downloads/pickloop-demo.mp4" download>실제 실행 영상 MP4</a>
 <a href="downloads/summary.md" download>검증 결과·한계</a>
 <a href="downloads/metrics.json" download>비교 지표 JSON</a>
 <a href="downloads/trials.csv" download>576회 실행 목록 CSV</a>
-<a href="downloads/job-requirements.md" download>공고 대응표</a>
+<a href="https://github.com/sokldjs554/pickloop/blob/main/docs/job-requirements-matrix.md">공고 대응표</a>
 </div>
-<p style="font-size:13px;color:#91a7b2;margin-top:12px">로그인 없이 링크로 접근 가능 · 실물 로봇 배포/SLAM/충전 미검증</p>
+<p style="font-size:13px;color:#91a7b2;margin-top:12px">로그인 없이 링크로 접근 가능 · 공개 사진과 시뮬레이션을 사용한 검증 · 실물 로봇 미연결</p>
 </section>
 
 </main>

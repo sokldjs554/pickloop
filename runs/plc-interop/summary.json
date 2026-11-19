@@ -1,0 +1,35 @@
+{
+  "environment": {
+    "awlsim": "0.78.0",
+    "pyModbusTCP": "0.3.1",
+    "python": "3.12.14",
+    "compile_flags": [
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "scan_target_ms": 10,
+    "sha256": {
+      "modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "pickloop.awl": "9e52debe64605f54a8a70a2d1290993438c414408c24cb8d8766b817b7221373",
+      "bench.py": "a64062c3f2c18d0a668a836a5c6040c8d547db7c8fc49399a04a9a3253770f56",
+      "run_interop.py": "c558653b56707ff9f9ceec72074e5c506e74d4da01b22539c00fef922c0483c6"
+    }
+  },
+  "result": {
+    "outcome": "pass",
+    "steps": 13,
+    "tcp_connections": 18,
+    "plc_command_scans": 7,
+    "scans_recorded": 10,
+    "valve_applications": 2,
+    "final_id": 2147483682,
+    "scan_interval_ms_median": 9.998,
+    "scan_interval_ms_max": 10.692,
+    "client_process_ms_median": 6.534,
+    "client_process_ms_max": 10.548
+  }
+}

@@ -9,7 +9,7 @@
 | AI 에이전트 — 조사 | Wanted 원문·제품/UI·8개 기존 repo 코드/결과/기여 이력 감사. 고정 커밋·출처·일부 독립 재실행 구분 | 기존 repo 모든 실험·브라우저·실물 결과를 이번에 재현했다는 주장 |
 | AI 에이전트 — 신규 소프트웨어 | MuJoCo SCARA, 외부 보정·RGB-D 분할, CNN/prototype, BT coordinator, TCP emulator·독립 C++ client, journal/API·운영 UI, 모바일/ROS2 코드 | 사용자 단독 수작업 구현, 현장 로봇 제품 출시/인증 |
 | AI 에이전트 — 학습·검증 | 합성 텍스처/데이터 생성·CPU 학습·TorchScript export·평가·시험 명령 수행. 최종 결과는 원본 로그와 보고서 참조 | 실상품/실카메라 일반화·실물 로봇 모델 배포·실제 PLC/충전기 검증 |
-| 사용자 — 이후 직접 검토 | 현재 세션에서 직접 재현·수정·시험한 추가 내용은 아직 별도 확인되지 않음 | AI 실행 결과를 사용자의 개인 실험 결과로 소급 기재 |
+| 사용자 — 복구 규칙 수정·검증 | 개발 seed 200에서 경로 차단 재시도만 높이를 올리도록 수정하고 코드와 전후 결과를 병합했다. [PR #1](https://github.com/sokldjs554/pickloop/pull/1) | 추가 seed 201~209의 45쌍은 Codex 독립 실행 |
 
 PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른다. `ondevice-pcb-inspection`은 별도 PCB 영상 검사 소프트웨어이며 같은 보드나 동일 제작 경험으로 합치지 않는다.
 
@@ -30,9 +30,13 @@ PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른�
 
 `assets/textures/`는 이번에 생성한 독자 합성 자산이며 해당 [사용 조건](../assets/textures/LICENSE.txt)을 따른다. 모델·학습 데이터 출처/분할과 초기 개발 데이터 재사용 구분은 [vision-model.md](vision-model.md)에 있다. 외부 UI 이미지는 조사 참고이며 PickLoop 실행 증거로 사용하지 않는다.
 
-## 사용자가 이후 직접 수행할 때 추가할 기록
+## 지원자가 직접 재현한 결과
 
-기존 AI 기여를 지우지 않고, 수행일·기준 commit/model hash·수정 파일/이유·실행 명령·관찰한 실패·원본 결과·검토자가 설명 가능한 설계 판단을 별도 항목으로 추가한다. 예를 들어 직접 다른 unknown 패턴을 추가하고 임계값 변화·오거부/오수락·작업 결과를 재평가했다면 그 구체적 변경만 사용자 기여로 기록한다. 아직 실행하지 않은 예를 완료 이력으로 채우지 않는다.
+직접 실행한 [변경 전](experiments/retry-height/seed-200-before.json)과 [변경 후](experiments/retry-height/seed-200-after.json) 기록에서 경로 차단 완료는 유지됐고, 보정 오차 작업 시간이 2.530초 줄었다. 판정 조건은 다음 시도 번호, 복구 정책, 직전 오류 코드다. [코드·검증 변경](https://github.com/sokldjs554/pickloop/pull/1/files)과 [Codex의 독립 재현](experiments/retry-height/independent-validation.md)을 각각 확인할 수 있다.
+
+## Codex가 추가 수행한 직무 검증
+
+공개 매장 사진 평가, USDA 손목 카메라 실측 기록 분석, 모의 RGB-D 상자 배치·오프라인 라이다 SLAM·두 AMR 충전·S7 소프트웨어 PLC 통신 시험은 Codex가 구현하고 실행했다. 원본 사진과 로봇 자세는 각 데이터셋 저자가 수집했다. [직무별 코드와 실행 원본](job-requirements-matrix.md)
 
 ## 공개 데모 리뷰 반영
 

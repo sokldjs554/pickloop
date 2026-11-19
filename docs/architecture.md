@@ -44,7 +44,7 @@ flowchart LR
 - `base`는 고정 셀 우수계: x 오른쪽, y 뒤쪽, z 위. SI 단위 m/rad/s.
 - `camera_optical`: x 오른쪽, y 아래, z 앞. RGB/깊이 480×480; 깊이는 광축 방향 거리(m).
 - `T_base_camera`는 camera→base 4×4; 6개 마커의 실제 이미지 중심과 알려진 설치 좌표로 `solvePnP`. 매 run `calibration.json`의 대응점·행렬·재투영 RMS를 저장한다. 카메라 위치를 MuJoCo cam_xpos에서 제어기로 복사하지 않는다.
-- 고정형 외부 보정이다. AX=XB hand-eye, lens distortion·실제 깊이 scale calibration은 미검증.
+- 피킹 셀은 고정 카메라의 외부 보정을 사용한다. 별도 [이동 손목 AX=XB 시험](hand-eye.md)에서는 공개 실측 사진과 로봇 자세를 사용했다. 실제 피킹 셀의 렌즈와 깊이 스케일 교정은 미측정이다.
 - 관측에는 `sim_time`, 수신 monotonic ns, `observation_id`, calibration ID가 있다. 관측 나이 350ms 초과, wall 전달 나이 5s 초과는 거부한다.
 - frame의 두 영상·관절·TCP·압력은 물리 step을 전진시키지 않고 같은 시점에 캡처한다. 인식 overlay는 같은 sim timestamp일 때만 붙인다. 로그는 그 event ID와 연결된다.
 - 프로그램 wall 시간은 CPU 렌더링·추론·TCP·로그 비용을 포함한다. sim 시간과 동일하지 않다. 네트워크 timeout은 wall 기준, 운동 deadline은 sim 기준이다.

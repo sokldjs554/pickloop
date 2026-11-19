@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "mission_id": "normal-seed-0",
+  "seed": 0,
+  "scenario": "normal",
+  "status": "COMPLETED",
+  "reason": null,
+  "simulation": "kinematic two-AMR fleet and ideal DC port",
+  "completed": [
+    "amr-1",
+    "amr-2"
+  ],
+  "batteries": {
+    "amr-1": {
+      "initial_soc": 0.198,
+      "final_soc": 0.20500770602040216,
+      "delivered_wh": 0.3363698889793037
+    },
+    "amr-2": {
+      "initial_soc": 0.199,
+      "final_soc": 0.20500550401456735,
+      "delivered_wh": 0.28826419269923226
+    }
+  },
+  "mobile_metrics": {
+    "sample_count": 3767,
+    "distance_m": 23.934348680548133,
+    "localization_rmse_m": 0.006053898672116296,
+    "max_wheel_speed_m_s": 0.4667050809133928,
+    "max_wheel_acceleration_m_s2": 0.8000000000000007,
+    "collision_count": 0,
+    "sim_duration_s": 150.68,
+    "zone_max_simultaneous_occupants": 1
+  },
+  "final_zone": {
+    "owner": null,
+    "occupied": []
+  },
+  "provenance": {
+    "source_files": {
+      "src/pickloop/dock_charging.py": "d325db555f6477474dcea1aff30c1b7e5bc996a5750a38050a143e1834c8d6c2",
+      "src/pickloop/mobile.py": "a95fc8f0e024515b84e3215dfa2266900e560d68f312e524a7f2ce44de4fd402",
+      "scripts/run_dock_charging.py": "597477c847a1bf41c169529c77eeca6e429aba794f9a4776b3bd01cd03b9df9a",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    },
+    "telemetry_sha256": "463cff41c953f55e5decabc4ecc2c6f91ed2c705b3cb5abd7e577a225fa819a0",
+    "python": "3.12.14",
+    "numpy": "2.2.6"
+  }
+}

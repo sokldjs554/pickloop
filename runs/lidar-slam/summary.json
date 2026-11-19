@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "source_sha256": {
+    "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd",
+    "src/pickloop/mobile.py": "a95fc8f0e024515b84e3215dfa2266900e560d68f312e524a7f2ce44de4fd402",
+    "src/pickloop/lidar_slam.py": "bbffaa569a6b4efa45efccf89c68bb9b4d04c6f37327561eebcb30e007857795",
+    "scripts/run_lidar_slam.py": "6483b71337a430a861f995d4c4251ba5a9782ba528731ce60cd020f3426e96a4"
+  },
+  "domain": "offline 2D kinematic simulation",
+  "example_seed": 7,
+  "trials": [
+    {
+      "seed": 7,
+      "simulated_samples": 1696,
+      "keyframes": 69,
+      "duration_s": 67.7999999999994,
+      "keyframe_path_length_m": 16.709116310180224,
+      "wheel_only": {
+        "xy_rmse_m": 0.6576493492354757,
+        "final_xy_error_m": 1.15016571032111,
+        "yaw_rmse_deg": 12.770239374865184
+      },
+      "local_scan_matching": {
+        "xy_rmse_m": 0.14340856364253918,
+        "final_xy_error_m": 0.24336300766820693,
+        "yaw_rmse_deg": 2.7704042008673024
+      },
+      "pose_graph": {
+        "xy_rmse_m": 0.0222853337333721,
+        "final_xy_error_m": 0.0007447685763907425,
+        "yaw_rmse_deg": 0.2210102479489173
+      },
+      "local_matches": 68,
+      "loop_candidates_checked": 2,
+      "accepted_loops": [
+        {
+          "start": 1,
+          "end": 65,
+          "relative_pose": [
+            -0.31447676919847806,
+            0.014421029280665656,
+            -0.8726317496089893
+          ],
+          "overlap": 0.7777777777777778,
+          "rms_m": 0.008483160604862146,
+          "truth_error_m": 0.0028312897495781546,
+          "truth_yaw_error_rad": 0.00028856312027514264,
+          "within_evaluator_tolerance": true
+        },
+        {
+          "start": 0,
+          "end": 68,
+          "relative_pose": [
+            0.0009252403565940772,
+            0.014730309324591526,
+            -0.012968333930112763
+          ],
+          "overlap": 0.8333333333333334,
+          "rms_m": 0.005985602572986483,
+          "truth_error_m": 0.0007950416259690684,
+          "truth_yaw_error_rad": 0.0023692005732316446,
+          "within_evaluator_tolerance": true
+        }
+      ],
+      "map": {
+        "grid_resolution_m": 0.07,
+        "occupied_cells": 557,
+        "free_cells": 8841,
+        "unknown_cells": 1613,
+        "wall_tolerance_m": 0.14,
+        "occupied_near_wall_fraction": 1.0,
+        "wall_covered_fraction": 0.98
+      },
+      "open_prefix": {
+        "keyframes": 35,
+        "accepted_loops": 0,
+        "candidates": 0
+      },
+      "wrong_place_control": {
+        "keyframes": [
+          0,
+          34
+        ],
+        "proposed_displacement_m": 0.0,
+        "true_distance_m": 6.152230818409461,
+        "accepted": false,
+        "overlap": 0.0,
+        "rms_m": null
+      }
+    },
+    {
+      "seed": 19,
+      "simulated_samples": 1701,
+      "keyframes": 70,
+      "duration_s": 67.99999999999943,
+      "keyframe_path_length_m": 16.708111968425026,
+      "wheel_only": {
+        "xy_rmse_m": 0.6157794022958483,
+        "final_xy_error_m": 1.0326996960954604,
+        "yaw_rmse_deg": 11.9818508100163
+      },
+      "local_scan_matching": {
+        "xy_rmse_m": 0.16796429238385516,
+        "final_xy_error_m": 0.28915270719760644,
+        "yaw_rmse_deg": 3.01569142256014
+      },
+      "pose_graph": {
+        "xy_rmse_m": 0.012155423941105517,
+        "final_xy_error_m": 0.0013278849727238749,
+        "yaw_rmse_deg": 0.22623117649823374
+      },
+      "local_matches": 69,
+      "loop_candidates_checked": 2,
+      "accepted_loops": [
+        {
+          "start": 1,
+          "end": 66,
+          "relative_pose": [
+            -0.30917091174320677,
+            0.010604706455520382,
+            -0.8838866282114046
+          ],
+          "overlap": 0.7777777777777778,
+          "rms_m": 0.008170414509078685,
+          "truth_error_m": 0.003346969719397653,
+          "truth_yaw_error_rad": 0.00037865014163118715,
+          "within_evaluator_tolerance": true
+        },
+        {
+          "start": 0,
+          "end": 69,
+          "relative_pose": [
+            -0.0010443668300166972,
+            0.009143260935749258,
+            -0.015955870975269182
+          ],
+          "overlap": 0.8333333333333334,
+          "rms_m": 0.004958183496710871,
+          "truth_error_m": 0.001639491994041557,
+          "truth_yaw_error_rad": 0.00015942365376897527,
+          "within_evaluator_tolerance": true
+        }
+      ],
+      "map": {
+        "grid_resolution_m": 0.07,
+        "occupied_cells": 550,
+        "free_cells": 8868,
+        "unknown_cells": 1622,
+        "wall_tolerance_m": 0.14,
+        "occupied_near_wall_fraction": 1.0,
+        "wall_covered_fraction": 0.9794736842105263
+      },
+      "open_prefix": {
+        "keyframes": 35,
+        "accepted_loops": 0,
+        "candidates": 0
+      },
+      "wrong_place_control": {
+        "keyframes": [
+          0,
+          34
+        ],
+        "proposed_displacement_m": 0.0,
+        "true_distance_m": 6.14755570611381,
+        "accepted": false,
+        "overlap": 0.0,
+        "rms_m": null
+      }
+    },
+    {
+      "seed": 41,
+      "simulated_samples": 1710,
+      "keyframes": 70,
+      "duration_s": 68.35999999999949,
+      "keyframe_path_length_m": 16.68861645877805,
+      "wheel_only": {
+        "xy_rmse_m": 0.664089817160127,
+        "final_xy_error_m": 1.0985620544406194,
+        "yaw_rmse_deg": 12.73674027001715
+      },
+      "local_scan_matching": {
+        "xy_rmse_m": 0.15011766466820903,
+        "final_xy_error_m": 0.2676591454132707,
+        "yaw_rmse_deg": 2.8671004466378167
+      },
+      "pose_graph": {
+        "xy_rmse_m": 0.013790537207810228,
+        "final_xy_error_m": 0.005031813856653709,
+        "yaw_rmse_deg": 0.2617666488103799
+      },
+      "local_matches": 69,
+      "loop_candidates_checked": 1,
+      "accepted_loops": [
+        {
+          "start": 0,
+          "end": 67,
+          "relative_pose": [
+            -0.0025136197488619463,
+            0.015598965468681555,
+            -0.5281051129426264
+          ],
+          "overlap": 0.8888888888888888,
+          "rms_m": 0.006918638127399898,
+          "truth_error_m": 0.002299235889606219,
+          "truth_yaw_error_rad": 0.0007584141337662054,
+          "within_evaluator_tolerance": true
+        }
+      ],
+      "map": {
+        "grid_resolution_m": 0.07,
+        "occupied_cells": 546,
+        "free_cells": 8859,
+        "unknown_cells": 1515,
+        "wall_tolerance_m": 0.14,
+        "occupied_near_wall_fraction": 1.0,
+        "wall_covered_fraction": 0.9810526315789474
+      },
+      "open_prefix": {
+        "keyframes": 35,
+        "accepted_loops": 0,
+        "candidates": 0
+      },
+      "wrong_place_control": {
+        "keyframes": [
+          0,
+          34
+        ],
+        "proposed_displacement_m": 0.0,
+        "true_distance_m": 6.150457338574552,
+        "accepted": false,
+        "overlap": 0.0,
+        "rms_m": null
+      }
+    }
+  ]
+}

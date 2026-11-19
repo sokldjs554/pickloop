@@ -61,3 +61,16 @@ main>.evaluation-strip .cluster-interval{font-size:11px}
   .conditions form { display: block; }
   .conditions .field-pair { grid-template-columns: minmax(0,2fr) minmax(70px,1fr); margin-top: 10px; }
 }
+
+.page-heading .personal-trial {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem;
+  color: #c7d3d8; font-size: .92rem; line-height: 1.6;
+}
+.personal-trial a, .evidence-mobile-link {
+  color: var(--teal); text-decoration: underline; text-underline-offset: .2em;
+}
+.evidence-mobile-link { display: none; }
+@media (max-width: 700px) {
+  .page-heading .personal-trial { display: grid; gap: 0; }
+  .evidence-mobile-link { display: inline-block; margin-top: .2rem; font-size: .9rem; }
+}
