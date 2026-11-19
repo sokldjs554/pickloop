@@ -89,7 +89,16 @@ def test_physical_observations_replay_and_holdout_cannot_change_fit(tmp_path):
     root = Path(__file__).resolve().parents[1]
     runner = str(root / "scripts/run_hand_eye.py")
     source = root / "runs/hand-eye/usda-observations.json"
-    baseline = json.loads((root / "runs/hand-eye/usda-report.json").read_text())
+    archived = json.loads((root / "runs/hand-eye/usda-report.json").read_text())
+    subprocess.run([sys.executable, runner, "--observations", str(source),
+                    "--out-dir", str(tmp_path)], cwd=root, check=True)
+    baseline = json.loads((tmp_path / "usda-report.json").read_text())
+
+    # The published RMS values have three decimals. Compare independent builds
+    # in the reported units, then test holdout isolation on the same build.
+    for metric in ("prediction_reprojection_rms_px", "translation_rms_mm", "rotation_rms_deg"):
+        assert baseline["heldout"][metric] == pytest.approx(archived["heldout"][metric], abs=0.0005, rel=0)
+    np.testing.assert_allclose(baseline["tool_T_camera"], archived["tool_T_camera"], rtol=0, atol=1e-6)
     captures = json.loads(source.read_text())
     assert len(captures["views"]) == 88
     for view in captures["views"]:
@@ -100,6 +109,6 @@ def test_physical_observations_replay_and_holdout_cannot_change_fit(tmp_path):
     subprocess.run([sys.executable, runner, "--observations", str(altered),
                     "--out-dir", str(tmp_path)], cwd=root, check=True)
     report = json.loads((tmp_path / "usda-report.json").read_text())
-    np.testing.assert_allclose(report["tool_T_camera"], baseline["tool_T_camera"], atol=1e-10)
-    np.testing.assert_allclose(report["intrinsics"], baseline["intrinsics"], atol=1e-10)
+    for key in ("tool_T_camera", "base_T_target", "intrinsics", "distortion"):
+        np.testing.assert_array_equal(report[key], baseline[key])
     assert report["heldout"]["prediction_reprojection_rms_px"] > baseline["heldout"]["prediction_reprojection_rms_px"] + 7
