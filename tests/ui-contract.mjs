@@ -12,6 +12,15 @@ const context={URL};vm.createContext(context);vm.runInContext(js,context);
 const {normalizeRun,resolveFrameUrl,frameAtTime,retries,statusLabel,failureSummary,isTerminal}=context.PickLoopContract;
 let checks=0;
 function check(name,fn){fn();checks++;console.log(`ok ${checks} - ${name}`);}
+check('operator can reach the owner experiment and role evidence before the replay controls', () => {
+  const heading = html.slice(0, html.indexOf('class="workspace-grid"'));
+  assert.match(heading, /href="https:\/\/github.com\/sokldjs554\/pickloop\/pull\/1"/);
+  assert.match(heading, /href="evidence.html"/);
+  const trial = version => JSON.parse(readFileSync(resolve(root, `docs/experiments/retry-height/seed-200-${version}.json`)))
+    .find(row => row.fault === 'calibration_error' && row.policy === 'recovery');
+  const saving = (trial('before').sim_duration_s - trial('after').sim_duration_s).toFixed(3);
+  assert.ok(heading.includes(saving) && heading.includes('seed 200'));
+});
 check('HTML is Korean and references actual local assets',()=>{assert.match(html,/<html lang="ko">/);assert.match(html,/href="styles.css"/);assert.match(html,/defer src="app.js"/);});
 check('every script ID reference has a unique HTML element',()=>{const ids=[...(html+js).matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);const staticIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(staticIds).size,staticIds.length);for(const [,id] of js.matchAll(/\$\('([^']+)'\)/g))assert.ok(ids.includes(id),`missing #${id}`);});
 check('static view cannot start or cancel live compute',()=>{assert.match(html,/<button id="mode-live" disabled/);assert.match(html,/<button id="start-job"[^>]*hidden/);assert.match(html,/<button id="cancel-job"[^>]*hidden/);assert.match(js,/health\.mode!=='live'/);assert.match(js,/state\.mode!=='live'\|\|!state\.liveAvailable\|\|state\.jobId/);});

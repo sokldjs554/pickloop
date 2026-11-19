@@ -1,0 +1,1162 @@
+{
+  "dataset": "Grocery Store Dataset, natural smartphone photographs",
+  "source": "https://github.com/marcusklasson/GroceryStoreDataset/tree/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "raw_photo_url_prefix": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/",
+  "revision": "fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "archive_download": "https://codeload.github.com/marcusklasson/GroceryStoreDataset/zip/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "repository_license": "https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/LICENSE",
+  "paper": "https://arxiv.org/abs/1901.00711",
+  "ordered_path_and_file_digest_sha256": {
+    "train": "88b1a8808c0930fe9ccfecefc3e758332eff694472c1f7e97c208c4c2b563c86",
+    "test": "f10419ba73e615a6e06d48048d986822f007dbcc09633b12bb6d222499f64d50"
+  },
+  "checkpoint": {
+    "path": "models/appearance.pt",
+    "sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "distance_threshold": 1.0832704402515725,
+    "margin_threshold": 0.0
+  },
+  "input": "whole published natural photograph, EXIF-oriented RGB, production 64x64 bilinear resize",
+  "registration": {
+    "source_split": "train",
+    "images_per_product": {
+      "Bravo-Apple-Juice": 25,
+      "Bravo-Orange-Juice": 32
+    },
+    "sku_order": [
+      "Bravo-Apple-Juice",
+      "Bravo-Orange-Juice"
+    ],
+    "prototypes": [
+      [
+        0.22370296716690063,
+        -0.05569596588611603,
+        0.2858062982559204,
+        -0.2585969865322113,
+        0.21368597447872162,
+        -0.017521044239401817,
+        0.01658928394317627,
+        -0.032536618411540985,
+        0.030509088188409805,
+        -0.08982006460428238,
+        0.06461016088724136,
+        0.03503629192709923,
+        -0.22103843092918396,
+        -0.1679590493440628,
+        0.18954864144325256,
+        -0.2994474768638611,
+        -0.20286832749843597,
+        0.07813257724046707,
+        -0.07707887887954712,
+        -0.20812177658081055,
+        -0.2064547836780548,
+        0.07347368448972702,
+        0.11439797282218933,
+        0.1951952874660492,
+        -0.24399800598621368,
+        0.1656787246465683,
+        -0.13075387477874756,
+        0.37695029377937317,
+        -0.29629477858543396,
+        0.05740023031830788,
+        -0.015622876584529877,
+        -0.026466401293873787
+      ],
+      [
+        0.24627727270126343,
+        -0.07202550768852234,
+        0.20184417068958282,
+        -0.2855895459651947,
+        0.08701063692569733,
+        -0.10827220976352692,
+        0.04261971265077591,
+        -0.10949692875146866,
+        -0.018694723024964333,
+        -0.15893195569515228,
+        0.02584414929151535,
+        0.012232285924255848,
+        -0.16300222277641296,
+        -0.12396324425935745,
+        0.13038481771945953,
+        -0.273507297039032,
+        -0.2588232755661011,
+        0.07728258520364761,
+        0.027574408799409866,
+        -0.26228129863739014,
+        -0.24160738289356232,
+        0.12391415238380432,
+        0.12285032123327255,
+        0.2170109748840332,
+        -0.2592390179634094,
+        0.2179156094789505,
+        -0.06832442432641983,
+        0.3303029537200928,
+        -0.28372451663017273,
+        0.16733446717262268,
+        -0.05477183312177658,
+        -0.014100500382483006
+      ]
+    ],
+    "rule": "L2-normalized mean of frozen encoder embeddings per registered product"
+  },
+  "test_split": "test",
+  "test_photos": 781,
+  "test_product_count": 31,
+  "trials": {
+    "fixed_original_AB": {
+      "metrics": {
+        "known_correct": 0,
+        "known_wrong_label": 0,
+        "known_rejected": 0,
+        "unknown_false_accepts": 2,
+        "unknown_rejected": 779,
+        "known_total": 0,
+        "unknown_total": 781,
+        "confusion": {
+          "UNKNOWN": {
+            "UNKNOWN": 779,
+            "SKU-RED-B": 2
+          }
+        },
+        "known_accuracy_after_rejection": null,
+        "unknown_false_accept_rate": 0.002560819462227913
+      },
+      "by_product": {
+        "Bravo-Apple-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 23,
+          "known_total": 0,
+          "unknown_total": 23,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 23
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Bravo-Orange-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 31,
+          "known_total": 0,
+          "unknown_total": 31,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 31
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "God-Morgon-Apple-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 19,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "God-Morgon-Orange-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 22,
+          "known_total": 0,
+          "unknown_total": 22,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 22
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "God-Morgon-Orange-Red-Grapefruit-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 19,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "God-Morgon-Red-Grapefruit-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 14,
+          "known_total": 0,
+          "unknown_total": 14,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 14
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Tropicana-Apple-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 28,
+          "known_total": 0,
+          "unknown_total": 28,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 28
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Tropicana-Golden-Grapefruit": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 19,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Tropicana-Juice-Smooth": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 24,
+          "known_total": 0,
+          "unknown_total": 24,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 24
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Tropicana-Mandarin-Morning": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 20,
+          "known_total": 0,
+          "unknown_total": 20,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 20
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Ecological-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 29,
+          "known_total": 0,
+          "unknown_total": 29,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 29
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Lactose-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 25,
+          "known_total": 0,
+          "unknown_total": 25,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 25
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 34,
+          "known_total": 0,
+          "unknown_total": 34,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 34
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Standard-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 2,
+          "unknown_rejected": 28,
+          "known_total": 0,
+          "unknown_total": 30,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 28,
+              "SKU-RED-B": 2
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.06666666666666667
+        },
+        "Garant-Ecological-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 35,
+          "known_total": 0,
+          "unknown_total": 35,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 35
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Garant-Ecological-Standard-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 11,
+          "known_total": 0,
+          "unknown_total": 11,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 11
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Oatly-Natural-Oatghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 30,
+          "known_total": 0,
+          "unknown_total": 30,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 30
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Oatly-Oat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 31,
+          "known_total": 0,
+          "unknown_total": 31,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 31
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Ecological-Sour-Cream": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 23,
+          "known_total": 0,
+          "unknown_total": 23,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 23
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Sour-Cream": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 18,
+          "known_total": 0,
+          "unknown_total": 18,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 18
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Sour-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 19,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Alpro-Blueberry-Soyghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 28,
+          "known_total": 0,
+          "unknown_total": 28,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 28
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Alpro-Vanilla-Soyghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 19,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Alpro-Fresh-Soy-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 28,
+          "known_total": 0,
+          "unknown_total": 28,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 28
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Alpro-Shelf-Soy-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 30,
+          "known_total": 0,
+          "unknown_total": 30,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 30
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Mild-Vanilla-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 27,
+          "known_total": 0,
+          "unknown_total": 27,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 27
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Natural-Mild-Low-Fat-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 23,
+          "known_total": 0,
+          "unknown_total": 23,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 23
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Arla-Natural-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 41,
+          "known_total": 0,
+          "unknown_total": 41,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 41
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Valio-Vanilla-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 31,
+          "known_total": 0,
+          "unknown_total": 31,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 31
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Yoggi-Strawberry-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 32,
+          "known_total": 0,
+          "unknown_total": 32,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 32
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        },
+        "Yoggi-Vanilla-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 18,
+          "known_total": 0,
+          "unknown_total": 18,
+          "confusion": {
+            "UNKNOWN": {
+              "UNKNOWN": 18
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 0.0
+        }
+      }
+    },
+    "registered_grocery": {
+      "metrics": {
+        "known_correct": 46,
+        "known_wrong_label": 8,
+        "known_rejected": 0,
+        "unknown_false_accepts": 727,
+        "unknown_rejected": 0,
+        "known_total": 54,
+        "unknown_total": 727,
+        "confusion": {
+          "Bravo-Apple-Juice": {
+            "Bravo-Apple-Juice": 22,
+            "Bravo-Orange-Juice": 1
+          },
+          "Bravo-Orange-Juice": {
+            "Bravo-Orange-Juice": 24,
+            "Bravo-Apple-Juice": 7
+          },
+          "UNKNOWN": {
+            "Bravo-Apple-Juice": 683,
+            "Bravo-Orange-Juice": 44
+          }
+        },
+        "known_accuracy_after_rejection": 0.8518518518518519,
+        "unknown_false_accept_rate": 1.0
+      },
+      "by_product": {
+        "Bravo-Apple-Juice": {
+          "known_correct": 22,
+          "known_wrong_label": 1,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 0,
+          "known_total": 23,
+          "unknown_total": 0,
+          "confusion": {
+            "Bravo-Apple-Juice": {
+              "Bravo-Apple-Juice": 22,
+              "Bravo-Orange-Juice": 1
+            }
+          },
+          "known_accuracy_after_rejection": 0.9565217391304348,
+          "unknown_false_accept_rate": null
+        },
+        "Bravo-Orange-Juice": {
+          "known_correct": 24,
+          "known_wrong_label": 7,
+          "known_rejected": 0,
+          "unknown_false_accepts": 0,
+          "unknown_rejected": 0,
+          "known_total": 31,
+          "unknown_total": 0,
+          "confusion": {
+            "Bravo-Orange-Juice": {
+              "Bravo-Orange-Juice": 24,
+              "Bravo-Apple-Juice": 7
+            }
+          },
+          "known_accuracy_after_rejection": 0.7741935483870968,
+          "unknown_false_accept_rate": null
+        },
+        "God-Morgon-Apple-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 19,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 17,
+              "Bravo-Orange-Juice": 2
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "God-Morgon-Orange-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 22,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 22,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 18,
+              "Bravo-Orange-Juice": 4
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "God-Morgon-Orange-Red-Grapefruit-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 19,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 5,
+              "Bravo-Orange-Juice": 14
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "God-Morgon-Red-Grapefruit-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 14,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 14,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 5,
+              "Bravo-Orange-Juice": 9
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Tropicana-Apple-Juice": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 28,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 28,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 28
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Tropicana-Golden-Grapefruit": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 19,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Tropicana-Juice-Smooth": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 24,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 24,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 24
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Tropicana-Mandarin-Morning": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 20,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 20,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 18,
+              "Bravo-Orange-Juice": 2
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Ecological-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 29,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 29,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 28,
+              "Bravo-Orange-Juice": 1
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Lactose-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 25,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 25,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 25
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 34,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 34,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 33,
+              "Bravo-Orange-Juice": 1
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Standard-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 30,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 30,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 26,
+              "Bravo-Orange-Juice": 4
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Garant-Ecological-Medium-Fat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 35,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 35,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 35
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Garant-Ecological-Standard-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 11,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 11,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 11
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Oatly-Natural-Oatghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 30,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 30,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 30
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Oatly-Oat-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 31,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 31,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 31
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Ecological-Sour-Cream": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 23,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 23,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 23
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Sour-Cream": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 18,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 18,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 18
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Sour-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 19,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Alpro-Blueberry-Soyghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 28,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 28,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 28
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Alpro-Vanilla-Soyghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 19,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 19,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 19
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Alpro-Fresh-Soy-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 28,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 28,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 28
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Alpro-Shelf-Soy-Milk": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 30,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 30,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 30
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Mild-Vanilla-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 27,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 27,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 27
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Natural-Mild-Low-Fat-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 23,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 23,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 23
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Arla-Natural-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 41,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 41,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 41
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Valio-Vanilla-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 31,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 31,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 31
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Yoggi-Strawberry-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 32,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 32,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Apple-Juice": 27,
+              "Bravo-Orange-Juice": 5
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        },
+        "Yoggi-Vanilla-Yoghurt": {
+          "known_correct": 0,
+          "known_wrong_label": 0,
+          "known_rejected": 0,
+          "unknown_false_accepts": 18,
+          "unknown_rejected": 0,
+          "known_total": 0,
+          "unknown_total": 18,
+          "confusion": {
+            "UNKNOWN": {
+              "Bravo-Orange-Juice": 2,
+              "Bravo-Apple-Juice": 16
+            }
+          },
+          "known_accuracy_after_rejection": null,
+          "unknown_false_accept_rate": 1.0
+        }
+      }
+    }
+  }
+}

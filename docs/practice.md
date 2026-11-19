@@ -4,7 +4,15 @@
 
 ## 1. Codespaces에서 원래 동작 실행
 
-저장소에서 **Code → Codespaces → Create codespace on main**을 선택하세요. 컨테이너가 준비되면 브라우저 터미널에서 실행합니다.
+운반 높이 규칙은 현재 `main`에 반영돼 있습니다. [PR #1 전후 원본](experiments/retry-height/)으로 결과를 먼저 볼 수 있습니다. 같은 변경을 처음부터 실습하려면 Codespace 터미널에서 프로젝트 루트 기준으로 아래 명령을 실행해 변경 전 소스를 별도 경로에 여세요. 기존 작업은 현재 브랜치에 남습니다.
+
+```bash
+git fetch origin main
+git worktree add --detach ../pickloop-height-baseline cd951bd200b779e8ff9c04faecb999c4d5624144
+cd ../pickloop-height-baseline
+```
+
+이 경로의 `src/pickloop/engine.py`를 편집하고 아래 명령도 같은 경로에서 실행합니다.
 
 ```bash
 python lab.py run my-before
@@ -16,7 +24,7 @@ python lab.py run my-before
 
 ## 2. 수정하기 전에 예측
 
-`src/pickloop/engine.py`에서 `Controller.transport_height`를 찾으세요. 현재 `recovery` 정책은 두 번째 시도부터 운반·복귀 높이를 0.30m에서 0.40m로 올립니다. 이 값은 `transport()`와 `release()`가 함께 씁니다. 물체를 계속 잡고 있으면 `plan()`을 건너뛰므로 모든 운반 높이가 `PLAN_READY` 이벤트에 나타나는 것은 아닙니다.
+`src/pickloop/engine.py`에서 `Controller.transport_height`를 찾으세요. 변경 전 `recovery` 정책은 두 번째 시도부터 운반·복귀 높이를 0.30m에서 0.40m로 올립니다. 이 값은 `transport()`와 `release()`가 함께 씁니다. 물체를 계속 잡고 있으면 `plan()`을 건너뛰므로 모든 운반 높이가 `PLAN_READY` 이벤트에 나타나는 것은 아닙니다.
 
 - 보정 오차로 **흡착 전** 실패했다면, 재관측으로 얻는 새 목표 좌표와 더 높은 **운반 경로** 중 어느 쪽이 실패 원인에 대응할까요?
 - 이미 물체를 잡은 상태에서 **운반 경로**가 막혔다면, 목표 좌표만 다시 읽는 것으로 길이 열릴까요?

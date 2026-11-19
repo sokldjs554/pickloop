@@ -59,8 +59,9 @@ updates from known-map landmark range/bearing measurements (standard deviations
 0.025 m and 0.012 rad), using the nonlinear measurement Jacobian and a Joseph
 covariance update. Those landmark observations are simulated independently of the
 estimator. All four landmarks are available globally; occlusion, missed detections,
-data association and outliers are not modeled. **SLAM is not implemented**: the map
-and landmark identities are supplied in advance.
+data association and outliers are not modeled. This mission supplies the map and
+landmark identities in advance. A separate offline experiment reconstructs a map
+from wheel odometry and LiDAR scans. [LiDAR SLAM evaluation](lidar-slam.md)
 
 A separate 36-ray 360° LiDAR simulation intersects the map rectangles and room
 boundary, adds 0.008 m range noise, and inhibits new motion at a 0.295 m minimum

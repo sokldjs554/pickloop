@@ -4,9 +4,13 @@
 
 PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU 물리 시뮬레이션에서 RGB-D 관측 → 학습한 상품 임베딩 → 3D 상면 추정 → SCARA 계획·구동 → Modbus 흡착 → 운반·해제 → 영상과 별도 정답으로 배치 확인을 실행한다. 기존 ReachBench의 실제 pick/place 구현을 조사한 뒤, 품목 구분·실패 복구·장치 통신·운영 증거를 신규 범위로 구현했다.
 
+### 지원자가 직접 수정한 복구 규칙
+
+개발 seed 200에서 경로가 막힌 재시도에만 운반 높이를 0.40 m로 올리도록 수정했다. 경로 차단 작업은 변경 전후 19.690초에 완료했고, 보정 오차 작업은 두 번째 시도에서 완료하면서 26.935초에서 24.405초로 줄었다. 다섯 작업의 전후 기록을 PR에 담았다. 추가 개발 seed 201~209의 45쌍은 Codex가 별도로 재현했다. [본인 PR #1](https://github.com/sokldjs554/pickloop/pull/1) · [seed 200 실행 원문](docs/experiments/retry-height/) · [직무별 검증 화면](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence.html)
+
 - [운영 데모](https://pickloop-robot-ops.ykh13571.chatgpt.site): 로그인 없이 링크로 접근 가능한 실제 기록 재생. 브라우저에서 새 물리 조건을 계산하는 화면이 아니다.
 - [공고 대응표](docs/job-requirements-matrix.md) · [아키텍처](docs/architecture.md) · [기여 기록](docs/contributions.md)
-- [4정책 비교 명세](docs/ablation-protocol.md) · 새 평가 원본: `runs/ablation-heldout/` (576회 완료, 원본·집계 공개)
+- [4정책 비교 명세](docs/ablation-protocol.md) · PR #1 이전 동결 평가 원본: `runs/ablation-heldout/` (576회 완료, 원본·집계 공개)
 - [과거 120회 결과](runs/final/summary.md) · [과거 집계 JSON](runs/final/metrics.json) · [과거 trial CSV](runs/final/trials.csv): 1회 기준/3회 복구 비교이며 복구 판단의 단독 효과를 증명하지 않는다.
 - [학습·변환 평가](docs/vision-model.md) · [ROS2 실제 통신](docs/ros2-integration.md) · [모바일 확장](docs/mobile-extension.md)
 
@@ -15,10 +19,10 @@ PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU �
 [GitHub Codespaces에서 PickLoop 열기](https://codespaces.new/sokldjs554/pickloop?ref=main)를 선택하세요. 처음 시작하면 Python과 시뮬레이션 패키지를 설치합니다. 준비가 끝나면 브라우저 터미널에서 아래 명령을 실행하세요.
 
 ```bash
-python lab.py run my-before
+python lab.py run my-current
 ```
 
-마지막에 `기록 my-before/summary.json`이 출력되면 다섯 작업이 끝났습니다. [직접 실습 안내](docs/practice.md)를 따라 운반 높이 규칙 한 곳을 수정하고, 같은 조건에서 전후 로그를 비교하세요. 자신의 가설과 판단은 [기록지](RECORD.md)에 남길 수 있습니다.
+마지막에 `기록 my-current/summary.json`이 출력되면 PR #1이 반영된 현재 정책으로 다섯 작업을 실행한 것입니다. [직접 실습 안내](docs/practice.md)에는 변경 전 커밋을 별도 경로에 열어 실험을 재현하는 방법이 있습니다. 자신의 가설과 판단은 [기록지](RECORD.md)에 남길 수 있습니다.
 
 ## 설치와 첫 실행
 
@@ -55,7 +59,7 @@ export LIBGL_ALWAYS_SOFTWARE=1
 ## 재현 명령
 
 ```bash
-# 4정책 × 12조건 × 12 seed: 빈 출력 폴더에서 새 평가 실행
+# 현재 checkout의 정책으로 4정책 × 12조건 × 12 seed 새 평가
 .venv/bin/python -m pickloop.experiment --out runs/reproduced-ablation
 
 # 완료된 새 평가만 원본 result.json에서 다시 집계
@@ -87,7 +91,7 @@ ROS2 Jazzy는 `ros2/Dockerfile`의 고정 공식 이미지로 빌드한다. [실
 
 ## 결과의 의미
 
-현재 동결 비교는 개발 seed200..209와 분리한 seed3000..3011, 12개 조건, 아래 4정책의 576회다. `runs/ablation-heldout` 576회를 완료했다. 최대 3회 정책의 완료율은 단순 재시도 86/144(59.7%), 재관측만 103/144(71.5%), 재관측·재계획 113/144(78.5%)다. 자세한 조건별 결과와 TCP 응답 기한 영향은 [검증 결과](docs/submission-summary.md)에 공개했다. 소스·모델·조건 해시를 고정하고 모든 원본 결과를 집계한다. [조건·동결·군집 부트스트랩 명세](docs/ablation-protocol.md)를 따른다.
+PR #1 이전 정책의 동결 비교는 개발 seed200..209와 분리한 seed3000..3011, 12개 조건, 아래 4정책의 576회다. `runs/ablation-heldout` 576회를 완료했다. 최대 3회 정책의 완료율은 단순 재시도 86/144(59.7%), 재관측만 103/144(71.5%), 재관측·재계획 113/144(78.5%)다. 자세한 조건별 결과와 TCP 응답 기한 영향은 [검증 결과](docs/submission-summary.md)에 공개했다. 소스·모델·조건 해시를 고정하고 모든 원본 결과를 집계한다. [조건·동결·군집 부트스트랩 명세](docs/ablation-protocol.md)를 따른다.
 
 | 정책 | 최대 시도 | 실패 후 목표 | 운반·복귀 높이 |
 |---|---:|---|---|
@@ -102,7 +106,7 @@ ROS2 Jazzy는 `ros2/Dockerfile`의 고정 공식 이미지로 빌드한다. [실
 
 작업 완료율, 첫 시도 lift 성공률과 첫 시도 최종 완료율, 복구율, 잘못된 배치, 낙하, 금지 충돌, 보류, 재시도, 시간, 처리량을 구분한다. 실패 시간도 처리량 분모에 포함한다. simulator throughput과 measured CPU wall throughput은 별개이며 실물 현장 생산성·ROI를 주장하지 않는다. 장애 시간표·지표 정의는 [아키텍처](docs/architecture.md)와 [비교 명세](docs/ablation-protocol.md)에 공개했다. 종료 시 신선한 장치 응답으로 빈 상태가 확정된 경우에만 밸브 OFF를 확인하고, 부착·하중 추정·출력 불확실성은 유지/보류한다. [정지·출력 정책](docs/hold-policy.md)은 HELD와 밸브 ON을 같은 의미로 취급하지 않는다.
 
-학습 모델은 직접 생성한 두 가지 붉은 줄무늬 상자와 합성 미등록 패턴으로 검증했다. 최종 합성 평가에서 known240/240, 지정 unknown120/120을 구분했지만, 이 수치는 실제 상품·임의의 unknown 전반에 대한 성능이 아니다. 초기 확인한 평가 분할은 개발 자료로 재분류했고, 모델 동결 후 새로운 seed30000대에서 최종 평가했다.
+합성 평가에서는 직접 생성한 두 가지 붉은 줄무늬 상자와 합성 미등록 패턴으로 검증했다. 최종 합성 평가에서 known240/240, 지정 unknown120/120을 구분했지만, 이 수치는 실제 상품·임의의 unknown 전반에 대한 성능이 아니다. 초기 확인한 평가 분할은 개발 자료로 재분류했고, 모델 동결 후 새로운 seed30000대에서 최종 평가했다.
 
 ## 코드 읽기 순서
 
@@ -112,8 +116,18 @@ ROS2 Jazzy는 `ros2/Dockerfile`의 고정 공식 이미지로 빌드한다. [실
 
 운영 화면은 4정책 설명·동일 조건 비교·주요 지표·조건별 원본·시도별 실패 이력과 ROS2/C++/모바일 증거 링크를 제공한다. UNKNOWN의 진단점수는 등록 품목 간 softmax이며 보정된 확률이 아니다. 최종 평가 수치는 배치 완료와 원본 집계 후에만 제시한다.
 
-실제 물리 시뮬레이션, CPU 모델 훈련·추론·TorchScript, TCP Modbus/C++, ROS2 Action/DDS, 동일 작업 엔진을 호출하는 모바일 운동학 시나리오를 실행했다. 웹 데모는 해당 기록을 재생한다. 원본 소스에는 GitHub Actions CI 정의가 있으나 원격 GitHub CI 실행은 아직 수행하지 않았다.
+실제 물리 시뮬레이션, CPU 모델 훈련·추론·TorchScript, TCP Modbus/C++, ROS2 Action/DDS, 동일 작업 엔진을 호출하는 모바일 운동학 시나리오를 실행했다. 웹 데모는 해당 기록을 재생한다. GitHub Actions에서 코어 검증과 Codespaces 실습을 실행했다. [검증 기록](https://github.com/sokldjs554/pickloop/actions).
 
-실물 로봇에 모델 배포, 실제 흡착 누설·안전 회로·PLC, 실전 SLAM, 휠 접촉 동역학, 실물 정밀 도킹·충전은 검증하지 않았다. 모바일와 고정 셀은 별도 시뮬레이션 세계를 docking gate로 연결한다. 카메라는 고정형 PnP 외부 보정이며 hand-eye AX=XB를 구현했다고 표현하지 않는다. [실물 인수시험 절차](docs/hardware-acceptance.md)를 별도로 제공한다.
+공개 매장 사진에서 원래 줄무늬 모델은 낯선 포장 781장 중 2장을 오수락했다. 실제 주스 두 종을 등록했을 때는 다른 상품 727장을 모두 주스로 받아들였다. 검증 사진으로 거리 기준을 조이자 오수락이 36장으로 줄었지만, 등록 주스도 54장 중 3장만 맞혔다. 두 등록 설정은 오프라인 평가로 남겼다. [실패 사진·촬영 조건·재현 명령](docs/real-photo-evaluation.md)
 
-사용자가 확인한 PCB 경험은 PADS·ATmega128의 회로 설계/부품 배치/배선과 도구 검증이다. KiCAD나 실물 측정 경험을 추정하지 않는다. [확인 내용과 지원서 표현](docs/pcb-experience.md)을 참고한다. 이번 프로젝트의 구현·훈련·실험은 AI 에이전트가 수행했고, 사용자의 직접 작성 코드로 포장하지 않는다.
+| 주요업무 | 추가 실행 근거 |
+|---|---|
+| 박스 인식과 로봇 배치 | 모의 RGB-D 상자 32개를 추정하고 8건에서 영상·물리 배치를 검증했다. [결과](docs/bin-perception.md) |
+| 손목 카메라 보정 | 공개 USDA 실측 88쌍 중 22쌍을 따로 두고 픽셀 예측 오차를 측정했다. [좌표계와 결과](docs/hand-eye.md) |
+| 모바일 SLAM | 시뮬레이션 라이다·바퀴 기록으로 세 경로의 점유 지도를 만들고 재방문 보정 효과를 측정했다. [지도와 오차](docs/lidar-slam.md) |
+| 도킹·다중 로봇 | 두 모의 AMR가 충전기를 공유한다. 정상 인계와 네 가지 전기 고장 시 보류를 확인했다. [전류·점유 기록](docs/dock-charging.md) |
+| 설비 연동 | 기존 C++ 클라이언트와 독립 S7 소프트웨어 PLC를 TCP로 연결해 13단계를 검증했다. [PLC 프로그램과 패킷 기록](docs/plc-interop.md) |
+
+실물 로봇 배포, 흡착 누설·안전 회로, 현장 주행과 실제 충전기·PLC 시운전은 남아 있다. 모바일 주행과 고정 셀 시뮬레이션은 도킹 확인 후 연결한다. [실물 인수시험 절차](docs/hardware-acceptance.md)
+
+사용자가 확인한 PCB 경험은 PADS·ATmega128의 회로 설계/부품 배치/배선과 도구 검증이다. KiCAD나 실물 측정 경험을 추정하지 않는다. [확인 내용과 지원서 표현](docs/pcb-experience.md)을 참고한다. 지원자가 직접 수정한 복구 규칙과 그 전후 실행은 [PR #1](https://github.com/sokldjs554/pickloop/pull/1)에 기록했고, AI가 수행한 학습·독립 검증은 [기여 기록](docs/contributions.md)에 표시했다.

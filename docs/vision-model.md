@@ -31,7 +31,7 @@ Each sample is a PIL rendering of a square package, randomized by full-angle rot
 
 The initial two-class 30-epoch model was inspected on seeds 20000–20119. Its results motivated auxiliary outlier exposure, so that split was explicitly relabeled **development**. Initial metrics and training logs are retained in `vision_metrics_initial.json` and `training_initial.log`. The final model's development results are retained separately in `vision_metrics_development.json`. A fresh final split was generated only after the final weights and thresholds were fixed. Final checkpoint and TorchScript SHA-256 hashes are recorded in `vision_metrics.json`.
 
-Auxiliary encoder training uses random-color solid packages, 3–6 stripe patterns, and dot patterns. It does not use the green-X motif. Green-X examples **are available for validation threshold calibration**. Thus this is family-specific unknown calibration, not a demonstration of arbitrary open-set rejection. The final benchmark and rendered transfer checks are synthetic; no real product recognition or real-camera generalization is claimed.
+Auxiliary encoder training uses random-color solid packages, 3–6 stripe patterns, and dot patterns. It does not use the green-X motif. Green-X examples **are available for validation threshold calibration**. Thus this is family-specific unknown calibration, not a demonstration of arbitrary open-set rejection. The frozen final benchmark and rendered scene transfer scores below use synthetic inputs. A separate evaluation used 781 real grocery photos, with individual predictions and a protocol for photographing the original A/B targets. [Real-photo evaluation](real-photo-evaluation.md)
 
 ## Results
 

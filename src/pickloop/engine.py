@@ -4,10 +4,12 @@ import json
 import threading
 import time
 import uuid
+from dataclasses import asdict
 from pathlib import Path
 import numpy as np
 import py_trees as bt
 from PIL import Image
+from .bin_perception import detect_bin
 from .device import DeviceClient, DeviceEmulator, DeviceError
 from .journal import JobStore, EventLog, source_provenance
 from .perception import Perception
@@ -18,7 +20,8 @@ from .stop_policy import resolve_terminal_valve
 FAULTS=('normal','occlusion','depth_missing','calibration_error','suction_once','communication_delay','drop','path_blocked','suction_permanent','unknown','stale_observation','connection_loss')
 PHASES=('OBSERVE','PLAN','APPROACH','SEAL','LIFT','TRANSPORT','PLACE','RELEASE','VERIFY')
 POLICIES=('baseline','naive','reobserve','recovery')
-NON_RETRYABLE=('CANCELLED','WALL_TIMEOUT','SIM_TIMEOUT','DEVICE_UNCERTAIN','COLLISION')
+NON_RETRYABLE=('CANCELLED','WALL_TIMEOUT','SIM_TIMEOUT','DEVICE_UNCERTAIN','COLLISION',
+               'BIN_NOT_FOUND','BIN_AMBIGUOUS','BIN_OPENING_OBSTRUCTED','BIN_TOO_SMALL')
 
 class Action(bt.behaviour.Behaviour):
     def __init__(self,name,controller):super().__init__(name);self.controller=controller
@@ -50,11 +53,12 @@ class Recovery(bt.decorators.Decorator):
         return bt.common.Status.RUNNING
 
 class Controller:
-    def __init__(self,cell,device,client,store,log,directory,job_id,policy,sku,record,cancel,progress):
+    def __init__(self,cell,device,client,store,log,directory,job_id,policy,sku,record,cancel,progress,perceive_bin=False):
         self.cell=cell;self.device=device;self.client=client;self.store=store;self.log=log;self.directory=directory
         self.job_id=job_id;self.policy=policy;self.sku=sku;self.record=record;self.cancel_event=cancel;self.progress=progress
         self.state='QUEUED';self.attempt=1;self.max_attempts=1 if policy=='baseline' else 3
         self.perception=Perception();self.last_error=None;self.target_detection=None;self.detections=[];self.last_observation=None
+        self.perceive_bin=perceive_bin;self.destination_bin=None;self.bin_estimates=[]
         self.frames=[];self.last_frame=-100.;self.command_id=0;self.carrying=False;self.verified=False;self.first_failure_time=None
         self.start_sim=cell.sim_time;self.start_wall=time.monotonic();self.inference_times=[];self.position_estimates=[]
         self.max_joint_velocity=np.zeros(4);self.max_joint_acceleration=np.zeros(4);self._last_velocity=cell.data.qvel[:4].copy()
@@ -91,9 +95,24 @@ class Controller:
         self.frames.append(frame)
         if self.progress:self.progress(self.snapshot())
     def snapshot(self):return dict(run_id=self.cell.run_id,job_id=self.job_id,seed=self.cell.seed,fault=self.cell.fault,policy=self.policy,sku=self.sku,status='RUNNING',state=self.state,frames=self.frames,events=self.log.events,run_url=f'/runs/{self.cell.run_id}/run.json')
+    def measure_bin(self, obs):
+        estimate = detect_bin(obs, self.cell.sim_time)
+        payload = dict(phase=self.state, **asdict(estimate))
+        self.bin_estimates.append(payload)
+        self.emit('BIN_DETECTED', estimate=payload)
+        if not estimate.contains_payload(estimate.center_xy_m):
+            raise OperationError('BIN_TOO_SMALL')
+        return estimate
+
+    @property
+    def destination_xy(self):
+        return self.destination_bin.center_xy_m if self.perceive_bin else BIN_CENTER
+
     def observe(self):
         if self.carrying:return
         obs=self.cell.observe();self.last_observation=obs
+        if self.perceive_bin:
+            self.destination_bin=self.measure_bin(obs)
         if self.policy=='naive' and self.target_detection is not None and self.attempt>1:
             # Fixed-target replay ablation. Freshness, pressure and collision guards
             # remain active, but the grasp coordinates are deliberately not updated.
@@ -150,12 +169,17 @@ class Controller:
     def transport(self):
         height=self.transport_height
         self.cell.move_to([*self.cell.tcp[:2],height],allow_contact=False)
-        self.cell.move_to([*BIN_CENTER,height],allow_contact=False)
-    def place(self):self.cell.move_to([*BIN_CENTER,.135],allow_contact=True)
+        self.cell.move_to([*self.destination_xy,height],allow_contact=False)
+    def place(self):
+        release_z = self.destination_bin.floor_z_m + .050 + .013 if self.perceive_bin else .135
+        goal = [*self.destination_xy, release_z]
+        if self.perceive_bin:
+            self.emit('BIN_RELEASE_GOAL', target=goal, bin_observation_id=self.destination_bin.observation_id)
+        self.cell.move_to(goal,allow_contact=True)
     def release(self):
         self.carrying=False;self.set_valve(False);self.cell.step_for(.40)
         clearance=self.transport_height
-        self.cell.move_to([*BIN_CENTER,clearance],allow_contact=False)
+        self.cell.move_to([*self.destination_xy,clearance],allow_contact=False)
         self.cell.move_to([.19,-.32,clearance],allow_contact=False)
         self.cell.move_to([.19,-.32,.34],allow_contact=False)
     def verify(self):
@@ -163,8 +187,14 @@ class Controller:
         for _ in range(2):
             self.cell.step_for(.15);obs=self.cell.observe();self.last_observation=obs
             target,self.detections=self.perception.target(obs,self.cell.sim_time,self.sku)
-            inside=np.all(np.abs(target.position[:2]-BIN_CENTER)<BIN_HALF-np.array([.032,.026]))
-            if not inside or not .105<target.position[2]<.15:raise OperationError('PLACEMENT_NOT_CONFIRMED')
+            if self.perceive_bin:
+                observed_bin = self.measure_bin(obs)
+                inside = observed_bin.contains_payload(target.position[:2])
+                on_floor = abs(target.position[2] - observed_bin.floor_z_m - .050) < .010
+            else:
+                inside = np.all(np.abs(target.position[:2]-BIN_CENTER)<BIN_HALF-np.array([.032,.026]))
+                on_floor = .105 < target.position[2] < .15
+            if not (inside and on_floor):raise OperationError('PLACEMENT_NOT_CONFIRMED')
             observations.append(target.position)
         if np.linalg.norm(observations[1]-observations[0])>.004:raise OperationError('PLACEMENT_UNSTABLE')
         status=self.client.status()
@@ -194,7 +224,7 @@ class Controller:
         self.emit('RECOVERY_END',next_attempt=self.attempt,holding_payload=self.carrying)
 
 
-def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,record=True,cancel=None,progress=None,sku='SKU-RED-A',condition=None):
+def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,record=True,cancel=None,progress=None,sku='SKU-RED-A',condition=None,bin_layout=None):
     if fault not in FAULTS or policy not in POLICIES:raise ValueError('Unsupported scenario/policy')
     if not isinstance(seed,int) or isinstance(seed,bool) or seed<0:raise ValueError('seed must be nonnegative integer')
     if sku not in ('SKU-RED-A','SKU-RED-B','UNREGISTERED'):raise ValueError('Unsupported order SKU')
@@ -204,6 +234,9 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
     except BlockingIOError:lease.close();raise RuntimeError('RUNNER_BUSY')
     store=JobStore(out/'jobs.sqlite');config=dict(seed=seed,fault=fault,policy=policy,sku=sku)
     if condition is not None:config['condition']=condition
+    if bin_layout is not None:
+        bin_layout = tuple(bin_layout)
+        config['bin_layout'] = [dict(asdict(f), center_xy_m=list(f.center_xy_m), inner_size_m=list(f.inner_size_m)) for f in bin_layout]
     job_id=job_id or 'job-'+uuid.uuid4().hex[:10];run_id=f'{fault}-{seed}-{policy}-{uuid.uuid4().hex[:6]}'
     begun=store.begin(job_id,config,run_id)
     if not begun['created']:
@@ -213,9 +246,9 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
     directory=out/run_id;directory.mkdir();log=EventLog(directory,run_id,job_id)
     cell=None;device=None;c=None;start=time.monotonic()
     try:
-        cell=Cell(seed=seed,fault=fault,run_id=run_id,condition=condition)
+        cell=Cell(seed=seed,fault=fault,run_id=run_id,condition=condition,bin_layout=bin_layout)
         device=DeviceEmulator(journal_path=directory/'device.sqlite').start();client=DeviceClient('127.0.0.1',device.port,timeout=.12)
-        c=Controller(cell,device,client,store,log,directory,job_id,policy,'UNREGISTERED' if fault=='unknown' else sku,record,cancel or threading.Event(),progress)
+        c=Controller(cell,device,client,store,log,directory,job_id,policy,'UNREGISTERED' if fault=='unknown' else sku,record,cancel or threading.Event(),progress,perceive_bin=bin_layout is not None)
         initial_truth=cell.truth_summary()  # evaluation only; never supplied to controller/perception
         sequence=bt.composites.Sequence('PickAndVerify',memory=True,children=[Action(p,c) for p in PHASES])
         tree=bt.trees.BehaviourTree(Recovery(sequence,c))
@@ -259,6 +292,10 @@ def run_job(seed=0,fault='normal',policy='recovery',out_dir='runs',job_id=None,r
         metrics=dict(first_attempt_pick_success=any(e['event']=='LIFT_CONFIRMED' and e['attempt']==1 for e in log.events),first_attempt_success=success and c.attempt==1,attempts=c.attempt,retries=c.attempt-1,wrong_placements=wrong,drops=final_truth['drop_count'],collisions=final_truth['collision_count'],held=status=='HELD',cancelled=status=='CANCELLED',sim_duration_s=sim_duration,wall_duration_s=wall_duration,recovery_sim_s=None if c.first_failure_time is None else cell.sim_time-c.first_failure_time,selection_correct=selection_correct,selection_attempted=bool(c.position_estimates),position_error_m=errors[0] if errors else None,inference_wall_s=c.inference_times,verified_by_vision=c.verified,verified_by_truth=truth_ok,max_joint_velocity=c.max_joint_velocity.tolist(),max_joint_acceleration=c.max_joint_acceleration.tolist(),timeout=reason in ('SIM_TIMEOUT','WALL_TIMEOUT'))
         c.state=status;c.emit('TERMINAL',status=status,success=success,reason=reason,metrics=metrics)
         result=dict(schema_version=2,run_id=run_id,job_id=job_id,seed=seed,fault=fault,policy=policy,sku=c.sku,status=status,success=success,reason=reason,sim_duration_s=sim_duration,wall_duration_s=wall_duration,retries=c.attempt-1,metrics=metrics,initial_truth=initial_truth,final_truth=final_truth,position_estimates=c.position_estimates,provenance=source_provenance(ROOT),condition=condition,condition_id=condition.get('condition_id') if condition else None,terminal_policy=terminal_policy)
+        if bin_layout is not None:
+            result['destination_mode']='observed_bin'
+            result['bin_layout']=config['bin_layout']
+            result['bin_estimates']=c.bin_estimates
         (directory/'result.json').write_text(json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False))
         replay=dict(result,events=log.events,frames=c.frames,run_url=f'/runs/{run_id}/run.json')
         (directory/'run.json').write_text(json.dumps(replay,ensure_ascii=False,allow_nan=False))

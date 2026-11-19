@@ -1,0 +1,341 @@
+{
+  "name": "usda",
+  "solver": "OpenCV Park-Martin AX=XB",
+  "opencv": "4.11.0",
+  "fit_ids": [
+    "image0.png",
+    "image1.png",
+    "image2.png",
+    "image4.png",
+    "image5.png",
+    "image6.png",
+    "image8.png",
+    "image9.png",
+    "image10.png",
+    "image12.png",
+    "image13.png",
+    "image14.png",
+    "image16.png",
+    "image17.png",
+    "image18.png",
+    "image20.png",
+    "image21.png",
+    "image22.png",
+    "image24.png",
+    "image25.png",
+    "image26.png",
+    "image28.png",
+    "image29.png",
+    "image30.png",
+    "image32.png",
+    "image33.png",
+    "image34.png",
+    "image36.png",
+    "image37.png",
+    "image38.png",
+    "image40.png",
+    "image41.png",
+    "image42.png",
+    "image44.png",
+    "image45.png",
+    "image46.png",
+    "image48.png",
+    "image49.png",
+    "image50.png",
+    "image52.png",
+    "image53.png",
+    "image54.png",
+    "image56.png",
+    "image57.png",
+    "image58.png",
+    "image60.png",
+    "image61.png",
+    "image62.png",
+    "image64.png",
+    "image65.png",
+    "image66.png",
+    "image68.png",
+    "image69.png",
+    "image70.png",
+    "image72.png",
+    "image73.png",
+    "image74.png",
+    "image76.png",
+    "image77.png",
+    "image78.png",
+    "image80.png",
+    "image81.png",
+    "image82.png",
+    "image84.png",
+    "image85.png",
+    "image86.png"
+  ],
+  "heldout_ids": [
+    "image3.png",
+    "image7.png",
+    "image11.png",
+    "image15.png",
+    "image19.png",
+    "image23.png",
+    "image27.png",
+    "image31.png",
+    "image35.png",
+    "image39.png",
+    "image43.png",
+    "image47.png",
+    "image51.png",
+    "image55.png",
+    "image59.png",
+    "image63.png",
+    "image67.png",
+    "image71.png",
+    "image75.png",
+    "image79.png",
+    "image83.png",
+    "image87.png"
+  ],
+  "tool_T_camera": [
+    [
+      0.9978652766117302,
+      0.061823683835976646,
+      -0.021040956478886676,
+      0.01601490383241462
+    ],
+    [
+      -0.061720018988874456,
+      0.9980781177233486,
+      0.005541676446009445,
+      0.009358278851953583
+    ],
+    [
+      0.021343125090065813,
+      -0.004231198266265501,
+      0.9997632559624469,
+      0.07524842415574921
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "base_T_target": [
+    [
+      0.0034858885458245448,
+      -0.04499592890762755,
+      -0.9989810883909599,
+      -2.229299400873846
+    ],
+    [
+      0.01701187156707486,
+      0.9988452587791052,
+      -0.04493044892151227,
+      -0.11935198606016005
+    ],
+    [
+      0.9998492110347602,
+      -0.016837915436389406,
+      0.004247328210246981,
+      0.3592281235367368
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "rotation_excitation_deg": [
+    11.109984026192944,
+    6.978023333237413,
+    0.653371845131577
+  ],
+  "intrinsics": [
+    [
+      1056.441945416065,
+      0.0,
+      307.191846636687
+    ],
+    [
+      0.0,
+      1057.6386267200974,
+      238.64453207729971
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "distortion": [
+    -0.20764048703966465,
+    -0.22729602245701774,
+    -0.0008645602801465032,
+    -0.0002784346367689334,
+    2.581348808399705
+  ],
+  "heldout": {
+    "translation_rms_mm": 11.820441402889024,
+    "rotation_rms_deg": 0.40216954478955663,
+    "prediction_reprojection_rms_px": 5.155942061882179,
+    "per_view_pnp_reprojection_rms_px": 0.13383765341013304,
+    "corner_count": 1056
+  },
+  "heldout_per_view": [
+    {
+      "id": "image3.png",
+      "translation_mm": 6.132217057559098,
+      "rotation_deg": 0.36124398973355265,
+      "prediction_reprojection_rms_px": 2.4946287251365495,
+      "pnp_reprojection_rms_px": 0.14352921395423057
+    },
+    {
+      "id": "image7.png",
+      "translation_mm": 14.221473483204964,
+      "rotation_deg": 0.4036215945401754,
+      "prediction_reprojection_rms_px": 7.419929681896018,
+      "pnp_reprojection_rms_px": 0.13733467301940616
+    },
+    {
+      "id": "image11.png",
+      "translation_mm": 9.32498719347335,
+      "rotation_deg": 0.29967783938083414,
+      "prediction_reprojection_rms_px": 1.9910540120812386,
+      "pnp_reprojection_rms_px": 0.14187832096694855
+    },
+    {
+      "id": "image15.png",
+      "translation_mm": 18.269642774448588,
+      "rotation_deg": 0.24923242711284294,
+      "prediction_reprojection_rms_px": 7.556065277011992,
+      "pnp_reprojection_rms_px": 0.15240602587140073
+    },
+    {
+      "id": "image19.png",
+      "translation_mm": 6.774313327642749,
+      "rotation_deg": 0.24877483328374653,
+      "prediction_reprojection_rms_px": 2.2769022161542507,
+      "pnp_reprojection_rms_px": 0.13940847018598002
+    },
+    {
+      "id": "image23.png",
+      "translation_mm": 12.941597956634842,
+      "rotation_deg": 0.33849057073276323,
+      "prediction_reprojection_rms_px": 6.9251001190345205,
+      "pnp_reprojection_rms_px": 0.1212971276830687
+    },
+    {
+      "id": "image27.png",
+      "translation_mm": 9.02177898713076,
+      "rotation_deg": 0.19192562113923478,
+      "prediction_reprojection_rms_px": 1.9236183141409142,
+      "pnp_reprojection_rms_px": 0.1355521403517825
+    },
+    {
+      "id": "image31.png",
+      "translation_mm": 12.097248182078857,
+      "rotation_deg": 0.1630752363627762,
+      "prediction_reprojection_rms_px": 3.903025305057688,
+      "pnp_reprojection_rms_px": 0.1311866530701905
+    },
+    {
+      "id": "image35.png",
+      "translation_mm": 9.153838419724053,
+      "rotation_deg": 0.29722153395485884,
+      "prediction_reprojection_rms_px": 3.751229779972248,
+      "pnp_reprojection_rms_px": 0.11760960801773676
+    },
+    {
+      "id": "image39.png",
+      "translation_mm": 5.639412359462574,
+      "rotation_deg": 0.647494101307949,
+      "prediction_reprojection_rms_px": 3.0456664652051035,
+      "pnp_reprojection_rms_px": 0.12129144296330606
+    },
+    {
+      "id": "image43.png",
+      "translation_mm": 9.788922771563254,
+      "rotation_deg": 0.1451103473383853,
+      "prediction_reprojection_rms_px": 2.2768794561816925,
+      "pnp_reprojection_rms_px": 0.13291931363860623
+    },
+    {
+      "id": "image47.png",
+      "translation_mm": 11.182880422093117,
+      "rotation_deg": 0.27150114017768995,
+      "prediction_reprojection_rms_px": 3.6053768423642323,
+      "pnp_reprojection_rms_px": 0.14018318706749436
+    },
+    {
+      "id": "image51.png",
+      "translation_mm": 10.554983668691408,
+      "rotation_deg": 0.3388249181089245,
+      "prediction_reprojection_rms_px": 4.7621165083768275,
+      "pnp_reprojection_rms_px": 0.1178242546859224
+    },
+    {
+      "id": "image55.png",
+      "translation_mm": 10.926133967457467,
+      "rotation_deg": 0.7066193398277976,
+      "prediction_reprojection_rms_px": 3.7957125931346067,
+      "pnp_reprojection_rms_px": 0.12923945501477138
+    },
+    {
+      "id": "image59.png",
+      "translation_mm": 11.128316987648768,
+      "rotation_deg": 0.2937653759010145,
+      "prediction_reprojection_rms_px": 6.469881804264312,
+      "pnp_reprojection_rms_px": 0.13703869643666317
+    },
+    {
+      "id": "image63.png",
+      "translation_mm": 12.172069027263046,
+      "rotation_deg": 0.5047726095494565,
+      "prediction_reprojection_rms_px": 3.8608838465108275,
+      "pnp_reprojection_rms_px": 0.1429139070336259
+    },
+    {
+      "id": "image67.png",
+      "translation_mm": 12.188512846672106,
+      "rotation_deg": 0.3266136393536336,
+      "prediction_reprojection_rms_px": 5.280328902443391,
+      "pnp_reprojection_rms_px": 0.12256948950169018
+    },
+    {
+      "id": "image71.png",
+      "translation_mm": 10.47675552794941,
+      "rotation_deg": 0.5693756256108005,
+      "prediction_reprojection_rms_px": 3.524922194377069,
+      "pnp_reprojection_rms_px": 0.1188441070469164
+    },
+    {
+      "id": "image75.png",
+      "translation_mm": 15.70167698812481,
+      "rotation_deg": 0.531010365253775,
+      "prediction_reprojection_rms_px": 8.9984659753763,
+      "pnp_reprojection_rms_px": 0.12570259554558458
+    },
+    {
+      "id": "image79.png",
+      "translation_mm": 14.796560544578963,
+      "rotation_deg": 0.49322313417930563,
+      "prediction_reprojection_rms_px": 4.820663882471885,
+      "pnp_reprojection_rms_px": 0.13923539757396486
+    },
+    {
+      "id": "image83.png",
+      "translation_mm": 16.037705330499538,
+      "rotation_deg": 0.44288786861900836,
+      "prediction_reprojection_rms_px": 9.798668021410345,
+      "pnp_reprojection_rms_px": 0.13945468554150264
+    },
+    {
+      "id": "image87.png",
+      "translation_mm": 12.325871362930348,
+      "rotation_deg": 0.4040308400219131,
+      "prediction_reprojection_rms_px": 3.8100318285242225,
+      "pnp_reprojection_rms_px": 0.14862877397443558
+    }
+  ]
+}

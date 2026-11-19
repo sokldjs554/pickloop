@@ -1,0 +1,105 @@
+ORGANIZATION_BLOCK OB 1
+TITLE = PickLoop single-station Modbus command mailbox
+BEGIN
+      // FC03 exports the first 24 output bytes in network word order.
+      L     1
+      T     QW 0
+      L     IW 8        // signed pressure from external fixture, 0.1 kPa
+      T     QW 8
+      L     IW 10       // external attachment feedback
+      T     QW 10
+
+      // The adapter pulses IW12 for one scan per accepted FC16 mailbox write.
+      L     IW 12
+      L     0
+      ==I
+      JC    DONE
+
+      // Result is read by the adapter immediately after this scan.
+      L     0
+      T     QW 24       // zero, initially successful
+      L     ID 0
+      L     L#0
+      ==D
+      JC    BAD
+      L     IW 6        // unsigned register must be either 0 or 1
+      L     1
+      ==I
+      JC    KIND
+      L     IW 6
+      L     0
+      <>I
+      JC    BAD
+
+KIND: L     IW 4
+      L     2
+      ==I
+      JC    CANC
+      L     IW 4
+      L     1
+      <>I
+      JC    BAD
+      L     ID 0
+      L     QD 18       // maximum reserved ID
+      ==D
+      JC    DUP
+      JU    NEW
+
+DUP:  L     QW 22       // cancelled IDs are fenced
+      L     0
+      <>I
+      JC    BAD
+      L     IW 6
+      L     QW 6
+      <>I
+      JC    BAD
+      JU    DONE        // identical latest command, keep execution count
+
+CANC: L     IW 6
+      L     0
+      <>I
+      JC    BAD
+      L     ID 0
+      L     QD 18
+      ==D
+      JC    FENC
+
+NEW:  L     ID 0        // bias both unsigned DWORDs for a signed comparison
+      L     DW#16#80000000
+      XOD
+      T     MD 0
+      L     QD 18
+      L     DW#16#80000000
+      XOD
+      L     MD 0
+      >=D
+      JC    BAD
+      L     IW 4
+      L     2
+      ==I
+      JC    FENC
+      L     QD 14
+      L     DW#16#FFFFFFFF
+      ==D
+      JC    BAD
+      L     QD 14
+      L     L#1
+      +D
+      T     QD 14       // applied output commands
+      L     IW 6
+      T     QW 6        // valve intent
+      L     0
+      T     QW 22
+      JU    ACK
+
+FENC: L     1
+      T     QW 22       // cancel never changes the valve or feedback
+ACK:  L     ID 0
+      T     QD 2        // application ACK
+      T     QD 18       // maximum reserved ID
+      JU    DONE
+
+BAD:  L     3           // Modbus illegal data value
+      T     QW 24
+DONE: NOP   0
+END_ORGANIZATION_BLOCK

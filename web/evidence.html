@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>직무별 검증 · PickLoop</title>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="evidence.css">
+</head>
+<body>
+<header class="review-head"><div><a class="name" href="./">PickLoop</a><a href="./">작업 관제</a><a href="https://github.com/sokldjs554/pickloop">GitHub 저장소</a></div></header>
+<main class="review-main">
+<h1>직무별 검증</h1>
+<p class="intro">지원자가 직접 실행한 피킹 복구 실험과 Codex가 추가 검증한 실물 사진·보정·주행·설비 연동 기록입니다.</p>
+<nav class="review-nav" aria-label="검증 분야"><a href="#personal">직접 수정한 복구 규칙</a><a href="#photos">상품 인식</a><a href="#bin">박스 인식</a><a href="#handeye">핸드아이 보정</a><a href="#mobile">라이다 SLAM</a><a href="#devices">도킹·충전</a><a href="#plc">설비 연동</a></nav>
+<section id="personal"><h2>실패 원인에 따라 운반 높이 선택</h2>
+<p>지원자는 경로 차단을 감지한 재시도에서만 높이를 0.40 m로 올리고, 흡착 실패 뒤에는 0.30 m를 유지하도록 변경했습니다. 아래 두 작업은 모두 두 번째 시도에서 배치를 완료했습니다.</p>
+<table><thead><tr><th>개발 seed 200 · 재계획 정책</th><th>수정 전</th><th>수정 후</th></tr></thead>
+<tbody><tr><td>경로 차단</td><td>19.690초</td><td>19.690초</td></tr><tr><td>보정 오차로 첫 흡착 실패</td><td>26.935초</td><td>24.405초</td></tr></tbody></table>
+<p>다섯 작업에서 충돌·낙하·오배치는 전후 모두 0건이었습니다. Codex가 추가 개발 seed 201~209로 재현한 45쌍에서도 종료 상태가 같았습니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/pull/1/files">PR #1 코드와 본인 기록</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/retry-height/independent-validation.md">45쌍 독립 검증</a></div></section>
+<section id="photos"><h2>실물 포장 사진에서 품목 판별</h2>
+<p>Grocery Store Dataset의 휴대전화 촬영 사진으로 확인했습니다. 원래 줄무늬 모델과, 학습 사진 57장으로 실제 주스팩 두 종의 기준 임베딩을 등록한 실험을 같은 공식 시험 사진 781장에 적용했습니다.</p>
+<table><thead><tr><th>설정</th><th>등록 상품 정답</th><th>미등록 상품을 잘못 수락</th></tr></thead><tbody>
+<tr><td>기존 줄무늬 모델</td><td>해당 라벨 사진 없음</td><td>2 / 781</td></tr>
+<tr><td>주스팩 두 종 단순 등록</td><td>46 / 54</td><td>727 / 727</td></tr>
+<tr><td>주스팩 등록 후 거리 기준 강화</td><td>3 / 54</td><td>36 / 727</td></tr>
+</tbody></table>
+<p class="finding">단순 등록은 다른 포장을 전부 주스로 받아들였습니다. 별도 검증 사진으로 거리 기준을 정해 같은 포장을 다시 평가하자 오수락이 36장으로 줄었지만, 실제 등록 주스 51장도 거부했습니다. 두 설정 모두 오프라인 평가로 남겼습니다.</p>
+<p>후속 시험에서 처음 평가한 과일·채소 50종은 모두 미등록이었습니다. 오수락은 기존 거리 기준에서 1,704장 중 1,539장, 강화한 기준에서 46장이었습니다. 원래 줄무늬 A/B 표식을 붙인 상자의 실물 정답률은 촬영 자료가 없어 미측정입니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/real-photo-evaluation.md">조건·혼동표·재현 명령</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/real-photos/predictions.csv">사진별 판정 CSV</a><a href="https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Packages/Milk/Arla-Standard-Milk/Arla-Standard-Milk_015.jpg">줄무늬 B로 오판한 실제 우유팩</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/real-photos-calibrated/summary.json">후속 시험 집계</a><a href="labels.html">직접 촬영용 라벨</a></div></section>
+<section id="bin"><h2>RGB-D로 배치할 상자 찾기</h2>
+<div class="field-figure"><div><p>상자의 위치·회전·크기를 바꾼 MuJoCo 장면 32개에서 상단 테두리와 내부 바닥 깊이로 입구를 추정했습니다. 중앙 위치 오차의 95백분위는 0.329 mm였습니다.</p>
+<p>별도 피킹 작업 8건에서 관측한 입구로 물체를 배치했습니다. 상자 없음·두 개·맞닿은 두 개·입구 폭 부족의 네 조건에서는 접근 전에 보류했습니다. 시험 대상은 고정 카메라 아래의 파란색 직사각형 상자입니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/bin-perception.md">검출·정지 판정과 재현</a><a href="https://github.com/sokldjs554/pickloop/tree/main/runs/bin-perception">원본 RGB-D와 작업 로그</a></div></div><figure><img src="data/role/bin-opening.png" width="320" alt="시뮬레이션 RGB-D 관측에 추정 상자 입구를 겹친 예시"><figcaption>센서 영상 위에 추정한 상자 입구를 표시한 예시</figcaption></figure></div>
+</section>
+<section id="handeye"><h2>손목에 장착한 카메라의 좌표 보정</h2>
+<div class="field-figure"><div><p>USDA가 공개한 Denso 로봇과 Sony 카메라의 체크보드 기록 88쌍을 오프라인으로 분석했습니다. 66개 자세로 맞춘 변환을 고정한 뒤, 남겨 둔 22개 자세에서 코너 1,056개의 픽셀 위치를 예측했습니다.</p>
+<p>보지 않은 자세의 픽셀 예측 RMS 오차는 5.156 px, 기준판 위치 일관성 RMS 오차는 11.820 mm였습니다. 별도 합성 실험에서는 한 회전축만 움직인 입력을 보정 불가로 판정했습니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/hand-eye.md">좌표계·출처·재현 명령</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/hand-eye/usda-report.json">시험 자세별 오차</a></div></div><figure><img src="data/role/hand-eye.jpg" width="640" alt="공개 로봇 손목 카메라 기록의 시험 체크보드 코너"><figcaption>USDA 공개 데이터에서 보정 계산에 사용하지 않은 체크보드 관측</figcaption></figure></div>
+</section>
+<section id="mobile"><h2>라이다 지도 작성과 재방문 보정</h2>
+<div class="field-figure"><div><p>시뮬레이터에서 바퀴와 36개 라이다 거리 측정을 기록한 뒤 사전 지도 없이 지도를 재구성했습니다. 같은 방에서 약 16.7 m를 이동한 세 기록의 위치 RMSE는 바퀴만 사용하면 0.616–0.664 m, 재방문 제약으로 자세를 보정하면 0.012–0.022 m였습니다.</p>
+<p>기존 주행·피킹 임무는 알려진 지도와 EKF로 운행합니다. 여기에 표시한 지도는 별도 센서 기록으로 만든 오프라인 평가 결과입니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/lidar-slam.md">실험 프로토콜</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/lidar-slam/summary.json">세 경로와 오차 원문</a></div></div><figure><a href="data/role/lidar-map.png"><img src="data/role/lidar-map.png" width="700" alt="seed 7에서 재구성한 점유 지도와 바퀴·스캔·루프 보정 궤적"></a><figcaption>seed 7의 센서 기록으로 재구성한 지도와 궤적</figcaption></figure></div>
+</section>
+<section id="devices"><h2>두 대의 이동로봇이 충전기 하나를 공유할 때</h2>
+<p>정상 시뮬레이션에서 첫 AMR이 충전 구역을 비운 뒤 77.80초에 두 번째 AMR이 진입 권한을 얻었습니다. 단자 전압·전류로 적산한 충전량은 각각 0.336370 Wh와 0.288264 Wh였습니다.</p>
+<p>접점 열림, 낮은 전압, 전류 없음, 충전 중 전류 단절을 각각 시험했습니다. 네 경우 모두 첫 차량은 릴레이를 열고 정지했고 다음 차량은 대기했습니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/dock-charging.md">충전 조건·6개 시나리오</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/dock-charging/normal-seed-0/result.json">정상 인계 기록</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/dock-charging/current_interrupt-seed-0/result.json">전류 단절 기록</a></div></section>
+<section id="plc"><h2>C++ 제어기와 소프트웨어 PLC 통신</h2>
+<p>기존 C++ 클라이언트를 Awlsim의 S7 CPU와 독립 Modbus TCP 서버에 연결했습니다. 루프백 TCP 연결 18개로 13단계를 실행했고, PLC는 명령 쓰기 7건을 처리해 밸브 출력을 2번 바꿨습니다. 응답을 잃으면 상태를 다시 읽고, 명령 도달을 확인할 수 없으면 보류하는 동작을 기록했습니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/plc-interop.md">PLC 시험 구성과 재현</a><a href="https://github.com/sokldjs554/pickloop/tree/main/runs/plc-interop">TCP·PLC 스캔 원문</a></div>
+<div class="evidence-links"><a href="./#integration-evidence">ROS 2 정상·취소·중복 요청 / C++ Modbus TCP 원문</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/hardware-acceptance.md">실물 인수 시험 항목</a></div>
+</section>
+<p><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/job-requirements-matrix.md">채용 공고 전체 대응표</a></p>
+</main></body></html>

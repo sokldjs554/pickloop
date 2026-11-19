@@ -1,0 +1,241 @@
+{
+  "protocol": "Offline follow-up after reviewing the original 781-carton test results. The cutoff rule and the new test population (all test fruit and vegetables) were fixed before scoring validation and produce.",
+  "source": "https://github.com/marcusklasson/GroceryStoreDataset/tree/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "revision": "fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "ordered_path_and_file_digest_sha256": {
+    "train": "88b1a8808c0930fe9ccfecefc3e758332eff694472c1f7e97c208c4c2b563c86",
+    "test": "f10419ba73e615a6e06d48048d986822f007dbcc09633b12bb6d222499f64d50",
+    "val": "689739382b97b647454f01ac871c3b2b05459d3e281ea6ac7e16c019ebbe27d6",
+    "test_produce": "92662655fc8a3d3c29fefe28449bdaad43480cc1209aac5364489dc4fa6021b7"
+  },
+  "distinct_input_file_sha256_count": 2642,
+  "checkpoint": {
+    "path": "models/appearance.pt",
+    "sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "distance_threshold": 1.0832704402515725,
+    "margin_threshold": 0.0
+  },
+  "registration_images": {
+    "Bravo-Apple-Juice": 25,
+    "Bravo-Orange-Juice": 32
+  },
+  "registration_skus": [
+    "Bravo-Apple-Juice",
+    "Bravo-Orange-Juice"
+  ],
+  "registration_prototypes": [
+    [
+      0.22370296716690063,
+      -0.05569596588611603,
+      0.2858062982559204,
+      -0.2585969865322113,
+      0.21368597447872162,
+      -0.017521044239401817,
+      0.01658928394317627,
+      -0.032536618411540985,
+      0.030509088188409805,
+      -0.08982006460428238,
+      0.06461016088724136,
+      0.03503629192709923,
+      -0.22103843092918396,
+      -0.1679590493440628,
+      0.18954864144325256,
+      -0.2994474768638611,
+      -0.20286832749843597,
+      0.07813257724046707,
+      -0.07707887887954712,
+      -0.20812177658081055,
+      -0.2064547836780548,
+      0.07347368448972702,
+      0.11439797282218933,
+      0.1951952874660492,
+      -0.24399800598621368,
+      0.1656787246465683,
+      -0.13075387477874756,
+      0.37695029377937317,
+      -0.29629477858543396,
+      0.05740023031830788,
+      -0.015622876584529877,
+      -0.026466401293873787
+    ],
+    [
+      0.24627727270126343,
+      -0.07202550768852234,
+      0.20184417068958282,
+      -0.2855895459651947,
+      0.08701063692569733,
+      -0.10827220976352692,
+      0.04261971265077591,
+      -0.10949692875146866,
+      -0.018694723024964333,
+      -0.15893195569515228,
+      0.02584414929151535,
+      0.012232285924255848,
+      -0.16300222277641296,
+      -0.12396324425935745,
+      0.13038481771945953,
+      -0.273507297039032,
+      -0.2588232755661011,
+      0.07728258520364761,
+      0.027574408799409866,
+      -0.26228129863739014,
+      -0.24160738289356232,
+      0.12391415238380432,
+      0.12285032123327255,
+      0.2170109748840332,
+      -0.2592390179634094,
+      0.2179156094789505,
+      -0.06832442432641983,
+      0.3303029537200928,
+      -0.28372451663017273,
+      0.16733446717262268,
+      -0.05477183312177658,
+      -0.014100500382483006
+    ]
+  ],
+  "acceptance_rule": "Keep the inherited margin and accept distances at most the smaller of the inherited cutoff and the float immediately below sorted validation unknown distance at zero-based index floor(n/20).",
+  "max_validation_unknown_accept_rate": 0.05,
+  "calibrated_distance_threshold": 0.06458793580532073,
+  "partitions": {
+    "calibration_cartons": {
+      "products": 20,
+      "inherited": {
+        "known_correct": 7,
+        "known_wrong_label": 2,
+        "known_rejected": 0,
+        "unknown_false_accepts": 91,
+        "unknown_rejected": 0,
+        "known_total": 9,
+        "unknown_total": 91,
+        "confusion": {
+          "Bravo-Apple-Juice": {
+            "Bravo-Apple-Juice": 4
+          },
+          "Bravo-Orange-Juice": {
+            "Bravo-Orange-Juice": 3,
+            "Bravo-Apple-Juice": 2
+          },
+          "UNKNOWN": {
+            "Bravo-Apple-Juice": 84,
+            "Bravo-Orange-Juice": 7
+          }
+        },
+        "known_accuracy_after_rejection": 0.7777777777777778,
+        "unknown_false_accept_rate": 1.0
+      },
+      "calibrated": {
+        "known_correct": 0,
+        "known_wrong_label": 0,
+        "known_rejected": 9,
+        "unknown_false_accepts": 4,
+        "unknown_rejected": 87,
+        "known_total": 9,
+        "unknown_total": 91,
+        "confusion": {
+          "Bravo-Apple-Juice": {
+            "UNKNOWN": 4
+          },
+          "Bravo-Orange-Juice": {
+            "UNKNOWN": 5
+          },
+          "UNKNOWN": {
+            "UNKNOWN": 87,
+            "Bravo-Apple-Juice": 4
+          }
+        },
+        "known_accuracy_after_rejection": 0.0,
+        "unknown_false_accept_rate": 0.04395604395604396
+      }
+    },
+    "revisited_cartons": {
+      "products": 31,
+      "inherited": {
+        "known_correct": 46,
+        "known_wrong_label": 8,
+        "known_rejected": 0,
+        "unknown_false_accepts": 727,
+        "unknown_rejected": 0,
+        "known_total": 54,
+        "unknown_total": 727,
+        "confusion": {
+          "Bravo-Apple-Juice": {
+            "Bravo-Apple-Juice": 22,
+            "Bravo-Orange-Juice": 1
+          },
+          "Bravo-Orange-Juice": {
+            "Bravo-Orange-Juice": 24,
+            "Bravo-Apple-Juice": 7
+          },
+          "UNKNOWN": {
+            "Bravo-Apple-Juice": 683,
+            "Bravo-Orange-Juice": 44
+          }
+        },
+        "known_accuracy_after_rejection": 0.8518518518518519,
+        "unknown_false_accept_rate": 1.0
+      },
+      "calibrated": {
+        "known_correct": 3,
+        "known_wrong_label": 0,
+        "known_rejected": 51,
+        "unknown_false_accepts": 36,
+        "unknown_rejected": 691,
+        "known_total": 54,
+        "unknown_total": 727,
+        "confusion": {
+          "Bravo-Apple-Juice": {
+            "UNKNOWN": 20,
+            "Bravo-Apple-Juice": 3
+          },
+          "Bravo-Orange-Juice": {
+            "UNKNOWN": 31
+          },
+          "UNKNOWN": {
+            "UNKNOWN": 691,
+            "Bravo-Apple-Juice": 36
+          }
+        },
+        "known_accuracy_after_rejection": 0.05555555555555555,
+        "unknown_false_accept_rate": 0.04951856946354883
+      }
+    },
+    "fresh_produce": {
+      "products": 50,
+      "inherited": {
+        "known_correct": 0,
+        "known_wrong_label": 0,
+        "known_rejected": 0,
+        "unknown_false_accepts": 1539,
+        "unknown_rejected": 165,
+        "known_total": 0,
+        "unknown_total": 1704,
+        "confusion": {
+          "UNKNOWN": {
+            "Bravo-Orange-Juice": 840,
+            "Bravo-Apple-Juice": 699,
+            "UNKNOWN": 165
+          }
+        },
+        "known_accuracy_after_rejection": null,
+        "unknown_false_accept_rate": 0.903169014084507
+      },
+      "calibrated": {
+        "known_correct": 0,
+        "known_wrong_label": 0,
+        "known_rejected": 0,
+        "unknown_false_accepts": 46,
+        "unknown_rejected": 1658,
+        "known_total": 0,
+        "unknown_total": 1704,
+        "confusion": {
+          "UNKNOWN": {
+            "UNKNOWN": 1658,
+            "Bravo-Apple-Juice": 46
+          }
+        },
+        "known_accuracy_after_rejection": null,
+        "unknown_false_accept_rate": 0.02699530516431925
+      }
+    }
+  }
+}

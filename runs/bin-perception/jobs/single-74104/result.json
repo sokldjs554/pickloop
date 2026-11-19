@@ -1,0 +1,241 @@
+{
+  "schema_version": 2,
+  "run_id": "normal-74104-baseline-190971",
+  "job_id": "single-74104",
+  "seed": 74104,
+  "fault": "normal",
+  "policy": "baseline",
+  "sku": "SKU-RED-A",
+  "status": "COMPLETED",
+  "success": true,
+  "reason": null,
+  "sim_duration_s": 15.900000000001022,
+  "wall_duration_s": 1.7552282139949966,
+  "retries": 0,
+  "metrics": {
+    "first_attempt_pick_success": true,
+    "first_attempt_success": true,
+    "attempts": 1,
+    "retries": 0,
+    "wrong_placements": 0,
+    "drops": 0,
+    "collisions": 0,
+    "held": false,
+    "cancelled": false,
+    "sim_duration_s": 15.900000000001022,
+    "wall_duration_s": 1.7552282139949966,
+    "recovery_sim_s": null,
+    "selection_correct": true,
+    "selection_attempted": true,
+    "position_error_m": 0.0007920013917358566,
+    "inference_wall_s": [
+      0.050442770996596664
+    ],
+    "verified_by_vision": true,
+    "verified_by_truth": true,
+    "max_joint_velocity": [
+      0.8934677173070344,
+      0.17172616090731543,
+      0.19982811667769484,
+      0.7263231892535855
+    ],
+    "max_joint_acceleration": [
+      1.418538352586196,
+      0.2824708055131936,
+      0.46684699564877663,
+      1.1741115635925392
+    ],
+    "timeout": false
+  },
+  "initial_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3558057958255175,
+          -0.18363045392375868,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842716335859e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5016568407795765,
+          -0.16325573632815993,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842717307304e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.19439806779470173,
+          -0.12309640035084447,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842715676664e-07,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "final_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.40588536334896286,
+          0.16248617874294277,
+          0.0969865827754535
+        ],
+        "speed_m_s": 1.1521516405684109e-15,
+        "in_bin": true
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5016568407795765,
+          -0.16325573632815993,
+          0.08498658277545351
+        ],
+        "speed_m_s": 1.0134242260756588e-15,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.19439806779470173,
+          -0.12309640035084439,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.2111663183368457e-15,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "position_estimates": [
+    {
+      "attempt": 1,
+      "position": [
+        0.35573994602101777,
+        -0.1829936334292764,
+        0.11045280976951888
+      ],
+      "observation_id": "normal-74104-baseline-190971-obs-0001"
+    }
+  ],
+  "provenance": {
+    "source_sha256": "5f1fe60b0b03070c94606868ccd1b1ffd72c065b1b0296aa5682c5c9c7cc6d77",
+    "git_commit": "3ff1e55902b07b92a492f978fbbd379a71e862b7",
+    "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "source_files": {
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/bin_perception.py": "cc0153c750e58b18370b3e7d41c8d03ffc47e4a6b21e367b05722c8b52151d7c",
+      "src/pickloop/cli.py": "f2fa4b6959dc9248f4ca49f03d66b9ff69617d906b02bf99f4d90ddd7aca6839",
+      "src/pickloop/conditions.py": "bfc5f0dd765038d678a0ef5ae654322e38b79895121ff5d4710d8c1ea8e2d7b4",
+      "src/pickloop/device.py": "4eef1950d95eb30ac9341e24ae1fdf6da24190fe9b8947d522a5ca93851762f0",
+      "src/pickloop/dock_charging.py": "d325db555f6477474dcea1aff30c1b7e5bc996a5750a38050a143e1834c8d6c2",
+      "src/pickloop/engine.py": "8ec40266a0418dd1a4ac2c230b9242d6b411420cbf3641603ff8bf9e51d27664",
+      "src/pickloop/evaluation.py": "9795d4eb80cf4d522a6b0c22ade561a6b9a6501fee2ee1df5c93a24a63f57ded",
+      "src/pickloop/experiment.py": "633df493a630547080a7126b15f80d18da5b49d6ed474102edd3ac9dca660707",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/grocery_evaluation.py": "b6e4919d94ca8a929882c5d15ab50ab4786835491d67ef903bfa76f61e272939",
+      "src/pickloop/hand_eye.py": "3ac1c1c19d24894ac4ca7efa48e43b9a8a3ba786d2530d503761277ea4cee90c",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/lidar_slam.py": "bbffaa569a6b4efa45efccf89c68bb9b4d04c6f37327561eebcb30e007857795",
+      "src/pickloop/mobile.py": "a95fc8f0e024515b84e3215dfa2266900e560d68f312e524a7f2ce44de4fd402",
+      "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+      "src/pickloop/photo_evaluation.py": "ba459a0b4748f93c763249fb984afa18ebfe2c33ba14fcd8dbd7a33fa2b528da",
+      "src/pickloop/server.py": "6fbf8f6b18db8453ca34c27feeefd816f0ca16c81423015553cf91227bd634ac",
+      "src/pickloop/simulation.py": "c0c35da2acad141dda500ce167eea295f2b81048f4131fa27538aceed685998b",
+      "src/pickloop/stop_policy.py": "47895057f10ec7cfbd1787854769bd45094c0334544d3dcc0da2e6bc94849746",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    }
+  },
+  "condition": null,
+  "condition_id": null,
+  "terminal_policy": null,
+  "destination_mode": "observed_bin",
+  "bin_layout": [
+    {
+      "center_xy_m": [
+        0.40573610499261226,
+        0.16323259146675495
+      ],
+      "inner_size_m": [
+        0.21928508495719393,
+        0.11761639550457245
+      ],
+      "yaw_rad": -0.3910886456641054,
+      "depth_m": 0.05709736610762354
+    }
+  ],
+  "bin_estimates": [
+    {
+      "phase": "OBSERVE",
+      "observation_id": "normal-74104-baseline-190971-obs-0001",
+      "center_xy_m": [
+        0.4058194971321342,
+        0.16312301683214395
+      ],
+      "inner_size_m": [
+        0.21931483842156207,
+        0.11776972465238184
+      ],
+      "yaw_rad": -0.39069804230380356,
+      "floor_z_m": 0.07238747500624576,
+      "rim_z_m": 0.129480882707677,
+      "rim_points": 1330,
+      "floor_points": 3744
+    },
+    {
+      "phase": "VERIFY",
+      "observation_id": "normal-74104-baseline-190971-obs-0002",
+      "center_xy_m": [
+        0.4058194971321342,
+        0.16312301683214395
+      ],
+      "inner_size_m": [
+        0.21931483842156207,
+        0.11776972465238184
+      ],
+      "yaw_rad": -0.39069804230380356,
+      "floor_z_m": 0.0723900123015978,
+      "rim_z_m": 0.129480882707677,
+      "rim_points": 1330,
+      "floor_points": 2890
+    },
+    {
+      "phase": "VERIFY",
+      "observation_id": "normal-74104-baseline-190971-obs-0003",
+      "center_xy_m": [
+        0.4058194971321342,
+        0.16312301683214395
+      ],
+      "inner_size_m": [
+        0.21931483842156207,
+        0.11776972465238184
+      ],
+      "yaw_rad": -0.39069804230380356,
+      "floor_z_m": 0.0723900123015978,
+      "rim_z_m": 0.129480882707677,
+      "rim_points": 1330,
+      "floor_points": 2890
+    }
+  ]
+}

@@ -4,6 +4,8 @@ os.environ.setdefault('MUJOCO_GL','egl')
 os.environ.setdefault('MESA_SHADER_CACHE_DIR','/tmp/pickloop-mesa')
 import time
 import uuid
+from dataclasses import dataclass
+from itertools import product
 from pathlib import Path
 import cv2
 import mujoco
@@ -18,7 +20,43 @@ BIN_HALF=np.array([.105,.085])
 FIDUCIALS=np.array([[x,y,.062] for y in [.335,-.29] for x in [.06,.33,.60]])
 
 
-def scene_xml(seed,condition=None):
+@dataclass(frozen=True)
+class BinFixture:
+    """Physical scene/evaluator definition. The camera detector never receives it."""
+    center_xy_m: tuple[float, float]
+    inner_size_m: tuple[float, float]
+    yaw_rad: float
+    depth_m: float
+
+    def __post_init__(self):
+        if len(self.center_xy_m) != 2 or len(self.inner_size_m) != 2:
+            raise ValueError('Bin center and opening require two coordinates')
+        if not np.isfinite((*self.center_xy_m, *self.inner_size_m, self.yaw_rad, self.depth_m)).all():
+            raise ValueError('Bin dimensions and pose must be finite')
+        if min(*self.inner_size_m, self.depth_m) <= 0:
+            raise ValueError('Bin dimensions must be positive')
+
+    def contains_xy(self, world_xy):
+        c, s = np.cos(self.yaw_rad), np.sin(self.yaw_rad)
+        local = (np.asarray(world_xy) - self.center_xy_m) @ np.array([[c, -s], [s, c]])
+        return bool(np.all(np.abs(local) < np.array(self.inner_size_m) / 2))
+
+    def xml(self, index):
+        x, y = self.center_xy_m
+        hx, hy = np.asarray(self.inner_size_m) / 2
+        hz = (.012 + self.depth_m) / 2
+        wall_z = .060 + hz
+        t = .004
+        walls = [('left', -hx-t, 0, t, hy), ('right', hx+t, 0, t, hy),
+                 ('front', 0, -hy-t, hx+2*t, t), ('back', 0, hy+t, hx+2*t, t)]
+        pieces = [f'<body name="fixture_{index}" pos="{x} {y} 0" euler="0 0 {self.yaw_rad}">',
+                  f'<geom name="fixture_{index}_floor" type="box" pos="0 0 .066" size="{hx} {hy} .006" rgba=".10 .30 .41 1"/>']
+        for side, wx, wy, sx, sy in walls:
+            pieces.append(f'<geom name="fixture_{index}_{side}" type="box" pos="{wx} {wy} {wall_z}" size="{sx} {sy} {hz}" rgba=".13 .41 .52 1"/>')
+        return ''.join(pieces) + '</body>'
+
+
+def scene_xml(seed,condition=None,bin_layout=None):
     rng=np.random.default_rng(seed)
     positions=[(.34+rng.uniform(-.024,.024),-.19+rng.uniform(-.025,.025)),(.49+rng.uniform(-.012,.012),-.16+rng.uniform(-.015,.015)),(.20+rng.uniform(-.015,.015),-.12+rng.uniform(-.012,.012))]
     if condition is not None:
@@ -41,6 +79,12 @@ def scene_xml(seed,condition=None):
     fid=''.join(f'<geom name="fid_{i}" type="cylinder" pos="{x} {y} .061" size=".010 .001" rgba=".9 .02 .9 1" contype="0" conaffinity="0"/>' for i,(x,y,z) in enumerate(FIDUCIALS))
     blocker_z=-.5 if condition is None or condition['fault']!='path_blocked' else condition['blocker_top_m']-.14
     weld=''.join(f'<weld name="suction_{n}" body1="tool" body2="parcel_{n}" active="false" solref=".008 1" torquescale=".02"/>' for n in ['a','b','u'])
+    bins = '''  <geom name="bin_floor" type="box" pos=".38 .22 .066" size=".105 .085 .006" rgba=".10 .30 .41 1"/>
+  <geom name="bin_back" type="box" pos=".38 .309 .095" size=".115 .004 .035" rgba=".13 .41 .52 1"/>
+  <geom name="bin_left" type="box" pos=".271 .22 .095" size=".004 .085 .035" rgba=".13 .41 .52 1"/>
+  <geom name="bin_right" type="box" pos=".489 .22 .095" size=".004 .085 .035" rgba=".13 .41 .52 1"/>
+  <geom name="bin_front" type="box" pos=".38 .131 .095" size=".115 .004 .035" rgba=".13 .41 .52 1"/>
+''' if bin_layout is None else ''.join(fixture.xml(i) for i, fixture in enumerate(bin_layout))
     return f'''<mujoco model="pickloop_scara">
  <compiler angle="radian"/>
  <option timestep=".005" gravity="0 0 -9.81" integrator="implicitfast" iterations="60"/>
@@ -69,11 +113,7 @@ def scene_xml(seed,condition=None):
     </body>
    </body>
   </body>
-  <geom name="bin_floor" type="box" pos=".38 .22 .066" size=".105 .085 .006" rgba=".10 .30 .41 1"/>
-  <geom name="bin_back" type="box" pos=".38 .309 .095" size=".115 .004 .035" rgba=".13 .41 .52 1"/>
-  <geom name="bin_left" type="box" pos=".271 .22 .095" size=".004 .085 .035" rgba=".13 .41 .52 1"/>
-  <geom name="bin_right" type="box" pos=".489 .22 .095" size=".004 .085 .035" rgba=".13 .41 .52 1"/>
-  <geom name="bin_front" type="box" pos=".38 .131 .095" size=".115 .004 .035" rgba=".13 .41 .52 1"/>
+  {bins}
   <geom name="blocker" type="box" pos=".37 .015 {blocker_z}" size=".09 .045 .14" rgba=".80 .50 .12 1"/>
   {''.join(objects)}
  </worldbody>
@@ -89,10 +129,11 @@ def scene_xml(seed,condition=None):
 
 
 class Cell:
-    def __init__(self,seed=0,fault='normal',run_id=None,condition=None):
+    def __init__(self,seed=0,fault='normal',run_id=None,condition=None,bin_layout=None):
         self.seed=seed; self.fault=fault; self.run_id=run_id or uuid.uuid4().hex[:12]
         self.condition=None if condition is None else copy_condition(condition,seed,fault)
-        self.model=mujoco.MjModel.from_xml_string(scene_xml(seed,self.condition)); self.data=mujoco.MjData(self.model)
+        self.bin_layout = None if bin_layout is None else tuple(bin_layout)
+        self.model=mujoco.MjModel.from_xml_string(scene_xml(seed,self.condition,self.bin_layout)); self.data=mujoco.MjData(self.model)
         self.data.qpos[:4]=scara_ik([.19,-.32,.34]); self.data.ctrl[:]=self.data.qpos[:4]
         self.tcp_id=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_SITE,'tcp')
         self.tool_id=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_BODY,'tool')
@@ -181,7 +222,11 @@ class Cell:
     def _release(self,drop=False):
         if self.attached is not None:
             p=self.data.xpos[self.object_bodies[self.attached]]
-            support=.072 if np.all(np.abs(p[:2]-BIN_CENTER)<BIN_HALF) else .060
+            if self.bin_layout is None:
+                over_floor = np.all(np.abs(p[:2]-BIN_CENTER)<BIN_HALF)
+            else:
+                over_floor = any(fixture.contains_xy(p[:2]) for fixture in self.bin_layout)
+            support = .072 if over_floor else .060
             unsupported_clearance=float(p[2]-.025-support)
             self.data.eq_active[self.attached]=False
             self.attached=None
@@ -323,5 +368,14 @@ class Cell:
         for n,b in zip(['SKU-RED-A','SKU-RED-B','SKU-UNKNOWN'],self.object_bodies):
             qadr=self.model.jnt_qposadr[self.model.body_jntadr[b]]
             dadr=self.model.jnt_dofadr[self.model.body_jntadr[b]]
-            result.append({'sku':n,'position':self.data.xpos[b].tolist(),'speed_m_s':float(np.linalg.norm(self.data.qvel[dadr:dadr+3])),'in_bin':bool(np.all(np.abs(self.data.xpos[b,:2]-BIN_CENTER)<BIN_HALF-np.array([.032,.026])) and .085<self.data.xpos[b,2]<.14)})
+            if self.bin_layout is None:
+                inside = np.all(np.abs(self.data.xpos[b,:2]-BIN_CENTER)<BIN_HALF-np.array([.032,.026])) and .085<self.data.xpos[b,2]<.14
+            else:
+                # All eight world corners must project inside the actual rotated opening
+                # and the lowest point must have settled onto its physical floor.
+                offsets = np.array(list(product((-1, 1), repeat=3))) * np.array([.032, .026, .025])
+                corners = self.data.xpos[b] + offsets @ self.data.xmat[b].reshape(3, 3).T
+                inside = (abs(corners[:, 2].min() - .072) < .004
+                          and any(fixture.contains_xy(corners[:, :2]) for fixture in self.bin_layout))
+            result.append({'sku':n,'position':self.data.xpos[b].tolist(),'speed_m_s':float(np.linalg.norm(self.data.qvel[dadr:dadr+3])),'in_bin':bool(inside)})
         return {'objects':result,'attached':self.attached,'drop_count':self.drop_count,'collision_count':self.collision_count}

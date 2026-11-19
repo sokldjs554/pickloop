@@ -4,6 +4,8 @@
 
 [공개 데모](https://pickloop-robot-ops.ykh13571.chatgpt.site) · [전체 평가 원문 목록](https://pickloop-robot-ops.ykh13571.chatgpt.site/data/evaluation/index.json) · [동결 명세](https://pickloop-robot-ops.ykh13571.chatgpt.site/data/manifest.json)
 
+이 문서는 PR #1 이전의 동결 정책과 당시 재생을 다룬다. 현재 정책과 후속 검증은 [지원자의 코드 변경](https://github.com/sokldjs554/pickloop/pull/1) 및 [최신 공고 대응표](job-requirements-matrix.md)에서 확인할 수 있다.
+
 ## 동일 예산 비교
 
 처음 사용하는 seed3000..3011 × 12조건 × 4정책 = **576회** 실제 MuJoCo 실행. 개발 조건과 배치·자세·깊이 잡음·보정 편차·흡착·장애물·장애 지속시간 범위를 다르게 고정했다. 최종 결과를 보고 정책/모델을 재조정하지 않았다.

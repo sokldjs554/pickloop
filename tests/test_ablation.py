@@ -31,7 +31,7 @@ def test_paired_contrast_counts_both_directions_and_clusters_seeds():
 
 
 def controller(policy):
-    c=Controller.__new__(Controller);c.policy=policy;c.attempt=2;c.carrying=False
+    c=Controller.__new__(Controller);c.policy=policy;c.attempt=2;c.carrying=False;c.perceive_bin=False
     c.target_detection=SimpleNamespace(position=np.array([.3,-.2,.11]))
     c.cell=SimpleNamespace(sim_time=5.,observe=lambda:SimpleNamespace(observation_id='fresh',validate=lambda t:None))
     c.emit=lambda *a,**kw:None

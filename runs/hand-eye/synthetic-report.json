@@ -1,0 +1,268 @@
+{
+  "name": "synthetic",
+  "solver": "OpenCV Park-Martin AX=XB",
+  "opencv": "4.11.0",
+  "fit_ids": [
+    "fit-00",
+    "fit-01",
+    "fit-02",
+    "fit-03",
+    "fit-04",
+    "fit-05",
+    "fit-06",
+    "fit-07",
+    "fit-08",
+    "fit-09",
+    "fit-10",
+    "fit-11",
+    "fit-12",
+    "fit-13",
+    "fit-14",
+    "fit-15",
+    "fit-16",
+    "fit-17",
+    "fit-18",
+    "fit-19",
+    "fit-20",
+    "fit-21",
+    "fit-22",
+    "fit-23",
+    "fit-24",
+    "fit-25",
+    "fit-26",
+    "fit-27",
+    "fit-28",
+    "fit-29",
+    "fit-30",
+    "fit-31"
+  ],
+  "heldout_ids": [
+    "heldout-00",
+    "heldout-01",
+    "heldout-02",
+    "heldout-03",
+    "heldout-04",
+    "heldout-05",
+    "heldout-06",
+    "heldout-07",
+    "heldout-08",
+    "heldout-09",
+    "heldout-10",
+    "heldout-11",
+    "heldout-12",
+    "heldout-13",
+    "heldout-14",
+    "heldout-15"
+  ],
+  "tool_T_camera": [
+    [
+      0.8785401194702485,
+      -0.46108812148429984,
+      -0.1247597800065518,
+      0.04750169641391522
+    ],
+    [
+      0.4293484632894021,
+      0.8767285547518446,
+      -0.2168108354159731,
+      -0.02104320605852634
+    ],
+    [
+      0.20934936243569363,
+      0.13691159742265668,
+      0.9682086856349437,
+      0.0861683922041418
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "base_T_target": [
+    [
+      -0.03550689913025851,
+      -0.9952571590471531,
+      0.09056736431818393,
+      0.41993331158047953
+    ],
+    [
+      0.9968235577626599,
+      -0.04173527664794907,
+      -0.06783038679317369,
+      0.1201032335595443
+    ],
+    [
+      0.07128853206193861,
+      0.08787123561500748,
+      0.9935776724282531,
+      0.08500899433636626
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "rotation_excitation_deg": [
+    31.3508219898791,
+    27.058966910059514,
+    18.10034973308309
+  ],
+  "intrinsics": [
+    [
+      615.0,
+      0.0,
+      320.0
+    ],
+    [
+      0.0,
+      615.0,
+      240.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "distortion": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "heldout": {
+    "translation_rms_mm": 0.4993167342856169,
+    "rotation_rms_deg": 0.21229170773891806,
+    "prediction_reprojection_rms_px": 0.6585785035997951,
+    "per_view_pnp_reprojection_rms_px": 0.34358444712274927,
+    "corner_count": 768
+  },
+  "heldout_per_view": [
+    {
+      "id": "heldout-00",
+      "translation_mm": 0.45034622256466594,
+      "rotation_deg": 0.16184507771932272,
+      "prediction_reprojection_rms_px": 0.528862148727372,
+      "pnp_reprojection_rms_px": 0.34220129404157323
+    },
+    {
+      "id": "heldout-01",
+      "translation_mm": 0.257026693694039,
+      "rotation_deg": 0.10928549591709327,
+      "prediction_reprojection_rms_px": 0.4400012972173999,
+      "pnp_reprojection_rms_px": 0.3229922372354527
+    },
+    {
+      "id": "heldout-02",
+      "translation_mm": 0.18830287046242639,
+      "rotation_deg": 0.20706670466141347,
+      "prediction_reprojection_rms_px": 0.39147614610635834,
+      "pnp_reprojection_rms_px": 0.3488984918809451
+    },
+    {
+      "id": "heldout-03",
+      "translation_mm": 0.37071263980902625,
+      "rotation_deg": 0.09578395030147797,
+      "prediction_reprojection_rms_px": 0.6060764000792088,
+      "pnp_reprojection_rms_px": 0.35229126023955526
+    },
+    {
+      "id": "heldout-04",
+      "translation_mm": 0.5686034258840781,
+      "rotation_deg": 0.44444962003440297,
+      "prediction_reprojection_rms_px": 0.6825109337501589,
+      "pnp_reprojection_rms_px": 0.3438991043420605
+    },
+    {
+      "id": "heldout-05",
+      "translation_mm": 0.3385329430313206,
+      "rotation_deg": 0.1808544361976608,
+      "prediction_reprojection_rms_px": 0.47278791232153483,
+      "pnp_reprojection_rms_px": 0.3723395590407339
+    },
+    {
+      "id": "heldout-06",
+      "translation_mm": 0.23452639527168112,
+      "rotation_deg": 0.07074591112364545,
+      "prediction_reprojection_rms_px": 0.4430715455904778,
+      "pnp_reprojection_rms_px": 0.3467361541951469
+    },
+    {
+      "id": "heldout-07",
+      "translation_mm": 0.9155191999482347,
+      "rotation_deg": 0.20380049967826108,
+      "prediction_reprojection_rms_px": 1.2396410359150207,
+      "pnp_reprojection_rms_px": 0.28572767443150093
+    },
+    {
+      "id": "heldout-08",
+      "translation_mm": 0.3078483407227744,
+      "rotation_deg": 0.07925958854081008,
+      "prediction_reprojection_rms_px": 0.47668502172400845,
+      "pnp_reprojection_rms_px": 0.3384725935508866
+    },
+    {
+      "id": "heldout-09",
+      "translation_mm": 0.49829655526111927,
+      "rotation_deg": 0.3111742660934919,
+      "prediction_reprojection_rms_px": 0.6205441217346748,
+      "pnp_reprojection_rms_px": 0.3676451474719667
+    },
+    {
+      "id": "heldout-10",
+      "translation_mm": 0.7195827446660905,
+      "rotation_deg": 0.3977879312818947,
+      "prediction_reprojection_rms_px": 0.6765182559890811,
+      "pnp_reprojection_rms_px": 0.3433921708243456
+    },
+    {
+      "id": "heldout-11",
+      "translation_mm": 0.37177414062382125,
+      "rotation_deg": 0.13132316652391154,
+      "prediction_reprojection_rms_px": 0.3856077947673005,
+      "pnp_reprojection_rms_px": 0.33177099006453664
+    },
+    {
+      "id": "heldout-12",
+      "translation_mm": 0.8527470362890074,
+      "rotation_deg": 0.08207627256791183,
+      "prediction_reprojection_rms_px": 1.1031852697032773,
+      "pnp_reprojection_rms_px": 0.3361107075097096
+    },
+    {
+      "id": "heldout-13",
+      "translation_mm": 0.43001040609301605,
+      "rotation_deg": 0.08323838868885118,
+      "prediction_reprojection_rms_px": 0.5358406355982328,
+      "pnp_reprojection_rms_px": 0.31197348436294775
+    },
+    {
+      "id": "heldout-14",
+      "translation_mm": 0.39522244074175283,
+      "rotation_deg": 0.20976105419617716,
+      "prediction_reprojection_rms_px": 0.6304882475707632,
+      "pnp_reprojection_rms_px": 0.3567723049785976
+    },
+    {
+      "id": "heldout-15",
+      "translation_mm": 0.3858106641531959,
+      "rotation_deg": 0.13362331723294665,
+      "prediction_reprojection_rms_px": 0.6348445985311036,
+      "pnp_reprojection_rms_px": 0.38401638813686595
+    }
+  ],
+  "simulation_truth_error": {
+    "translation_mm": 1.0933937408783034,
+    "rotation_deg": 0.11139621436605182
+  },
+  "degenerate_scara": {
+    "poses": 12,
+    "rejected": true,
+    "reason": "INSUFFICIENT_ROTATION: second independent RMS component 0.000 deg"
+  }
+}

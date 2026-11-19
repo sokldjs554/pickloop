@@ -1,0 +1,10 @@
+{"scan":1,"at_ns":1752,"execution_ns":112666,"command":null,"pressure_deci_kpa":0,"attached_input":0,"output":[1,0,0,0,0,0,0,0,0,0,0,0,0]}
+{"scan":2,"at_ns":10693574,"execution_ns":181817,"command":[32768,33,1,1],"pressure_deci_kpa":0,"attached_input":0,"output":[1,32768,33,1,0,0,0,0,1,32768,33,0,0]}
+{"scan":3,"at_ns":20102704,"execution_ns":74690,"command":null,"pressure_deci_kpa":-523,"attached_input":1,"output":[1,32768,33,1,65013,1,0,0,1,32768,33,0,0]}
+{"scan":4,"at_ns":30095119,"execution_ns":132304,"command":[32768,33,1,1],"pressure_deci_kpa":-523,"attached_input":1,"output":[1,32768,33,1,65013,1,0,0,1,32768,33,0,0]}
+{"scan":5,"at_ns":40118625,"execution_ns":134077,"command":[32768,33,1,0],"pressure_deci_kpa":-523,"attached_input":1,"output":[1,32768,33,1,65013,1,0,0,1,32768,33,0,3]}
+{"scan":6,"at_ns":50113758,"execution_ns":138845,"command":[32768,33,2,0],"pressure_deci_kpa":-523,"attached_input":1,"output":[1,32768,33,1,65013,1,0,0,1,32768,33,1,0]}
+{"scan":7,"at_ns":60111912,"execution_ns":170721,"command":[32768,33,1,1],"pressure_deci_kpa":-523,"attached_input":1,"output":[1,32768,33,1,65013,1,0,0,1,32768,33,1,3]}
+{"scan":8,"at_ns":70115293,"execution_ns":96542,"command":null,"pressure_deci_kpa":0,"attached_input":0,"output":[1,32768,33,1,0,0,0,0,1,32768,33,1,3]}
+{"scan":9,"at_ns":80096120,"execution_ns":212604,"command":[32768,34,1,0],"pressure_deci_kpa":0,"attached_input":0,"output":[1,32768,34,0,0,0,0,0,2,32768,34,0,0]}
+{"scan":10,"at_ns":90099822,"execution_ns":218602,"command":[32768,33,1,1],"pressure_deci_kpa":0,"attached_input":0,"output":[1,32768,34,0,0,0,0,0,2,32768,34,0,3]}

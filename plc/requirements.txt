@@ -1,0 +1,3 @@
+# Install with AWLSIM_CYTHON_BUILD=0 for the pure Python S7 interpreter.
+awlsim==0.78.0 --hash=sha256:1b95b8dcd8b03792cf036b8cf49918ab521efc20acd5da0f595c2dc4689ca587
+pyModbusTCP==0.3.1 --hash=sha256:f7679bd3daf8e0642a204c68efa233e180a26f0be8460049e32b19a4aee05cb0

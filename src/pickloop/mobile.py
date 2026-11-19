@@ -316,6 +316,28 @@ class MobileSimulation:
             while np.max(np.abs(self.wheels[robot])) > 1e-12:
                 self.tick(robot, [0., 0.], 'BRAKING', emergency_brake=True)
 
+    def docking_measurements(self, robot):
+        estimator = self.estimators[robot]
+        dock = dock_check(estimator.pose, self.truth[robot], self.world.config['dock_m_rad'], self.wheels[robot])
+        dock['position_sigma_m'] = math.sqrt(float(np.linalg.eigvalsh(estimator.cov[:2, :2]).max()))
+        return dock
+
+    def require_dock(self, robot):
+        dock = self.docking_measurements(robot)
+        if not dock['accepted'] or dock['position_sigma_m'] > .025:
+            self.emit('DOCK_REJECTED', self.t, robot, 'HELD', dock)
+            raise MobileHold('DOCK_TOLERANCE')
+        self.emit('DOCK_ACCEPTED', self.t, robot, 'DOCKED', dock)
+
+    def release_clear_zone(self, robot):
+        estimator = self.estimators[robot]
+        sigma = 3 * math.sqrt(float(np.linalg.eigvalsh(estimator.cov[:2, :2]).max()))
+        clear = not self.zone_overlap(estimator.pose, self.world.radius + sigma + .10)
+        if self.zone_overlap(self.truth[robot], self.world.radius):
+            raise MobileHold('EVALUATOR_ZONE_NOT_CLEAR')
+        self.fleet.release(robot, estimated_clear=clear)
+        self.emit('ZONE_RELEASED', self.t, robot, 'EXITED', {'estimated_clear': clear})
+
     def drive(self, robot, target, state):
         estimator = self.estimators[robot]
         route = self.world.plan(estimator.pose[:2], target[:2])
@@ -445,12 +467,7 @@ def run_mission(seed=0, scenario='normal', out_dir='runs/mobile', mission_id=Non
                 sim.tick(robot, [0., 0.], 'WAIT_ZONE')
             emit('ZONE_RESERVED', sim.t, robot, 'NAVIGATING', {'expires_s': fleet.expires})
             sim.drive(robot, world.config['dock_m_rad'], 'NAVIGATING')
-            dock = dock_check(sim.estimators[robot].pose, sim.truth[robot], world.config['dock_m_rad'], sim.wheels[robot])
-            dock['position_sigma_m'] = math.sqrt(float(np.linalg.eigvalsh(sim.estimators[robot].cov[:2, :2]).max()))
-            if not dock['accepted'] or dock['position_sigma_m'] > .025:
-                emit('DOCK_REJECTED', sim.t, robot, 'HELD', dock)
-                raise MobileHold('DOCK_TOLERANCE')
-            emit('DOCK_ACCEPTED', sim.t, robot, 'DOCKED', dock)
+            sim.require_dock(robot)
             sim.guard()
             # The pick engine bounds itself to 60 simulated seconds; reserve that budget.
             if sim.t + 60 >= sim_deadline_s:
@@ -471,13 +488,8 @@ def run_mission(seed=0, scenario='normal', out_dir='runs/mobile', mission_id=Non
             if not pick_result.get('success') or pick_result.get('job_id') != job_id:
                 raise MobileHold('PICK_NOT_VERIFIED')
             sim.drive(robot, world.config['exit_m_rad'], 'EXITING')
-            estimator = sim.estimators[robot]
-            sigma = 3 * math.sqrt(float(np.linalg.eigvalsh(estimator.cov[:2, :2]).max()))
-            clear = not sim.zone_overlap(estimator.pose, world.radius + sigma + .10)
-            if sim.zone_overlap(sim.truth[robot], world.radius):
-                raise MobileHold('EVALUATOR_ZONE_NOT_CLEAR')
-            fleet.release(robot, estimated_clear=clear); fleet.finished.add(job_id)
-            emit('ZONE_RELEASED', sim.t, robot, 'EXITED', {'estimated_clear': clear})
+            sim.release_clear_zone(robot)
+            fleet.finished.add(job_id)
             # The next queued fleet task is a real computed reposition, not another pick.
             sim.drive(other, world.config['next_task_m_rad'], 'NEXT_TASK')
             fleet.finished.add(other_task)

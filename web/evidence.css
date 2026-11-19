@@ -1,0 +1,24 @@
+body { font-size: 16px; }
+.review-main { max-width: 1080px; padding: clamp(1rem, 3vw, 2.8rem); margin: 0 auto; }
+.review-nav { display: flex; flex-wrap: wrap; gap: .8rem 1.35rem; align-items: center; font-size: .94rem; }
+.review-nav a, .review-main a, .review-head a { color: #69dec8; text-decoration: underline; text-underline-offset: .2em; }
+.review-head { border-bottom: 1px solid var(--border); background: #141e24; }
+.review-head > div { max-width: 1080px; margin: auto; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; min-height: 4rem; padding: .75rem clamp(1rem,3vw,2.8rem); }
+.review-head .name { color: var(--text); font-size: 1.3rem; font-weight: 700; text-decoration: none; }
+.review-main h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.2; margin: .3em 0; }
+.review-main h2 { margin: 0; font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 650; }
+.review-main h3 { margin: 1.1rem 0 .2rem; font-size: 1.06rem; }
+.review-main p { max-width: 77ch; margin: .7rem 0; }
+.review-main section { border-top: 1px solid var(--border); padding: 1.8rem 0; scroll-margin-top: .75rem; }
+.review-main .intro { margin-bottom: 1rem; color: #bfd0d5; }
+.review-main .review-nav { margin-bottom: 1.4rem; }
+.review-main .evidence-links { display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; margin-top: .9rem; font-size: .94rem; }
+.review-main table { border-collapse: collapse; margin: 1.1rem 0; width: 100%; }
+.review-main td, .review-main th { padding: .6rem .4rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.review-main th { color: #bbced4; font-size: .9rem; }
+.review-main figure { margin: 1rem 0; }
+.review-main figure img { max-width: 100%; display: block; height: auto; border-radius: .35rem; }
+.review-main figcaption { color: #bdcbd1; font-size: .89rem; margin-top: .4rem; }
+.field-figure { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); gap: clamp(1rem,3vw,2.5rem); align-items: start; }
+.review-main .finding { padding: .8rem 1rem; border-left: 3px solid var(--amber); background: #282923; color: #efe5c7; }
+@media(max-width:650px) { .field-figure { display: block; } .review-main table { font-size: .9rem; } }
