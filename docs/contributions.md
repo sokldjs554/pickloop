@@ -36,7 +36,7 @@ PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른�
 
 ## Codex가 추가 수행한 직무 검증
 
-공개 매장 사진 평가, USDA 손목 카메라 실측 기록 분석, 모의 RGB-D 상자 배치·오프라인 라이다 SLAM·두 AMR 충전·S7 소프트웨어 PLC 통신 시험은 Codex가 구현하고 실행했다. 원본 사진과 로봇 자세는 각 데이터셋 저자가 수집했다. [직무별 코드와 실행 원본](job-requirements-matrix.md)
+공개 매장 사진의 81품목 카탈로그 학습과 미등록품 시험, USDA 손목 카메라 실측 기록 분석, 모의 RGB-D 상자 배치·오프라인 라이다 SLAM·두 AMR 충전·S7 소프트웨어 PLC 통신 시험은 Codex가 구현하고 실행했다. 원본 사진과 로봇 자세는 각 데이터셋 저자가 수집했다. [직무별 코드와 실행 원본](job-requirements-matrix.md)
 
 ## 공개 데모 리뷰 반영
 

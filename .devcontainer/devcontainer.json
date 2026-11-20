@@ -3,5 +3,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "python -m pip install -e '.[test]'"
+  "postCreateCommand": "python -m pip install -e '.[test,catalogue]'"
 }
