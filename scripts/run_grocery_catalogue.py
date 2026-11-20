@@ -9,12 +9,16 @@ from zipfile import ZipFile
 
 import numpy as np
 
-from catalogue_outside_source import MANIFEST_SHA256
 from pickloop.catalogue_features import FEATURE_VERSION, REVISION, WEIGHTS_SHA
 from pickloop.catalogue_model import CatalogueHead, calibrate
 from pickloop.grocery_catalogue import BRAVO_GALLERY_SHA256, resolve_decision
 from pickloop.grocery_evaluation import PREFIX
 from pickloop.photo_evaluation import crop_pixels, write_csv, write_json
+
+if __package__:
+    from .catalogue_outside_source import MANIFEST_SHA256
+else:
+    from catalogue_outside_source import MANIFEST_SHA256
 
 
 def cached(directory, split):
