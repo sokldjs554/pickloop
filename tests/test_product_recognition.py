@@ -35,3 +35,36 @@ def test_development_excludes_entire_negative_product_families():
     assert development_product(28) and development_product(29)
     assert development_product(31)
     assert not development_product(30) and not development_product(57)
+
+
+def test_published_carton_comparison_uses_the_same_images_and_excludes_reserved_training_ids():
+    import csv
+    import json
+    from hashlib import sha256
+    from pathlib import Path
+
+    from pickloop.photo_evaluation import metrics
+
+    root = Path(__file__).resolve().parents[1] / 'docs/experiments'
+    release = root / 'grocery-transfer'
+
+    def read(path):
+        with path.open(newline='') as stream:
+            return list(csv.DictReader(stream))
+
+    def counts(rows):
+        return metrics((row['truth'], row['prediction']) for row in rows)
+
+    report = json.loads((release / 'summary.json').read_text())
+    assert sha256((release / 'model.json').read_bytes()).hexdigest() == report['head_sha256']
+    dev = read(release / 'development-inputs.csv')
+    assert all(int(row['class_id']) not in range(30, 59, 3) for row in dev)
+    scored = read(release / 'predictions.csv')
+    cases = [row for row in scored if row['split'] == 'test' and '/Packages/' in row['path']]
+    previous = [row for row in read(root / 'real-photos-calibrated/predictions.csv')
+                if row['partition'] == 'revisited_cartons']
+    assert {row['sha256']: row['truth'] for row in cases} == {row['sha256']: row['truth'] for row in previous}
+    assert len(cases) == 781 and counts(cases) == report['revisited_cartons']
+    assert counts(row for row in cases if int(row['class_id']) in range(30, 59, 3)) == report['reserved_cartons']
+    assert counts(row for row in scored if row['split'] == 'catalogue') == report['new_catalogue']
+    assert len({row['sha256'] for row in dev + scored}) == len(dev) + len(scored) == report['distinct_image_hashes']
