@@ -1,4 +1,5 @@
 import {readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {dirname,resolve} from 'node:path';
 import assert from 'node:assert/strict';
@@ -68,7 +69,7 @@ class Node {
   get value(){return this._value||this.children[0]?.value||'';}
   set value(v){this._value=String(v);}
   replaceChildren(...children){this.children=children;this._value='';}
-  append(child){this.children.push(child);}
+  append(...children){this.children.push(...children);}
   setAttribute(k,v){this.attributes[k]=String(v);}
   getAttribute(k){return this.attributes[k]??(k==='src'?this.src:null)??null;}
   removeAttribute(k){delete this.attributes[k];if(k==='src')delete this.src;}
@@ -130,5 +131,154 @@ check('published photo results match the frozen gallery evaluation', () => {
     `${produce.unknown_false_accepts} / ${produce.unknown_total.toLocaleString('en-US')}`
   ]);
   assert.match(page, /docs\/experiments\/carton-panels\/predictions\.csv/);
+});
+const evidencePage = readFileSync(resolve(root, 'web/evidence.html'), 'utf8');
+const catalogueScript = readFileSync(resolve(root, 'web/grocery-catalogue.js'), 'utf8');
+function openCatalogue(data, lookup = null, requests = [], hash = '') {
+  const elements = new Map([...evidencePage.matchAll(/\bid="([^"]+)"/g)].map(match => [match[1], new Node()]));
+  const document = {getElementById: id => elements.get(id), createElement: tag => new Node(tag)};
+  elements.get('photo-filter').value = 'review';
+  const fetch = async path => {
+    requests.push(path);
+    const payloads = {'data/grocery-catalogue.json':data, 'data/grocery-previous-photos.json':lookup};
+    assert.ok(Object.hasOwn(payloads, path));
+    return {ok: payloads[path] !== null, json: async () => payloads[path]};
+  };
+  vm.runInNewContext(catalogueScript, {document, fetch, console, location: {hash}});
+  return id => elements.get(id);
+}
+const products = ['Golden-Delicious', 'Granny-Smith', 'Pink-Lady', 'Red-Delicious', 'Royal-Gala',
+  'Avocado', 'Banana', 'Kiwi', 'Mango', 'Bravo-Apple-Juice', 'Carrots'];
+const catalogueFixture = {
+  counts: {registered: 11, test_total: 44, correct: 20, wrong: 11, held: 13, outside_total: 5, outside_false_accepts: 2},
+  previous_unknown: {total: 7, correct: 4, wrong: 2, held: 1},
+  classes: products.map((name, id) => ({id, name, group: id === 10 ? 'Vegetables' : id === 9 ? 'Packages' : 'Fruit',
+    test_total: 4, correct: id === 0 ? 0 : 2, wrong: 1, held: id === 0 ? 3 : 1}))
+};
+const view = openCatalogue(catalogueFixture);
+await settle();
+check('review page links to the full catalogue and preserves the earlier two-juice evidence', () => {
+  assert.match(html, /href="evidence.html#photos"/);
+  assert.ok(evidencePage.indexOf('id="photos"') < evidencePage.indexOf('id="panel-result"'));
+  for (const path of ['docs/grocery-catalogue.md', 'docs/experiments/grocery-catalogue/predictions.csv']) {
+    assert.ok(evidencePage.includes('https://github.com/sokldjs554/pickloop/blob/main/' + path));
+  }
+});
+check('catalogue reads measured official, prior and external results with separate denominators', () => {
+  assert.equal(view('catalogue-results').hidden, false);
+  assert.match(view('catalogue-coverage').textContent, /11종.*10종/);
+  assert.deepEqual(['test-total','correct','wrong','held'].map(key => view('catalogue-' + key).textContent), ['44','20','11','13']);
+  assert.match(view('catalogue-previous').textContent, /7장.*4장.*2장.*1장/);
+  assert.match(view('catalogue-outside').textContent, /5장.*2장/);
+});
+check('catalogue paginates and searches official names, Korean labels and item IDs across all pages', () => {
+  const rows = view('catalogue-rows');
+  const search = view('catalogue-search');
+  const setQuery = query => {search.value = query; search.trigger('input');};
+  assert.ok(rows.children.length > 0 && rows.children.length < products.length);
+  assert.equal(view('catalogue-prev').disabled, true);
+  view('catalogue-next').trigger('click');
+  assert.equal(view('catalogue-prev').disabled, false);
+  assert.equal(view('catalogue-next').disabled, true);
+  setQuery('bravo apple');
+  assert.equal(rows.children.length, 1);
+  assert.deepEqual(rows.children[0].children.slice(1).map(cell => cell.textContent), ['4','2','1','1']);
+  assert.equal(view('catalogue-prev').disabled, true);
+  setQuery('당근');
+  assert.equal(rows.children.length, 1);
+  assert.deepEqual(rows.children[0].children[0].children.map(node => node.textContent), ['당근', '#10 · Carrots']);
+  setQuery('6');
+  assert.equal(rows.children.length, 1);
+  setQuery('카탈로그에 없는 상품');
+  assert.equal(rows.children.length, 0);
+  assert.match(view('catalogue-position').textContent, /검색 결과가 없습니다/);
+  setQuery('');
+  view('catalogue-group').value = 'Vegetables';
+  view('catalogue-group').trigger('change');
+  assert.equal(rows.children.length, 1);
+});
+const failedView = openCatalogue(null);
+await settle();
+check('missing catalogue evidence has a visible error and the historical page still renders', () => {
+  assert.match(failedView('catalogue-status').textContent, /불러오지 못했습니다/);
+  assert.equal(failedView('catalogue-results').hidden, true);
+  assert.ok(failedView('panel-result'));
+});
+const measuredCatalogue = JSON.parse(readFileSync(resolve(root, 'web/data/grocery-catalogue.json'), 'utf8'));
+const lookup = JSON.parse(readFileSync(resolve(root, 'web/data/grocery-previous-photos.json'), 'utf8'));
+const requests = [];
+const measured = openCatalogue(measuredCatalogue, lookup, requests);
+await settle();
+check('photo lookup matches the pinned audit ledgers and initially loads no photo list', () => {
+  execFileSync('python3', ['scripts/export_previous_photos.py', '--check'], {cwd:root});
+  assert.equal(lookup.photos.length, 2656);
+  assert.equal(new Set(lookup.photos.map(row => row.id)).size, lookup.photos.length);
+  assert.match(evidencePage, /<details id="previous-photos"[^>]*>/);
+  assert.doesNotMatch(evidencePage, /<details id="previous-photos"[^>]* open/);
+  assert.deepEqual(requests, ['data/grocery-catalogue.json']);
+  assert.equal(measured('photo-lookup').hidden, true);
+});
+const linkedPhotos = openCatalogue(measuredCatalogue, lookup, [], '#previous-photos');
+await settle();
+check('a direct link opens and loads the historical photo lookup', () => {
+  assert.equal(linkedPhotos('previous-photos').open, true);
+  assert.equal(linkedPhotos('photo-lookup').hidden, false);
+});
+function expand(el) { el.open = true; el.trigger('toggle'); }
+expand(measured('previous-photos'));
+await settle();
+function filterPhotos(status, query = '') {
+  measured('photo-filter').value = status;
+  measured('photo-filter').trigger('change');
+  measured('photo-search').value = query;
+  measured('photo-search').trigger('input');
+}
+const photoRows = measured('photo-rows');
+check('photo review defaults to errors and holds, pages subsets and links to pinned original images', () => {
+  assert.equal(measured('photo-lookup').hidden, false);
+  assert.deepEqual(requests, ['data/grocery-catalogue.json', 'data/grocery-previous-photos.json']);
+  assert.equal(photoRows.children.length, 8);
+  const before = photoRows.children[0].children[0].children[0].href;
+  measured('photo-next').trigger('click');
+  assert.notEqual(photoRows.children[0].children[0].children[0].href, before);
+  const wrong = lookup.photos.find(photo => photo.status === 'wrong');
+  assert.ok(wrong);
+  filterPhotos('wrong', wrong.id);
+  assert.equal(photoRows.children.length, 1);
+  assert.equal(measured('photo-prev').disabled, true);
+  const [file, truth, prediction, status] = photoRows.children[0].children;
+  assert.equal(truth.children[1].textContent, wrong.truth);
+  assert.equal(prediction.children[1].textContent, wrong.prediction);
+  assert.equal(status.textContent, '오답');
+  assert.equal(file.children[1].title, wrong.id);
+  assert.equal(file.children[0].href, lookup.source_base + wrong.path);
+  assert.match(file.children[0].href, /^https:\/\/raw\.githubusercontent\.com\/marcusklasson\/GroceryStoreDataset\/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc\/dataset\//);
+  assert.equal(file.children[0].textContent, wrong.path.split('/').at(-1));
+});
+check('all photos can be searched by Korean label, path or hash, including held photos and correct calls', () => {
+  filterPhotos('all');
+  assert.match(measured('photo-position').textContent, /2,656장/);
+  filterPhotos('all', '당근');
+  assert.ok(photoRows.children.length > 0);
+  assert.ok(photoRows.children.every(row => [row.children[1], row.children[2]].some(cell => cell.children[0]?.textContent === '당근')));
+  for (const outcome of ['correct', 'held']) {
+    const item = lookup.photos.find(photo => photo.status === outcome);
+    filterPhotos(outcome, item.path);
+    assert.equal(photoRows.children.length, 1);
+    const prediction = photoRows.children[0].children[2];
+    if (outcome === 'held') assert.equal(prediction.textContent, '판정 보류');
+    else assert.equal(prediction.children[1].textContent, item.truth);
+  }
+  filterPhotos('all', 'no-photo-for-this-query');
+  assert.match(measured('photo-position').textContent, /검색 결과가 없습니다/);
+});
+const stale = openCatalogue(catalogueFixture, lookup);
+await settle();
+expand(stale('previous-photos'));
+await settle();
+check('a mismatched photo lookup shows an error while the aggregate evidence stays visible', () => {
+  assert.equal(stale('catalogue-results').hidden, false);
+  assert.equal(stale('photo-lookup').hidden, true);
+  assert.match(stale('photo-load-status').textContent, /불러오지 못했습니다/);
 });
 console.log(`\n${checks} UI contract checks passed.`);

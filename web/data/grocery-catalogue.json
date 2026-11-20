@@ -1,0 +1,748 @@
+{
+  "counts": {
+    "registered": 81,
+    "test_total": 2485,
+    "correct": 1979,
+    "wrong": 317,
+    "held": 189,
+    "outside_total": 176,
+    "outside_false_accepts": 5
+  },
+  "previous_unknown": {
+    "total": 2656,
+    "correct": 2091,
+    "wrong": 321,
+    "held": 244
+  },
+  "classes": [
+    {
+      "id": 0,
+      "name": "Golden-Delicious",
+      "group": "Fruit",
+      "test_total": 45,
+      "correct": 33,
+      "wrong": 11,
+      "held": 1
+    },
+    {
+      "id": 1,
+      "name": "Granny-Smith",
+      "group": "Fruit",
+      "test_total": 58,
+      "correct": 52,
+      "wrong": 6,
+      "held": 0
+    },
+    {
+      "id": 2,
+      "name": "Pink-Lady",
+      "group": "Fruit",
+      "test_total": 59,
+      "correct": 55,
+      "wrong": 2,
+      "held": 2
+    },
+    {
+      "id": 3,
+      "name": "Red-Delicious",
+      "group": "Fruit",
+      "test_total": 50,
+      "correct": 50,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 4,
+      "name": "Royal-Gala",
+      "group": "Fruit",
+      "test_total": 64,
+      "correct": 55,
+      "wrong": 6,
+      "held": 3
+    },
+    {
+      "id": 5,
+      "name": "Avocado",
+      "group": "Fruit",
+      "test_total": 40,
+      "correct": 37,
+      "wrong": 1,
+      "held": 2
+    },
+    {
+      "id": 6,
+      "name": "Banana",
+      "group": "Fruit",
+      "test_total": 44,
+      "correct": 44,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 7,
+      "name": "Kiwi",
+      "group": "Fruit",
+      "test_total": 45,
+      "correct": 36,
+      "wrong": 1,
+      "held": 8
+    },
+    {
+      "id": 8,
+      "name": "Lemon",
+      "group": "Fruit",
+      "test_total": 41,
+      "correct": 27,
+      "wrong": 8,
+      "held": 6
+    },
+    {
+      "id": 9,
+      "name": "Lime",
+      "group": "Fruit",
+      "test_total": 30,
+      "correct": 29,
+      "wrong": 0,
+      "held": 1
+    },
+    {
+      "id": 10,
+      "name": "Mango",
+      "group": "Fruit",
+      "test_total": 31,
+      "correct": 18,
+      "wrong": 5,
+      "held": 8
+    },
+    {
+      "id": 11,
+      "name": "Cantaloupe",
+      "group": "Fruit",
+      "test_total": 39,
+      "correct": 26,
+      "wrong": 2,
+      "held": 11
+    },
+    {
+      "id": 12,
+      "name": "Galia-Melon",
+      "group": "Fruit",
+      "test_total": 32,
+      "correct": 26,
+      "wrong": 1,
+      "held": 5
+    },
+    {
+      "id": 13,
+      "name": "Honeydew-Melon",
+      "group": "Fruit",
+      "test_total": 36,
+      "correct": 25,
+      "wrong": 0,
+      "held": 11
+    },
+    {
+      "id": 14,
+      "name": "Watermelon",
+      "group": "Fruit",
+      "test_total": 46,
+      "correct": 44,
+      "wrong": 0,
+      "held": 2
+    },
+    {
+      "id": 15,
+      "name": "Nectarine",
+      "group": "Fruit",
+      "test_total": 35,
+      "correct": 35,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 16,
+      "name": "Orange",
+      "group": "Fruit",
+      "test_total": 56,
+      "correct": 47,
+      "wrong": 5,
+      "held": 4
+    },
+    {
+      "id": 17,
+      "name": "Papaya",
+      "group": "Fruit",
+      "test_total": 21,
+      "correct": 21,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 18,
+      "name": "Passion-Fruit",
+      "group": "Fruit",
+      "test_total": 27,
+      "correct": 20,
+      "wrong": 0,
+      "held": 7
+    },
+    {
+      "id": 19,
+      "name": "Peach",
+      "group": "Fruit",
+      "test_total": 36,
+      "correct": 33,
+      "wrong": 3,
+      "held": 0
+    },
+    {
+      "id": 20,
+      "name": "Anjou",
+      "group": "Fruit",
+      "test_total": 35,
+      "correct": 31,
+      "wrong": 4,
+      "held": 0
+    },
+    {
+      "id": 21,
+      "name": "Conference",
+      "group": "Fruit",
+      "test_total": 44,
+      "correct": 43,
+      "wrong": 0,
+      "held": 1
+    },
+    {
+      "id": 22,
+      "name": "Kaiser",
+      "group": "Fruit",
+      "test_total": 29,
+      "correct": 25,
+      "wrong": 0,
+      "held": 4
+    },
+    {
+      "id": 23,
+      "name": "Pineapple",
+      "group": "Fruit",
+      "test_total": 25,
+      "correct": 25,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 24,
+      "name": "Plum",
+      "group": "Fruit",
+      "test_total": 22,
+      "correct": 17,
+      "wrong": 0,
+      "held": 5
+    },
+    {
+      "id": 25,
+      "name": "Pomegranate",
+      "group": "Fruit",
+      "test_total": 25,
+      "correct": 18,
+      "wrong": 1,
+      "held": 6
+    },
+    {
+      "id": 26,
+      "name": "Red-Grapefruit",
+      "group": "Fruit",
+      "test_total": 34,
+      "correct": 20,
+      "wrong": 10,
+      "held": 4
+    },
+    {
+      "id": 27,
+      "name": "Satsumas",
+      "group": "Fruit",
+      "test_total": 68,
+      "correct": 45,
+      "wrong": 23,
+      "held": 0
+    },
+    {
+      "id": 28,
+      "name": "Bravo-Apple-Juice",
+      "group": "Packages",
+      "test_total": 23,
+      "correct": 13,
+      "wrong": 10,
+      "held": 0
+    },
+    {
+      "id": 29,
+      "name": "Bravo-Orange-Juice",
+      "group": "Packages",
+      "test_total": 31,
+      "correct": 28,
+      "wrong": 3,
+      "held": 0
+    },
+    {
+      "id": 30,
+      "name": "God-Morgon-Apple-Juice",
+      "group": "Packages",
+      "test_total": 19,
+      "correct": 7,
+      "wrong": 12,
+      "held": 0
+    },
+    {
+      "id": 31,
+      "name": "God-Morgon-Orange-Juice",
+      "group": "Packages",
+      "test_total": 22,
+      "correct": 18,
+      "wrong": 1,
+      "held": 3
+    },
+    {
+      "id": 32,
+      "name": "God-Morgon-Orange-Red-Grapefruit-Juice",
+      "group": "Packages",
+      "test_total": 19,
+      "correct": 0,
+      "wrong": 19,
+      "held": 0
+    },
+    {
+      "id": 33,
+      "name": "God-Morgon-Red-Grapefruit-Juice",
+      "group": "Packages",
+      "test_total": 14,
+      "correct": 3,
+      "wrong": 11,
+      "held": 0
+    },
+    {
+      "id": 34,
+      "name": "Tropicana-Apple-Juice",
+      "group": "Packages",
+      "test_total": 28,
+      "correct": 27,
+      "wrong": 1,
+      "held": 0
+    },
+    {
+      "id": 35,
+      "name": "Tropicana-Golden-Grapefruit",
+      "group": "Packages",
+      "test_total": 19,
+      "correct": 14,
+      "wrong": 4,
+      "held": 1
+    },
+    {
+      "id": 36,
+      "name": "Tropicana-Juice-Smooth",
+      "group": "Packages",
+      "test_total": 24,
+      "correct": 23,
+      "wrong": 1,
+      "held": 0
+    },
+    {
+      "id": 37,
+      "name": "Tropicana-Mandarin-Morning",
+      "group": "Packages",
+      "test_total": 20,
+      "correct": 12,
+      "wrong": 6,
+      "held": 2
+    },
+    {
+      "id": 38,
+      "name": "Arla-Ecological-Medium-Fat-Milk",
+      "group": "Packages",
+      "test_total": 29,
+      "correct": 22,
+      "wrong": 5,
+      "held": 2
+    },
+    {
+      "id": 39,
+      "name": "Arla-Lactose-Medium-Fat-Milk",
+      "group": "Packages",
+      "test_total": 25,
+      "correct": 20,
+      "wrong": 1,
+      "held": 4
+    },
+    {
+      "id": 40,
+      "name": "Arla-Medium-Fat-Milk",
+      "group": "Packages",
+      "test_total": 34,
+      "correct": 12,
+      "wrong": 16,
+      "held": 6
+    },
+    {
+      "id": 41,
+      "name": "Arla-Standard-Milk",
+      "group": "Packages",
+      "test_total": 30,
+      "correct": 26,
+      "wrong": 3,
+      "held": 1
+    },
+    {
+      "id": 42,
+      "name": "Garant-Ecological-Medium-Fat-Milk",
+      "group": "Packages",
+      "test_total": 35,
+      "correct": 33,
+      "wrong": 1,
+      "held": 1
+    },
+    {
+      "id": 43,
+      "name": "Garant-Ecological-Standard-Milk",
+      "group": "Packages",
+      "test_total": 11,
+      "correct": 9,
+      "wrong": 2,
+      "held": 0
+    },
+    {
+      "id": 44,
+      "name": "Oatly-Natural-Oatghurt",
+      "group": "Packages",
+      "test_total": 30,
+      "correct": 30,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 45,
+      "name": "Oatly-Oat-Milk",
+      "group": "Packages",
+      "test_total": 31,
+      "correct": 25,
+      "wrong": 5,
+      "held": 1
+    },
+    {
+      "id": 46,
+      "name": "Arla-Ecological-Sour-Cream",
+      "group": "Packages",
+      "test_total": 23,
+      "correct": 9,
+      "wrong": 9,
+      "held": 5
+    },
+    {
+      "id": 47,
+      "name": "Arla-Sour-Cream",
+      "group": "Packages",
+      "test_total": 18,
+      "correct": 6,
+      "wrong": 11,
+      "held": 1
+    },
+    {
+      "id": 48,
+      "name": "Arla-Sour-Milk",
+      "group": "Packages",
+      "test_total": 19,
+      "correct": 19,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 49,
+      "name": "Alpro-Blueberry-Soyghurt",
+      "group": "Packages",
+      "test_total": 28,
+      "correct": 16,
+      "wrong": 12,
+      "held": 0
+    },
+    {
+      "id": 50,
+      "name": "Alpro-Vanilla-Soyghurt",
+      "group": "Packages",
+      "test_total": 19,
+      "correct": 2,
+      "wrong": 17,
+      "held": 0
+    },
+    {
+      "id": 51,
+      "name": "Alpro-Fresh-Soy-Milk",
+      "group": "Packages",
+      "test_total": 28,
+      "correct": 11,
+      "wrong": 15,
+      "held": 2
+    },
+    {
+      "id": 52,
+      "name": "Alpro-Shelf-Soy-Milk",
+      "group": "Packages",
+      "test_total": 30,
+      "correct": 24,
+      "wrong": 5,
+      "held": 1
+    },
+    {
+      "id": 53,
+      "name": "Arla-Mild-Vanilla-Yoghurt",
+      "group": "Packages",
+      "test_total": 27,
+      "correct": 19,
+      "wrong": 5,
+      "held": 3
+    },
+    {
+      "id": 54,
+      "name": "Arla-Natural-Mild-Low-Fat-Yoghurt",
+      "group": "Packages",
+      "test_total": 23,
+      "correct": 16,
+      "wrong": 5,
+      "held": 2
+    },
+    {
+      "id": 55,
+      "name": "Arla-Natural-Yoghurt",
+      "group": "Packages",
+      "test_total": 41,
+      "correct": 41,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 56,
+      "name": "Valio-Vanilla-Yoghurt",
+      "group": "Packages",
+      "test_total": 31,
+      "correct": 24,
+      "wrong": 7,
+      "held": 0
+    },
+    {
+      "id": 57,
+      "name": "Yoggi-Strawberry-Yoghurt",
+      "group": "Packages",
+      "test_total": 32,
+      "correct": 22,
+      "wrong": 10,
+      "held": 0
+    },
+    {
+      "id": 58,
+      "name": "Yoggi-Vanilla-Yoghurt",
+      "group": "Packages",
+      "test_total": 18,
+      "correct": 2,
+      "wrong": 16,
+      "held": 0
+    },
+    {
+      "id": 59,
+      "name": "Asparagus",
+      "group": "Vegetables",
+      "test_total": 14,
+      "correct": 12,
+      "wrong": 0,
+      "held": 2
+    },
+    {
+      "id": 60,
+      "name": "Aubergine",
+      "group": "Vegetables",
+      "test_total": 22,
+      "correct": 18,
+      "wrong": 0,
+      "held": 4
+    },
+    {
+      "id": 61,
+      "name": "Cabbage",
+      "group": "Vegetables",
+      "test_total": 19,
+      "correct": 16,
+      "wrong": 0,
+      "held": 3
+    },
+    {
+      "id": 62,
+      "name": "Carrots",
+      "group": "Vegetables",
+      "test_total": 42,
+      "correct": 38,
+      "wrong": 0,
+      "held": 4
+    },
+    {
+      "id": 63,
+      "name": "Cucumber",
+      "group": "Vegetables",
+      "test_total": 27,
+      "correct": 20,
+      "wrong": 0,
+      "held": 7
+    },
+    {
+      "id": 64,
+      "name": "Garlic",
+      "group": "Vegetables",
+      "test_total": 25,
+      "correct": 18,
+      "wrong": 0,
+      "held": 7
+    },
+    {
+      "id": 65,
+      "name": "Ginger",
+      "group": "Vegetables",
+      "test_total": 15,
+      "correct": 4,
+      "wrong": 0,
+      "held": 11
+    },
+    {
+      "id": 66,
+      "name": "Leek",
+      "group": "Vegetables",
+      "test_total": 21,
+      "correct": 20,
+      "wrong": 0,
+      "held": 1
+    },
+    {
+      "id": 67,
+      "name": "Brown-Cap-Mushroom",
+      "group": "Vegetables",
+      "test_total": 39,
+      "correct": 36,
+      "wrong": 0,
+      "held": 3
+    },
+    {
+      "id": 68,
+      "name": "Yellow-Onion",
+      "group": "Vegetables",
+      "test_total": 37,
+      "correct": 31,
+      "wrong": 0,
+      "held": 6
+    },
+    {
+      "id": 69,
+      "name": "Green-Bell-Pepper",
+      "group": "Vegetables",
+      "test_total": 25,
+      "correct": 25,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 70,
+      "name": "Orange-Bell-Pepper",
+      "group": "Vegetables",
+      "test_total": 26,
+      "correct": 19,
+      "wrong": 7,
+      "held": 0
+    },
+    {
+      "id": 71,
+      "name": "Red-Bell-Pepper",
+      "group": "Vegetables",
+      "test_total": 33,
+      "correct": 33,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 72,
+      "name": "Yellow-Bell-Pepper",
+      "group": "Vegetables",
+      "test_total": 26,
+      "correct": 26,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 73,
+      "name": "Floury-Potato",
+      "group": "Vegetables",
+      "test_total": 16,
+      "correct": 15,
+      "wrong": 0,
+      "held": 1
+    },
+    {
+      "id": 74,
+      "name": "Solid-Potato",
+      "group": "Vegetables",
+      "test_total": 27,
+      "correct": 20,
+      "wrong": 4,
+      "held": 3
+    },
+    {
+      "id": 75,
+      "name": "Sweet-Potato",
+      "group": "Vegetables",
+      "test_total": 27,
+      "correct": 20,
+      "wrong": 0,
+      "held": 7
+    },
+    {
+      "id": 76,
+      "name": "Red-Beet",
+      "group": "Vegetables",
+      "test_total": 17,
+      "correct": 15,
+      "wrong": 0,
+      "held": 2
+    },
+    {
+      "id": 77,
+      "name": "Beef-Tomato",
+      "group": "Vegetables",
+      "test_total": 10,
+      "correct": 10,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 78,
+      "name": "Regular-Tomato",
+      "group": "Vegetables",
+      "test_total": 47,
+      "correct": 47,
+      "wrong": 0,
+      "held": 0
+    },
+    {
+      "id": 79,
+      "name": "Vine-Tomato",
+      "group": "Vegetables",
+      "test_total": 43,
+      "correct": 38,
+      "wrong": 4,
+      "held": 1
+    },
+    {
+      "id": 80,
+      "name": "Zucchini",
+      "group": "Vegetables",
+      "test_total": 29,
+      "correct": 28,
+      "wrong": 0,
+      "held": 1
+    }
+  ]
+}
