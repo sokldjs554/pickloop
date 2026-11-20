@@ -4,13 +4,33 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>직무별 검증 · PickLoop</title>
   <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="evidence.css"><script defer src="grocery-catalogue.js"></script>
+  <link rel="stylesheet" href="work-scene.css"><script defer src="work-scene.js"></script>
 </head>
 <body>
 <header class="review-head"><div><a class="name" href="./">PickLoop</a><a href="./">작업 관제</a><a href="https://github.com/sokldjs554/pickloop">GitHub 저장소</a></div></header>
 <main class="review-main">
 <h1>직무별 검증</h1>
 <p class="intro">지원자가 직접 실행한 피킹 복구 실험과 Codex가 추가 검증한 실물 사진·보정·주행·설비 연동 기록입니다.</p>
-<nav class="review-nav" aria-label="검증 분야"><a href="#personal">직접 수정한 복구 규칙</a><a href="#photos">식료품 인식</a><a href="#bin">박스 인식</a><a href="#handeye">핸드아이 보정</a><a href="#mobile">라이다 SLAM</a><a href="#devices">도킹·충전</a><a href="#plc">설비 연동</a></nav>
+<nav class="review-nav" aria-label="검증 분야"><a href="#work-scene">로봇 작업 영상</a><a href="#personal">직접 수정한 복구 규칙</a><a href="#photos">식료품 인식</a><a href="#bin">박스 인식</a><a href="#handeye">핸드아이 보정</a><a href="#mobile">라이다 SLAM</a><a href="#devices">도킹·충전</a><a href="#plc">설비 연동</a></nav>
+<section id="work-scene" class="work-film" aria-labelledby="film-title">
+  <div class="film-media"><video controls muted playsinline preload="metadata" width="576" height="360"
+    poster="media/picking-recovery.jpg" tabindex="0" aria-label="흡착 실패 후 재시도해 빨간 상자를 옮기는 로봇 시뮬레이션">
+    <source src="media/picking-recovery.mp4" type="video/mp4">
+    <track kind="captions" srclang="ko" label="한국어" src="media/picking-recovery.ko.vtt">
+    <a href="media/picking-recovery.mp4">로봇 피킹 영상 열기</a>
+  </video><a class="film-fallback" href="media/picking-transport.gif" hidden><img width="480" height="300" src="media/picking-recovery.jpg" data-animation="media/picking-transport.gif" alt="두 번째 시도에서 상자를 집어 파란 통에 놓는 10초 장면"></a></div>
+  <div class="film-description">
+    <p class="film-source">MuJoCo 시뮬레이션 녹화</p>
+    <h2 id="film-title">로봇이 상자를 다시 집어<br> 파란 통에 놓는 장면</h2>
+    <p>첫 시도에서 흡착에 실패했습니다. 로봇이 다시 관측한 뒤 같은 빨간 상자를 들어 옮깁니다.</p>
+    <nav class="film-moments" aria-label="영상의 주요 장면">
+      <a data-elapsed="3.75" href="media/picking-recovery.mp4#t=3.75"><time>00:03.75</time>첫 흡착 실패</a>
+      <a data-elapsed="14.00" href="media/picking-recovery.mp4#t=14"><time>00:14.00</time>두 번째 흡착 후 운반</a>
+      <a data-elapsed="27.40" href="media/picking-recovery.mp4#t=27.4"><time>00:27.40</time>배치 확인</a>
+    </nav>
+    <div class="film-links"><a href="./?run=suction_once-3000-recovery-aaff86#recorded-view">같은 실행의 카메라·압력 보기</a><a href="media/picking-recovery.mp4">MP4 열기</a><a href="media/picking-transport.gif">10초 GIF 보기</a></div>
+  </div>
+</section>
 <section id="personal"><h2>실패 원인에 따라 운반 높이 선택</h2>
 <p>지원자는 경로 차단을 감지한 재시도에서만 높이를 0.40 m로 올리고, 흡착 실패 뒤에는 0.30 m를 유지하도록 변경했습니다. 아래 두 작업은 모두 두 번째 시도에서 배치를 완료했습니다.</p>
 <table><thead><tr><th>개발 seed 200 · 재계획 정책</th><th>수정 전</th><th>수정 후</th></tr></thead>
@@ -20,6 +40,12 @@
 <section id="photos" aria-labelledby="catalogue-title">
 <h2 id="catalogue-title">식료품 사진에서 상품 식별</h2>
 <p>Grocery Store Dataset의 과일·포장 식품·채소 사진을 오프라인 판별기로 채점했습니다. 아래에서 사진별 판정 기록을 상품별로 조회할 수 있습니다.</p>
+<div class="photo-cases">
+  <figure><a href="https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Vegetables/Pepper/Red-Bell-Pepper/Red-Bell-Pepper_006.jpg"><img width="348" height="220" alt="매대에 놓인 빨간 파프리카" src="https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Vegetables/Pepper/Red-Bell-Pepper/Red-Bell-Pepper_006.jpg" referrerpolicy="no-referrer"></a><figcaption><strong class="correct">정답</strong>빨간 파프리카를 정확히 식별했습니다.</figcaption></figure>
+  <figure><a href="https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_004.jpg"><img width="348" height="220" alt="손에 든 고드 모르곤 오렌지·레드 자몽 혼합주스" src="https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_004.jpg" referrerpolicy="no-referrer"></a><figcaption><strong class="wrong">오답</strong>오렌지·레드 자몽 혼합주스를 오렌지주스로 판정했습니다.</figcaption></figure>
+  <figure><a href="https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Vegetables/Ginger/Ginger_006.jpg"><img width="348" height="220" alt="손으로 들어 보인 생강 뿌리" src="https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Vegetables/Ginger/Ginger_006.jpg" referrerpolicy="no-referrer"></a><figcaption><strong class="held">보류</strong>생강이 첫 후보였지만 수락 기준을 충족하지 못했습니다.</figcaption></figure>
+</div>
+<p class="photo-credit">매장 사진 제공 · Marcus Klasson, Cheng Zhang, Hedvig Kjellström. <a href="https://github.com/marcusklasson/GroceryStoreDataset/tree/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc">Grocery Store Dataset</a> · <a href="https://arxiv.org/abs/1901.00711">WACV 2019 논문</a></p>
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/grocery-catalogue.md">사진 한 장 판별하기 · 평가 방법</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/grocery-catalogue/predictions.csv">사진별 판정 CSV</a><a href="#juice-history">이전 주스 2종 실험</a></div>
 <p id="catalogue-status" role="status"></p>
 <noscript><p>상품별 표를 보려면 자바스크립트를 켜세요. 사진별 판정 CSV에서도 결과를 확인할 수 있습니다.</p></noscript>
@@ -40,6 +66,7 @@
   </div>
   <details id="previous-photos" class="previous-photos">
     <summary>이전 미등록 사진의 정답·판정 조회</summary>
+    <div class="evidence-links"><a href="#work-scene">로봇 작업 영상 보기</a><a href="#photos">매장 사진 사례 보기</a></div>
     <p>공식 정답은 Grocery Store Dataset이 각 사진에 붙인 상품명입니다. 모델 판정은 같은 사진 파일을 새 판별기로 실행한 결과입니다. 파일명을 누르면 평가에 사용한 원본 사진이 열립니다.</p>
     <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/grocery-catalogue/previous-cohort.csv">이전 사진 재평가 CSV</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/grocery-catalogue/previous-unknown-review.csv">오답·보류 CSV</a></div>
     <p id="photo-load-status" role="status"></p>

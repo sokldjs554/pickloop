@@ -24,8 +24,9 @@ def main():
     }
     for name, target in archives.items():
         shutil.copy2(args.delivery / name, downloads / target)
-    for name in ("index.html", "styles.css", "evidence.html", "evidence.css", "grocery-catalogue.js", "labels.html", "handoff.partial.html"):
+    for name in ("index.html", "styles.css", "evidence.html", "evidence.css", "grocery-catalogue.js", "work-scene.js", "work-scene.css", "labels.html", "handoff.partial.html"):
         shutil.copy2(web / name, args.dist / name)
+    shutil.copytree(web / "media", args.dist / "media", dirs_exist_ok=True)
     (args.dist / "data").mkdir(exist_ok=True)
     for name in ("grocery-catalogue.json", "grocery-previous-photos.json"):
         shutil.copy2(web / "data" / name, args.dist / "data" / name)
