@@ -1,0 +1,76 @@
+{
+  "feature_version": "dinov2s14-224-cls-center-hsv-v1",
+  "checkpoint_revision": "4610ca143709d58a633b6397a74412c2c3842454",
+  "checkpoint_sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
+  "catalogue_head_sha256": "87ba13c99560d707f0594b6b195c455fc3334e4a724c0a418812a228d014f8dd",
+  "fitting": 2111,
+  "known_development": 529,
+  "outside_calibration": 176,
+  "ridge": 0.1,
+  "neighbour_weight": 0.35,
+  "candidates": [
+    {
+      "ridge": 0.1,
+      "neighbour_weight": 0.0,
+      "macro_accuracy": 0.9857052412607967,
+      "correct": 521
+    },
+    {
+      "ridge": 0.1,
+      "neighbour_weight": 0.35,
+      "macro_accuracy": 0.987762854429521,
+      "correct": 522
+    },
+    {
+      "ridge": 0.1,
+      "neighbour_weight": 0.8,
+      "macro_accuracy": 0.987762854429521,
+      "correct": 522
+    },
+    {
+      "ridge": 1.0,
+      "neighbour_weight": 0.0,
+      "macro_accuracy": 0.9701555646000091,
+      "correct": 515
+    },
+    {
+      "ridge": 1.0,
+      "neighbour_weight": 0.35,
+      "macro_accuracy": 0.9732419843530955,
+      "correct": 516
+    },
+    {
+      "ridge": 1.0,
+      "neighbour_weight": 0.8,
+      "macro_accuracy": 0.9783860172749063,
+      "correct": 518
+    },
+    {
+      "ridge": 4.0,
+      "neighbour_weight": 0.0,
+      "macro_accuracy": 0.9589766200877313,
+      "correct": 509
+    },
+    {
+      "ridge": 4.0,
+      "neighbour_weight": 0.35,
+      "macro_accuracy": 0.96551123773346,
+      "correct": 513
+    },
+    {
+      "ridge": 4.0,
+      "neighbour_weight": 0.8,
+      "macro_accuracy": 0.9696264640709086,
+      "correct": 515
+    }
+  ],
+  "gate": {
+    "support": 0.7552903294563293,
+    "score": 0.22094646096229553,
+    "margin": -2.0,
+    "known_correct_before": 522,
+    "known_correct_after": 519,
+    "known_wrong_after": 5,
+    "outside_accepted": 0
+  }
+}

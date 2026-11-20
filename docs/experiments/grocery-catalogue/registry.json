@@ -1,0 +1,488 @@
+[
+  {
+    "id": 0,
+    "name": "Golden-Delicious",
+    "coarse": "Apple",
+    "group": "Fruit"
+  },
+  {
+    "id": 1,
+    "name": "Granny-Smith",
+    "coarse": "Apple",
+    "group": "Fruit"
+  },
+  {
+    "id": 2,
+    "name": "Pink-Lady",
+    "coarse": "Apple",
+    "group": "Fruit"
+  },
+  {
+    "id": 3,
+    "name": "Red-Delicious",
+    "coarse": "Apple",
+    "group": "Fruit"
+  },
+  {
+    "id": 4,
+    "name": "Royal-Gala",
+    "coarse": "Apple",
+    "group": "Fruit"
+  },
+  {
+    "id": 5,
+    "name": "Avocado",
+    "coarse": "Avocado",
+    "group": "Fruit"
+  },
+  {
+    "id": 6,
+    "name": "Banana",
+    "coarse": "Banana",
+    "group": "Fruit"
+  },
+  {
+    "id": 7,
+    "name": "Kiwi",
+    "coarse": "Kiwi",
+    "group": "Fruit"
+  },
+  {
+    "id": 8,
+    "name": "Lemon",
+    "coarse": "Lemon",
+    "group": "Fruit"
+  },
+  {
+    "id": 9,
+    "name": "Lime",
+    "coarse": "Lime",
+    "group": "Fruit"
+  },
+  {
+    "id": 10,
+    "name": "Mango",
+    "coarse": "Mango",
+    "group": "Fruit"
+  },
+  {
+    "id": 11,
+    "name": "Cantaloupe",
+    "coarse": "Melon",
+    "group": "Fruit"
+  },
+  {
+    "id": 12,
+    "name": "Galia-Melon",
+    "coarse": "Melon",
+    "group": "Fruit"
+  },
+  {
+    "id": 13,
+    "name": "Honeydew-Melon",
+    "coarse": "Melon",
+    "group": "Fruit"
+  },
+  {
+    "id": 14,
+    "name": "Watermelon",
+    "coarse": "Melon",
+    "group": "Fruit"
+  },
+  {
+    "id": 15,
+    "name": "Nectarine",
+    "coarse": "Nectarine",
+    "group": "Fruit"
+  },
+  {
+    "id": 16,
+    "name": "Orange",
+    "coarse": "Orange",
+    "group": "Fruit"
+  },
+  {
+    "id": 17,
+    "name": "Papaya",
+    "coarse": "Papaya",
+    "group": "Fruit"
+  },
+  {
+    "id": 18,
+    "name": "Passion-Fruit",
+    "coarse": "Passion-Fruit",
+    "group": "Fruit"
+  },
+  {
+    "id": 19,
+    "name": "Peach",
+    "coarse": "Peach",
+    "group": "Fruit"
+  },
+  {
+    "id": 20,
+    "name": "Anjou",
+    "coarse": "Pear",
+    "group": "Fruit"
+  },
+  {
+    "id": 21,
+    "name": "Conference",
+    "coarse": "Pear",
+    "group": "Fruit"
+  },
+  {
+    "id": 22,
+    "name": "Kaiser",
+    "coarse": "Pear",
+    "group": "Fruit"
+  },
+  {
+    "id": 23,
+    "name": "Pineapple",
+    "coarse": "Pineapple",
+    "group": "Fruit"
+  },
+  {
+    "id": 24,
+    "name": "Plum",
+    "coarse": "Plum",
+    "group": "Fruit"
+  },
+  {
+    "id": 25,
+    "name": "Pomegranate",
+    "coarse": "Pomegranate",
+    "group": "Fruit"
+  },
+  {
+    "id": 26,
+    "name": "Red-Grapefruit",
+    "coarse": "Red-Grapefruit",
+    "group": "Fruit"
+  },
+  {
+    "id": 27,
+    "name": "Satsumas",
+    "coarse": "Satsumas",
+    "group": "Fruit"
+  },
+  {
+    "id": 28,
+    "name": "Bravo-Apple-Juice",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 29,
+    "name": "Bravo-Orange-Juice",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 30,
+    "name": "God-Morgon-Apple-Juice",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 31,
+    "name": "God-Morgon-Orange-Juice",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 32,
+    "name": "God-Morgon-Orange-Red-Grapefruit-Juice",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 33,
+    "name": "God-Morgon-Red-Grapefruit-Juice",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 34,
+    "name": "Tropicana-Apple-Juice",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 35,
+    "name": "Tropicana-Golden-Grapefruit",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 36,
+    "name": "Tropicana-Juice-Smooth",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 37,
+    "name": "Tropicana-Mandarin-Morning",
+    "coarse": "Juice",
+    "group": "Packages"
+  },
+  {
+    "id": 38,
+    "name": "Arla-Ecological-Medium-Fat-Milk",
+    "coarse": "Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 39,
+    "name": "Arla-Lactose-Medium-Fat-Milk",
+    "coarse": "Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 40,
+    "name": "Arla-Medium-Fat-Milk",
+    "coarse": "Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 41,
+    "name": "Arla-Standard-Milk",
+    "coarse": "Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 42,
+    "name": "Garant-Ecological-Medium-Fat-Milk",
+    "coarse": "Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 43,
+    "name": "Garant-Ecological-Standard-Milk",
+    "coarse": "Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 44,
+    "name": "Oatly-Natural-Oatghurt",
+    "coarse": "Oatghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 45,
+    "name": "Oatly-Oat-Milk",
+    "coarse": "Oat-Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 46,
+    "name": "Arla-Ecological-Sour-Cream",
+    "coarse": "Sour-Cream",
+    "group": "Packages"
+  },
+  {
+    "id": 47,
+    "name": "Arla-Sour-Cream",
+    "coarse": "Sour-Cream",
+    "group": "Packages"
+  },
+  {
+    "id": 48,
+    "name": "Arla-Sour-Milk",
+    "coarse": "Sour-Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 49,
+    "name": "Alpro-Blueberry-Soyghurt",
+    "coarse": "Soyghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 50,
+    "name": "Alpro-Vanilla-Soyghurt",
+    "coarse": "Soyghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 51,
+    "name": "Alpro-Fresh-Soy-Milk",
+    "coarse": "Soy-Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 52,
+    "name": "Alpro-Shelf-Soy-Milk",
+    "coarse": "Soy-Milk",
+    "group": "Packages"
+  },
+  {
+    "id": 53,
+    "name": "Arla-Mild-Vanilla-Yoghurt",
+    "coarse": "Yoghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 54,
+    "name": "Arla-Natural-Mild-Low-Fat-Yoghurt",
+    "coarse": "Yoghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 55,
+    "name": "Arla-Natural-Yoghurt",
+    "coarse": "Yoghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 56,
+    "name": "Valio-Vanilla-Yoghurt",
+    "coarse": "Yoghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 57,
+    "name": "Yoggi-Strawberry-Yoghurt",
+    "coarse": "Yoghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 58,
+    "name": "Yoggi-Vanilla-Yoghurt",
+    "coarse": "Yoghurt",
+    "group": "Packages"
+  },
+  {
+    "id": 59,
+    "name": "Asparagus",
+    "coarse": "Asparagus",
+    "group": "Vegetables"
+  },
+  {
+    "id": 60,
+    "name": "Aubergine",
+    "coarse": "Aubergine",
+    "group": "Vegetables"
+  },
+  {
+    "id": 61,
+    "name": "Cabbage",
+    "coarse": "Cabbage",
+    "group": "Vegetables"
+  },
+  {
+    "id": 62,
+    "name": "Carrots",
+    "coarse": "Carrots",
+    "group": "Vegetables"
+  },
+  {
+    "id": 63,
+    "name": "Cucumber",
+    "coarse": "Cucumber",
+    "group": "Vegetables"
+  },
+  {
+    "id": 64,
+    "name": "Garlic",
+    "coarse": "Garlic",
+    "group": "Vegetables"
+  },
+  {
+    "id": 65,
+    "name": "Ginger",
+    "coarse": "Ginger",
+    "group": "Vegetables"
+  },
+  {
+    "id": 66,
+    "name": "Leek",
+    "coarse": "Leek",
+    "group": "Vegetables"
+  },
+  {
+    "id": 67,
+    "name": "Brown-Cap-Mushroom",
+    "coarse": "Mushroom",
+    "group": "Vegetables"
+  },
+  {
+    "id": 68,
+    "name": "Yellow-Onion",
+    "coarse": "Onion",
+    "group": "Vegetables"
+  },
+  {
+    "id": 69,
+    "name": "Green-Bell-Pepper",
+    "coarse": "Pepper",
+    "group": "Vegetables"
+  },
+  {
+    "id": 70,
+    "name": "Orange-Bell-Pepper",
+    "coarse": "Pepper",
+    "group": "Vegetables"
+  },
+  {
+    "id": 71,
+    "name": "Red-Bell-Pepper",
+    "coarse": "Pepper",
+    "group": "Vegetables"
+  },
+  {
+    "id": 72,
+    "name": "Yellow-Bell-Pepper",
+    "coarse": "Pepper",
+    "group": "Vegetables"
+  },
+  {
+    "id": 73,
+    "name": "Floury-Potato",
+    "coarse": "Potato",
+    "group": "Vegetables"
+  },
+  {
+    "id": 74,
+    "name": "Solid-Potato",
+    "coarse": "Potato",
+    "group": "Vegetables"
+  },
+  {
+    "id": 75,
+    "name": "Sweet-Potato",
+    "coarse": "Potato",
+    "group": "Vegetables"
+  },
+  {
+    "id": 76,
+    "name": "Red-Beet",
+    "coarse": "Red-Beet",
+    "group": "Vegetables"
+  },
+  {
+    "id": 77,
+    "name": "Beef-Tomato",
+    "coarse": "Tomato",
+    "group": "Vegetables"
+  },
+  {
+    "id": 78,
+    "name": "Regular-Tomato",
+    "coarse": "Tomato",
+    "group": "Vegetables"
+  },
+  {
+    "id": 79,
+    "name": "Vine-Tomato",
+    "coarse": "Tomato",
+    "group": "Vegetables"
+  },
+  {
+    "id": 80,
+    "name": "Zucchini",
+    "coarse": "Zucchini",
+    "group": "Vegetables"
+  }
+]
