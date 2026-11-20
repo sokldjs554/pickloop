@@ -9,10 +9,15 @@ def main():
     ev=sub.add_parser('evaluate');ev.add_argument('--out',default='runs/final');ev.add_argument('--seeds',nargs='+',type=int,default=list(range(1000,1005)))
     agg=sub.add_parser('aggregate');agg.add_argument('directory')
     server=sub.add_parser('serve');server.add_argument('--host',default='127.0.0.1');server.add_argument('--port',type=int,default=8000)
+    from .grocery_catalogue import add_arguments
+    add_arguments(sub.add_parser('recognize', help='name a registered grocery product in a photo'))
     args=parser.parse_args()
     if args.command=='run':
         from .engine import run_job
         print(json.dumps(run_job(seed=args.seed,fault=args.fault,policy=args.policy,out_dir=args.out,record=not args.no_record,job_id=args.job_id,condition=json.loads(Path(args.condition_file).read_text()) if args.condition_file else None),indent=2,ensure_ascii=False))
+    elif args.command=='recognize':
+        from .grocery_catalogue import run as recognize
+        recognize(args)
     elif args.command=='evaluate':
         from .evaluation import evaluate
         print(json.dumps(evaluate(args.out,args.seeds)['aggregate'],indent=2))

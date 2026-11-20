@@ -4,6 +4,10 @@
 
 PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU 물리 시뮬레이션에서 RGB-D 관측 → 학습한 상품 임베딩 → 3D 상면 추정 → SCARA 계획·구동 → Modbus 흡착 → 운반·해제 → 영상과 별도 정답으로 배치 확인을 실행한다. 기존 ReachBench의 실제 pick/place 구현을 조사한 뒤, 품목 구분·실패 복구·장치 통신·운영 증거를 신규 범위로 구현했다.
 
+### 매장 사진에서 상품 이름 확인
+
+공개 매장 자료의 81개 상품을 등록했다. 기존 미등록 사진 2,656장의 공식 상품명과 예측을 확인하거나 Codespaces에서 `pickloop recognize 사진.jpg`로 직접 판별할 수 있다. [상품별 공개 데모](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence#photos) · [재현과 사진별 결과](docs/grocery-catalogue.md)
+
 ### 지원자가 직접 수정한 복구 규칙
 
 개발 seed 200에서 경로가 막힌 재시도에만 운반 높이를 0.40 m로 올리도록 수정했다. 경로 차단 작업은 변경 전후 19.690초에 완료했고, 보정 오차 작업은 두 번째 시도에서 완료하면서 26.935초에서 24.405초로 줄었다. 다섯 작업의 전후 기록을 PR에 담았다. 추가 개발 seed 201~209의 45쌍은 Codex가 별도로 재현했다. [본인 PR #1](https://github.com/sokldjs554/pickloop/pull/1) · [seed 200 실행 원문](docs/experiments/retry-height/) · [직무별 검증 화면](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence.html)

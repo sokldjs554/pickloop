@@ -41,6 +41,7 @@ jobs:
         with:
           push: never
           runCmd: |
-            python -c "import fastapi, pickloop"
+            python -c "import fastapi, timm, pickloop; from pickloop.grocery_catalogue import DEFAULT_HEAD; from pickloop.catalogue_model import CatalogueHead; assert len(CatalogueHead.load(DEFAULT_HEAD).names) == 81"
+            pickloop recognize --help
             python lab.py run my-before
             python -c "import json; assert len(json.load(open('my-before/summary.json'))) == 5"
