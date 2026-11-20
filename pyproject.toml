@@ -9,6 +9,7 @@ requires-python = ">=3.11,<3.14"
 dependencies = ["mujoco==3.3.7", "numpy==2.2.6", "scipy==1.15.3", "opencv-python-headless==4.11.0.86", "Pillow==11.2.1", "py-trees==2.3.0", "fastapi==0.115.12", "uvicorn==0.34.2"]
 [project.optional-dependencies]
 ml = ["torch==2.7.1"]
+grocery = ["torch==2.7.1", "torchvision==0.22.1"]
 test = ["pytest==8.3.5", "httpx==0.28.1"]
 [project.scripts]
 pickloop = "pickloop.cli:main"
