@@ -2,7 +2,7 @@
   "feature_version": "dinov2s14-224-cls-center-hsv-v1",
   "checkpoint_revision": "4610ca143709d58a633b6397a74412c2c3842454",
   "checkpoint_sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
-  "catalogue_head_sha256": "87ba13c99560d707f0594b6b195c455fc3334e4a724c0a418812a228d014f8dd",
+  "catalogue_head_sha256": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
   "fitting": 2111,
   "known_development": 529,
   "outside_calibration": 176,
@@ -65,12 +65,12 @@
     }
   ],
   "gate": {
-    "support": 0.7552903294563293,
+    "support": 0.7357346279716491,
     "score": 0.22094646096229553,
     "margin": -2.0,
     "known_correct_before": 522,
-    "known_correct_after": 519,
-    "known_wrong_after": 5,
+    "known_correct_after": 520,
+    "known_wrong_after": 6,
     "outside_accepted": 0
   }
 }

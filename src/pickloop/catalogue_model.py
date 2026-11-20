@@ -24,7 +24,13 @@ def calibrate(known, truth, outside):
     # statistics including the exact boundary point used by the >= rule.
     max_lost = int(correct.sum()) // 20
     indices = np.unique(np.linspace(0, max_lost, min(9, max_lost + 1), dtype=int))
-    candidates = [np.unique(np.r_[-2., np.sort(pos[correct, j])[indices]]) for j in range(3)]
+    # Scores at a floor are accepted. Search the first representable value above
+    # observed negative scores, with numerical slack for single/batched BLAS.
+    outside_indices = np.unique(np.linspace(len(neg) // 2, len(neg) - 1, min(17, len(neg)), dtype=int))
+    candidates = []
+    for j in range(len(names)):
+        negative_edges = np.sort(neg[:, j])[outside_indices] + 1e-5
+        candidates.append(np.unique(np.r_[-2., np.sort(pos[correct, j])[indices], negative_edges]))
     best, result = None, None
     for support in candidates[0]:
         for score in candidates[1]:

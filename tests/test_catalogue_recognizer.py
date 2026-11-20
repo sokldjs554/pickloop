@@ -46,3 +46,16 @@ def test_saved_model_repeats_each_decision_and_preserves_a_manual_hold(tmp_path)
     path = tmp_path / 'head.npz'
     head.save(path)
     assert CatalogueHead.load(path).predict(x) == head.predict(x)
+
+
+def test_gate_can_use_the_negative_boundary_in_a_gap_between_calibration_sets():
+    from pickloop.catalogue_model import allowed, calibrate
+
+    def observation(similarity):
+        return dict(top1='Apple', support=similarity, score=.4, margin=.2)
+
+    known = [observation(.90), observation(.95)]
+    gate = calibrate(known, ['Apple', 'Apple'], [observation(.50)])
+    floors = [gate[key] for key in ('support', 'score', 'margin')]
+    assert not allowed(observation(.50), *floors)
+    assert allowed(observation(.70), *floors)
