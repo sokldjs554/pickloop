@@ -11,6 +11,46 @@ function playFilm() {
   film.play().catch(() => {});
 }
 
+// Some static hosts answer byte-range requests with the complete small MP4.
+// A local Blob lets native players seek even when their range request failed.
+const videoSource = film.querySelector('source');
+const fallback = workScene.querySelector('.film-fallback');
+let retriedVideo = false;
+
+function showAnimation() {
+  film.hidden = true;
+  fallback.hidden = false;
+  const image = fallback.querySelector('img');
+  if (!reduceMotion.matches) image.src = image.dataset.animation;
+}
+
+async function recoverVideo() {
+  if (retriedVideo) return;
+  retriedVideo = true;
+  try {
+    const response = await fetch(videoSource.src);
+    if (!response.ok) throw new Error('MP4 unavailable');
+    const blobUrl = URL.createObjectURL(await response.blob());
+    film.addEventListener('error', showAnimation, {once: true});
+    film.addEventListener('loadedmetadata', () => {
+      if (visitorInteracted || (automaticPlayStarted && !reduceMotion.matches)) playFilm();
+    }, {once: true});
+    film.src = blobUrl;
+    window.addEventListener('pagehide', event => {
+      if (!event.persisted) URL.revokeObjectURL(blobUrl);
+    }, {once: true});
+  } catch {
+    showAnimation();
+  }
+}
+
+videoSource.addEventListener('error', recoverVideo);
+film.addEventListener('error', recoverVideo);
+if (film.error) recoverVideo();
+film.addEventListener('stalled', () => {
+  if (film.readyState === 0) recoverVideo();
+});
+
 film.addEventListener('pointerdown', () => { visitorInteracted = true; });
 film.addEventListener('keydown', () => { visitorInteracted = true; });
 if ('IntersectionObserver' in window) {
@@ -38,7 +78,7 @@ function seekToMoment() {
 film.addEventListener('loadedmetadata', seekToMoment);
 for (const link of workScene.querySelectorAll('[data-elapsed]')) {
   link.addEventListener('click', event => {
-    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || film.error) return;
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || film.error || film.hidden) return;
     event.preventDefault();
     visitorInteracted = true;
     pendingSeek = Number(link.dataset.elapsed);

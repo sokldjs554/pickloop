@@ -314,6 +314,7 @@ check('scene chapters seek after metadata arrives, including under reduced motio
   film.focus = () => {};
   film.pause = () => {film.paused=true;};
   film.readyState=0; film.paused=true;
+  film.querySelector = () => new Node('source');
   const chapter = new Node('a');
   chapter.dataset.elapsed='14.00';
   let onVisibility;
@@ -334,5 +335,32 @@ check('scene chapters seek after metadata arrives, including under reduced motio
   assert.equal(film.paused,false);
   onVisibility([{isIntersecting:false,intersectionRatio:0}]);
   assert.equal(film.paused,true);
+});
+async function exerciseUnavailableVideo(responseOk, reduced) {
+  const film=new Node('video'), source=new Node('source'), fallback=new Node('a'), img=new Node('img');
+  source.src='media/picking-recovery.mp4'; img.dataset.animation='media/picking-transport.gif'; img.src='poster.jpg';
+  fallback.hidden=true; fallback.querySelector=()=>img; film.querySelector=()=>source;
+  const window={matchMedia:()=>({matches:reduced}),addEventListener(){}};
+  const scene={querySelector:s=>s==='video'?film:fallback,querySelectorAll:()=>[]};
+  vm.runInNewContext(readFileSync(resolve(root,'web/work-scene.js'),'utf8'), {
+    window, document:{getElementById:()=>scene},
+    URL:{createObjectURL:()=>'blob:local-video'},
+    fetch:async()=>({ok:responseOk,blob:async()=>({})})
+  });
+  source.trigger('error');
+  await settle();
+  return {film,fallback,img};
+}
+const blobPlayback=await exerciseUnavailableVideo(true,false);
+const gifPlayback=await exerciseUnavailableVideo(false,false);
+const stillPlayback=await exerciseUnavailableVideo(false,true);
+check('unavailable native playback retries from a Blob and provides a real scene when the MP4 is unavailable', () => {
+  assert.equal(blobPlayback.film.src,'blob:local-video');
+  blobPlayback.film.trigger('error');
+  assert.equal(blobPlayback.fallback.hidden,false);
+  assert.equal(gifPlayback.film.hidden,true);
+  assert.equal(gifPlayback.img.src,'media/picking-transport.gif');
+  assert.equal(stillPlayback.fallback.hidden,false);
+  assert.equal(stillPlayback.img.src,'poster.jpg');
 });
 console.log(`\n${checks} UI contract checks passed.`);

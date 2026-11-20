@@ -13,6 +13,8 @@
 }
 .film-media { min-width: 0; background: #10181d; }
 .film-media video { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; }
+.film-media [hidden] { display: none; }
+.film-fallback img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; }
 .film-description { padding: .9rem clamp(1rem, 2.2vw, 2rem) .9rem 0; }
 .film-description h2, .review-main .film-description h2 {
   margin: .3rem 0 .65rem; color: var(--text); font-size: clamp(1.4rem, 2.3vw, 2.25rem); line-height: 1.22;
