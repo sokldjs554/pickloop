@@ -1,0 +1,53 @@
+{
+  "revision": "fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "gallery_sha256": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c",
+  "templates": 16,
+  "regions_sha256": "6c740cbcc5261e0cf62cdcebbea76053f02d3087823bd432be6aa35c2e4750c6",
+  "distinct_image_hashes": 132,
+  "partitions": {
+    "unused_train_known": {
+      "known_correct": 38,
+      "known_wrong_label": 0,
+      "known_rejected": 3,
+      "unknown_false_accepts": 0,
+      "unknown_rejected": 0,
+      "known_total": 41,
+      "unknown_total": 0,
+      "confusion": {
+        "Bravo-Apple-Juice": {
+          "Bravo-Apple-Juice": 17
+        },
+        "Bravo-Orange-Juice": {
+          "Bravo-Orange-Juice": 21,
+          "UNKNOWN": 3
+        }
+      },
+      "known_accuracy_after_rejection": 0.926829268292683,
+      "unknown_false_accept_rate": null
+    },
+    "validation_cartons": {
+      "known_correct": 6,
+      "known_wrong_label": 0,
+      "known_rejected": 3,
+      "unknown_false_accepts": 0,
+      "unknown_rejected": 66,
+      "known_total": 9,
+      "unknown_total": 66,
+      "confusion": {
+        "Bravo-Apple-Juice": {
+          "Bravo-Apple-Juice": 2,
+          "UNKNOWN": 2
+        },
+        "Bravo-Orange-Juice": {
+          "Bravo-Orange-Juice": 4,
+          "UNKNOWN": 1
+        },
+        "UNKNOWN": {
+          "UNKNOWN": 66
+        }
+      },
+      "known_accuracy_after_rejection": 0.6666666666666666,
+      "unknown_false_accept_rate": 0.0
+    }
+  }
+}
