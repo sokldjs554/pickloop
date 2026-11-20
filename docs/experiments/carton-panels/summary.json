@@ -1,0 +1,103 @@
+{
+  "revision": "fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "gallery_sha256": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c",
+  "templates": 16,
+  "regions_sha256": "6c740cbcc5261e0cf62cdcebbea76053f02d3087823bd432be6aa35c2e4750c6",
+  "distinct_image_hashes": 2844,
+  "partitions": {
+    "test_produce": {
+      "known_correct": 0,
+      "known_wrong_label": 0,
+      "known_rejected": 0,
+      "unknown_false_accepts": 0,
+      "unknown_rejected": 1704,
+      "known_total": 0,
+      "unknown_total": 1704,
+      "confusion": {
+        "UNKNOWN": {
+          "UNKNOWN": 1704
+        }
+      },
+      "known_accuracy_after_rejection": null,
+      "unknown_false_accept_rate": 0.0
+    },
+    "test_cartons": {
+      "known_correct": 44,
+      "known_wrong_label": 0,
+      "known_rejected": 10,
+      "unknown_false_accepts": 0,
+      "unknown_rejected": 727,
+      "known_total": 54,
+      "unknown_total": 727,
+      "confusion": {
+        "Bravo-Apple-Juice": {
+          "Bravo-Apple-Juice": 15,
+          "UNKNOWN": 8
+        },
+        "Bravo-Orange-Juice": {
+          "UNKNOWN": 2,
+          "Bravo-Orange-Juice": 29
+        },
+        "UNKNOWN": {
+          "UNKNOWN": 727
+        }
+      },
+      "known_accuracy_after_rejection": 0.8148148148148148,
+      "unknown_false_accept_rate": 0.0
+    },
+    "catalogue": {
+      "known_correct": 2,
+      "known_wrong_label": 0,
+      "known_rejected": 0,
+      "unknown_false_accepts": 0,
+      "unknown_rejected": 29,
+      "known_total": 2,
+      "unknown_total": 29,
+      "confusion": {
+        "Bravo-Apple-Juice": {
+          "Bravo-Apple-Juice": 1
+        },
+        "Bravo-Orange-Juice": {
+          "Bravo-Orange-Juice": 1
+        },
+        "UNKNOWN": {
+          "UNKNOWN": 29
+        }
+      },
+      "known_accuracy_after_rejection": 1.0,
+      "unknown_false_accept_rate": 0.0
+    },
+    "fresh_validation_produce": {
+      "known_correct": 0,
+      "known_wrong_label": 0,
+      "known_rejected": 0,
+      "unknown_false_accepts": 0,
+      "unknown_rejected": 196,
+      "known_total": 0,
+      "unknown_total": 196,
+      "confusion": {
+        "UNKNOWN": {
+          "UNKNOWN": 196
+        }
+      },
+      "known_accuracy_after_rejection": null,
+      "unknown_false_accept_rate": 0.0
+    },
+    "reserved_cartons": {
+      "known_correct": 0,
+      "known_wrong_label": 0,
+      "known_rejected": 0,
+      "unknown_false_accepts": 0,
+      "unknown_rejected": 250,
+      "known_total": 0,
+      "unknown_total": 250,
+      "confusion": {
+        "UNKNOWN": {
+          "UNKNOWN": 250
+        }
+      },
+      "known_accuracy_after_rejection": null,
+      "unknown_false_accept_rate": 0.0
+    }
+  }
+}

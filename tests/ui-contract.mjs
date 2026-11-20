@@ -118,4 +118,17 @@ check('score help and confidence intervals start in closed native disclosures', 
   assert.match(html, /<details class="diagnostic-help"><summary>진단점수 해석/);
   assert.match(html, /<details id="confidence-details" class="confidence-details" hidden>/);
 });
+check('published photo results match the frozen gallery evaluation', () => {
+  const page = readFileSync(resolve(root, 'web/evidence.html'), 'utf8');
+  const {partitions} = JSON.parse(readFileSync(resolve(root, 'docs/experiments/carton-panels/summary.json'), 'utf8'));
+  const row = page.match(/<tr id="panel-result">([\s\S]*?)<\/tr>/);
+  assert.ok(row, 'missing photo recognition result');
+  const cells = [...row[1].matchAll(/<td>(.*?)<\/td>/g)].map(match => match[1]);
+  const {test_cartons: carton, test_produce: produce} = partitions;
+  assert.deepEqual(cells.slice(1), [
+    `${carton.known_correct} / ${carton.known_total}`, `${carton.unknown_false_accepts} / ${carton.unknown_total}`,
+    `${produce.unknown_false_accepts} / ${produce.unknown_total.toLocaleString('en-US')}`
+  ]);
+  assert.match(page, /docs\/experiments\/carton-panels\/predictions\.csv/);
+});
 console.log(`\n${checks} UI contract checks passed.`);

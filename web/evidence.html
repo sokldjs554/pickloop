@@ -18,15 +18,17 @@
 <p>다섯 작업에서 충돌·낙하·오배치는 전후 모두 0건이었습니다. Codex가 추가 개발 seed 201~209로 재현한 45쌍에서도 종료 상태가 같았습니다.</p>
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/pull/1/files">PR #1 코드와 본인 기록</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/retry-height/independent-validation.md">45쌍 독립 검증</a></div></section>
 <section id="photos"><h2>실물 포장 사진에서 품목 판별</h2>
-<p>Grocery Store Dataset의 휴대전화 촬영 사진으로 확인했습니다. 원래 줄무늬 모델과, 학습 사진 57장으로 실제 주스팩 두 종의 기준 임베딩을 등록한 실험을 같은 공식 시험 사진 781장에 적용했습니다.</p>
-<table><thead><tr><th>설정</th><th>등록 상품 정답</th><th>미등록 상품을 잘못 수락</th></tr></thead><tbody>
-<tr><td>기존 줄무늬 모델</td><td>해당 라벨 사진 없음</td><td>2 / 781</td></tr>
-<tr><td>주스팩 두 종 단순 등록</td><td>46 / 54</td><td>727 / 727</td></tr>
-<tr><td>주스팩 등록 후 거리 기준 강화</td><td>3 / 54</td><td>36 / 727</td></tr>
+<p>같은 매장 사진에서 사과·오렌지주스 정답이 54장 중 3장에서 44장으로 늘었습니다. 등록된 포장의 글자와 그림 배치를 먼저 찾고, 찾은 면의 색으로 맛을 구분했습니다.</p>
+<table><thead><tr><th>판정 방식</th><th>등록 주스 정답</th><th>다른 포장 오수락</th><th>과일·채소 오수락</th></tr></thead><tbody>
+<tr><td>주스 두 종 단순 등록</td><td>46 / 54</td><td>727 / 727</td><td>1,539 / 1,704</td></tr>
+<tr><td>거리 기준 강화</td><td>3 / 54</td><td>36 / 727</td><td>46 / 1,704</td></tr>
+<tr><td>사진 전체 특징으로 학습</td><td>33 / 54</td><td>20 / 727</td><td>524 / 1,704</td></tr>
+<tr id="panel-result"><td>포장 무늬·색 확인</td><td>44 / 54</td><td>0 / 727</td><td>0 / 1,704</td></tr>
 </tbody></table>
-<p class="finding">단순 등록은 다른 포장을 전부 주스로 받아들였습니다. 별도 검증 사진으로 거리 기준을 정해 같은 포장을 다시 평가하자 오수락이 36장으로 줄었지만, 실제 등록 주스 51장도 거부했습니다. 두 설정 모두 오프라인 평가로 남겼습니다.</p>
-<p>후속 시험에서 처음 평가한 과일·채소 50종은 모두 미등록이었습니다. 오수락은 기존 거리 기준에서 1,704장 중 1,539장, 강화한 기준에서 46장이었습니다. 원래 줄무늬 A/B 표식을 붙인 상자의 실물 정답률은 촬영 자료가 없어 미측정입니다.</p>
-<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/real-photo-evaluation.md">조건·혼동표·재현 명령</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/real-photos/predictions.csv">사진별 판정 CSV</a><a href="https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Packages/Milk/Arla-Standard-Milk/Arla-Standard-Milk_015.jpg">줄무늬 B로 오판한 실제 우유팩</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/real-photos-calibrated/summary.json">후속 시험 집계</a><a href="labels.html">직접 촬영용 라벨</a></div></section>
+<p class="finding">사과주스는 23장 중 15장, 오렌지주스는 31장 중 29장을 맞혔습니다. 맛을 서로 바꿔 판정한 사진은 0장입니다. 보류한 10장 중 6장은 포장 면을 확인하지 못했고, 4장은 색으로 맛을 확정하기 어려웠습니다.</p>
+<p>표는 기존 시험 사진의 재평가입니다. 카탈로그 사진에서는 등록 2장 정답, 미등록 29장 모두 거부였습니다. 추가로 처음 평가한 미등록 과일·채소 196장도 모두 거부했습니다. 실물 사진 파일로 판별을 실행할 수 있습니다.</p>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/carton-recognition.md#사진-한-장-판별">사진 한 장 직접 판별</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/experiments/carton-panels/predictions.csv">전체 사진별 판정 CSV</a><a href="https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Packages/Juice/Bravo-Apple-Juice/Bravo-Apple-Juice_002.jpg">색 판정 보류 사진</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/real-photo-evaluation.md">이전 실험·원본</a></div>
+<details><summary>시뮬레이터의 줄무늬 A/B 모델</summary><p>줄무늬 모델은 실제 미등록 포장 781장 중 2장을 오수락했습니다. 원래 A/B 표식을 붙인 실물 상자의 정답률은 미측정입니다. <a href="labels.html">직접 촬영용 라벨</a></p></details></section>
 <section id="bin"><h2>RGB-D로 배치할 상자 찾기</h2>
 <div class="field-figure"><div><p>상자의 위치·회전·크기를 바꾼 MuJoCo 장면 32개에서 상단 테두리와 내부 바닥 깊이로 입구를 추정했습니다. 중앙 위치 오차의 95백분위는 0.329 mm였습니다.</p>
 <p>별도 피킹 작업 8건에서 관측한 입구로 물체를 배치했습니다. 상자 없음·두 개·맞닿은 두 개·입구 폭 부족의 네 조건에서는 접근 전에 보류했습니다. 시험 대상은 고정 카메라 아래의 파란색 직사각형 상자입니다.</p>
