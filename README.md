@@ -4,6 +4,12 @@
 
 PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU 물리 시뮬레이션에서 RGB-D 관측 → 학습한 상품 임베딩 → 3D 상면 추정 → SCARA 계획·구동 → Modbus 흡착 → 운반·해제 → 영상과 별도 정답으로 배치 확인을 실행한다. 기존 ReachBench의 실제 pick/place 구현을 조사한 뒤, 품목 구분·실패 복구·장치 통신·운영 증거를 신규 범위로 구현했다.
 
+## 로봇 피킹 작업 장면
+
+![흡착 재시도에서 빨간 상자를 들어 파란 통에 놓는 MuJoCo 기록](web/media/picking-transport.gif)
+
+첫 흡착 실패 뒤 다시 관측한 두 번째 시도다. 전체 영상에서 실패, 운반, 배치 확인 시점으로 이동할 수 있다. 실물 식료품 인식은 별도 매장 사진으로 평가했다. [전체 작업 영상과 원본 실행](https://pickloop-robot-ops.ykh13571.chatgpt.site/#work-scene) · [정답·오답·보류 사진](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence#photos)
+
 ### 매장 사진에서 상품 이름 확인
 
 공개 매장 자료의 81개 상품을 등록했다. 기존 미등록 사진 2,656장의 공식 상품명과 예측을 확인하거나 Codespaces에서 `pickloop recognize 사진.jpg`로 직접 판별할 수 있다. [상품별 공개 데모](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence#photos) · [재현과 사진별 결과](docs/grocery-catalogue.md)

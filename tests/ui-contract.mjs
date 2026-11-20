@@ -70,6 +70,7 @@ class Node {
   set value(v){this._value=String(v);}
   replaceChildren(...children){this.children=children;this._value='';}
   append(...children){this.children.push(...children);}
+  prepend(...children){this.children.unshift(...children);}
   setAttribute(k,v){this.attributes[k]=String(v);}
   getAttribute(k){return this.attributes[k]??(k==='src'?this.src:null)??null;}
   removeAttribute(k){delete this.attributes[k];if(k==='src')delete this.src;}
@@ -252,6 +253,8 @@ check('photo review defaults to errors and holds, pages subsets and links to pin
   assert.equal(status.textContent, '오답');
   assert.equal(file.children[1].title, wrong.id);
   assert.equal(file.children[0].href, lookup.source_base + wrong.path);
+  assert.equal(file.children[0].children[0].src, file.children[0].href);
+  assert.equal(file.children[0].children[0].loading, 'lazy');
   assert.match(file.children[0].href, /^https:\/\/raw\.githubusercontent\.com\/marcusklasson\/GroceryStoreDataset\/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc\/dataset\//);
   assert.equal(file.children[0].textContent, wrong.path.split('/').at(-1));
 });
@@ -280,5 +283,56 @@ check('a mismatched photo lookup shows an error while the aggregate evidence sta
   assert.equal(stale('catalogue-results').hidden, false);
   assert.equal(stale('photo-lookup').hidden, true);
   assert.match(stale('photo-load-status').textContent, /불러오지 못했습니다/);
+});
+check('both entry points show a native video with its real poster, captions and recorded-event jumps', () => {
+  const run = JSON.parse(readFileSync(resolve(root,'web/data/runs/suction_once-3000-recovery-aaff86/run.json')));
+  const elapsed = event => run.events.find(event).sim_time - run.frames[0].sim_time;
+  const marks = [elapsed(e => e.event === 'STATE_FAILED'), elapsed(e => e.state === 'TRANSPORT' && e.event === 'STATE_ENTER'), elapsed(e => e.event === 'PLACEMENT_VERIFIED')];
+  for (const markup of [html, evidencePage]) {
+    assert.ok(markup.indexOf('id="work-scene"') < markup.indexOf(markup === html ? 'id="notice"' : 'id="personal"'));
+    assert.match(markup, /<video controls muted playsinline[^>]+poster="media\/picking-recovery.jpg"/);
+    assert.match(markup, /<source src="media\/picking-recovery.mp4" type="video\/mp4">/);
+    assert.match(markup, /<track kind="captions"[^>]+src="media\/picking-recovery.ko.vtt"/);
+    assert.match(markup, /\?run=suction_once-3000-recovery-aaff86#recorded-view/);
+    const jumps = [...markup.matchAll(/data-elapsed="([.\d]+)"/g)].map(m => Number(m[1]));
+    assert.equal(jumps.length, marks.length);
+    for (let i=0; i<marks.length; i++) assert.ok(Math.abs(jumps[i] - marks[i]) <= .05);
+  }
+});
+check('each featured shop photograph matches the actual outcome in the previous-unknown ledger', () => {
+  const examples = [...evidencePage.matchAll(/<figure><a href="(https:[^"]+)"><img[^>]+src="([^"]+)"[^>]*><\/a><figcaption><strong class="(correct|wrong|held)">/g)];
+  assert.equal(examples.length, 3);
+  for (const [,link,src,status] of examples) {
+    assert.equal(src,link);
+    assert.equal(lookup.photos.find(photo => lookup.source_base + photo.path === src)?.status,status);
+  }
+});
+check('scene chapters seek after metadata arrives, including under reduced motion', () => {
+  const film = new Node('video');
+  film.play = async () => {film.paused=false;};
+  film.load = () => {};
+  film.focus = () => {};
+  film.pause = () => {film.paused=true;};
+  film.readyState=0; film.paused=true;
+  const chapter = new Node('a');
+  chapter.dataset.elapsed='14.00';
+  let onVisibility;
+  class Observer {
+    constructor(callback) {onVisibility=callback;}
+    observe() {}
+  }
+  vm.runInNewContext(readFileSync(resolve(root,'web/work-scene.js'),'utf8'), {
+    window:{matchMedia:()=>({matches:true}),IntersectionObserver:Observer},IntersectionObserver:Observer,
+    document:{getElementById:()=>({querySelector:()=>film,querySelectorAll:()=>[chapter]})}
+  });
+  onVisibility([{isIntersecting:true,intersectionRatio:1}]);
+  assert.equal(film.paused,true);
+  chapter.trigger('click');
+  film.readyState=1;
+  film.trigger('loadedmetadata');
+  assert.equal(film.currentTime,14);
+  assert.equal(film.paused,false);
+  onVisibility([{isIntersecting:false,intersectionRatio:0}]);
+  assert.equal(film.paused,true);
 });
 console.log(`\n${checks} UI contract checks passed.`);

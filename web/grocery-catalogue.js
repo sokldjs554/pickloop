@@ -178,6 +178,14 @@ function photoRow(photo, source) {
   link.href = source + parts.map(encodeURIComponent).join('/');
   link.textContent = parts.at(-1);
   link.title = photo.path;
+  const thumbnail = document.createElement('img');
+  thumbnail.src = link.href;
+  thumbnail.alt = '';
+  thumbnail.loading = 'lazy';
+  thumbnail.decoding = 'async';
+  thumbnail.referrerPolicy = 'no-referrer';
+  thumbnail.className = 'review-photo-image';
+  link.prepend(thumbnail);
   const reference = document.createElement('small');
   reference.textContent = `${photoSources[parts[0]]} · ${photo.id.slice(0, 12)}`;
   reference.title = photo.id;
