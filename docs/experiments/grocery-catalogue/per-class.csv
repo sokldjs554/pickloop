@@ -27,8 +27,8 @@ test,24,Plum,Plum,Fruit,22,17,0,5,17,22,0.7727272727272727,0.7727272727272727,1.
 test,25,Pomegranate,Pomegranate,Fruit,25,18,1,6,19,20,0.72,0.76,0.9473684210526315
 test,26,Red-Grapefruit,Red-Grapefruit,Fruit,34,20,10,4,30,23,0.5882352941176471,0.8823529411764706,0.6666666666666666
 test,27,Satsumas,Satsumas,Fruit,68,45,23,0,68,45,0.6617647058823529,1.0,0.6617647058823529
-test,28,Bravo-Apple-Juice,Juice,Packages,23,13,10,0,23,13,0.5652173913043478,1.0,0.5652173913043478
-test,29,Bravo-Orange-Juice,Juice,Packages,31,28,3,0,31,28,0.9032258064516129,1.0,0.9032258064516129
+test,28,Bravo-Apple-Juice,Juice,Packages,23,15,0,8,15,18,0.6521739130434783,0.6521739130434783,1.0
+test,29,Bravo-Orange-Juice,Juice,Packages,31,29,0,2,29,31,0.9354838709677419,0.9354838709677419,1.0
 test,30,God-Morgon-Apple-Juice,Juice,Packages,19,7,12,0,19,7,0.3684210526315789,1.0,0.3684210526315789
 test,31,God-Morgon-Orange-Juice,Juice,Packages,22,18,1,3,19,19,0.8181818181818182,0.8636363636363636,0.9473684210526315
 test,32,God-Morgon-Orange-Red-Grapefruit-Juice,Juice,Packages,19,0,19,0,19,0,0.0,1.0,0.0
@@ -108,8 +108,8 @@ val,24,Plum,Plum,Fruit,0,0,0,0,0,0,,,
 val,25,Pomegranate,Pomegranate,Fruit,5,5,0,0,5,5,1.0,1.0,1.0
 val,26,Red-Grapefruit,Red-Grapefruit,Fruit,5,5,0,0,5,5,1.0,1.0,1.0
 val,27,Satsumas,Satsumas,Fruit,5,0,5,0,5,0,0.0,1.0,0.0
-val,28,Bravo-Apple-Juice,Juice,Packages,4,4,0,0,4,4,1.0,1.0,1.0
-val,29,Bravo-Orange-Juice,Juice,Packages,5,5,0,0,5,5,1.0,1.0,1.0
+val,28,Bravo-Apple-Juice,Juice,Packages,4,2,0,2,2,4,0.5,0.5,1.0
+val,29,Bravo-Orange-Juice,Juice,Packages,5,4,0,1,4,5,0.8,0.8,1.0
 val,30,God-Morgon-Apple-Juice,Juice,Packages,5,5,0,0,5,5,1.0,1.0,1.0
 val,31,God-Morgon-Orange-Juice,Juice,Packages,5,5,0,0,5,5,1.0,1.0,1.0
 val,32,God-Morgon-Orange-Red-Grapefruit-Juice,Juice,Packages,6,2,4,0,6,2,0.3333333333333333,1.0,0.3333333333333333
@@ -189,8 +189,8 @@ catalogue,24,Plum,Plum,Fruit,1,0,0,1,0,0,0.0,0.0,
 catalogue,25,Pomegranate,Pomegranate,Fruit,1,0,0,1,0,1,0.0,0.0,
 catalogue,26,Red-Grapefruit,Red-Grapefruit,Fruit,1,0,0,1,0,1,0.0,0.0,
 catalogue,27,Satsumas,Satsumas,Fruit,1,0,0,1,0,0,0.0,0.0,
-catalogue,28,Bravo-Apple-Juice,Juice,Packages,1,0,0,1,0,1,0.0,0.0,
-catalogue,29,Bravo-Orange-Juice,Juice,Packages,1,0,0,1,0,1,0.0,0.0,
+catalogue,28,Bravo-Apple-Juice,Juice,Packages,1,1,0,0,1,1,1.0,1.0,1.0
+catalogue,29,Bravo-Orange-Juice,Juice,Packages,1,1,0,0,1,1,1.0,1.0,1.0
 catalogue,30,God-Morgon-Apple-Juice,Juice,Packages,1,0,0,1,0,0,0.0,0.0,
 catalogue,31,God-Morgon-Orange-Juice,Juice,Packages,1,0,0,1,0,1,0.0,0.0,
 catalogue,32,God-Morgon-Orange-Red-Grapefruit-Juice,Juice,Packages,1,0,0,1,0,0,0.0,0.0,

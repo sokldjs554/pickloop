@@ -2,11 +2,11 @@
   "counts": {
     "registered": 81,
     "test_total": 2485,
-    "correct": 1979,
-    "wrong": 317,
-    "held": 189,
+    "correct": 1982,
+    "wrong": 304,
+    "held": 199,
     "outside_total": 176,
-    "outside_false_accepts": 5
+    "outside_false_accepts": 3
   },
   "previous_unknown": {
     "total": 2656,
@@ -272,18 +272,18 @@
       "name": "Bravo-Apple-Juice",
       "group": "Packages",
       "test_total": 23,
-      "correct": 13,
-      "wrong": 10,
-      "held": 0
+      "correct": 15,
+      "wrong": 0,
+      "held": 8
     },
     {
       "id": 29,
       "name": "Bravo-Orange-Juice",
       "group": "Packages",
       "test_total": 31,
-      "correct": 28,
-      "wrong": 3,
-      "held": 0
+      "correct": 29,
+      "wrong": 0,
+      "held": 2
     },
     {
       "id": 30,

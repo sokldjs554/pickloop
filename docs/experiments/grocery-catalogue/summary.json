@@ -2,45 +2,45 @@
   "counts": {
     "registered": 81,
     "test_total": 2485,
-    "correct": 1979,
-    "wrong": 317,
-    "held": 189,
+    "correct": 1982,
+    "wrong": 304,
+    "held": 199,
     "outside_total": 176,
-    "outside_false_accepts": 5
+    "outside_false_accepts": 3
   },
   "splits": {
     "test": {
       "total": 2485,
-      "correct": 1979,
-      "wrong": 317,
-      "held": 189,
-      "accepted": 2296,
-      "top1_correct": 2101,
-      "recall": 0.7963782696177062,
-      "coverage": 0.923943661971831,
-      "accepted_accuracy": 0.8619337979094077
+      "correct": 1982,
+      "wrong": 304,
+      "held": 199,
+      "accepted": 2286,
+      "top1_correct": 2109,
+      "recall": 0.7975855130784708,
+      "coverage": 0.9199195171026157,
+      "accepted_accuracy": 0.8670166229221348
     },
     "val": {
       "total": 296,
-      "correct": 220,
+      "correct": 217,
       "wrong": 34,
-      "held": 42,
-      "accepted": 254,
+      "held": 45,
+      "accepted": 251,
       "top1_correct": 249,
-      "recall": 0.7432432432432432,
-      "coverage": 0.8581081081081081,
-      "accepted_accuracy": 0.8661417322834646
+      "recall": 0.7331081081081081,
+      "coverage": 0.847972972972973,
+      "accepted_accuracy": 0.8645418326693227
     },
     "catalogue": {
       "total": 81,
-      "correct": 8,
+      "correct": 10,
       "wrong": 2,
-      "held": 71,
-      "accepted": 10,
+      "held": 69,
+      "accepted": 12,
       "top1_correct": 55,
-      "recall": 0.09876543209876543,
-      "coverage": 0.12345679012345678,
-      "accepted_accuracy": 0.8
+      "recall": 0.12345679012345678,
+      "coverage": 0.14814814814814814,
+      "accepted_accuracy": 0.8333333333333334
     }
   },
   "class_coverage": {
@@ -50,7 +50,7 @@
       "zero_correct_names": [
         "God-Morgon-Orange-Red-Grapefruit-Juice"
       ],
-      "macro_recall": 0.7682965062432614
+      "macro_recall": 0.7697682912587585
     },
     "val": {
       "evaluated": 60,
@@ -61,11 +61,11 @@
         "Satsumas",
         "Arla-Mild-Vanilla-Yoghurt"
       ],
-      "macro_recall": 0.7447222222222223
+      "macro_recall": 0.7330555555555556
     },
     "catalogue": {
       "evaluated": 81,
-      "correctly_named_at_least_once": 8,
+      "correctly_named_at_least_once": 10,
       "zero_correct_names": [
         "Golden-Delicious",
         "Granny-Smith",
@@ -93,8 +93,6 @@
         "Pomegranate",
         "Red-Grapefruit",
         "Satsumas",
-        "Bravo-Apple-Juice",
-        "Bravo-Orange-Juice",
         "God-Morgon-Apple-Juice",
         "God-Morgon-Orange-Juice",
         "God-Morgon-Orange-Red-Grapefruit-Juice",
@@ -141,7 +139,7 @@
         "Regular-Tomato",
         "Zucchini"
       ],
-      "macro_recall": 0.09876543209876543
+      "macro_recall": 0.12345679012345678
     }
   },
   "groups": {
@@ -159,14 +157,14 @@
       },
       "Packages": {
         "total": 781,
-        "correct": 533,
-        "wrong": 213,
-        "held": 35,
-        "accepted": 746,
-        "top1_correct": 546,
-        "recall": 0.6824583866837388,
-        "coverage": 0.9551856594110115,
-        "accepted_accuracy": 0.7144772117962467
+        "correct": 536,
+        "wrong": 200,
+        "held": 45,
+        "accepted": 736,
+        "top1_correct": 554,
+        "recall": 0.6862996158770807,
+        "coverage": 0.942381562099872,
+        "accepted_accuracy": 0.7282608695652174
       },
       "Vegetables": {
         "total": 587,
@@ -194,14 +192,14 @@
       },
       "Packages": {
         "total": 100,
-        "correct": 68,
+        "correct": 65,
         "wrong": 18,
-        "held": 14,
-        "accepted": 86,
+        "held": 17,
+        "accepted": 83,
         "top1_correct": 74,
-        "recall": 0.68,
-        "coverage": 0.86,
-        "accepted_accuracy": 0.7906976744186046
+        "recall": 0.65,
+        "coverage": 0.83,
+        "accepted_accuracy": 0.7831325301204819
       },
       "Vegetables": {
         "total": 85,
@@ -229,14 +227,14 @@
       },
       "Packages": {
         "total": 31,
-        "correct": 1,
+        "correct": 3,
         "wrong": 1,
-        "held": 29,
-        "accepted": 2,
+        "held": 27,
+        "accepted": 4,
         "top1_correct": 21,
-        "recall": 0.03225806451612903,
-        "coverage": 0.06451612903225806,
-        "accepted_accuracy": 0.5
+        "recall": 0.0967741935483871,
+        "coverage": 0.12903225806451613,
+        "accepted_accuracy": 0.75
       },
       "Vegetables": {
         "total": 22,
@@ -253,14 +251,12 @@
   },
   "outside": {
     "total": 176,
-    "held": 171,
-    "false_accepts": 5,
-    "false_accept_rate": 0.028409090909090908,
+    "held": 173,
+    "false_accepts": 3,
+    "false_accept_rate": 0.017045454545454544,
     "false_accepts_by_name": {
       "Alpro-Shelf-Soy-Milk": 2,
-      "Arla-Ecological-Sour-Cream": 1,
-      "Bravo-Apple-Juice": 1,
-      "Bravo-Orange-Juice": 1
+      "Arla-Ecological-Sour-Cream": 1
     }
   },
   "previous": {
@@ -278,14 +274,14 @@
     },
     "known": {
       "total": 56,
-      "correct": 41,
-      "wrong": 13,
-      "held": 2,
-      "accepted": 54,
-      "top1_correct": 43,
-      "recall": 0.7321428571428571,
-      "coverage": 0.9642857142857143,
-      "accepted_accuracy": 0.7592592592592593
+      "correct": 46,
+      "wrong": 0,
+      "held": 10,
+      "accepted": 46,
+      "top1_correct": 51,
+      "recall": 0.8214285714285714,
+      "coverage": 0.8214285714285714,
+      "accepted_accuracy": 1.0
     },
     "by_partition": {
       "catalogue": {
@@ -302,14 +298,14 @@
         },
         "known": {
           "total": 2,
-          "correct": 0,
+          "correct": 2,
           "wrong": 0,
-          "held": 2,
-          "accepted": 0,
+          "held": 0,
+          "accepted": 2,
           "top1_correct": 2,
-          "recall": 0.0,
-          "coverage": 0.0,
-          "accepted_accuracy": null
+          "recall": 1.0,
+          "coverage": 1.0,
+          "accepted_accuracy": 1.0
         }
       },
       "fresh_validation_produce": {
@@ -350,14 +346,14 @@
         },
         "known": {
           "total": 54,
-          "correct": 41,
-          "wrong": 13,
-          "held": 0,
-          "accepted": 54,
-          "top1_correct": 41,
-          "recall": 0.7592592592592593,
-          "coverage": 1.0,
-          "accepted_accuracy": 0.7592592592592593
+          "correct": 44,
+          "wrong": 0,
+          "held": 10,
+          "accepted": 44,
+          "top1_correct": 49,
+          "recall": 0.8148148148148148,
+          "coverage": 0.8148148148148148,
+          "accepted_accuracy": 1.0
         }
       },
       "test_produce": {
@@ -413,11 +409,6 @@
       "count": 12
     },
     {
-      "truth": "Bravo-Apple-Juice",
-      "prediction": "Bravo-Orange-Juice",
-      "count": 10
-    },
-    {
       "truth": "Golden-Delicious",
       "prediction": "Granny-Smith",
       "count": 10
@@ -435,6 +426,11 @@
     {
       "truth": "Alpro-Fresh-Soy-Milk",
       "prediction": "Alpro-Shelf-Soy-Milk",
+      "count": 8
+    },
+    {
+      "truth": "God-Morgon-Red-Grapefruit-Juice",
+      "prediction": "God-Morgon-Orange-Juice",
       "count": 8
     }
   ],
