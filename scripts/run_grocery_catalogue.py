@@ -1,15 +1,20 @@
 """Fit without official validation/test data, or score those photos with a saved catalogue."""
 import argparse
+from contextlib import ExitStack
 import csv
 from hashlib import sha256
 import json
 from pathlib import Path
+from zipfile import ZipFile
 
 import numpy as np
 
+from catalogue_outside_source import MANIFEST_SHA256
 from pickloop.catalogue_features import FEATURE_VERSION, REVISION, WEIGHTS_SHA
 from pickloop.catalogue_model import CatalogueHead, calibrate
-from pickloop.photo_evaluation import write_csv, write_json
+from pickloop.grocery_catalogue import BRAVO_GALLERY_SHA256, resolve_decision
+from pickloop.grocery_evaluation import PREFIX
+from pickloop.photo_evaluation import crop_pixels, write_csv, write_json
 
 
 def cached(directory, split):
@@ -87,7 +92,21 @@ def fit(cache, out, head_path):
     return protocol
 
 
-def evaluate(cache, out, head_path):
+def verified_pixels(row, archive, outside_root, outside_hashes):
+    path = row['path']
+    if row['split'] == 'outside_test':
+        if outside_hashes.get(path) != row['sha256']:
+            raise ValueError(f'outside test image differs from the pinned manifest: {path}')
+        data = (outside_root / path).read_bytes()
+    else:
+        data = archive.read(PREFIX + path)
+    if sha256(data).hexdigest() != row['sha256']:
+        raise ValueError(f'pixel source checksum differs from cached features: {path}')
+    rgb, _ = crop_pixels(data, {})
+    return rgb
+
+
+def evaluate(cache, out, head_path, archive_path=None, outside_manifest=None, general_only=False):
     fit_summary = json.loads((out / 'fit.json').read_text())
     if sha256(head_path.read_bytes()).hexdigest() != fit_summary['catalogue_head_sha256']:
         raise ValueError('head differs from frozen fit')
@@ -97,17 +116,30 @@ def evaluate(cache, out, head_path):
         with (out / file).open(newline='') as stream:
             seen.update(r['sha256'] for r in csv.DictReader(stream))
     predictions = []
-    for split in ('test', 'val', 'catalogue', 'outside_test'):
-        rows, x = cached(cache, split)
-        row_hashes = {r['sha256'] for r in rows}
-        if seen & row_hashes:
-            raise ValueError(f'overlap with fitting, calibration or another evaluation split: {split}')
-        seen.update(row_hashes)
-        for start in range(0, len(rows), 128):
-            batch = rows[start:start + 128]
-            predictions.extend(dict(row, **d) for row, d in zip(batch, head.predict(x[start:start+128]), strict=True))
+    with ExitStack() as sources:
+        if not general_only:
+            if archive_path is None or outside_manifest is None:
+                raise ValueError('Bravo verification requires --archive and --outside-manifest')
+            archive = sources.enter_context(ZipFile(archive_path))
+            manifest_bytes = outside_manifest.read_bytes()
+            if sha256(manifest_bytes).hexdigest() != MANIFEST_SHA256:
+                raise ValueError('Freiburg manifest checksum mismatch')
+            outside = {r['path']: r['sha256'] for r in csv.DictReader(manifest_bytes.decode().splitlines())
+                       if r['split'] == 'test'}
+        for split in ('test', 'val', 'catalogue', 'outside_test'):
+            rows, x = cached(cache, split)
+            row_hashes = {r['sha256'] for r in rows}
+            if seen & row_hashes:
+                raise ValueError(f'overlap with fitting, calibration or another evaluation split: {split}')
+            seen.update(row_hashes)
+            for start in range(0, len(rows), 128):
+                batch = rows[start:start + 128]
+                for row, decision in zip(batch, head.predict(x[start:start+128]), strict=True):
+                    if not general_only:
+                        decision = resolve_decision(decision, lambda: verified_pixels(row, archive, outside_manifest.parent, outside))
+                    predictions.append(dict(row, **decision))
     write_csv(out / 'predictions.csv', predictions)
-    return {'evaluated': len(predictions)}
+    return {'evaluated': len(predictions), 'bravo_gallery_sha256': None if general_only else BRAVO_GALLERY_SHA256}
 
 
 def main():
@@ -116,9 +148,15 @@ def main():
     parser.add_argument('--cache', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--head', type=Path, required=True)
+    parser.add_argument('--archive', type=Path, help='original Grocery Store Dataset ZIP for Bravo verification')
+    parser.add_argument('--outside-manifest', type=Path, help='Freiburg manifest.csv beside its original images directory')
+    parser.add_argument('--general-only', action='store_true', help='reproduce the general-only evaluation format')
     args = parser.parse_args()
-    action = fit if args.command == 'fit' else evaluate
-    print(json.dumps(action(args.cache, args.out, args.head), ensure_ascii=False, indent=2))
+    if args.command == 'fit':
+        result = fit(args.cache, args.out, args.head)
+    else:
+        result = evaluate(args.cache, args.out, args.head, args.archive, args.outside_manifest, args.general_only)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':
