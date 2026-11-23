@@ -1,0 +1,21 @@
+{
+  "run_id": "suction_once-3000-recovery-f5e7ef",
+  "job_id": "job-fe2e9fabc3",
+  "seed": 3000,
+  "fault": "suction_once",
+  "policy": "recovery",
+  "status": "COMPLETED",
+  "success": true,
+  "sku": "SKU-RED-A",
+  "sim_duration_s": 24.84999999999924,
+  "wall_duration_s": 9.993759543009219,
+  "retries": 1,
+  "condition_id": "heldout-3000-suction_once-44e395cbb17d",
+  "run_url": "data/runs/suction_once-3000-recovery-f5e7ef/run.json",
+  "film_crop": [
+    18,
+    55,
+    626,
+    435
+  ]
+}

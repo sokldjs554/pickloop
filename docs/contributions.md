@@ -41,3 +41,10 @@ PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른�
 ## 공개 데모 리뷰 반영
 
 사용자는 공개 화면과 보고서를 직접 확인하고 시도 예산 혼재, seed 다양성, 재생 사례 부족, HELD 단계 이력, 인식 점수, 가독성 및 빈 흡착기의 밸브 유지 문제를 구체적으로 지적했다. AI 에이전트가 이에 따라 4정책 절제 실험, 조건 생성/동결, 보류 출력 분기, UI/원문 연결을 구현·실행했다. 사용자 리뷰 수행을 AI 구현과 구분하며, 이를 사용자가 직접 작성한 로봇 제어 코드나 실물 배포 경력으로 바꾸지 않는다.
+
+작업 모니터의 영상은 Codex가 PickLoop의 MuJoCo 시뮬레이션을 실행하고 그때 저장한 카메라 프레임으로 만들었다. 사용자가 4초와 6초의 장면을 짚어 주었고, Codex가 수직축 모델을 수정해 같은 조건으로 다시 녹화했다. 이전 모델은 흡착기가 내려가면 축 윗끝과 팔 사이에 약 14 cm의 틈이 생겼다. 현재 모델에서는 팔 끝의 고정 가이드 안에서 중간 슬리브와 흡착축이 함께 움직인다. [이전 실행](../web/data/runs/suction_once-3000-recovery-aaff86/run.json) · [수정 후 실행](../web/data/runs/suction_once-3000-recovery-f5e7ef/run.json)
+
+| 영상 경과 시간 | 수정 전 카메라 | 수정 후 카메라 |
+|---|---|---|
+| 4초 · 첫 흡착 실패 직후 | [팔과 흡착축 사이의 틈](../web/data/runs/suction_once-3000-recovery-aaff86/frames/00023-scene.jpg) | [내려간 축과 가이드](../web/data/runs/suction_once-3000-recovery-f5e7ef/frames/00023-scene.jpg) |
+| 6초 · 빈 흡착기 상승 | [팔 위로 드러난 축](../web/data/runs/suction_once-3000-recovery-aaff86/frames/00032-scene.jpg) | [가이드 안으로 들어간 축](../web/data/runs/suction_once-3000-recovery-f5e7ef/frames/00033-scene.jpg) |

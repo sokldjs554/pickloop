@@ -284,19 +284,76 @@ check('a mismatched photo lookup shows an error while the aggregate evidence sta
   assert.equal(stale('photo-lookup').hidden, true);
   assert.match(stale('photo-load-status').textContent, /불러오지 못했습니다/);
 });
-check('both entry points show a native video with its real poster, captions and recorded-event jumps', () => {
-  const run = JSON.parse(readFileSync(resolve(root,'web/data/runs/suction_once-3000-recovery-aaff86/run.json')));
+async function openFeaturedViewer(query) {
+  const current = {run_id:'current-lift-test', fault:'suction_once', policy:'recovery', seed:7,
+    condition_id:fixtureRuns[0].condition_id, run_url:'data/runs/current-lift-test/run.json', success:true};
+  const elements = new Map([...nodes.keys()].map(id => [id, new Node()]));
+  const document = {...doc, baseURI:doc.baseURI + query, getElementById:id => elements.get(id)};
+  const paths = [];
+  const fetch = async url => {
+    const path = new URL(url, document.baseURI).pathname;
+    paths.push(path);
+    if (path.endsWith('/data/featured-run.json')) return {ok:true,json:async()=>current};
+    if (path.endsWith('/' + current.run_url)) return {ok:true,json:async()=>fixturePayload(current)};
+    return browserContext.fetch(url);
+  };
+  vm.runInNewContext(js, {...browserContext, document, fetch});
+  await settle();
+  return {get:id => elements.get(id), paths};
+}
+for (const query of ['', '?run=featured', '?run=current-lift-test']) {
+  const {get, paths} = await openFeaturedViewer(query);
+  check(`featured ${query || 'default'} replays its own scene and camera, with archived pairs kept separate`, () => {
+    assert.equal(get('run-select').value, 'current-lift-test');
+    assert.match(get('recording-source').textContent, /현재 모델/);
+    assert.match(get('scene-image').src, /current-lift-test\/frames\/0-scene.jpg$/);
+    assert.match(get('camera-image').src, /current-lift-test\/frames\/0-camera.jpg$/);
+    assert.match(get('run-json-link').href, /current-lift-test\/run.json$/);
+    assert.equal(get('archive-players').hidden, true);
+    assert.equal(get('archive-comparison-prompt').hidden, false);
+    assert.match(get('archive-comparison-link').href, /run=fixture-recovery#comparison$/);
+    assert.equal(get('compare-play').disabled, true);
+    assert.deepEqual(paths.filter(path => path.includes('/data/runs/')), ['/nested/data/runs/current-lift-test/run.json']);
+  });
+}
+const archive = await openFeaturedViewer('?run=fixture-recovery');
+check('archived deep links retain their original same-condition pairs with the featured event available', () => {
+  assert.equal(archive.get('run-select').value, 'fixture-recovery');
+  assert.match(archive.get('recording-source').textContent, /동결 기록/);
+  assert.equal(archive.get('archive-players').hidden, false);
+  assert.equal(archive.get('archive-comparison-prompt').hidden, true);
+  assert.equal(archive.get('compare-play').disabled, false);
+  assert.match(archive.get('compare-left-image').src, /naive\/frames\/0-scene.jpg$/);
+  assert.match(archive.get('compare-right-image').src, /recovery\/frames\/0-scene.jpg$/);
+  assert.ok(!archive.paths.some(path => path.includes('/current-lift-test/')));
+});
+check('both entry points show the same separately recorded film and event-derived chapter times', () => {
+  const featured = JSON.parse(readFileSync(resolve(root,'web/data/featured-run.json')));
+  const run = JSON.parse(readFileSync(resolve(root,'web',featured.run_url)));
+  const frozen = JSON.parse(readFileSync(resolve(root,'web/data/index.json'))).runs;
+  const evaluation = JSON.parse(readFileSync(resolve(root,'web/data/evaluation/index.json'))).runs;
+  assert.equal(run.run_id, featured.run_id);
+  assert.equal(featured.run_url, `data/runs/${run.run_id}/run.json`);
+  assert.equal(frozen.length, 28);
+  assert.equal(evaluation.length, 576);
+  assert.ok(![...frozen, ...evaluation].some(entry => entry.run_id === run.run_id));
   const elapsed = event => run.events.find(event).sim_time - run.frames[0].sim_time;
   const marks = [elapsed(e => e.event === 'STATE_FAILED'), elapsed(e => e.state === 'TRANSPORT' && e.event === 'STATE_ENTER'), elapsed(e => e.event === 'PLACEMENT_VERIFIED')];
   for (const markup of [html, evidencePage]) {
     assert.ok(markup.indexOf('id="work-scene"') < markup.indexOf(markup === html ? 'id="notice"' : 'id="personal"'));
-    assert.match(markup, /<video controls muted playsinline[^>]+poster="media\/picking-recovery.jpg"/);
-    assert.match(markup, /<source src="media\/picking-recovery.mp4" type="video\/mp4">/);
-    assert.match(markup, /<track kind="captions"[^>]+src="media\/picking-recovery.ko.vtt"/);
-    assert.match(markup, /\?run=suction_once-3000-recovery-aaff86#recorded-view/);
-    const jumps = [...markup.matchAll(/data-elapsed="([.\d]+)"/g)].map(m => Number(m[1]));
+    assert.match(markup, /<video controls muted playsinline[^>]+poster="media\/picking-recovery.jpg\?run=/);
+    assert.match(markup, /<source src="media\/picking-recovery.mp4\?run=[^"]+" type="video\/mp4">/);
+    assert.match(markup, /<track kind="captions"[^>]+src="media\/picking-recovery.ko.vtt\?run=/);
+    assert.match(markup, /\?run=featured#recorded-view/);
+    const media = [...markup.matchAll(/(?:src|href|poster|data-animation)="(media\/picking-[^"]+)"/g)];
+    assert.ok(media.length >= 10);
+    for (const [, url] of media) assert.equal(new URL(url, doc.baseURI).searchParams.get('run'), run.run_id);
+    const jumps = [...markup.matchAll(/data-elapsed="([.\d]+)" href="([^"]+)"/g)];
     assert.equal(jumps.length, marks.length);
-    for (let i=0; i<marks.length; i++) assert.ok(Math.abs(jumps[i] - marks[i]) <= .05);
+    for (const [i, [,time,link]] of jumps.entries()) {
+      assert.equal(Number(time), Number(new URL(link,doc.baseURI).hash.slice(3)));
+      assert.ok(Math.abs(Number(time) - marks[i]) <= .05);
+    }
   }
 });
 check('each featured shop photograph matches the actual outcome in the previous-unknown ledger', () => {
