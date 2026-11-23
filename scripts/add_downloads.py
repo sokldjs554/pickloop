@@ -1,5 +1,6 @@
 """Copy the current review pages and preserved evaluation downloads into a static release."""
 import argparse
+import json
 import shutil
 from pathlib import Path
 
@@ -24,12 +25,17 @@ def main():
     }
     for name, target in archives.items():
         shutil.copy2(args.delivery / name, downloads / target)
-    for name in ("index.html", "styles.css", "evidence.html", "evidence.css", "grocery-catalogue.js", "work-scene.js", "work-scene.css", "labels.html", "handoff.partial.html"):
+    for name in ("index.html", "app.js", "styles.css", "evidence.html", "evidence.css", "grocery-catalogue.js", "work-scene.js", "work-scene.css", "labels.html", "handoff.partial.html"):
         shutil.copy2(web / name, args.dist / name)
     shutil.copytree(web / "media", args.dist / "media", dirs_exist_ok=True)
     (args.dist / "data").mkdir(exist_ok=True)
-    for name in ("grocery-catalogue.json", "grocery-previous-photos.json"):
+    for name in ("grocery-catalogue.json", "grocery-previous-photos.json", "featured-run.json"):
         shutil.copy2(web / "data" / name, args.dist / "data" / name)
+    featured = json.loads((web / "data/featured-run.json").read_text())
+    run_dir = Path("data/runs") / featured["run_id"]
+    if run_dir.parent != Path("data/runs") or featured["run_url"] != (run_dir / "run.json").as_posix():
+        raise ValueError("invalid featured run location")
+    shutil.copytree(web / run_dir, args.dist / run_dir, dirs_exist_ok=True)
     shutil.copytree(web / "data/role", args.dist / "data/role", dirs_exist_ok=True)
 
 

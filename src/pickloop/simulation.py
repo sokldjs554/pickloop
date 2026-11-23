@@ -104,12 +104,17 @@ def scene_xml(seed,condition=None,bin_layout=None):
    <geom name="link1" type="capsule" fromto="0 0 0 .32 0 0" size=".029" mass=".6" material="teal"/>
    <body name="elbow" pos=".32 0 0"><joint name="elbow" type="hinge" axis="0 0 1" range="-2.8 2.8"/>
     <geom name="link2" type="capsule" fromto="0 0 .005 .28 0 .005" size=".024" mass=".4" material="metal"/>
+    <geom name="lift_guide" type="cylinder" pos=".28 0 .105" size=".027 .122" mass=".09" rgba=".12 .38 .40 1"/>
     <body name="slide" pos=".28 0 0" gravcomp="1"><joint name="vertical" type="slide" axis="0 0 1" range="-.39 -.02" damping="8"/>
-     <geom name="shaft" type="cylinder" pos="0 0 .09" size=".009 .10" mass=".1" material="metal"/>
+     <geom name="shaft" type="cylinder" pos="0 0 .099" size=".009 .109" mass=".1" material="metal"/>
      <body name="tool" gravcomp="1"><joint name="wrist" type="hinge" axis="0 0 1" range="-3.14 3.14" damping=".1"/>
       <geom name="cup" type="cylinder" pos="0 0 -.022" size=".012 .018" mass=".035" rgba=".07 .08 .1 1"/>
       <site name="tcp" pos="0 0 -.04" size=".004" rgba="1 .8 .1 1"/>
      </body>
+    </body>
+    <body name="lift_stage" pos=".28 0 0" gravcomp="1">
+     <joint name="stage_travel" type="slide" axis="0 0 1" range="-.20 0" damping=".08" armature=".0001"/>
+     <geom name="lift_sleeve" type="cylinder" pos="0 0 .103" size=".015 .113" mass=".035" material="metal"/>
     </body>
    </body>
   </body>
@@ -123,8 +128,9 @@ def scene_xml(seed,condition=None,bin_layout=None):
   <position joint="vertical" kp="1800" kv="80" forcerange="-100 100"/>
   <position joint="wrist" kp="70" kv="4" forcerange="-8 8"/>
  </actuator>
- <contact><exclude body1="tool" body2="parcel_a"/><exclude body1="tool" body2="parcel_b"/><exclude body1="tool" body2="parcel_u"/></contact>
- <equality>{weld}</equality>
+ <contact><exclude body1="lift_stage" body2="slide"/><exclude body1="lift_stage" body2="tool"/>
+  <exclude body1="tool" body2="parcel_a"/><exclude body1="tool" body2="parcel_b"/><exclude body1="tool" body2="parcel_u"/></contact>
+ <equality>{weld}<joint name="sleeve_half_stroke" joint1="stage_travel" joint2="vertical" polycoef="0 .5 0 0 0" solref=".01 1"/></equality>
 </mujoco>'''
 
 
@@ -135,11 +141,14 @@ class Cell:
         self.bin_layout = None if bin_layout is None else tuple(bin_layout)
         self.model=mujoco.MjModel.from_xml_string(scene_xml(seed,self.condition,self.bin_layout)); self.data=mujoco.MjData(self.model)
         self.data.qpos[:4]=scara_ik([.19,-.32,.34]); self.data.ctrl[:]=self.data.qpos[:4]
+        # The concentric intermediate sleeve travels half as far as the driven spindle.
+        self.stage_qpos = self.model.joint('stage_travel').qposadr.item()
+        self.data.qpos[self.stage_qpos] = self.data.qpos[2] / 2
         self.tcp_id=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_SITE,'tcp')
         self.tool_id=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_BODY,'tool')
         self.cup_id=mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_GEOM,'cup')
         self.object_bodies=[mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_BODY,'parcel_'+n) for n in ['a','b','u']]
-        self.robot_geoms={mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_GEOM,n) for n in ['link1','link2','shaft','cup']}
+        self.robot_geoms={mujoco.mj_name2id(self.model,mujoco.mjtObj.mjOBJ_GEOM,n) for n in ['link1','link2','lift_guide','lift_sleeve','shaft','cup']}
         self.attempt=1; self.valve=False; self.attached=None; self.pressure_kpa=0.; self.attach_time=0.
         self.drop_count=0; self.collision_count=0; self._drop_used=False; self._obs_count=0
         self.on_step=None; self.output_source=None; self.cancel=None; self.closed=False; self._command_velocity=np.zeros(4); self._stopping=False; self._active_contacts=set()
@@ -310,7 +319,10 @@ class Cell:
         for body in self.object_bodies:
             adr=self.model.jnt_qposadr[self.model.body_jntadr[body]]
             probe.qpos[adr:adr+3]=[0,0,-5];probe.qpos[adr+3:adr+7]=[1,0,0,0]
-        probe.eq_active[:]=False;mujoco.mj_forward(self.model,probe)
+        probe.qpos[self.stage_qpos] = q[2] / 2
+        for name in ('suction_a', 'suction_b', 'suction_u'):
+            probe.eq_active[self.model.equality(name).id] = False
+        mujoco.mj_forward(self.model,probe)
         payload=None
         if self.pressure_kpa < -35:
             # A generic catalog box beneath TCP, independent of the simulator object ID.
