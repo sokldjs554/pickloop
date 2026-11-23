@@ -284,6 +284,90 @@ check('a mismatched photo lookup shows an error while the aggregate evidence sta
   assert.equal(stale('photo-lookup').hidden, true);
   assert.match(stale('photo-load-status').textContent, /불러오지 못했습니다/);
 });
+// Drive the operator controls with published records and a deterministic animation clock.
+{
+  const elements = new Map([...nodes.keys()].map(id => [id, new Node()]));
+  const get = id => elements.get(id);
+  const document = {...doc, getElementById:get};
+  const animations = new Map();
+  let now = 0, nextId = 0;
+  let delayUrl, releaseResponse;
+  const fetch = async url => {
+    const path = new URL(url, document.baseURI).pathname.replace(/^\/nested\//, '');
+    if (!path.startsWith('data/')) return {ok:false, status:404};
+    if (path === delayUrl) {
+      delayUrl = null;
+      await new Promise(resolve => { releaseResponse = resolve; });
+    }
+    return {ok:true, json:async () => JSON.parse(readFileSync(resolve(root, 'web', path), 'utf8'))};
+  };
+  vm.runInNewContext(js, {...browserContext, document, fetch, performance:{now:() => now},
+    requestAnimationFrame:callback => { animations.set(++nextId, callback); return nextId; },
+    cancelAnimationFrame:id => animations.delete(id)});
+  const advance = ms => {
+    now += ms;
+    const callbacks = [...animations.values()];
+    animations.clear();
+    for (const callback of callbacks) callback(now);
+  };
+  const select = (id, value) => { get(id).value = value; get(id).trigger('change'); };
+  const clickPlay = () => get('play-toggle').trigger('click');
+  await settle();
+  assert.equal(animations.size, 0);
+  clickPlay();
+  advance(2250);
+  clickPlay();
+  const paused = get('frame-id').textContent;
+  advance(1000);
+  assert.equal(get('frame-id').textContent, paused);
+  select('fault', 'drop');
+  await settle();
+  const drop = get('run-select').value;
+  check('changing the scenario after a pause plays the selected drop run through frame 13', () => {
+    assert.match(drop, /^drop-3000-recovery-/);
+    assert.equal(get('scrubber').value, '0');
+    advance(2250);
+    assert.equal(get('frame-id').textContent, 'FRAME 13');
+    assert.equal(get('play-time').textContent, '2.75');
+    for (const id of ['scene-image', 'camera-image']) assert.ok(get(id).src.includes('/' + drop + '/'));
+  });
+  clickPlay();
+  advance(1000);
+  assert.equal(get('frame-id').textContent, 'FRAME 13');
+  clickPlay();
+  advance(1000);
+  assert.ok(Number(get('play-time').textContent) > 2.75);
+
+  const entries = JSON.parse(readFileSync(resolve(root, 'web/data/index.json'), 'utf8')).runs;
+  delayUrl = entries.find(r => r.fault === 'drop' && r.policy === 'naive').run_url;
+  select('policy', 'naive');
+  assert.equal(get('play-toggle').disabled, true);
+  select('policy', 'baseline');
+  await settle();
+  advance(1200);
+  releaseResponse();
+  await settle();
+  check('a slower policy request cannot restart or replace the latest selection', () => {
+    assert.match(get('scene-image').src, /drop-3000-baseline-/);
+    assert.ok(Number(get('play-time').textContent) > 1);
+    assert.equal(animations.size, 1);
+  });
+  select('policy', 'recovery');
+  select('fault', 'suction_once');
+  await settle();
+  const current = JSON.parse(readFileSync(resolve(root, 'web/data/featured-run.json'), 'utf8'));
+  select('run-select', current.run_id);
+  await settle();
+  check('selecting an individual recording starts it and stops at its own final frame', () => {
+    advance(1500);
+    assert.ok(Number(get('play-time').textContent) > 1);
+    assert.ok(get('camera-image').src.includes(current.run_id));
+    advance(60000);
+    assert.equal(get('scrubber').value, get('scrubber').max);
+    assert.equal(get('play-toggle').getAttribute('aria-label'), '재생');
+    assert.equal(animations.size, 0);
+  });
+}
 async function openFeaturedViewer(query) {
   const current = {run_id:'current-lift-test', fault:'suction_once', policy:'recovery', seed:7,
     condition_id:fixtureRuns[0].condition_id, run_url:'data/runs/current-lift-test/run.json', success:true};
