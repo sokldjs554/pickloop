@@ -70,6 +70,7 @@ export function describeBarcodes(symbols, registry) {
 }
 
 const productLabels = {
+  'God-Morgon-Orange-Juice-250ml': 'God Morgon 오렌지 주스 250mL',
   'God-Morgon-Apple-Juice': 'God Morgon 사과 주스 1 L',
   'God-Morgon-Orange-Juice': 'God Morgon 오렌지 주스 1 L',
   'God-Morgon-Orange-Red-Grapefruit-Juice': 'God Morgon 오렌지·레드자몽 주스 1 L',
@@ -199,6 +200,7 @@ function bindReader() {
   const barcode = byId('barcode'), text = byId('text'), submit = form.querySelector('[type=submit]');
   const preview = byId('preview'), resultPanel = byId('result');
   const example = byId('example'), credit = byId('credit');
+  const confirmExample = byId('confirm'), confirmCredit = byId('confirm-credit');
   let active, previewURL;
   function stop(message) {
     active?.abort();
@@ -209,8 +211,8 @@ function bindReader() {
       URL.revokeObjectURL(previewURL);
       previewURL = null;
     }
-    submit.disabled = example.disabled = false;
-    resultPanel.hidden = credit.hidden = true;
+    submit.disabled = confirmExample.disabled = example.disabled = false;
+    resultPanel.hidden = confirmCredit.hidden = credit.hidden = true;
     cancel.hidden = true;
     form.removeAttribute('aria-busy');
     status.textContent = message;
@@ -221,11 +223,12 @@ function bindReader() {
   window.addEventListener('pagehide', () => stop(''));
   form.addEventListener('submit', event => {
     event.preventDefault();
-    run(false);
+    run();
   });
-  example.addEventListener('click', () => run(true));
+  example.addEventListener('click', () => run(example));
+  confirmExample.addEventListener('click', () => run(confirmExample));
 
-  async function run(useExample) {
+  async function run(sample) {
     stop('');
     if (!window.Worker || typeof WebAssembly !== 'object' || !window.AbortController || !window.URL?.createObjectURL ||
         !HTMLImageElement.prototype.decode || !Blob.prototype.arrayBuffer || !HTMLCanvasElement.prototype.toBlob) {
@@ -235,10 +238,10 @@ function bindReader() {
     const job = new AbortController();
     active = job;
     const signal = job.signal;
-    submit.disabled = example.disabled = true;
+    submit.disabled = confirmExample.disabled = example.disabled = true;
     cancel.hidden = false;
     form.setAttribute('aria-busy', 'true');
-    status.textContent = useExample ? '예시 사진을 여는 중입니다.' : '사진을 여는 중입니다.';
+    status.textContent = sample ? '예시 사진을 여는 중입니다.' : '사진을 여는 중입니다.';
     const pendingDecision = '상품 판정 중…';
     const timer = setTimeout(() => {
       if (active === job) {
@@ -253,9 +256,9 @@ function bindReader() {
     }, 120_000);
     try {
       let file = input.files?.[0];
-      if (useExample) {
+      if (sample) {
         try {
-          const response = await fetch(example.dataset.src, {signal});
+          const response = await fetch(sample.dataset.src, {signal});
           if (!response.ok) throw new Error();
           file = await response.blob();
         } catch {
@@ -266,7 +269,8 @@ function bindReader() {
       const png = new Uint8Array(await image.arrayBuffer());
       if (signal.aborted) return;
       resultPanel.hidden = false;
-      credit.hidden = !useExample;
+      credit.hidden = sample !== example;
+      confirmCredit.hidden = sample !== confirmExample;
       barcode.textContent = pendingDecision;
       if (preview) {
         previewURL = URL.createObjectURL(image);
@@ -289,7 +293,7 @@ function bindReader() {
         show(opticalText(png, signal), text, '읽을 수 있는 글자가 없습니다.', '글자 판독기를 실행하지 못했습니다. 다시 시도해 주세요.'),
       ]);
       if (!signal.aborted) {
-        const finished = useExample ? '예시 사진 읽기를 마쳤습니다.' : '사진 읽기를 마쳤습니다.';
+        const finished = sample ? '예시 사진 읽기를 마쳤습니다.' : '사진 읽기를 마쳤습니다.';
         status.textContent = result.every(Boolean) ? finished : '실행한 판독기의 결과를 확인해 주세요.';
       }
     } catch (error) {
@@ -298,7 +302,7 @@ function bindReader() {
       clearTimeout(timer);
       if (active === job) {
         active = null;
-        submit.disabled = example.disabled = false;
+        submit.disabled = confirmExample.disabled = example.disabled = false;
         cancel.hidden = true;
         form.removeAttribute('aria-busy');
       }

@@ -1,6 +1,6 @@
 # Browser package photo reader dependencies
 
-The application loads the following static files after the visitor submits a local photo. It passes the photograph to two local browser workers. The worker requests fetch engine files, language models and the three-entry registry from this site's origin. Pixels, names and recognized text stay in memory for the current read. Refreshing or choosing another file clears the results.
+The application loads the following static files after the visitor submits a local photo. It passes the photograph to two local browser workers. The worker requests fetch engine files, language models and the four-entry browser registry (three order SKUs and the 250 mL demonstration SKU) from this site's origin. Pixels, names and recognized text stay in memory for the current read. Refreshing or choosing another file clears the results.
 
 | Component | Pinned version | Distributed files | Source and terms |
 | --- | --- | --- | --- |
@@ -11,6 +11,6 @@ The application loads the following static files after the visitor submits a loc
 
 The bundled ZXing-C++ revision is c0a7c6cd2165457c721c58045edd22ffee9624e9. Its reader WASM SHA-256 is 1c961d9d9a1f0001f5d00486bcf8e1b1a91fcf9fe17ebcbd6e2b6efe21e23038. No writer binary is used.
 
-Run `python scripts/vendor_package_reader.py` in the repository to verify the checked-in assets offline. Pass `--rebuild` to download the exact npm archives, verify fixed SHA-512 archive digests and pinned notice hashes, and regenerate these files. The registry is derived from REGISTERED_GTINS in src/pickloop/pack_barcode.py. Raw OCR and its numeric characters never participate in this registry lookup.
+Run `python scripts/vendor_package_reader.py` in the repository to verify the checked-in assets offline. Pass `--rebuild` to download the exact npm archives, verify fixed SHA-512 archive digests and pinned notice hashes, and regenerate these files. The browser registry combines REGISTERED_GTINS in src/pickloop/pack_barcode.py with a demonstration-only orange 250 mL SKU. Raw OCR and its numeric characters never participate in this registry lookup.
 
 Run `node --test tests/package-reader.mjs` to check image headers, pixel limits, the registry, checksum normalization, ambiguity, and cancellation. `node tests/package-reader-offline.mjs /path/to/photo.png` runs the bundled engines on an existing PNG using Node's worker API. For a browser-sized input, apply EXIF orientation, composite transparency over white, and fit the long edge to 2560 pixels before encoding to PNG. The browser page performs these steps on a local canvas.
