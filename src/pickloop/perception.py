@@ -9,7 +9,8 @@ from .vision_model import AppearanceModel
 class Perception:
     def __init__(self,model_path=None): self.model=AppearanceModel(model_path)
 
-    def proposals(self,obs,now_sim_time):
+    @staticmethod
+    def proposals(obs,now_sim_time):
         try: obs.validate(now_sim_time)
         except ValueError as e: raise OperationError(str(e)) from e
         height,width=obs.depth.shape

@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "id": "mixed-standard",
+  "case": "standard",
+  "order_sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+  "seed": 21,
+  "started_unix_ns": 1795497932664752105,
+  "sensor": "MuJoCo rendered RGB-D overview + steerable optical zoom",
+  "catalogue_classes": 81,
+  "head_sha256": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
+  "encoder_sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
+  "fixture_manifest_sha256": "bd151e828b1f7d8a86e9dabad0b0622df6b4f029efc7b3b9654ebe9cc9ad5a21",
+  "status": "HELD",
+  "reason": "ORDER_NOT_FOUND",
+  "selected": null,
+  "candidates": [
+    {
+      "candidate_id": "source-1",
+      "bbox_xywh_px": [
+        164,
+        275,
+        35,
+        30
+      ],
+      "position_m": [
+        0.20486524435458608,
+        -0.1080748808310809,
+        0.11053555654689351
+      ],
+      "uncertainty_m": 0.0020914508399415103,
+      "depth_valid_ratio": 1.0,
+      "source_observation_id": "mixed-standard-obs-0001",
+      "zoom": {
+        "observation_id": "mixed-standard-zoom-0002",
+        "sim_time_s": 0.5,
+        "received_monotonic_ns": 16404489696125,
+        "resolution_px": [
+          480,
+          480
+        ],
+        "calibration_id": "virtual-zoom-command-v1",
+        "K": [
+          [
+            6545.156671436088,
+            0.0,
+            240.0
+          ],
+          [
+            0.0,
+            6545.156671436088,
+            240.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "T_base_camera": [
+          [
+            0.9949422983746841,
+            0.008681648125316315,
+            -0.10007223336535069,
+            0.33
+          ],
+          [
+            0.0,
+            -0.996257996869176,
+            -0.08642918300097999,
+            0.0
+          ],
+          [
+            -0.10044811050936206,
+            0.0859920499816412,
+            -0.9912192211791769,
+            1.35
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "zoom_camera": "source-1-camera.png",
+      "zoom_depth": "source-1-depth.npz",
+      "crop": "source-1-face.png",
+      "corners_px": [
+        [
+          55.0,
+          124.0
+        ],
+        [
+          387.0,
+          89.0
+        ],
+        [
+          416.0,
+          358.0
+        ],
+        [
+          85.0,
+          392.0
+        ]
+      ],
+      "corners_base_m": [
+        [
+          0.16929435311625743,
+          -0.08611039997710027,
+          0.11053555654689351
+        ],
+        [
+          0.23297195644379853,
+          -0.07899656003443677,
+          0.11053555654689351
+        ],
+        [
+          0.2386215715066636,
+          -0.1303829136595343,
+          0.11053555654689351
+        ],
+        [
+          0.17497017425711398,
+          -0.1376131334954812,
+          0.11053555654689351
+        ]
+      ],
+      "top_yaw_rad": 0.11125520252155104,
+      "confirmation": {
+        "camera": {
+          "observation_id": "mixed-standard-zoom-0003",
+          "sim_time_s": 0.5,
+          "received_monotonic_ns": 16404558961799,
+          "resolution_px": [
+            480,
+            480
+          ],
+          "calibration_id": "virtual-zoom-command-v1",
+          "K": [
+            [
+              5975.478285274874,
+              0.0,
+              240.0
+            ],
+            [
+              0.0,
+              5975.478285274874,
+              240.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_base_camera": [
+            [
+              0.9949422983746841,
+              0.008681648125316315,
+              -0.10007223336535069,
+              0.33
+            ],
+            [
+              0.0,
+              -0.996257996869176,
+              -0.08642918300097999,
+              0.0
+            ],
+            [
+              -0.10044811050936206,
+              0.0859920499816412,
+              -0.9912192211791769,
+              1.35
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "image": "source-1-second-camera.png",
+        "crop": "source-1-second-face.png",
+        "depth": "source-1-second-depth.npz",
+        "corners_px": [
+          [
+            71.0,
+            134.0
+          ],
+          [
+            374.0,
+            102.0
+          ],
+          [
+            400.0,
+            348.0
+          ],
+          [
+            99.0,
+            378.0
+          ]
+        ],
+        "corners_base_m": [
+          [
+            0.16927284702134285,
+            -0.08609029885160233,
+            0.11053555654689351
+          ],
+          [
+            0.23292898077930752,
+            -0.07896703475583916,
+            0.11053555654689351
+          ],
+          [
+            0.23847896542130045,
+            -0.13044125959611463,
+            0.11053555654689351
+          ],
+          [
+            0.17507831599442172,
+            -0.13744911485993222,
+            0.11053555654689351
+          ]
+        ],
+        "top_yaw_rad": 0.11143863628836344
+      },
+      "generic": {
+        "top1": "Arla-Natural-Mild-Low-Fat-Yoghurt",
+        "support": 0.23113878071308136,
+        "score": 0.25604021549224854,
+        "margin": 0.009459376335144043,
+        "prediction": "UNKNOWN"
+      },
+      "carton_gate": {
+        "top1": "Arla-Natural-Mild-Low-Fat-Yoghurt",
+        "support": 0.23113878071308136,
+        "score": 0.25604021549224854,
+        "margin": 0.009459376335144043,
+        "prediction": "UNKNOWN",
+        "generic_top1": "Arla-Natural-Mild-Low-Fat-Yoghurt",
+        "generic_prediction": "UNKNOWN",
+        "decision_source": "generic",
+        "panel_prediction": null,
+        "panel_reason": null,
+        "panel_inliers": null,
+        "panel_color_similarity": null,
+        "panel_color_gap": null
+      },
+      "shipping_label": {
+        "prediction": "UNKNOWN",
+        "reason": "catalogue_hold_or_unstocked",
+        "reads": []
+      },
+      "prediction": "UNKNOWN",
+      "decision_source": "hold"
+    },
+    {
+      "candidate_id": "source-2",
+      "bbox_xywh_px": [
+        235,
+        311,
+        32,
+        29
+      ],
+      "position_m": [
+        0.35466785374118814,
+        -0.18513054534345277,
+        0.11045409682408902
+      ],
+      "uncertainty_m": 0.0020115015273728886,
+      "depth_valid_ratio": 1.0,
+      "source_observation_id": "mixed-standard-obs-0001",
+      "zoom": {
+        "observation_id": "mixed-standard-zoom-0004",
+        "sim_time_s": 0.5,
+        "received_monotonic_ns": 16404642648268,
+        "resolution_px": [
+          480,
+          480
+        ],
+        "calibration_id": "virtual-zoom-command-v1",
+        "K": [
+          [
+            6545.156671436088,
+            0.0,
+            240.0
+          ],
+          [
+            0.0,
+            6545.156671436088,
+            240.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "T_base_camera": [
+          [
+            0.9998020395051983,
+            -0.0029384856448084586,
+            0.01967859505556965,
+            0.33
+          ],
+          [
+            -0.0,
+            -0.9890342244264999,
+            -0.14768650213567838,
+            0.0
+          ],
+          [
+            0.01989677866504615,
+            0.14765726604264007,
+            -0.9888384347220567,
+            1.35
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "zoom_camera": "source-2-camera.png",
+      "zoom_depth": "source-2-depth.npz",
+      "crop": "source-2-face.png",
+      "corners_px": [
+        [
+          69.0,
+          99.0
+        ],
+        [
+          402.0,
+          104.0
+        ],
+        [
+          397.0,
+          373.0
+        ],
+        [
+          65.0,
+          368.0
+        ]
+      ],
+      "corners_base_m": [
+        [
+          0.3220333512823479,
+          -0.15783146958694677,
+          0.11045409682408902
+        ],
+        [
+          0.3856198364512187,
+          -0.1589552279786751,
+          0.11045409682408902
+        ],
+        [
+          0.3848488073260902,
+          -0.21106587597036094,
+          0.11045409682408902
+        ],
+        [
+          0.32106492788882857,
+          -0.20987643606345954,
+          0.11045409682408902
+        ]
+      ],
+      "top_yaw_rad": -0.01767107295661088,
+      "confirmation": {
+        "camera": {
+          "observation_id": "mixed-standard-zoom-0005",
+          "sim_time_s": 0.5,
+          "received_monotonic_ns": 16404741269338,
+          "resolution_px": [
+            480,
+            480
+          ],
+          "calibration_id": "virtual-zoom-command-v1",
+          "K": [
+            [
+              5975.478285274874,
+              0.0,
+              240.0
+            ],
+            [
+              0.0,
+              5975.478285274874,
+              240.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_base_camera": [
+            [
+              0.9998020395051983,
+              -0.0029384856448084586,
+              0.01967859505556965,
+              0.33
+            ],
+            [
+              -0.0,
+              -0.9890342244264999,
+              -0.14768650213567838,
+              0.0
+            ],
+            [
+              0.01989677866504615,
+              0.14765726604264007,
+              -0.9888384347220567,
+              1.35
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "image": "source-2-second-camera.png",
+        "crop": "source-2-second-face.png",
+        "depth": "source-2-second-depth.npz",
+        "corners_px": [
+          [
+            84.0,
+            111.0
+          ],
+          [
+            388.0,
+            116.0
+          ],
+          [
+            383.0,
+            361.0
+          ],
+          [
+            80.0,
+            357.0
+          ]
+        ],
+        "corners_base_m": [
+          [
+            0.32205790751222885,
+            -0.1577741585993833,
+            0.11045409682408902
+          ],
+          [
+            0.3856409382615772,
+            -0.15898961876624323,
+            0.11045409682408902
+          ],
+          [
+            0.38477791285013024,
+            -0.2109751279490266,
+            0.11045409682408902
+          ],
+          [
+            0.3210161083152897,
+            -0.2099063131447006,
+            0.11045409682408902
+          ]
+        ],
+        "top_yaw_rad": -0.01911378132742997
+      },
+      "generic": {
+        "top1": "God-Morgon-Orange-Juice",
+        "support": 0.7855151295661926,
+        "score": 0.8320479989051819,
+        "margin": 0.6942120790481567,
+        "prediction": "God-Morgon-Orange-Juice"
+      },
+      "carton_gate": {
+        "top1": "God-Morgon-Orange-Juice",
+        "support": 0.7855151295661926,
+        "score": 0.8320479989051819,
+        "margin": 0.6942120790481567,
+        "prediction": "UNKNOWN",
+        "generic_top1": "God-Morgon-Orange-Juice",
+        "generic_prediction": "God-Morgon-Orange-Juice",
+        "decision_source": "generic",
+        "panel_prediction": null,
+        "panel_reason": null,
+        "panel_inliers": null,
+        "panel_color_similarity": null,
+        "panel_color_gap": null,
+        "juice_gate_original": "God-Morgon-Orange-Juice",
+        "juice_gate_reason": "no_single_panel",
+        "juice_gate_text": []
+      },
+      "shipping_label": {
+        "prediction": "God-Morgon-Orange-Juice",
+        "reason": "catalogue_and_shipping_label_agree",
+        "reads": [
+          "GOD MORGON ORANGE",
+          "GOD MORGON ORANGE"
+        ]
+      },
+      "prediction": "God-Morgon-Orange-Juice",
+      "decision_source": "catalogue_and_shipping_label_ocr"
+    },
+    {
+      "candidate_id": "source-3",
+      "bbox_xywh_px": [
+        299,
+        305,
+        35,
+        30
+      ],
+      "position_m": [
+        0.4959163815296834,
+        -0.17230400822759173,
+        0.11036582263620809
+      ],
+      "uncertainty_m": 0.0020807698301897855,
+      "depth_valid_ratio": 1.0,
+      "source_observation_id": "mixed-standard-obs-0001",
+      "zoom": {
+        "observation_id": "mixed-standard-zoom-0006",
+        "sim_time_s": 0.5,
+        "received_monotonic_ns": 16404832924551,
+        "resolution_px": [
+          480,
+          480
+        ],
+        "calibration_id": "virtual-zoom-command-v1",
+        "K": [
+          [
+            6545.156671436088,
+            0.0,
+            240.0
+          ],
+          [
+            0.0,
+            6545.156671436088,
+            240.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "T_base_camera": [
+          [
+            0.9911615954274082,
+            -0.018105215594943817,
+            0.13141876927613974,
+            0.33
+          ],
+          [
+            -0.0,
+            -0.9906430648016206,
+            -0.13647826992035034,
+            0.0
+          ],
+          [
+            0.132660060869105,
+            0.1352720197554269,
+            -0.9818873606078717,
+            1.35
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "zoom_camera": "source-3-camera.png",
+      "zoom_depth": "source-3-depth.npz",
+      "crop": "source-3-face.png",
+      "corners_px": [
+        [
+          81.0,
+          92.0
+        ],
+        [
+          409.0,
+          118.0
+        ],
+        [
+          385.0,
+          383.0
+        ],
+        [
+          59.0,
+          360.0
+        ]
+      ],
+      "corners_base_m": [
+        [
+          0.4651699299290719,
+          -0.14310776038985243,
+          0.11036582263620809
+        ],
+        [
+          0.52883594452551,
+          -0.1491287963427558,
+          0.11036582263620809
+        ],
+        [
+          0.5243053971947813,
+          -0.20083494995633214,
+          0.11036582263620809
+        ],
+        [
+          0.46073437722016997,
+          -0.19499830873945925,
+          0.11036582263620809
+        ]
+      ],
+      "top_yaw_rad": -0.09429176911171197,
+      "confirmation": {
+        "camera": {
+          "observation_id": "mixed-standard-zoom-0007",
+          "sim_time_s": 0.5,
+          "received_monotonic_ns": 16404941528558,
+          "resolution_px": [
+            480,
+            480
+          ],
+          "calibration_id": "virtual-zoom-command-v1",
+          "K": [
+            [
+              5975.478285274874,
+              0.0,
+              240.0
+            ],
+            [
+              0.0,
+              5975.478285274874,
+              240.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_base_camera": [
+            [
+              0.9911615954274082,
+              -0.018105215594943817,
+              0.13141876927613974,
+              0.33
+            ],
+            [
+              -0.0,
+              -0.9906430648016206,
+              -0.13647826992035034,
+              0.0
+            ],
+            [
+              0.132660060869105,
+              0.1352720197554269,
+              -0.9818873606078717,
+              1.35
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "image": "source-3-second-camera.png",
+        "crop": "source-3-second-face.png",
+        "depth": "source-3-second-depth.npz",
+        "corners_px": [
+          [
+            95.0,
+            105.0
+          ],
+          [
+            394.0,
+            128.0
+          ],
+          [
+            372.0,
+            371.0
+          ],
+          [
+            74.0,
+            349.0
+          ]
+        ],
+        "corners_base_m": [
+          [
+            0.46520382268183713,
+            -0.14313328010382104,
+            0.11036582263620809
+          ],
+          [
+            0.5287732671527005,
+            -0.1489960834475187,
+            0.11036582263620809
+          ],
+          [
+            0.5242240686147506,
+            -0.2009293055920257,
+            0.11036582263620809
+          ],
+          [
+            0.46057491912406456,
+            -0.19487638743547733,
+            0.11036582263620809
+          ]
+        ],
+        "top_yaw_rad": -0.09196659108128552
+      },
+      "generic": {
+        "top1": "God-Morgon-Red-Grapefruit-Juice",
+        "support": 0.8751778602600098,
+        "score": 0.38036179542541504,
+        "margin": 0.004917025566101074,
+        "prediction": "God-Morgon-Red-Grapefruit-Juice"
+      },
+      "carton_gate": {
+        "top1": "God-Morgon-Red-Grapefruit-Juice",
+        "support": 0.8751778602600098,
+        "score": 0.38036179542541504,
+        "margin": 0.004917025566101074,
+        "prediction": "God-Morgon-Red-Grapefruit-Juice",
+        "generic_top1": "God-Morgon-Red-Grapefruit-Juice",
+        "generic_prediction": "God-Morgon-Red-Grapefruit-Juice",
+        "decision_source": "generic",
+        "panel_prediction": null,
+        "panel_reason": null,
+        "panel_inliers": null,
+        "panel_color_similarity": null,
+        "panel_color_gap": null
+      },
+      "shipping_label": {
+        "prediction": "UNKNOWN",
+        "reason": "catalogue_hold_or_unstocked",
+        "reads": []
+      },
+      "prediction": "UNKNOWN",
+      "decision_source": "hold"
+    }
+  ],
+  "placement_camera": {
+    "verified": false
+  },
+  "overview": {
+    "observation_id": "mixed-standard-obs-0001",
+    "sim_time_s": 0.5,
+    "received_monotonic_ns": 16404398182164,
+    "resolution_px": [
+      480,
+      480
+    ],
+    "calibration_id": "pnp-six-dots-v1",
+    "K": [
+      [
+        579.4112549695428,
+        0.0,
+        240.0
+      ],
+      [
+        0.0,
+        579.4112549695428,
+        240.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_base_camera": [
+      [
+        0.9999998078465409,
+        -9.095242726108623e-05,
+        -0.0006132165502925356,
+        0.3319045747974593
+      ],
+      [
+        -9.103758043729627e-05,
+        -0.9999999862182706,
+        -0.00013883665805359099,
+        -0.0009071051901887369
+      ],
+      [
+        -0.0006132039143103082,
+        0.00013889245712666963,
+        -0.9999998023449028,
+        1.3504559576207849
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "destination": {
+    "observation_id": "mixed-standard-obs-0001",
+    "center_xy_m": [
+      0.3401223411982197,
+      0.1848663426933134
+    ],
+    "inner_size_m": [
+      0.20403332444096478,
+      0.14522079641435598
+    ],
+    "yaw_rad": 0.19990194444704246,
+    "floor_z_m": 0.07242491293891296,
+    "rim_z_m": 0.12842092622437273,
+    "rim_points": 1366,
+    "floor_points": 4297
+  },
+  "stop": {
+    "motion_settled": true,
+    "distance_limited": false,
+    "contact_pairs": [],
+    "valve_retained": false
+  },
+  "evaluation": {
+    "verified": false,
+    "delivered_sku": null,
+    "objects": [
+      {
+        "sku": "God-Morgon-Orange-Juice",
+        "position_m": [
+          0.353493644263241,
+          -0.184707648521293,
+          0.08498658277401176
+        ],
+        "speed_m_s": 2.9477885410420594e-11,
+        "in_bin": false,
+        "fixture_texture": "orange.png"
+      },
+      {
+        "sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+        "position_m": [
+          0.49503522856997045,
+          -0.1723270638102023,
+          0.08498658277401176
+        ],
+        "speed_m_s": 2.947789581876275e-11,
+        "in_bin": false,
+        "fixture_texture": "mixed.png"
+      },
+      {
+        "sku": "Unregistered-Mint-Tea",
+        "position_m": [
+          0.20392143247120204,
+          -0.10846054314673947,
+          0.08498658277401176
+        ],
+        "speed_m_s": 2.947797214659787e-11,
+        "in_bin": false,
+        "fixture_texture": "mint.png"
+      }
+    ],
+    "attached_at_finish": false,
+    "drops": 0,
+    "collisions": 0,
+    "wrong_placements": 0
+  },
+  "frames": [
+    {
+      "stage": "OBSERVE",
+      "sim_time_s": 0.5,
+      "image": "00-observe.jpg"
+    },
+    {
+      "stage": "HELD",
+      "sim_time_s": 0.95,
+      "image": "01-held.jpg"
+    }
+  ],
+  "trace": [
+    {
+      "stage": "OBSERVE",
+      "sim_time_s": 0.5,
+      "tcp_m": [
+        0.19000000000000003,
+        -0.32,
+        0.34
+      ],
+      "pressure_kpa": 0.0,
+      "valve_on": false,
+      "observation_id": "mixed-standard-obs-0001"
+    },
+    {
+      "stage": "HELD",
+      "sim_time_s": 0.95,
+      "tcp_m": [
+        0.19000000000000003,
+        -0.32,
+        0.34
+      ],
+      "pressure_kpa": 0.0,
+      "valve_on": false,
+      "reason": "ORDER_NOT_FOUND"
+    }
+  ],
+  "clip": null,
+  "clip_fps": 6,
+  "clip_frames": 0,
+  "finished_sim_time_s": 0.95,
+  "finished_unix_ns": 1795497934194125488
+}

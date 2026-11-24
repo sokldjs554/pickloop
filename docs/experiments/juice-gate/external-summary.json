@@ -1,0 +1,97 @@
+{
+  "mode": "external",
+  "overall": {
+    "total": 6,
+    "known": 5,
+    "before": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 6,
+      "coverage": 0.0,
+      "unknown_false_accepts": 0
+    },
+    "after": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 6,
+      "coverage": 0.0,
+      "unknown_false_accepts": 0
+    },
+    "wrong_to_hold": 0,
+    "wrong_to_correct": 0,
+    "correct_to_hold": 0,
+    "new_wrong": 0,
+    "routed": 6
+  },
+  "by_cohort": {
+    "retailer studio packshot": {
+      "total": 3,
+      "known": 2,
+      "before": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 3,
+        "coverage": 0.0,
+        "unknown_false_accepts": 0
+      },
+      "after": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 3,
+        "coverage": 0.0,
+        "unknown_false_accepts": 0
+      },
+      "wrong_to_hold": 0,
+      "wrong_to_correct": 0,
+      "correct_to_hold": 0,
+      "new_wrong": 0,
+      "routed": 3
+    },
+    "manufacturer studio packshot": {
+      "total": 1,
+      "known": 1,
+      "before": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 1,
+        "coverage": 0.0,
+        "unknown_false_accepts": 0
+      },
+      "after": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 1,
+        "coverage": 0.0,
+        "unknown_false_accepts": 0
+      },
+      "wrong_to_hold": 0,
+      "wrong_to_correct": 0,
+      "correct_to_hold": 0,
+      "new_wrong": 0,
+      "routed": 1
+    },
+    "contributor photograph of physical carton": {
+      "total": 2,
+      "known": 2,
+      "before": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 2,
+        "coverage": 0.0,
+        "unknown_false_accepts": 0
+      },
+      "after": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 2,
+        "coverage": 0.0,
+        "unknown_false_accepts": 0
+      },
+      "wrong_to_hold": 0,
+      "wrong_to_correct": 0,
+      "correct_to_hold": 0,
+      "new_wrong": 0,
+      "routed": 2
+    }
+  }
+}

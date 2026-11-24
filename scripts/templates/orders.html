@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>주문 상품 피킹 · PickLoop</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="evidence.css">
+  <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+<header class="review-head"><div><a class="name" href="./">PickLoop</a><a href="./#recorded-view">작업 관제</a><a href="evidence.html">직무별 검증</a></div></header>
+<main class="review-main order-study">
+  <h1>주문한 주스 집기</h1>
+  <p class="intro">MuJoCo 카메라로 포장을 읽고, 주문과 일치하는 상품을 골라 상자에 놓는 과정을 재생합니다.</p>
+  <nav class="review-nav" aria-label="검증 항목"><a href="#order-pick">피킹 실행</a><a href="#juice-check">맛 오인식 비교</a><a href="#height-trial">운반 높이 실험</a></nav>
+  <section id="order-pick" aria-labelledby="order-title">
+    <h2 id="order-title">카메라가 선택한 상품</h2>
+    <p>실제 상품 사진을 모의 포장 윗면에 붙이고 맛을 적은 출고 라벨을 더했습니다. 81품목 인식기의 판정과 라벨을 두 번 읽은 결과로 오렌지·혼합주스 주문을 처리합니다. 상자에 놓은 뒤 카메라로 다시 읽고 물리 상태와 대조했습니다.</p>
+    <p><strong>배치 완료 ${completed}건 · 작업 보류 ${held}건</strong></p>
+    $cases
+    <div class="evidence-links"><a href="data/order-pick/index.json">실행 목록 JSON</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/order-pick.md">모형 포장·카메라·재현 방법</a></div>
+  </section>
+  <section id="juice-check" aria-labelledby="juice-title">
+    <h2 id="juice-title">맛을 한 번 더 확인하면</h2>
+    $juice
+    <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/juice-gate.md">사진 출처와 재현 방법</a><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/juice-gate">사진별 판정 원본</a></div>
+  </section>
+  <section id="height-trial" aria-labelledby="height-title">
+    <h2 id="height-title">운반 높이만 바꾼 전후 비교</h2>
+    <p>같은 물리 모델과 초기 배치에서 재시도 규칙 두 가지를 비교했습니다. 기존 규칙은 재계획 재시도마다 0.40 m를 사용하고, 현재 규칙은 직전 실패가 경로 차단일 때 0.40 m, 그 밖에는 0.30 m를 사용합니다.</p>
+    $height
+    <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/current-height.md">Codespaces에서 직접 재현</a><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/current-height">조건별 원본</a><a href="https://github.com/sokldjs554/pickloop/pull/1">지원자가 직접 수정한 PR #1</a></div>
+  </section>
+</main>
+<script>
+  document.querySelectorAll('.order-case').forEach((entry) => {
+    entry.addEventListener('toggle', () => {
+      if (!entry.open) entry.querySelector('video')?.pause();
+    });
+  });
+</script>
+</body>
+</html>

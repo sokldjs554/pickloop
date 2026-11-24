@@ -1,0 +1,51 @@
+{
+  "mode": "historical",
+  "overall": {
+    "total": 19,
+    "known": 19,
+    "before": {
+      "correct": 0,
+      "wrong": 19,
+      "held": 0,
+      "coverage": 1.0,
+      "unknown_false_accepts": 0
+    },
+    "after": {
+      "correct": 7,
+      "wrong": 0,
+      "held": 12,
+      "coverage": 0.3684210526315789,
+      "unknown_false_accepts": 0
+    },
+    "wrong_to_hold": 12,
+    "wrong_to_correct": 7,
+    "correct_to_hold": 0,
+    "new_wrong": 0,
+    "routed": 19
+  },
+  "by_cohort": {
+    "previously inspected official test": {
+      "total": 19,
+      "known": 19,
+      "before": {
+        "correct": 0,
+        "wrong": 19,
+        "held": 0,
+        "coverage": 1.0,
+        "unknown_false_accepts": 0
+      },
+      "after": {
+        "correct": 7,
+        "wrong": 0,
+        "held": 12,
+        "coverage": 0.3684210526315789,
+        "unknown_false_accepts": 0
+      },
+      "wrong_to_hold": 12,
+      "wrong_to_correct": 7,
+      "correct_to_hold": 0,
+      "new_wrong": 0,
+      "routed": 19
+    }
+  }
+}

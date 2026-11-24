@@ -1,0 +1,275 @@
+{
+  "schema_version": 2,
+  "run_id": "suction_once-64000-recovery-890012",
+  "job_id": "height-suction_once-64000-before",
+  "seed": 64000,
+  "fault": "suction_once",
+  "policy": "recovery",
+  "sku": "SKU-RED-A",
+  "status": "COMPLETED",
+  "success": true,
+  "reason": null,
+  "sim_duration_s": 27.459999999998722,
+  "wall_duration_s": 2.31396452700028,
+  "retries": 1,
+  "metrics": {
+    "first_attempt_pick_success": false,
+    "first_attempt_success": false,
+    "attempts": 2,
+    "retries": 1,
+    "wrong_placements": 0,
+    "drops": 0,
+    "collisions": 0,
+    "held": false,
+    "cancelled": false,
+    "sim_duration_s": 27.459999999998722,
+    "wall_duration_s": 2.31396452700028,
+    "recovery_sim_s": 23.654999999998793,
+    "selection_correct": true,
+    "selection_attempted": true,
+    "position_error_m": 0.00116376505025194,
+    "inference_wall_s": [
+      0.024990174000777188,
+      0.022592622000956908
+    ],
+    "verified_by_vision": true,
+    "verified_by_truth": true,
+    "max_joint_velocity": [
+      0.8944498324885959,
+      0.299270330368686,
+      0.2192155918901624,
+      0.8672278264236251
+    ],
+    "max_joint_acceleration": [
+      1.432077010810362,
+      0.5277799870942124,
+      0.4315881077094891,
+      1.3567117879235258
+    ],
+    "timeout": false
+  },
+  "initial_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3999896898845794,
+          -0.1694699800378375,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842717202966e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5141599552520252,
+          -0.2304843878363647,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842715976925e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.22773226490849863,
+          -0.21557687712499085,
+          0.08498655912279951
+        ],
+        "speed_m_s": 4.835842715990667e-07,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "final_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.3807006034553354,
+          0.21938558809464323,
+          0.09698658277545351
+        ],
+        "speed_m_s": 1.1636879379080773e-15,
+        "in_bin": true
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.5141599552520252,
+          -0.2304843878363647,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.3081128173099028e-15,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.22773226490849863,
+          -0.21557687712499085,
+          0.08498658277545351
+        ],
+        "speed_m_s": 1.1220972024450727e-15,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "position_estimates": [
+    {
+      "attempt": 1,
+      "position": [
+        0.3992762123853444,
+        -0.16886675479018906,
+        0.10929271602030965
+      ],
+      "observation_id": "suction_once-64000-recovery-890012-obs-0001"
+    },
+    {
+      "attempt": 2,
+      "position": [
+        0.3992890705105528,
+        -0.16885555515941786,
+        0.10927695485311006
+      ],
+      "observation_id": "suction_once-64000-recovery-890012-obs-0002"
+    }
+  ],
+  "provenance": {
+    "source_sha256": "42ad174eadc44ec75e50b90f8d14ea5d8ad28170dbd0328afe232e4fc6bb680b",
+    "git_commit": "uncommitted",
+    "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "source_files": {
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/bin_perception.py": "cc0153c750e58b18370b3e7d41c8d03ffc47e4a6b21e367b05722c8b52151d7c",
+      "src/pickloop/carton_matcher.py": "9ae3670c1b1a7e46018a201e443b74d8b0e5427e7623ebe101245e6eeb2c3243",
+      "src/pickloop/catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
+      "src/pickloop/catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
+      "src/pickloop/cli.py": "49df09910f1bcd9dec88e3b5af5065794a06ae3cc171cd0f5dc64e595ba0917c",
+      "src/pickloop/conditions.py": "bfc5f0dd765038d678a0ef5ae654322e38b79895121ff5d4710d8c1ea8e2d7b4",
+      "src/pickloop/data/bravo_carton_panels.npz": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c",
+      "src/pickloop/data/grocery_catalogue.npz": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
+      "src/pickloop/device.py": "4eef1950d95eb30ac9341e24ae1fdf6da24190fe9b8947d522a5ca93851762f0",
+      "src/pickloop/dock_charging.py": "d325db555f6477474dcea1aff30c1b7e5bc996a5750a38050a143e1834c8d6c2",
+      "src/pickloop/engine.py": "3b55de93db906037953ca20656fc774b7b3e719a2db9117b606eb221cdcb8486",
+      "src/pickloop/evaluation.py": "9795d4eb80cf4d522a6b0c22ade561a6b9a6501fee2ee1df5c93a24a63f57ded",
+      "src/pickloop/experiment.py": "633df493a630547080a7126b15f80d18da5b49d6ed474102edd3ac9dca660707",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/grocery_catalogue.py": "8d16f482500e981551dcd87703543bd83916ff230e8dbf6244529b9811cb1136",
+      "src/pickloop/grocery_evaluation.py": "cae63fa5aea25c300d84d704eb8b40bff7635125062796dae63095fc289d4b58",
+      "src/pickloop/grocery_transfer.py": "05eebc6d8087c5ccb977b649f80a175e653c936e393e12ee6ec6045ac354b5e6",
+      "src/pickloop/hand_eye.py": "3ac1c1c19d24894ac4ca7efa48e43b9a8a3ba786d2530d503761277ea4cee90c",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/lidar_slam.py": "bbffaa569a6b4efa45efccf89c68bb9b4d04c6f37327561eebcb30e007857795",
+      "src/pickloop/mobile.py": "a95fc8f0e024515b84e3215dfa2266900e560d68f312e524a7f2ce44de4fd402",
+      "src/pickloop/perception.py": "106e13a6862d247278a5cc5d1b79ce84f91bdeecc3c44420848c8ba10357fffb",
+      "src/pickloop/photo_evaluation.py": "ba459a0b4748f93c763249fb984afa18ebfe2c33ba14fcd8dbd7a33fa2b528da",
+      "src/pickloop/product_recognition.py": "eee67878305fc44d2f66cb83794b2a29aaccf703cdd056148b91976020c5479d",
+      "src/pickloop/server.py": "6fbf8f6b18db8453ca34c27feeefd816f0ca16c81423015553cf91227bd634ac",
+      "src/pickloop/simulation.py": "e41f527da6413aadc0e11897ec4ac37adcd52e163de83bcdc67b9127ec79eae7",
+      "src/pickloop/stop_policy.py": "47895057f10ec7cfbd1787854769bd45094c0334544d3dcc0da2e6bc94849746",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/bravo-template-regions.json": "6c740cbcc5261e0cf62cdcebbea76053f02d3087823bd432be6aa35c2e4750c6",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    }
+  },
+  "condition": {
+    "schema": "pickloop-condition-v1",
+    "seed": 64000,
+    "fault": "suction_once",
+    "split": "heldout",
+    "objects": [
+      {
+        "name": "a",
+        "xy_m": [
+          0.39998968987807754,
+          -0.16946998004428837
+        ],
+        "yaw_rad": 0.7904350402351823,
+        "mass_kg": 0.0968833384542886,
+        "friction": 0.6542616837256998
+      },
+      {
+        "name": "b",
+        "xy_m": [
+          0.5141599552515923,
+          -0.23048438783613281
+        ],
+        "yaw_rad": -0.4241624306755363,
+        "mass_kg": 0.09167853216832768,
+        "friction": 0.6954965708880927
+      },
+      {
+        "name": "u",
+        "xy_m": [
+          0.22773226490850038,
+          -0.21557687712519757
+        ],
+        "yaw_rad": -0.458536662484207,
+        "mass_kg": 0.09148546837946099,
+        "friction": 0.6399117192958793
+      }
+    ],
+    "sensor": {
+      "depth_noise_std_m": 0.0003757257783029521,
+      "noise_quantum_s": 0.02,
+      "noise_seed": 1284493515,
+      "persistent_bias_xyz_m": [
+        -0.00033714378901280847,
+        0.0016241483425674574,
+        0.0
+      ],
+      "transient_bias_xyz_m": [
+        0.03174640029701912,
+        0.0,
+        0.0
+      ],
+      "region_xyxy_px": [
+        244,
+        290,
+        302,
+        348
+      ],
+      "release_s": 2.405108664404513,
+      "stale_age_s": 0.9479183162413972
+    },
+    "suction": {
+      "outage_windows_s": [
+        [
+          0.0,
+          5.734217555136271
+        ]
+      ],
+      "permanent_outage": false,
+      "sealed_pressure_kpa": -50.415508338085054,
+      "seal_halfwidth_m": [
+        0.01708372194197438,
+        0.010295016782950523
+      ],
+      "seal_z_tolerance_m": 0.0034323513907499057,
+      "wrench_limit_n": 21.82419842831521
+    },
+    "blocker_top_m": 0.3447224099379109,
+    "communication_window_s": [
+      0.0,
+      7.320989258079523
+    ],
+    "history_basis": "absolute simulator time; fixed condition; no policy, attempt, or observation-count dependence",
+    "condition_id": "heldout-64000-suction_once-d2666365410e"
+  },
+  "condition_id": "heldout-64000-suction_once-d2666365410e",
+  "terminal_policy": null
+}

@@ -1,6 +1,6 @@
 FROM python:3.12-slim-bookworm
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 MUJOCO_GL=egl LIBGL_ALWAYS_SOFTWARE=1 MESA_SHADER_CACHE_DIR=/tmp/mesa
-RUN apt-get update && apt-get install -y --no-install-recommends libegl1 libgl1-mesa-dri libopengl0 g++ ffmpeg fonts-dejavu-core && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends libegl1 libgl1-mesa-dri libopengl0 g++ ffmpeg tesseract-ocr tesseract-ocr-eng fonts-dejavu-core && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY requirements-lock.txt pyproject.toml ./
 RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-lock.txt

@@ -1,0 +1,45 @@
+{
+  "dataset_revision": "fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "labels": [
+    {
+      "texture": "orange.png",
+      "sku": "God-Morgon-Orange-Juice",
+      "source_path": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_001.jpg",
+      "source_sha256": "b0409bbf2025f2c27fd981082f2d2cfbae38b942044003b2c72a53a65b3f49e0",
+      "crop_ltrb": [
+        114,
+        3,
+        347,
+        346
+      ],
+      "source_url": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_001.jpg",
+      "texture_sha256": "e4f27d87b49506d1fbd092a6dad67b7743f7d8642ebb851424582c3c0088f1a1"
+    },
+    {
+      "texture": "mixed.png",
+      "sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+      "source_path": "train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_001.jpg",
+      "source_sha256": "b25e09ed8682580dceba7826d5c52a046c94dc313d68242327adc6b24746b9f4",
+      "crop_ltrb": [
+        0,
+        0,
+        329,
+        348
+      ],
+      "source_url": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_001.jpg",
+      "texture_sha256": "82b5cfd5b5a2e7d760d963d091683c9505db87ae07cc2937ad0cf4d8d497b17a"
+    },
+    {
+      "texture": "orange-obscured.png",
+      "sku": "God-Morgon-Orange-Juice",
+      "source": "orange.png with opaque tape over both flavour legends",
+      "texture_sha256": "00f37e659906c3bb45b3bd5bee3db23b2db221cace80b018611eb7c5685d57f9"
+    },
+    {
+      "texture": "mint.png",
+      "sku": "Unregistered-Mint-Tea",
+      "source": "original illustrated fixture",
+      "texture_sha256": "e53279de294fcef904945eb8e59ab1cddd5ce7e12647d7d01f68e94336cd096c"
+    }
+  ]
+}

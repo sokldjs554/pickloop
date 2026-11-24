@@ -1,0 +1,34 @@
+[
+  {
+    "sim_time": 0.5000000000000003,
+    "state": "PLAN",
+    "attempt": 1,
+    "policy": "recovery",
+    "last_error": null,
+    "height_m": 0.3
+  },
+  {
+    "sim_time": 8.95,
+    "state": "PLAN",
+    "attempt": 2,
+    "policy": "recovery",
+    "last_error": "SEAL_NOT_CONFIRMED",
+    "height_m": 0.3
+  },
+  {
+    "sim_time": 14.485000000000865,
+    "state": "TRANSPORT",
+    "attempt": 2,
+    "policy": "recovery",
+    "last_error": "SEAL_NOT_CONFIRMED",
+    "height_m": 0.3
+  },
+  {
+    "sim_time": 18.940000000000516,
+    "state": "RELEASE",
+    "attempt": 2,
+    "policy": "recovery",
+    "last_error": "SEAL_NOT_CONFIRMED",
+    "height_m": 0.3
+  }
+]

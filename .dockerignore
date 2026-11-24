@@ -2,5 +2,6 @@
 .git
 work
 runs
-web/data
+web/data/*
+!web/data/order-pick/
 __pycache__

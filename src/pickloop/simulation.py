@@ -6,6 +6,7 @@ import time
 import uuid
 from dataclasses import dataclass
 from itertools import product
+from xml.sax.saxutils import quoteattr
 from pathlib import Path
 import cv2
 import mujoco
@@ -56,17 +57,21 @@ class BinFixture:
         return ''.join(pieces) + '</body>'
 
 
-def scene_xml(seed,condition=None,bin_layout=None):
+def scene_xml(seed,condition=None,bin_layout=None,parcel_textures=None):
     rng=np.random.default_rng(seed)
     positions=[(.34+rng.uniform(-.024,.024),-.19+rng.uniform(-.025,.025)),(.49+rng.uniform(-.012,.012),-.16+rng.uniform(-.015,.015)),(.20+rng.uniform(-.015,.015),-.12+rng.uniform(-.012,.012))]
     if condition is not None:
         condition=copy_condition(condition,seed)
         positions=[obj['xy_m'] for obj in condition['objects']]
     textures=[]; materials=[]
+    if parcel_textures is not None and len(parcel_textures) != 3:
+        raise ValueError('The scene requires three parcel material images')
     for name,file,color in [('a','red_a.png','.7 .12 .10 1'),('b','red_b.png','.7 .12 .10 1'),('u','unknown.png','.1 .65 .25 1')]:
-        p=ROOT/'assets'/'textures'/file
+        p=ROOT/'assets'/'textures'/file if parcel_textures is None else Path(parcel_textures[len(materials)]).resolve()
+        if parcel_textures is not None and not p.is_file():
+            raise FileNotFoundError(p)
         if p.exists():
-            textures.append(f'<texture name="tex_{name}" type="2d" file="{p}"/>')
+            textures.append(f'<texture name="tex_{name}" type="2d" file={quoteattr(str(p))}/>')
             materials.append(f'<material name="mat_{name}" texture="tex_{name}" texuniform="false" texrepeat="1 1" reflectance="0" specular="0.1"/>')
         else:
             materials.append(f'<material name="mat_{name}" rgba="{color}"/>')
@@ -98,6 +103,7 @@ def scene_xml(seed,condition=None,bin_layout=None):
   <geom name="table" type="box" pos=".33 0 .03" size=".38 .36 .03" rgba=".25 .30 .34 1"/>
   {fid}
   <camera name="rgbd" pos=".33 0 1.35" xyaxes="1 0 0 0 1 0" fovy="45"/>
+  {'<camera name="inspection" pos=".33 0 1.35" xyaxes="1 0 0 0 1 0" fovy="4.2"/>' if parcel_textures is not None else ''}
   <camera name="scene" pos="1.1 -1.2 .95" xyaxes=".80 .60 0 -.24 .32 .9165" fovy="46"/>
   <geom name="column" type="cylinder" pos="0 0 .26" size=".055 .21" material="metal"/>
   <body name="shoulder" pos="0 0 .50"><joint name="shoulder" type="hinge" axis="0 0 1" range="-2.9 2.9"/>
@@ -135,11 +141,11 @@ def scene_xml(seed,condition=None,bin_layout=None):
 
 
 class Cell:
-    def __init__(self,seed=0,fault='normal',run_id=None,condition=None,bin_layout=None):
+    def __init__(self,seed=0,fault='normal',run_id=None,condition=None,bin_layout=None,parcel_textures=None):
         self.seed=seed; self.fault=fault; self.run_id=run_id or uuid.uuid4().hex[:12]
         self.condition=None if condition is None else copy_condition(condition,seed,fault)
         self.bin_layout = None if bin_layout is None else tuple(bin_layout)
-        self.model=mujoco.MjModel.from_xml_string(scene_xml(seed,self.condition,self.bin_layout)); self.data=mujoco.MjData(self.model)
+        self.model=mujoco.MjModel.from_xml_string(scene_xml(seed,self.condition,self.bin_layout,parcel_textures)); self.data=mujoco.MjData(self.model)
         self.data.qpos[:4]=scara_ik([.19,-.32,.34]); self.data.ctrl[:]=self.data.qpos[:4]
         # The concentric intermediate sleeve travels half as far as the driven spindle.
         self.stage_qpos = self.model.joint('stage_travel').qposadr.item()
@@ -219,6 +225,36 @@ class Cell:
                 if self.fault=='calibration_error':T[:3,3]+=np.asarray(sensor['transient_bias_xyz_m'])
                 if self.fault=='stale_observation':obs_time-=sensor['stale_age_s']
         return Observation(self.run_id,f'{self.run_id}-obs-{self._obs_count:04}',obs_time,time.monotonic_ns(),rgb,depth,self.K.copy(),T,self.calibration_id)
+
+    def inspect_point(self, xyz, fovy=4.2):
+        """Pan a virtual overhead zoom camera toward a base-frame RGB-D measurement."""
+        cam = self.model.camera('inspection')
+        cam.fovy[0] = fovy
+        # This rotation is a camera command derived from the requested point. No
+        # scene bodies or object coordinates enter the inspection observation.
+        pos = cam.pos.copy()
+        look = np.asarray(xyz) - pos
+        look /= np.linalg.norm(look)
+        right = np.cross(look, [0., 1., 0.])
+        right /= np.linalg.norm(right)
+        up = np.cross(right, look)
+        rotation = np.column_stack((right, up, -look))
+        quaternion = np.empty(4)
+        mujoco.mju_mat2Quat(quaternion, rotation.ravel())
+        cam.quat[:] = quaternion
+        mujoco.mj_forward(self.model, self.data)
+        self.renderer.update_scene(self.data, camera='inspection')
+        rgb = self.renderer.render().copy()
+        self.renderer.enable_depth_rendering()
+        depth = self.renderer.render().copy()
+        self.renderer.disable_depth_rendering()
+        transform = np.eye(4)
+        transform[:3, :3] = np.column_stack((right, -up, look))
+        transform[:3, 3] = pos
+        self._obs_count += 1
+        return Observation(self.run_id, f'{self.run_id}-zoom-{self._obs_count:04}', self.sim_time,
+                           time.monotonic_ns(), rgb, depth, camera_matrix(480, 480, fovy), transform,
+                           'virtual-zoom-command-v1')
 
     def render_scene(self):
         self.scene_renderer.update_scene(self.data,camera='scene')
