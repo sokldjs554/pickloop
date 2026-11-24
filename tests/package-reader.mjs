@@ -26,12 +26,14 @@ test('enforces pixel limits before creating a browser bitmap', () => {
   assert.throws(()=>reader.imageDimensions(new Uint8Array([0xff,0xd8,0xff,0xc0,0,1])));
   assert.throws(()=>reader.imageDimensions(new TextEncoder().encode('<svg/>')));
 });
-test('the static registry mirrors only the active Python barcode registry', async () => {
+test('browser registry adds a distinct 250 mL carton to the three order SKUs', async () => {
   const registry = JSON.parse(await readFile(new URL('../web/vendor/package-reader/registry.json',import.meta.url)));
   const source = await readFile(new URL('../src/pickloop/pack_barcode.py',import.meta.url),'utf8');
   const declared = Object.fromEntries([...source.matchAll(/"(\d{13})": "(God-Morgon-[^"]+)"/g)].map(match=>match.slice(1)));
   assert.equal(Object.keys(declared).length,3);
-  assert.deepEqual(registry,declared);
+  assert.deepEqual(registry,{...declared,'6415130089834':'God-Morgon-Orange-Juice-250ml'});
+  assert.equal(reader.describeBarcodes([symbol('6415130089834')],registry).product, 'God-Morgon-Orange-Juice-250ml');
+  assert.equal(reader.describeBarcodes([symbol('6415130089834')],declared).kind,'unregistered');
 });
 test('UPC-A cannot supply a registered EAN-13 with a nonzero country prefix', ()=>{
   assert.equal(reader.describeBarcodes([symbol('7310865074225','UPC-A')],registered).kind, 'empty');
@@ -72,7 +74,7 @@ test('choosing a different file suppresses an older pending read and a large fil
     setAttribute() {}
     removeAttribute() {}
   }
-  const ids = Object.fromEntries(['reader','photo','cancel','status','barcode','text','result','example','credit','submit'].map(id=>[id,new Element()]));
+  const ids = Object.fromEntries(['reader','photo','cancel','status','barcode','text','result','example','credit','confirm','confirm-credit','submit'].map(id=>[id,new Element()]));
   ids.reader.querySelector=()=>ids.submit;
   const previous = Object.fromEntries(['document','window','HTMLCanvasElement','HTMLImageElement','fetch'].map(id=>[id,globalThis[id]]));
   globalThis.document={getElementById:id=>ids[id.replace('package-','')]};
@@ -130,7 +132,7 @@ test('validated image preview uses a disposable local URL and clears on cancel',
     removeAttribute(key) {delete this[key];}
     setAttribute() {}
   }
-  const elements=Object.fromEntries(['reader','photo','cancel','status','barcode','text','result','example','credit','submit','preview'].map(id=>[id,new Element()]));
+  const elements=Object.fromEntries(['reader','photo','cancel','status','barcode','text','result','example','credit','confirm','confirm-credit','submit','preview'].map(id=>[id,new Element()]));
   const names=['document','window','Worker','Image','HTMLImageElement','HTMLCanvasElement'];
   const originals=Object.fromEntries(names.map(key=>[key,globalThis[key]]));
   const bytes=Uint8Array.from([137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,16,0,0,0,12]);

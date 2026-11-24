@@ -81,6 +81,8 @@ def registry_bytes():
     tree = ast.parse((ROOT / 'src/pickloop/pack_barcode.py').read_text())
     registry = next(ast.literal_eval(s.value) for s in tree.body if isinstance(s, ast.Assign)
                     and any(isinstance(t, ast.Name) and t.id == 'REGISTERED_GTINS' for t in s.targets))
+    # The browser demonstration also registers the 250 mL retail carton.
+    registry['6415130089834'] = 'God-Morgon-Orange-Juice-250ml'
     return (json.dumps(registry, indent=2, sort_keys=True) + '\n').encode()
 
 

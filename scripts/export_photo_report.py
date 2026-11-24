@@ -247,7 +247,14 @@ def generate():
     known, unknown, _, after = counts(new_rows)
     score_summary = (f'<p class="score-summary">등록 {known}장 중 {after["correct"]}장 정답 / '
                      f'미등록 {unknown}장 중 {after["false_accept"]}장에 등록 이름 부여</p>')
-    return Template(TEMPLATE.read_text()).substitute(score_summary=score_summary,
+    with (STUDY / "rescan/labels.csv").open() as stream:
+        confirm, = (row for row in csv.DictReader(stream) if row["gtin"] == "6415130089834")
+    if sha256((MEDIA / "orange-250ml-original.jpg").read_bytes()).hexdigest() != confirm["sha256"]:
+        raise ValueError("250 mL example differs from the credited photograph")
+    confirm_credit = " · ".join((external(confirm["uploader_url"], confirm["uploader"]),
+                                 external(confirm["image_url"], "Open Food Facts 원본"),
+                                 external(confirm["licence_url"], "CC BY-SA 3.0")))
+    return Template(TEMPLATE.read_text()).substitute(score_summary=score_summary, confirm_credit=confirm_credit,
         **reader_example(), produce=produce_study(), primary=metrics(new_rows), examples=examples_html(records), strata=views,
         other='<h3>별도로 측정한 사진</h3>' + table(("대상", "기존 → 수정 후"), others),
         details="".join(detail_block(rows, role, readouts) for role, rows in cohorts.items()))
