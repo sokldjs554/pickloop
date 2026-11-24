@@ -1,0 +1,91 @@
+{
+  "cohort": "independent_ordinary_produce_heldout",
+  "started_utc": "2026-11-24T06:53:20.590679+00:00",
+  "deadline_utc": "2026-11-24T07:01:20.590679+00:00",
+  "source": "Open Images test split (2018_04 image metadata/v5 human bbox annotations)",
+  "target_counts": {
+    "Banana": 8,
+    "Cucumber": 8,
+    "Pineapple": 8,
+    "Strawberry": 8,
+    "Artichoke": 4,
+    "Pumpkin": 4
+  },
+  "registry_status": {
+    "Banana": true,
+    "Cucumber": true,
+    "Pineapple": true,
+    "Strawberry": false,
+    "Artichoke": false,
+    "Pumpkin": false
+  },
+  "order": "ascending OpenImages ImageID per class, no model outputs; first eligible unique author/session",
+  "eligibility": "physical raw target; full image uncropped; exactly one selected produce category annotated; target box area>=0.25 image; IsDepiction=0 IsInside=0; min side>=200; no prepared food/preserved/mixed ambiguous category/subtype ambiguity; on-plant raw photos allowed but flagged context",
+  "exclusions": "all prior 16 selected images + all 116 development-validation candidate IDs/raw hashes/decoded pixels; exclude prior selected authors; distinct Flickr author within new cohort",
+  "dedup": "SHA256 source+decoded RGB; perceptual dHash Hamming<=6 rejected for near-duplicate; original Flickr landing URL grouping",
+  "inference": "no model runs; names only registry inspection; opaque PNG full RGB plus blinded id/path/sha256 CSV",
+  "stopping": "fixed deadline; retain every eligible source encountered in deterministic sequence until per-class target; shortfall reported, never fill using prediction scores",
+  "time_limit_amendment": "Original 8-minute deadline exceeded while parsing/downloading/validating 240 candidates. Parent explicitly authorized finishing real eligibility/provenance before freeze rather than using an artificial cutoff. No inference or predictions consulted. Additional 40 sorted strawberry candidates downloaded because first40 yielded only5 eligible raw photos.",
+  "selected_candidate_ranks": {
+    "Banana": [
+      4,
+      5,
+      6,
+      7,
+      9,
+      11,
+      13,
+      14
+    ],
+    "Cucumber": [
+      2,
+      13,
+      17,
+      21,
+      24,
+      31,
+      32,
+      35
+    ],
+    "Pineapple": [
+      2,
+      4,
+      6,
+      7,
+      8,
+      9,
+      15,
+      16
+    ],
+    "Strawberry": [
+      22,
+      28,
+      31,
+      33,
+      40,
+      41,
+      44,
+      45
+    ],
+    "Artichoke": [
+      1,
+      4,
+      6,
+      7
+    ],
+    "Pumpkin": [
+      8,
+      10,
+      22,
+      28
+    ]
+  },
+  "actual_target_counts": {
+    "Banana": 8,
+    "Cucumber": 8,
+    "Pineapple": 8,
+    "Strawberry": 8,
+    "Artichoke": 4,
+    "Pumpkin": 4
+  }
+}

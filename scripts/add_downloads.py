@@ -25,8 +25,9 @@ def main():
     }
     for name, target in archives.items():
         shutil.copy2(args.delivery / name, downloads / target)
-    for name in ("index.html", "app.js", "styles.css", "evidence.html", "evidence.css", "grocery-catalogue.js", "work-scene.js", "work-scene.css", "labels.html", "handoff.partial.html", "orders.html", "orders.css"):
+    for name in ("index.html", "app.js", "styles.css", "evidence.html", "evidence.css", "grocery-catalogue.js", "work-scene.js", "work-scene.css", "labels.html", "handoff.partial.html", "orders.html", "orders.css", "recognition.html", "recognition.css", "recognition.js", "package-reader.js"):
         shutil.copy2(web / name, args.dist / name)
+    shutil.copytree(web / "vendor/package-reader", args.dist / "vendor/package-reader", dirs_exist_ok=True)
     shutil.copytree(web / "media", args.dist / "media", dirs_exist_ok=True)
     (args.dist / "data").mkdir(exist_ok=True)
     for name in ("grocery-catalogue.json", "grocery-previous-photos.json", "featured-run.json"):

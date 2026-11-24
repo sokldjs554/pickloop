@@ -1,0 +1,30 @@
+{
+  "top1": "God-Morgon-Orange-Juice",
+  "support": 0.661911129951477,
+  "score": 0.32765424251556396,
+  "margin": 0.06738030910491943,
+  "prediction": "UNKNOWN",
+  "generic_top1": "God-Morgon-Orange-Juice",
+  "generic_prediction": "UNKNOWN",
+  "decision_source": "generic",
+  "panel_prediction": null,
+  "panel_reason": null,
+  "panel_inliers": null,
+  "panel_color_similarity": null,
+  "panel_color_gap": null,
+  "baseline_prediction": "UNKNOWN",
+  "recognition_source": "barcode",
+  "recognition_reason": "unregistered_gtin",
+  "recognition_text": [],
+  "recognition_gtins": [
+    "6415130089834"
+  ],
+  "photo_name": null,
+  "printed_fruit_words": [],
+  "confirmed_order_sku": null,
+  "confirmed_gtin": null,
+  "order_check_reason": "unregistered_gtin",
+  "order_check_gtins": [
+    "6415130089834"
+  ]
+}

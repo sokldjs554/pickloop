@@ -1,0 +1,9 @@
+{
+  "source": "Open Food Facts original native image referenced by front_ko; if unavailable, use front_en. Retain all selected packages, including the cases with no visible Korean word. Report presence of the preselected word in OCR output; this is a small functional check, not catalogue accuracy. No GTIN or truth enters OCR.",
+  "selection_date_utc": "2026-11-24T07:04:48.421092+00:00",
+  "targets": {
+    "8801043014809": "라면",
+    "8801073110502": "불닭볶음면",
+    "8801062160709": "초코파이"
+  }
+}

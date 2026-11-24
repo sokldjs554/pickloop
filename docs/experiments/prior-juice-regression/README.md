@@ -15,7 +15,9 @@ Grocery Store Dataset 공식 test 분할에서 실제 품목이 God Morgon 사�
 새 사진 평가의 공통 모델 동결 명세와 별도 대조했다. 이 재평가에 필요한 소스·모델 파일 12개의 SHA-256과 Tesseract 실행 파일·영어 OCR 데이터의 SHA-256이 모두 일치했다. [공통 모델 명세](../new-photos/model-freeze.json)
 
 ```bash
-python scripts/audit_prior_juice.py \
+git worktree add --detach ../pickloop-photo-freeze 1d39baa22fb65c0a9f58fea23e3b5c6a104a722c
+cd ../pickloop-photo-freeze
+PYTHONPATH=src python scripts/audit_prior_juice.py \
   --archive /path/to/GroceryStoreDataset-fc80ba90.zip \
   --freeze docs/experiments/prior-juice-regression/model-freeze.json \
   --out /tmp/reproduced-prior-juice --workers 2

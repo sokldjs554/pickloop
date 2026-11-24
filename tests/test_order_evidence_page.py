@@ -42,3 +42,13 @@ def test_order_page_and_downloads_match_the_original_run_evidence():
             if uri.startswith("data/order-pick/"):
                 source = ROOT / "runs" / uri.removeprefix("data/")
                 assert (WEB / uri).read_bytes() == source.read_bytes(), uri
+
+
+def test_fresh_photo_report_is_reachable_and_identifies_the_evidence():
+    for path in ("index.html", "evidence.html", "orders.html"):
+        links = Elements((WEB / path).read_text()).elements
+        assert any(tag == "a" and attrs.get("href") == "recognition.html" for tag, attrs in links), path
+    page = Elements((WEB / "recognition.html").read_text()).elements
+    ids = {attrs.get("id") for tag, attrs in page if tag == "section"}
+    assert {"new-photos", "photo-results", "try-photo"} <= ids
+    assert any(tag == "a" and "experiments/new-photos" in attrs.get("href", "") for tag, attrs in page)

@@ -4,7 +4,7 @@
 
 PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU 물리 시뮬레이션에서 RGB-D 관측 → 학습한 상품 임베딩 → 3D 상면 추정 → SCARA 계획·구동 → Modbus 흡착 → 운반·해제 → 영상과 별도 정답으로 배치 확인을 실행한다. 기존 ReachBench의 실제 pick/place 구현을 조사한 뒤, 품목 구분·실패 복구·장치 통신·운영 증거를 신규 범위로 구현했다.
 
-[주문 상품 선택부터 배치·보류까지](https://pickloop-robot-ops.ykh13571.chatgpt.site/orders.html) · [주스 오인식 비교](docs/juice-gate.md) · [최신 물리 모델에서 운반 높이 직접 비교하기](docs/current-height.md)
+[새 실물 사진 식별 · 등록 상품 정답과 미등록 오수락](https://pickloop-robot-ops.ykh13571.chatgpt.site/recognition) · [주문 상품 선택부터 배치·보류까지](https://pickloop-robot-ops.ykh13571.chatgpt.site/orders.html) · [주스 오인식 비교](docs/juice-gate.md) · [최신 물리 모델에서 운반 높이 직접 비교하기](docs/current-height.md)
 
 ## 로봇 피킹 작업 장면
 

@@ -1,0 +1,80 @@
+{
+  "scope": "Pre-existing development and stress images. No fresh holdout.",
+  "groups": {
+    "official_neighbour_stress": {
+      "total": 20,
+      "known": 20,
+      "outside": 0,
+      "policies": {
+        "before": {
+          "correct_named": 17,
+          "wrong_named": 0,
+          "target_held": 3,
+          "outside_held": 0,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 17,
+          "wrong_named": 0,
+          "target_held": 3,
+          "outside_held": 0,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 0,
+      "new_wrong": 0,
+      "renamed": 0,
+      "raw_imagenet_single_view_target": 1
+    },
+    "prior_juice_stress": {
+      "total": 40,
+      "known": 12,
+      "outside": 28,
+      "policies": {
+        "before": {
+          "correct_named": 7,
+          "wrong_named": 6,
+          "target_held": 5,
+          "outside_held": 22,
+          "outside_false_named": 6
+        },
+        "after": {
+          "correct_named": 7,
+          "wrong_named": 6,
+          "target_held": 5,
+          "outside_held": 22,
+          "outside_false_named": 6
+        }
+      },
+      "newly_correct": 0,
+      "new_wrong": 0,
+      "renamed": 0,
+      "raw_imagenet_single_view_target": 0
+    },
+    "prior_produce": {
+      "total": 16,
+      "known": 12,
+      "outside": 4,
+      "policies": {
+        "before": {
+          "correct_named": 6,
+          "wrong_named": 0,
+          "target_held": 6,
+          "outside_held": 4,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 10,
+          "wrong_named": 0,
+          "target_held": 2,
+          "outside_held": 4,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 4,
+      "new_wrong": 0,
+      "renamed": 4,
+      "raw_imagenet_single_view_target": 12
+    }
+  }
+}
