@@ -1,0 +1,34 @@
+{
+  "cohort": "exploratory_produce_control_only",
+  "preselection": "2026-11-24 UTC before image fetching or model evaluation",
+  "known": [
+    "Banana",
+    "Cucumber",
+    "Pineapple"
+  ],
+  "unknown": [
+    "Broccoli",
+    "Strawberry"
+  ],
+  "target_per_class": 4,
+  "source": "Open Images validation official human box annotations + Flickr attribution metadata",
+  "order": "ascending Open Images ImageID within each class",
+  "eligibility": "human box Confidence=1, IsDepiction=0, IsInside=0; at least one target box area>=0.08; downloaded decodable full image min side>=200; visually physical uncooked identifiable produce, no montage/render/illustration or subtype ambiguity; reject mixed multiple catalogue categories where primary single-class label is ambiguous",
+  "dedup": "raw SHA256 then decoded-pixel SHA256 and perceptual dHash; Hamming<=6 triggers manual near-duplicate review; one image per Flickr AuthorProfileURL per class; no selection based on inference (no model access)",
+  "inference_input": "decoded original full pixels lossless PNG, stripped metadata, randomized opaque filename; no crop or edit; retain source bytes separately",
+  "stopping": "first four eligible images per class; if fewer after first 30 IDs, reduce target to three each and report",
+  "amendment": "Before pixels fetched: Cauliflower absent from official boxable classes; replace with Broccoli, which is also absent from registered catalogue.",
+  "final_cohort": {
+    "known_classes": [
+      "Banana",
+      "Cucumber",
+      "Pineapple"
+    ],
+    "unregistered_classes": [
+      "Strawberry"
+    ],
+    "per_class": 4,
+    "total": 16
+  },
+  "shortage_note": "Broccoli excluded as a whole class before inference: only 2/19 source candidates meet raw/unambiguous eligibility. Four Strawberry available. Registered Cucumber required 30 candidate ranks due to raw/cooked and zucchini label noise."
+}

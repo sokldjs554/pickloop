@@ -1,0 +1,583 @@
+[
+  {
+    "class": "Banana",
+    "rank": 1,
+    "imageid": "27d4b3f273ee822d",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Banana",
+    "rank": 2,
+    "imageid": "356b1b9ddd7e3b22",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Banana",
+    "rank": 3,
+    "imageid": "3b86a77cb70f180d",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Banana",
+    "rank": 4,
+    "imageid": "53737b934851332b",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 1,
+    "imageid": "004a9ec75eca5910",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 2,
+    "imageid": "05264f0b15ef6573",
+    "eligible_selected": false,
+    "reason": "zucchini/summer-squash ambiguity"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 3,
+    "imageid": "05efa5912c4b0d53",
+    "eligible_selected": false,
+    "reason": "preserved pickles"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 4,
+    "imageid": "07e6ca03c01ebd0f",
+    "eligible_selected": false,
+    "reason": "preserved pickles"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 5,
+    "imageid": "10b09438620fd5b0",
+    "eligible_selected": false,
+    "reason": "zucchini"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 6,
+    "imageid": "1166b9acbbb80436",
+    "eligible_selected": false,
+    "reason": "mixed prepared dish"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 7,
+    "imageid": "164800c3e0049465",
+    "eligible_selected": false,
+    "reason": "mixed prepared meal"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 8,
+    "imageid": "18fc2c17549db0b3",
+    "eligible_selected": false,
+    "reason": "zucchini"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 9,
+    "imageid": "21c4ea545cc662f1",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 10,
+    "imageid": "3441aa8c50df6992",
+    "eligible_selected": false,
+    "reason": "mixed prepared dish"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 11,
+    "imageid": "3675c866682c18f6",
+    "eligible_selected": false,
+    "reason": "mixed prepared salad"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 12,
+    "imageid": "3873e5141344bdea",
+    "eligible_selected": false,
+    "reason": "prepared courgettes"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 13,
+    "imageid": "3c0ce8938aa926a4",
+    "eligible_selected": false,
+    "reason": "jarred/pickled ambiguous preservation"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 14,
+    "imageid": "3d0d706eb31e025b",
+    "eligible_selected": false,
+    "reason": "squash not confidently cucumber"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 15,
+    "imageid": "486d21c5a6df0224",
+    "eligible_selected": false,
+    "reason": "mixed prepared meal"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 16,
+    "imageid": "4d239fcf45c54085",
+    "eligible_selected": false,
+    "reason": "mixed prepared salad"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 17,
+    "imageid": "4d5ece82dead5c1a",
+    "eligible_selected": false,
+    "reason": "zucchini"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 18,
+    "imageid": "4dbe0d526f7f9bf0",
+    "eligible_selected": false,
+    "reason": "mixed produce including tomato"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 19,
+    "imageid": "592274add9d90a9f",
+    "eligible_selected": false,
+    "reason": "preserved"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 20,
+    "imageid": "617d55931556e852",
+    "eligible_selected": false,
+    "reason": "mixed squash/cucumber ambiguity"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 21,
+    "imageid": "66b34879b1e95bac",
+    "eligible_selected": false,
+    "reason": "zucchini"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 22,
+    "imageid": "68feb83ad84c7c4d",
+    "eligible_selected": false,
+    "reason": "preserved"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 23,
+    "imageid": "6f333c32b47d6172",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 24,
+    "imageid": "715c45790f79b5f8",
+    "eligible_selected": false,
+    "reason": "preserved"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 25,
+    "imageid": "7165a3fc38272a39",
+    "eligible_selected": false,
+    "reason": "preserved"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 26,
+    "imageid": "758d529a0b5f5f38",
+    "eligible_selected": false,
+    "reason": "preserved"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 27,
+    "imageid": "7b1eec52a7a1797b",
+    "eligible_selected": false,
+    "reason": "cut squash/cucumber ambiguity"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 28,
+    "imageid": "819cd5c367e55d96",
+    "eligible_selected": false,
+    "reason": "preserved"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 29,
+    "imageid": "84018eb0d8299b47",
+    "eligible_selected": false,
+    "reason": "prepared salad"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 30,
+    "imageid": "8618d12bef849fce",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 1,
+    "imageid": "02aeb6528711637a",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 2,
+    "imageid": "072b81ef8ad73bc5",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 3,
+    "imageid": "0d24b635e58e9dc0",
+    "eligible_selected": false,
+    "reason": "whole fruit plus prominently displayed drink product; mixed target"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 4,
+    "imageid": "1d1db55fb0734606",
+    "eligible_selected": false,
+    "reason": "mixed melon/fruit display"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 5,
+    "imageid": "2aee86498d2bb628",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 6,
+    "imageid": "3be92d63c367fbac",
+    "eligible_selected": false,
+    "reason": "prepared ham dish"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 7,
+    "imageid": "3c47349cca9f3fb2",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 1,
+    "imageid": "05638e7a217750c5",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 2,
+    "imageid": "0651508b388d5ff9",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 3,
+    "imageid": "0ab050b51e78acdb",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 4,
+    "imageid": "0f1dfcdc9899d3a8",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 5,
+    "imageid": "0f65b1edbacf6563",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 6,
+    "imageid": "17a07e6f32684598",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 7,
+    "imageid": "1d9f5af27ca2bb57",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 8,
+    "imageid": "1e8a39add490c98c",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 9,
+    "imageid": "204dd8c11edfa2dd",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 10,
+    "imageid": "26204a3f7590cd5b",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 11,
+    "imageid": "27dcd544fbd8fbc2",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 12,
+    "imageid": "2f3ca39a2d05d4b2",
+    "eligible_selected": false,
+    "reason": "raspberry label error"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 13,
+    "imageid": "559f869547b80d0e",
+    "eligible_selected": false,
+    "reason": "mixed cheese/fruit"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 14,
+    "imageid": "5bedf6beab1a83e1",
+    "eligible_selected": false,
+    "reason": "mixed salad"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 15,
+    "imageid": "69e7c478e24cc543",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 16,
+    "imageid": "6bcaeb33815e11d5",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 17,
+    "imageid": "728a1f4efcfb74e0",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 18,
+    "imageid": "7562a43f192ef66c",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 19,
+    "imageid": "78db46088002daa2",
+    "eligible_selected": false,
+    "reason": "prepared meal"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 20,
+    "imageid": "7bee5757d71ab859",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 21,
+    "imageid": "7dd7c50e02620f60",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 22,
+    "imageid": "84af10bd3659e63e",
+    "eligible_selected": false,
+    "reason": "prepared dessert/meal rather than ordinary raw produce"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 23,
+    "imageid": "884acc36cfcc7034",
+    "eligible_selected": true,
+    "reason": "physical raw produce; unambiguous class"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 1,
+    "imageid": "04e45a329032c784",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 2,
+    "imageid": "09799439aacbb806",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 3,
+    "imageid": "198ad762fa342e38",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 4,
+    "imageid": "1fb3ba5860c47a97",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 5,
+    "imageid": "204018b7889eb826",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 6,
+    "imageid": "2a64768abd5a9c65",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 7,
+    "imageid": "3802c7501243b4a9",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 8,
+    "imageid": "416fbffd3f0c8726",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 9,
+    "imageid": "525f32c72e3ecebc",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 10,
+    "imageid": "57040d8500039689",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 11,
+    "imageid": "59aeea2e6faef44f",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 12,
+    "imageid": "77683772e1c3b3af",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 13,
+    "imageid": "ae6ca103ccb16327",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 14,
+    "imageid": "afb1863bd83788e8",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 15,
+    "imageid": "b6931dd086a6b6ea",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 16,
+    "imageid": "c19ff6aa8fb8427d",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 17,
+    "imageid": "d1d61f08ef8a2186",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 18,
+    "imageid": "dc03f95d4181a134",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  },
+  {
+    "class": "Broccoli",
+    "rank": 19,
+    "imageid": "f60a6c3b0360d3a3",
+    "eligible_selected": false,
+    "reason": "class dropped wholesale: only two eligible raw standard broccoli candidates (ranks 2,3), remaining cooked/mixed or Romanesco/cauliflower subtype ambiguity; no inference used"
+  }
+]

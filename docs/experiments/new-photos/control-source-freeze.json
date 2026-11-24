@@ -1,0 +1,15 @@
+{
+  "frozen_utc": "2026-11-24T06:40:46.888410+00:00",
+  "inference_performed": false,
+  "model_access": "None; only catalogue name array was inspected for registration mapping",
+  "cohort": "exploratory ordinary-produce control, separate from juice primary",
+  "count": 16,
+  "source_groups": 16,
+  "raw_sha_unique": 16,
+  "pixel_sha_unique": 16,
+  "dhash_hamming_min": 22,
+  "blind_sha256": "0240e1b440380c68cf2e5c495096cea32b2820ce30a962241f04b4c5bbe8fbd4",
+  "labels_sha256": "93acdba1b4f5ca740dc9c2bdda370ec53f722c0bd4ee29ccc7ad92eb7889b3fb",
+  "selection_plan_sha256": "0becdcb87244eecad1eecbfa20da45c5a5cfb76005ffe3f4b43c9881e5759f59",
+  "license_basis": "Each official Open Images metadata row supplies CC BY 2.0 and Flickr author/landing URL; not a claim that source owners were re-contacted or current Flickr licensing independently re-audited."
+}
