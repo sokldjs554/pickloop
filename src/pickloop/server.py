@@ -17,6 +17,7 @@ from pydantic import BaseModel, Field
 from .engine import run_job,FAULTS
 from .simulation import ROOT
 from .journal import JobStore
+from .photo_upload import add_photo_route
 
 class JobRequest(BaseModel):
     seed:int=Field(default=7,ge=0,le=2**31-1,strict=True)
@@ -49,8 +50,9 @@ def create_app(run_dir=None):
             if parsed.netloc!=request.headers.get('host'):
                 return JSONResponse({'detail':'Cross-origin writes are disabled'},status_code=403)
         return await call_next(request)
+    add_photo_route(app)
     @app.get('/api/health')
-    def health():return {'mode':'live','simulation':'MuJoCo CPU','hardware_connected':False,'capacity':1,'faults':FAULTS}
+    def health():return {'mode':'live','simulation':'MuJoCo CPU','hardware_connected':False,'photo_recognition':True,'capacity':1,'faults':FAULTS}
     def progress(job_id,snapshot):
         with lock:jobs[job_id]=json.loads(json.dumps(snapshot))
     def worker(job_id,config):
