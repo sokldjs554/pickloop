@@ -244,7 +244,10 @@ def generate():
         if unknown:
             outcomes.append(f"미등록 {unknown}장 중 오수락 {before['false_accept']} → {after['false_accept']}장")
         others.append((caption, " · ".join(outcomes)))
-    return Template(TEMPLATE.read_text()).substitute(
+    known, unknown, _, after = counts(new_rows)
+    score_summary = (f'<p class="score-summary">등록 {known}장 중 {after["correct"]}장 정답 / '
+                     f'미등록 {unknown}장 중 {after["false_accept"]}장에 등록 이름 부여</p>')
+    return Template(TEMPLATE.read_text()).substitute(score_summary=score_summary,
         **reader_example(), produce=produce_study(), primary=metrics(new_rows), examples=examples_html(records), strata=views,
         other='<h3>별도로 측정한 사진</h3>' + table(("대상", "기존 → 수정 후"), others),
         details="".join(detail_block(rows, role, readouts) for role, rows in cohorts.items()))

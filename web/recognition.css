@@ -47,9 +47,17 @@
 .photo-review .report-section { padding: 0; }
 .photo-review .report-panel { border-bottom: 0; }
 .report-panel > summary { padding: 1.1rem .2rem; }
-.report-panel > summary h2 { display: inline; font-size: clamp(1.05rem, 2.3vw, 1.3rem); }
+.report-panel > summary :is(h2, h3) { display: inline; font-size: clamp(1.05rem, 2.3vw, 1.3rem); }
 .report-panel[open] { padding-bottom: 1.25rem; }
 @media (max-width: 650px) {
   .package-reading { grid-template-columns: minmax(0, 1fr); grid-template-areas: "transcript" "image"; }
   #package-preview { max-height: 12rem; }
 }
+
+#package-reader .reader-actions { flex-basis: 100%; margin-bottom: .5rem; }
+#package-reader button[type="submit"] { background: #1b2c30; color: #d8e9e6; border: 1px solid #557e78; }
+#package-reader .reader-actions button:first-child { background: #67ddc8; color: #122421; }
+.photo-review .separate-evaluation { margin: 1.5rem 0 .75rem; }
+.photo-review .score-summary { font-weight: 650; }
+.pick-link { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; }
+.pick-link span { color: #bdcbd1; font-size: .94rem; }

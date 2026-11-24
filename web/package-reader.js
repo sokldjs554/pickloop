@@ -78,7 +78,7 @@ const productLabels = {
 function barcodeMessage(result) {
   const digits = result.codes.join(' · ');
   switch (result.kind) {
-    case 'registered': return '바코드 등록 일치 · ' + (productLabels[result.product] || result.product) + ' · ' + digits;
+    case 'registered': return '상품 확정 · ' + (productLabels[result.product] || result.product) + ' · 등록 바코드 ' + digits;
     case 'unregistered': return '상품 확정 보류 · 미등록 바코드 ' + digits;
     case 'multiple': return '상품 확정 보류 · 서로 다른 바코드가 여러 개 보입니다. ' + digits;
     case 'unchecked': return '상품 확정 보류 · 등록 목록을 불러오지 못했습니다. 읽은 바코드 ' + digits;

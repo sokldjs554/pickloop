@@ -52,3 +52,13 @@ def test_fresh_photo_report_is_reachable_and_identifies_the_evidence():
     ids = {attrs.get("id") for tag, attrs in page if tag == "section"}
     assert {"new-photos", "photo-results", "try-photo"} <= ids
     assert any(tag == "a" and "experiments/new-photos" in attrs.get("href", "") for tag, attrs in page)
+
+
+def test_browser_product_readout_links_to_separate_picking_and_defers_study_tables():
+    html = (WEB / "recognition.html").read_text()
+    page = Elements(html).elements
+    assert ('a', {'href': 'orders.html#order-pick'}) in page
+    assert 'id="order-pick"' in (WEB / 'orders.html').read_text()
+    assert html.index('id="package-result" hidden') < html.index('href="orders.html#order-pick"') < html.index('id="package-text"')
+    summary = html.index('등록 6장 중 1장 정답 / 미등록 27장 중 6장에 등록 이름 부여')
+    assert html.index('id="new-photos"') < summary < html.index('<details class="score-details">') < html.index('<table', summary)
