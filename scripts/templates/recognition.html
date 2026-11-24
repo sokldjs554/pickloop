@@ -14,61 +14,81 @@
 <header class="review-head"><div><a class="name" href="./">PickLoop</a><a href="evidence.html#photos">81품목 카탈로그</a><a href="orders.html">주문 피킹</a></div></header>
 <main class="review-main photo-review">
   <h1>처음 보는 사진에서 상품명 읽기</h1>
-  <nav class="review-nav" aria-label="사진 인식"><a href="#read-package">내 포장 사진 읽기</a><a href="#new-photos">주스 상품명</a><a href="#produce">과일·채소 인식</a><a href="#photo-results">사진별 비교</a><a href="#try-photo">전체 판별기 실행</a></nav>
+  <nav class="review-nav" aria-label="사진 인식"><a href="#read-package">내 포장 사진 읽기</a><a href="#new-photos">주스 평가</a><a href="#produce">과일·채소 평가</a><a href="#photo-results">사진별 비교</a><a href="#try-photo">전체 판별기 실행</a></nav>
   <section id="read-package">
     <h2>내 사진의 글자와 바코드 읽기</h2>
     <p>포장 한 개가 보이는 사진을 고르세요. 기기의 브라우저에서 글자와 상품 바코드를 읽습니다. 등록된 주스 3종의 코드와 일치하면 상품명을 표시합니다.</p>
     <form id="package-reader">
       <label for="package-photo">포장 사진 · JPEG, PNG, WebP · 최대 15 MiB</label>
       <input id="package-photo" type="file" accept="image/jpeg,image/png,image/webp" required>
-      <button type="submit">사진 읽기</button><button id="package-cancel" type="button" hidden>취소</button>
+      <div class="reader-actions">
+        <button type="submit">사진 읽기</button>
+        <button id="package-example" type="button" data-src="$example_src">예시 사진으로 실행</button>
+        <button id="package-cancel" type="button" hidden>취소</button>
+      </div>
     </form>
+    <h3 id="package-barcode" aria-live="polite"></h3>
     <p id="package-status" role="status" aria-live="polite"></p>
-    <div class="package-reading"><img id="package-preview" alt="선택한 포장 사진" hidden><div><p id="package-barcode"></p><pre id="package-text"></pre></div></div>
+    <div id="package-result" hidden>
+      <div class="package-reading">
+        <div class="package-transcript"><h4>포장에서 읽은 글자</h4><pre id="package-text"></pre></div>
+        <figure><img id="package-preview" alt="판독에 사용한 포장 사진" hidden>
+          <figcaption id="package-credit" hidden>예시 · 사과 주스 뒷면<br>$example_credit</figcaption>
+        </figure>
+      </div>
+    </div>
     <details><summary>어떤 글자를 읽기 어려웠나</summary><p>실제 신라면 포장 사진에서 작은 영문 글자 일부를 읽었지만 큰 한글 ‘라면’은 놓쳤습니다. 불닭볶음면처럼 이름이 잘리거나 포장이 접힌 사진도 원문을 확인해 주세요. <a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/new-photos/korean-packages">사진 3장의 출처와 판독 원문</a></p></details>
   </section>
-  <section id="new-photos">
-    <h2>등록한 주스를 정확히 맞혔나</h2>
-    $primary
-    <p>등록 제품을 맞힌 한 장은 제조사 사진이었습니다. 일반 앞면 1장과 뒷면 4장은 모두 보류했습니다. 등록된 6장 중 실제 맛과 맞는 과일 단어는 4장에서 읽혔습니다. 같은 맛의 다른 규격에 상품명을 붙인 6장은 모두 포장 글자만으로 판정한 경우입니다.</p>
-    <p>같은 사진에서 등록 바코드까지 요구하면 33장 모두 규격 확정을 보류합니다. 등록 제품 뒷면에 실제 바코드가 보이는 사진은 확보하지 못했습니다.</p>
-    $examples
-    $strata
-    $other
+  <section id="new-photos" class="report-section">
+    <details class="report-panel">
+      <summary><h2>별도 상품명 판별기 평가 · 새 주스 사진 33장</h2></summary>
+      $primary
+      <p>등록 제품을 맞힌 한 장은 제조사 사진이었습니다. 일반 앞면 1장과 뒷면 4장은 모두 보류했습니다. 등록된 6장 중 실제 맛과 맞는 과일 단어는 4장에서 읽혔습니다. 같은 맛의 다른 규격에 상품명을 붙인 6장은 모두 포장 글자만으로 판정한 경우입니다.</p>
+      <p>같은 사진에서 등록 바코드까지 요구하면 33장 모두 규격 확정을 보류합니다. 등록 제품 뒷면에 실제 바코드가 보이는 사진은 확보하지 못했습니다.</p>
+      $examples
+      $strata
+      $other
+    </details>
   </section>
-  <section id="produce">
-    <h2>처음 보는 과일·채소 사진</h2>
-    $produce
-    <p>기존 판별기가 보류한 사진에 한해, 전체 사진과 중앙 부분에서 두 번째 모델이 같은 품목을 지목하는지 확인했습니다. Codespaces에서 <code>pickloop recognize "photo.jpg" --produce</code>로 실행할 수 있습니다.</p>
-    <a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/produce-rescue">사진별 출처와 두 모델의 원문 판정</a>
+  <section id="produce" class="report-section">
+    <details class="report-panel">
+      <summary><h2>별도 농산물 판별기 평가 · 새 과일·채소 사진 40장</h2></summary>
+      $produce
+      <p>기존 판별기가 보류한 사진에 한해, 전체 사진과 중앙 부분에서 두 번째 모델이 같은 품목을 지목하는지 확인했습니다. Codespaces에서 <code>pickloop recognize "photo.jpg" --produce</code>로 실행할 수 있습니다.</p>
+      <a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/produce-rescue">사진별 출처와 두 모델의 원문 판정</a>
+    </details>
   </section>
-  <section id="photo-results">
-    <h2>사진별 정답과 판정</h2>
-    <p>각 행에서 원본 사진과 정답의 출처를 열 수 있습니다. ‘보류’는 모델이 상품명을 확정하지 못한 경우입니다.</p>
-    $details
-    <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/new-photos">원본 판정·중복 검사·평가 조건</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/new-photo-recognition.md">판정 방법과 재현</a></div>
+  <section id="photo-results" class="report-section">
+    <details class="report-panel">
+      <summary><h2>상품명 판별기 · 사진별 정답과 판정</h2></summary>
+      <p>각 행에서 원본 사진과 정답의 출처를 열 수 있습니다. ‘보류’는 모델이 상품명을 확정하지 못한 경우입니다.</p>
+      $details
+      <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/new-photos">원본 판정·중복 검사·평가 조건</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/new-photo-recognition.md">판정 방법과 재현</a></div>
+    </details>
   </section>
-  <section id="try-photo">
-    <h2>Codespaces에서 81품목 판별기 실행하기</h2>
-    <form id="photo-upload" hidden>
-      <label for="photo-file">상품 한 개가 보이는 JPEG, PNG 또는 WebP 사진</label>
-      <input type="file" id="photo-file" name="image" accept="image/jpeg,image/png,image/webp" required>
-      <label><input type="checkbox" name="produce"> 보류한 사진에서 바나나·오이·파인애플 추가 확인</label>
-      <button name="run" type="submit">이 사진 판별하기</button>
-    </form>
-    <p id="photo-status" role="status" aria-live="polite"></p>
-    <dl id="photo-answer" class="photo-answer" hidden>
-      <dt>상품명 후보</dt><dd id="photo-name"></dd><dt>포장에서 읽힌 과일 단어</dt><dd id="photo-words"></dd>
-      <dt>주문 규격 확인</dt><dd id="photo-confirmed"></dd><dt>사진에서 읽은 상품 코드</dt><dd id="photo-gtin"></dd>
-    </dl>
-    <div id="photo-local"><p>내 사진을 판별하려면 프로젝트 Codespaces에서 아래 명령을 실행한 뒤 포트 8000의 <code>/recognition.html#try-photo</code>를 여세요. 사진 선택 창에서 실행할 수 있습니다.</p>
-    <pre><code>pickloop serve --host 0.0.0.0 --port 8000</code></pre></div>
-    <p>터미널에서도 판별할 수 있습니다. 프로젝트에 사진을 올리고 아래 명령을 실행하세요. <code>photo.jpg</code>를 올린 파일명으로 바꾸면 됩니다.</p>
-    <pre><code>pickloop recognize "photo.jpg"</code></pre>
-    <p><code>photo_name</code>은 카탈로그 상품명 후보입니다. <code>printed_fruit_words</code>에는 포장에서 반복해 읽힌 과일 단어가 나옵니다. <code>confirmed_order_sku</code>는 사진에서 등록 바코드를 읽고 포장 표기와 충돌이 없을 때만 채워집니다.</p>
-    <pre><code>pickloop recognize "photo.jpg" --require-gtin</code></pre>
-    <p>등록한 1L 주스 3종의 규격까지 요구하는 명령입니다. 규격을 확인할 수 없으면 <code>prediction</code>은 <code>UNKNOWN</code>입니다.</p>
-    <div class="evidence-links"><a href="https://codespaces.new/sokldjs554/pickloop?ref=main">GitHub Codespaces에서 열기</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/new-photo-recognition.md">기존 Codespace 업데이트와 예시 사진</a></div>
+  <section id="try-photo" class="report-section">
+    <details class="report-panel">
+      <summary><h2>Codespaces에서 81품목 판별기 실행하기</h2></summary>
+      <form id="photo-upload" hidden>
+        <label for="photo-file">상품 한 개가 보이는 JPEG, PNG 또는 WebP 사진</label>
+        <input type="file" id="photo-file" name="image" accept="image/jpeg,image/png,image/webp" required>
+        <label><input type="checkbox" name="produce"> 보류한 사진에서 바나나·오이·파인애플 추가 확인</label>
+        <button name="run" type="submit">이 사진 판별하기</button>
+      </form>
+      <p id="photo-status" role="status" aria-live="polite"></p>
+      <dl id="photo-answer" class="photo-answer" hidden>
+        <dt>상품명 후보</dt><dd id="photo-name"></dd><dt>포장에서 읽힌 과일 단어</dt><dd id="photo-words"></dd>
+        <dt>주문 규격 확인</dt><dd id="photo-confirmed"></dd><dt>사진에서 읽은 상품 코드</dt><dd id="photo-gtin"></dd>
+      </dl>
+      <div id="photo-local"><p>내 사진을 판별하려면 프로젝트 Codespaces에서 아래 명령을 실행한 뒤 포트 8000의 <code>/recognition.html#try-photo</code>를 여세요. 사진 선택 창에서 실행할 수 있습니다.</p>
+      <pre><code>pickloop serve --host 0.0.0.0 --port 8000</code></pre></div>
+      <p>터미널에서도 판별할 수 있습니다. 프로젝트에 사진을 올리고 아래 명령을 실행하세요. <code>photo.jpg</code>를 올린 파일명으로 바꾸면 됩니다.</p>
+      <pre><code>pickloop recognize "photo.jpg"</code></pre>
+      <p><code>photo_name</code>은 카탈로그 상품명 후보입니다. <code>printed_fruit_words</code>에는 포장에서 반복해 읽힌 과일 단어가 나옵니다. <code>confirmed_order_sku</code>는 사진에서 등록 바코드를 읽고 포장 표기와 충돌이 없을 때만 채워집니다.</p>
+      <pre><code>pickloop recognize "photo.jpg" --require-gtin</code></pre>
+      <p>등록한 1L 주스 3종의 규격까지 요구하는 명령입니다. 규격을 확인할 수 없으면 <code>prediction</code>은 <code>UNKNOWN</code>입니다.</p>
+      <div class="evidence-links"><a href="https://codespaces.new/sokldjs554/pickloop?ref=main">GitHub Codespaces에서 열기</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/new-photo-recognition.md">기존 Codespace 업데이트와 예시 사진</a></div>
+    </details>
   </section>
 </main>
 </body>
