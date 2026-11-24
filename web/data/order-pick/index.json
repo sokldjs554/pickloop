@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "runs": [
+    {
+      "id": "orange",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "status": "COMPLETED",
+      "reason": null,
+      "result": "orange/result.json",
+      "poster": "orange/03-lifted.jpg",
+      "clip": "orange/motion.mp4",
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "orange/00-observe.jpg"
+        },
+        {
+          "stage": "APPROACH",
+          "sim_time_s": 3.93,
+          "image": "orange/01-approach.jpg"
+        },
+        {
+          "stage": "SEALED",
+          "sim_time_s": 4.13,
+          "image": "orange/02-sealed.jpg"
+        },
+        {
+          "stage": "LIFTED",
+          "sim_time_s": 5.905,
+          "image": "orange/03-lifted.jpg"
+        },
+        {
+          "stage": "TRANSPORTED",
+          "sim_time_s": 8.095,
+          "image": "orange/04-transported.jpg"
+        },
+        {
+          "stage": "PLACED",
+          "sim_time_s": 9.75,
+          "image": "orange/05-placed.jpg"
+        },
+        {
+          "stage": "RELEASED",
+          "sim_time_s": 10.15,
+          "image": "orange/06-released.jpg"
+        },
+        {
+          "stage": "VERIFIED",
+          "sim_time_s": 16.355,
+          "image": "orange/07-verified.jpg"
+        }
+      ]
+    },
+    {
+      "id": "orange-swapped",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "status": "COMPLETED",
+      "reason": null,
+      "result": "orange-swapped/result.json",
+      "poster": "orange-swapped/03-lifted.jpg",
+      "clip": "orange-swapped/motion.mp4",
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "orange-swapped/00-observe.jpg"
+        },
+        {
+          "stage": "APPROACH",
+          "sim_time_s": 4.555,
+          "image": "orange-swapped/01-approach.jpg"
+        },
+        {
+          "stage": "SEALED",
+          "sim_time_s": 4.755,
+          "image": "orange-swapped/02-sealed.jpg"
+        },
+        {
+          "stage": "LIFTED",
+          "sim_time_s": 6.53,
+          "image": "orange-swapped/03-lifted.jpg"
+        },
+        {
+          "stage": "TRANSPORTED",
+          "sim_time_s": 8.645,
+          "image": "orange-swapped/04-transported.jpg"
+        },
+        {
+          "stage": "PLACED",
+          "sim_time_s": 10.3,
+          "image": "orange-swapped/05-placed.jpg"
+        },
+        {
+          "stage": "RELEASED",
+          "sim_time_s": 10.7,
+          "image": "orange-swapped/06-released.jpg"
+        },
+        {
+          "stage": "VERIFIED",
+          "sim_time_s": 16.905,
+          "image": "orange-swapped/07-verified.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mixed",
+      "order_sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+      "status": "COMPLETED",
+      "reason": null,
+      "result": "mixed/result.json",
+      "poster": "mixed/03-lifted.jpg",
+      "clip": "mixed/motion.mp4",
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "mixed/00-observe.jpg"
+        },
+        {
+          "stage": "APPROACH",
+          "sim_time_s": 3.93,
+          "image": "mixed/01-approach.jpg"
+        },
+        {
+          "stage": "SEALED",
+          "sim_time_s": 4.13,
+          "image": "mixed/02-sealed.jpg"
+        },
+        {
+          "stage": "LIFTED",
+          "sim_time_s": 5.905,
+          "image": "mixed/03-lifted.jpg"
+        },
+        {
+          "stage": "TRANSPORTED",
+          "sim_time_s": 8.095,
+          "image": "mixed/04-transported.jpg"
+        },
+        {
+          "stage": "PLACED",
+          "sim_time_s": 9.75,
+          "image": "mixed/05-placed.jpg"
+        },
+        {
+          "stage": "RELEASED",
+          "sim_time_s": 10.15,
+          "image": "mixed/06-released.jpg"
+        },
+        {
+          "stage": "VERIFIED",
+          "sim_time_s": 16.355,
+          "image": "mixed/07-verified.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mixed-standard",
+      "order_sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+      "status": "HELD",
+      "reason": "ORDER_NOT_FOUND",
+      "result": "mixed-standard/result.json",
+      "poster": "mixed-standard/overview.png",
+      "clip": null,
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "mixed-standard/00-observe.jpg"
+        },
+        {
+          "stage": "HELD",
+          "sim_time_s": 0.95,
+          "image": "mixed-standard/01-held.jpg"
+        }
+      ]
+    },
+    {
+      "id": "unreadable",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "status": "HELD",
+      "reason": "ORDER_LABEL_UNCONFIRMED",
+      "result": "unreadable/result.json",
+      "poster": "unreadable/overview.png",
+      "clip": null,
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "unreadable/00-observe.jpg"
+        },
+        {
+          "stage": "HELD",
+          "sim_time_s": 0.95,
+          "image": "unreadable/01-held.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ambiguous",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "status": "HELD",
+      "reason": "ORDER_AMBIGUOUS",
+      "result": "ambiguous/result.json",
+      "poster": "ambiguous/overview.png",
+      "clip": null,
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "ambiguous/00-observe.jpg"
+        },
+        {
+          "stage": "HELD",
+          "sim_time_s": 0.95,
+          "image": "ambiguous/01-held.jpg"
+        }
+      ]
+    },
+    {
+      "id": "absent",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "status": "HELD",
+      "reason": "ORDER_NOT_FOUND",
+      "result": "absent/result.json",
+      "poster": "absent/overview.png",
+      "clip": null,
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "absent/00-observe.jpg"
+        },
+        {
+          "stage": "HELD",
+          "sim_time_s": 0.95,
+          "image": "absent/01-held.jpg"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "src/pickloop/order_pick.py": "342703ddd66b3ffe4a2fb0c049eea62f1b798db50d018cd8499210d63e59fde9",
+    "src/pickloop/simulation.py": "2e08c7831b2561c9b6133f4ca056faa341dda03bb1b14a7220a8c5f771800626",
+    "src/pickloop/perception.py": "44db9501a04ee51e17cdb55a981439678cbed54991057ed5c72388a9c008fb35",
+    "src/pickloop/bin_perception.py": "cc0153c750e58b18370b3e7d41c8d03ffc47e4a6b21e367b05722c8b52151d7c",
+    "src/pickloop/juice_gate.py": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
+    "src/pickloop/data/juice_gate.npz": "496c81c7de627748b79c7661fa7377d6d5e3a62d2cf0dd09f3e2e3a0050b7aea",
+    "src/pickloop/grocery_catalogue.py": "3cfb5edbe3fae3bd2c8b7e759b2b3b4ba1c6715825c9d882814d0812590ab253",
+    "src/pickloop/catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
+    "src/pickloop/catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
+    "scripts/run_order_pick.py": "c9ec46a71ed1d6564d46a10404bf8f0c1f15ed479d173971c3994f4b8aaf0f52",
+    "scripts/make_order_labels.py": "4947079a9800de2ea3b1263a791fa5279f99c1bbcd93af88f60ccb3dcc043e0b",
+    "assets/order-pick/manifest.json": "bd151e828b1f7d8a86e9dabad0b0622df6b4f029efc7b3b9654ebe9cc9ad5a21"
+  },
+  "versions": {
+    "mujoco": "3.3.7",
+    "numpy": "2.2.6",
+    "opencv-python-headless": "4.11.0.86",
+    "torch": "2.7.1+cpu",
+    "timm": "1.0.15"
+  }
+}

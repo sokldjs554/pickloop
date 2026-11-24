@@ -1,0 +1,51 @@
+{
+  "mode": "camera",
+  "overall": {
+    "total": 24,
+    "known": 21,
+    "before": {
+      "correct": 15,
+      "wrong": 0,
+      "held": 9,
+      "coverage": 0.625,
+      "unknown_false_accepts": 0
+    },
+    "after": {
+      "correct": 5,
+      "wrong": 0,
+      "held": 19,
+      "coverage": 0.20833333333333334,
+      "unknown_false_accepts": 0
+    },
+    "wrong_to_hold": 0,
+    "wrong_to_correct": 0,
+    "correct_to_hold": 10,
+    "new_wrong": 0,
+    "routed": 18
+  },
+  "by_cohort": {
+    "simulation": {
+      "total": 24,
+      "known": 21,
+      "before": {
+        "correct": 15,
+        "wrong": 0,
+        "held": 9,
+        "coverage": 0.625,
+        "unknown_false_accepts": 0
+      },
+      "after": {
+        "correct": 5,
+        "wrong": 0,
+        "held": 19,
+        "coverage": 0.20833333333333334,
+        "unknown_false_accepts": 0
+      },
+      "wrong_to_hold": 0,
+      "wrong_to_correct": 0,
+      "correct_to_hold": 10,
+      "new_wrong": 0,
+      "routed": 18
+    }
+  }
+}

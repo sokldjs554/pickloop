@@ -1,0 +1,8 @@
+id,sha256,nearest,phash_distance,dhash_distance,duplicate_of
+GMX-1f308fa8fac0,1f308fa8fac0d378aef33196d129d632191273a9582aa46012e4e9b74b8f45d0,iconic-images-and-descriptions/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_Iconic.jpg,16,9,
+GMX-28c6aec5bc49,28c6aec5bc49460ccf8d4623a060290c1106fb2304ef3eebffc6b7e11180c24e,iconic-images-and-descriptions/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_Iconic.jpg,14,9,
+GMX-46ff865df16a,46ff865df16aa8464c3c6f0b661904ac8aedb2acb1727b540b1c4a5e96fda561,test/Packages/Juice/Bravo-Orange-Juice/Bravo-Orange-Juice_025.jpg,20,18,
+GMX-649ceaeb1b3d,649ceaeb1b3d025db7d54c1b594ff99f3b2d28312d931cdf40983dd6731ff272,iconic-images-and-descriptions/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_Iconic.jpg,20,19,
+GMX-785205990644,78520599064476cae3b50a770b69d25e8e5e61db4b64196d579693c12ab62569,train/Fruit/Peach/Peach_008.jpg,20,21,
+GMX-7c855061af48,7c855061af48db0706cff56b72ae76e85221990dca2f97f72390c4acd4e7548a,GMX-28c6aec5bc49,2,1,GMX-28c6aec5bc49
+GMX-b7e2638425aa,b7e2638425aa59f098d391ea351bfc303f78c3ed2f177522873da5db1b69ad54,iconic-images-and-descriptions/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_Iconic.jpg,12,4,

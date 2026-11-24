@@ -12,12 +12,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: sudo apt-get update && sudo apt-get install -y libegl1 libgl1-mesa-dri g++ ffmpeg
+      - run: sudo apt-get update && sudo apt-get install -y libegl1 libgl1-mesa-dri g++ ffmpeg tesseract-ocr tesseract-ocr-eng fonts-dejavu-core
       - run: pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
       - run: pip install -e '.[test]'
       - name: Install software PLC test dependencies
         run: AWLSIM_CYTHON_BUILD=0 python -m pip install --require-hashes -r plc/requirements.txt
       - run: pytest -q
+      - name: Verify the order replay and paired height records
+        run: |
+          python scripts/export_order_study.py --check
+          python scripts/compare_transport_height.py audit --out docs/experiments/current-height
       - name: Audit the recorded software PLC trace
         run: python plc/run_interop.py --check runs/plc-interop
       - uses: actions/setup-node@v4

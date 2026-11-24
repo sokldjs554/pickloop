@@ -42,6 +42,7 @@ def add_arguments(parser):
     parser.add_argument('image', type=Path)
     parser.add_argument('--weights', type=Path, help='verified DINOv2 safetensors (default: download once to cache)')
     parser.add_argument('--head', type=Path, default=DEFAULT_HEAD)
+    parser.add_argument('--juice-gate', action='store_true', help='require package text for the three God Morgon flavours')
     parser.add_argument('--general-only', action='store_true', help='run the 81-way head without Bravo verification')
 
 
@@ -58,6 +59,9 @@ def run(args):
     result, = head.predict(encoder.encode([rgb]))
     if not args.general_only:
         result = resolve_decision(result, lambda: rgb)
+    if args.juice_gate:
+        from .juice_gate import apply_juice_gate
+        result = apply_juice_gate(result, lambda: rgb)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

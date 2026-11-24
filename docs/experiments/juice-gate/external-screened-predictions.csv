@@ -1,0 +1,2 @@
+cohort,id,sha256,truth,raw_top1,before,after,decision_source,score,margin,support,juice_gate_reason,juice_gate_text
+retailer studio packshot,GMX-7c855061af48,7c855061af48db0706cff56b72ae76e85221990dca2f97f72390c4acd4e7548a,God-Morgon-Orange-Juice,God-Morgon-Orange-Juice,UNKNOWN,UNKNOWN,generic,0.8398159742355347,0.6407498717308044,0.532203197479248,upstream_hold,[]

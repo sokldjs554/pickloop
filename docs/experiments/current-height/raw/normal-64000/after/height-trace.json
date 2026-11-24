@@ -1,0 +1,26 @@
+[
+  {
+    "sim_time": 0.5000000000000003,
+    "state": "PLAN",
+    "attempt": 1,
+    "policy": "recovery",
+    "last_error": null,
+    "height_m": 0.3
+  },
+  {
+    "sim_time": 6.0849999999998925,
+    "state": "TRANSPORT",
+    "attempt": 1,
+    "policy": "recovery",
+    "last_error": null,
+    "height_m": 0.3
+  },
+  {
+    "sim_time": 10.455000000000235,
+    "state": "RELEASE",
+    "attempt": 1,
+    "policy": "recovery",
+    "last_error": null,
+    "height_m": 0.3
+  }
+]

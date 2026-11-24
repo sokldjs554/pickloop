@@ -1,0 +1,34 @@
+[
+  {
+    "sim_time": 0.5000000000000003,
+    "state": "PLAN",
+    "attempt": 1,
+    "policy": "recovery",
+    "last_error": null,
+    "height_m": 0.3
+  },
+  {
+    "sim_time": 6.119999999999892,
+    "state": "TRANSPORT",
+    "attempt": 1,
+    "policy": "recovery",
+    "last_error": null,
+    "height_m": 0.3
+  },
+  {
+    "sim_time": 6.724999999999879,
+    "state": "TRANSPORT",
+    "attempt": 2,
+    "policy": "recovery",
+    "last_error": "PATH_BLOCKED",
+    "height_m": 0.4
+  },
+  {
+    "sim_time": 12.780000000000598,
+    "state": "RELEASE",
+    "attempt": 2,
+    "policy": "recovery",
+    "last_error": "PATH_BLOCKED",
+    "height_m": 0.4
+  }
+]
