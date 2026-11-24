@@ -72,15 +72,37 @@ test('choosing a different file suppresses an older pending read and a large fil
     setAttribute() {}
     removeAttribute() {}
   }
-  const ids = Object.fromEntries(['reader','photo','cancel','status','barcode','text','submit'].map(id=>[id,new Element()]));
+  const ids = Object.fromEntries(['reader','photo','cancel','status','barcode','text','result','example','credit','submit'].map(id=>[id,new Element()]));
   ids.reader.querySelector=()=>ids.submit;
-  const previous = Object.fromEntries(['document','window','HTMLCanvasElement','HTMLImageElement'].map(id=>[id,globalThis[id]]));
+  const previous = Object.fromEntries(['document','window','HTMLCanvasElement','HTMLImageElement','fetch'].map(id=>[id,globalThis[id]]));
   globalThis.document={getElementById:id=>ids[id.replace('package-','')]};
   globalThis.window=Object.assign(new EventTarget(),{Worker:class {},AbortController,URL});
   globalThis.HTMLCanvasElement=class {toBlob() {}};
   globalThis.HTMLImageElement=class {decode() {}};
   try {
     await import('../web/package-reader.js?dom-fixture');
+    ids.example.dataset = {src:'media/new-photos/apple-back-original.jpg'};
+    let sampleSignal;
+    globalThis.fetch = (path, {signal}) => {
+      assert.equal(path, ids.example.dataset.src);
+      sampleSignal = signal;
+      return new Promise((resolve, reject) => {
+        signal.addEventListener('abort', () => reject(signal.reason), {once:true});
+      });
+    };
+    ids.example.dispatchEvent(new Event('click'));
+    assert.ok(sampleSignal && !sampleSignal.aborted);
+    assert.equal(ids.example.disabled, true);
+    ids.cancel.dispatchEvent(new Event('click'));
+    await new Promise(resolve => setImmediate(resolve));
+    assert.equal(sampleSignal.aborted, true);
+    assert.match(ids.status.textContent, /취소/);
+    assert.equal(ids.result.hidden, true);
+    globalThis.fetch = async () => ({ok:false});
+    ids.example.dispatchEvent(new Event('click'));
+    await new Promise(resolve => setImmediate(resolve));
+    assert.match(ids.status.textContent, /예시 사진을 불러오지 못했습니다/);
+    assert.equal(ids.example.disabled, false);
     let finish;
     ids.photo.files=[{size:6,arrayBuffer:()=>new Promise(resolve=>{finish=resolve;})}];
     ids.reader.dispatchEvent(new Event('submit',{cancelable:true}));
@@ -108,7 +130,7 @@ test('validated image preview uses a disposable local URL and clears on cancel',
     removeAttribute(key) {delete this[key];}
     setAttribute() {}
   }
-  const elements=Object.fromEntries(['reader','photo','cancel','status','barcode','text','submit','preview'].map(id=>[id,new Element()]));
+  const elements=Object.fromEntries(['reader','photo','cancel','status','barcode','text','result','example','credit','submit','preview'].map(id=>[id,new Element()]));
   const names=['document','window','Worker','Image','HTMLImageElement','HTMLCanvasElement'];
   const originals=Object.fromEntries(names.map(key=>[key,globalThis[key]]));
   const bytes=Uint8Array.from([137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,16,0,0,0,12]);

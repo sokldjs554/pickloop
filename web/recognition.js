@@ -1,4 +1,16 @@
 (() => {
+  function openLinkedReport(hash) {
+    const section = document.getElementById(hash.slice(1));
+    const panel = section?.querySelector(':scope > details.report-panel');
+    if (panel) panel.open = true;
+  }
+  document.querySelector('.review-nav').addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (link) openLinkedReport(link.hash);
+  });
+  window.addEventListener('hashchange', () => openLinkedReport(location.hash));
+  openLinkedReport(location.hash);
+
   const form = document.getElementById("photo-upload");
   const result = document.getElementById("photo-answer");
   const status = document.getElementById("photo-status");

@@ -79,10 +79,10 @@ function barcodeMessage(result) {
   const digits = result.codes.join(' · ');
   switch (result.kind) {
     case 'registered': return '바코드 등록 일치 · ' + (productLabels[result.product] || result.product) + ' · ' + digits;
-    case 'unregistered': return '미등록 바코드 · ' + digits;
-    case 'multiple': return '서로 다른 바코드가 여러 개 보입니다. 한 제품만 찍어 주세요. ' + digits;
-    case 'unchecked': return '바코드 판독 · ' + digits + ' · 등록 목록을 불러오지 못했습니다.';
-    default: return '판독한 바코드가 없습니다. 포장 뒷면의 막대 전체를 선명하게 찍어 주세요.';
+    case 'unregistered': return '상품 확정 보류 · 미등록 바코드 ' + digits;
+    case 'multiple': return '상품 확정 보류 · 서로 다른 바코드가 여러 개 보입니다. ' + digits;
+    case 'unchecked': return '상품 확정 보류 · 등록 목록을 불러오지 못했습니다. 읽은 바코드 ' + digits;
+    default: return '상품 확정 보류 · 바코드를 읽지 못했습니다';
   }
 }
 
@@ -197,7 +197,8 @@ function bindReader() {
   const byId = id => document.getElementById('package-' + id);
   const input = byId('photo'), cancel = byId('cancel'), status = byId('status');
   const barcode = byId('barcode'), text = byId('text'), submit = form.querySelector('[type=submit]');
-  const preview = byId('preview');
+  const preview = byId('preview'), resultPanel = byId('result');
+  const example = byId('example'), credit = byId('credit');
   let active, previewURL;
   function stop(message) {
     active?.abort();
@@ -208,7 +209,8 @@ function bindReader() {
       URL.revokeObjectURL(previewURL);
       previewURL = null;
     }
-    submit.disabled = false;
+    submit.disabled = example.disabled = false;
+    resultPanel.hidden = credit.hidden = true;
     cancel.hidden = true;
     form.removeAttribute('aria-busy');
     status.textContent = message;
@@ -217,8 +219,13 @@ function bindReader() {
   input.addEventListener('change', () => stop(input.files?.length ? '사진을 선택했습니다. 사진 읽기를 눌러 주세요.' : ''));
   cancel.addEventListener('click', () => stop('사진 읽기를 취소했습니다.'));
   window.addEventListener('pagehide', () => stop(''));
-  form.addEventListener('submit', async event => {
+  form.addEventListener('submit', event => {
     event.preventDefault();
+    run(false);
+  });
+  example.addEventListener('click', () => run(true));
+
+  async function run(useExample) {
     stop('');
     if (!window.Worker || typeof WebAssembly !== 'object' || !window.AbortController || !window.URL?.createObjectURL ||
         !HTMLImageElement.prototype.decode || !Blob.prototype.arrayBuffer || !HTMLCanvasElement.prototype.toBlob) {
@@ -228,21 +235,39 @@ function bindReader() {
     const job = new AbortController();
     active = job;
     const signal = job.signal;
-    submit.disabled = true;
+    submit.disabled = example.disabled = true;
     cancel.hidden = false;
     form.setAttribute('aria-busy', 'true');
-    status.textContent = '사진을 여는 중입니다.';
+    status.textContent = useExample ? '예시 사진을 여는 중입니다.' : '사진을 여는 중입니다.';
+    const pendingDecision = '상품 판정 중…';
     const timer = setTimeout(() => {
       if (active === job) {
         // Keep any engine's completed result if the other times out.
         job.abort();
+        if (!resultPanel.hidden) {
+          if (barcode.textContent === pendingDecision) barcode.textContent = '상품 확정 보류 · 바코드 판독 시간이 초과되었습니다';
+          if (!text.textContent) text.textContent = '글자 판독 시간이 초과되었습니다.';
+        }
         status.textContent = '처리 시간이 초과되었습니다. 사진을 더 가까이 찍어 다시 시도해 주세요.';
       }
     }, 120_000);
     try {
-      const image = await preparePhoto(input.files?.[0], signal);
+      let file = input.files?.[0];
+      if (useExample) {
+        try {
+          const response = await fetch(example.dataset.src, {signal});
+          if (!response.ok) throw new Error();
+          file = await response.blob();
+        } catch {
+          throw new Error('예시 사진을 불러오지 못했습니다. 다시 시도해 주세요.');
+        }
+      }
+      const image = await preparePhoto(file, signal);
       const png = new Uint8Array(await image.arrayBuffer());
       if (signal.aborted) return;
+      resultPanel.hidden = false;
+      credit.hidden = !useExample;
+      barcode.textContent = pendingDecision;
       if (preview) {
         previewURL = URL.createObjectURL(image);
         preview.src = previewURL;
@@ -260,22 +285,25 @@ function bindReader() {
         }
       };
       const result = await Promise.all([
-        show(opticalBarcode(png, signal), barcode, '', '바코드 판독기를 실행하지 못했습니다. 다시 시도해 주세요.'),
+        show(opticalBarcode(png, signal), barcode, '', '상품 확정 보류 · 바코드 판독기를 실행하지 못했습니다'),
         show(opticalText(png, signal), text, '읽을 수 있는 글자가 없습니다.', '글자 판독기를 실행하지 못했습니다. 다시 시도해 주세요.'),
       ]);
-      if (!signal.aborted) status.textContent = result.every(Boolean) ? '사진 읽기를 마쳤습니다.' : '실행한 판독기의 결과를 확인해 주세요.';
+      if (!signal.aborted) {
+        const finished = useExample ? '예시 사진 읽기를 마쳤습니다.' : '사진 읽기를 마쳤습니다.';
+        status.textContent = result.every(Boolean) ? finished : '실행한 판독기의 결과를 확인해 주세요.';
+      }
     } catch (error) {
       if (!signal.aborted) status.textContent = error.message || unreadable;
     } finally {
       clearTimeout(timer);
       if (active === job) {
         active = null;
-        submit.disabled = false;
+        submit.disabled = example.disabled = false;
         cancel.hidden = true;
         form.removeAttribute('aria-busy');
       }
     }
-  });
+  }
 }
 
 if (typeof document !== 'undefined') bindReader();

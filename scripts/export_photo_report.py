@@ -151,6 +151,21 @@ def examples_html(records):
     return '<div class="examples">' + "".join(cards) + '</div>'
 
 
+def reader_example():
+    credit, = (row for row in read(MEDIA / "credits.json") if "reader_example" in row)
+    filename = credit["reader_example"]
+    if Path(filename).name != filename or sha256((MEDIA / filename).read_bytes()).hexdigest() != credit["original_sha256"]:
+        raise ValueError("the one-click example must match the credited original")
+    return {
+        "example_src": f"media/new-photos/{safe(filename)}",
+        "example_credit": " · ".join((
+            external(credit["author_url"], credit["author"]),
+            external(credit["original_url"], "Open Food Facts 원본"),
+            external(credit["licence_url"], credit["licence"]),
+        )),
+    }
+
+
 def make_thumbnails(directory):
     from PIL import Image, ImageOps
     photos = {}
@@ -230,7 +245,7 @@ def generate():
             outcomes.append(f"미등록 {unknown}장 중 오수락 {before['false_accept']} → {after['false_accept']}장")
         others.append((caption, " · ".join(outcomes)))
     return Template(TEMPLATE.read_text()).substitute(
-        produce=produce_study(), primary=metrics(new_rows), examples=examples_html(records), strata=views,
+        **reader_example(), produce=produce_study(), primary=metrics(new_rows), examples=examples_html(records), strata=views,
         other='<h3>별도로 측정한 사진</h3>' + table(("대상", "기존 → 수정 후"), others),
         details="".join(detail_block(rows, role, readouts) for role, rows in cohorts.items()))
 

@@ -31,6 +31,25 @@
 #package-reader button[hidden], #package-text:empty { display: none; }
 #package-reader :focus-visible { outline: 2px solid #a6f3e4; outline-offset: .2rem; }
 #package-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 24rem; }
-.package-reading:has(#package-preview:not([hidden])) { display: grid; grid-template-columns: minmax(8rem, 16rem) minmax(0, 1fr); gap: 1rem; align-items: start; margin: .75rem 0; }
-#package-preview { width: 100%; max-height: 20rem; object-fit: contain; background: #111b1f; }
-@media (max-width: 650px) { .package-reading:has(#package-preview:not([hidden])) { grid-template-columns: minmax(0, 1fr); } #package-preview { max-height: 13rem; } }
+#package-reader .reader-actions { display: flex; flex-wrap: wrap; gap: .55rem; }
+#package-reader button { cursor: pointer; }
+#package-reader button:disabled { cursor: wait; opacity: .65; }
+#package-reader #package-example, #package-reader #package-cancel { color: #9be7d8; background: transparent; border: 1px solid #557e78; }
+#package-result { margin: 1rem 0; }
+#package-barcode { margin: 0 0 1rem; padding: .8rem 1rem; border-left: 3px solid var(--teal); background: #19282c; font-size: clamp(1.1rem, 2.6vw, 1.4rem); }
+.package-reading { display: grid; grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr); grid-template-areas: "image transcript"; gap: 1rem; align-items: start; }
+#package-barcode:empty, #package-status:empty { display: none; }
+.package-reading figure { grid-area: image; }
+.package-transcript { grid-area: transcript; min-width: 0; }
+.package-reading figure, .package-reading h4 { margin: 0; }
+.package-reading pre { margin: .45rem 0 0; }
+#package-preview { width: 100%; max-height: 17rem; object-fit: contain; background: #111b1f; }
+.photo-review .report-section { padding: 0; }
+.photo-review .report-panel { border-bottom: 0; }
+.report-panel > summary { padding: 1.1rem .2rem; }
+.report-panel > summary h2 { display: inline; font-size: clamp(1.05rem, 2.3vw, 1.3rem); }
+.report-panel[open] { padding-bottom: 1.25rem; }
+@media (max-width: 650px) {
+  .package-reading { grid-template-columns: minmax(0, 1fr); grid-template-areas: "transcript" "image"; }
+  #package-preview { max-height: 12rem; }
+}

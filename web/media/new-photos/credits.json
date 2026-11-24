@@ -9,7 +9,8 @@
     "author_url": "https://world.openfoodfacts.org/contributor/blackfatrat",
     "licence": "CC BY-SA 3.0",
     "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-    "credit": "Uploaded to Open Food Facts. EXIF orientation applied and resized without cropping. Thumbnail under CC BY-SA 3.0."
+    "credit": "Uploaded to Open Food Facts. EXIF orientation applied and resized without cropping. Thumbnail under CC BY-SA 3.0.",
+    "reader_example": "apple-back-original.jpg"
   },
   {
     "id": "NX-88d58ba6fa70e7e6",
