@@ -1,0 +1,30 @@
+{
+  "top1": "Bravo-Orange-Juice",
+  "support": 0.44680333137512207,
+  "score": 0.2846367657184601,
+  "margin": 0.0038192272186279297,
+  "prediction": "UNKNOWN",
+  "generic_top1": "Bravo-Orange-Juice",
+  "generic_prediction": "UNKNOWN",
+  "decision_source": "bravo_panel",
+  "panel_prediction": "UNKNOWN",
+  "panel_reason": "panel_unverified",
+  "panel_inliers": 0,
+  "panel_color_similarity": 0.0,
+  "panel_color_gap": 0.0,
+  "baseline_prediction": "UNKNOWN",
+  "recognition_source": "barcode",
+  "recognition_reason": "unregistered_gtin",
+  "recognition_text": [],
+  "recognition_gtins": [
+    "3123349011227"
+  ],
+  "photo_name": null,
+  "printed_fruit_words": [],
+  "confirmed_order_sku": null,
+  "confirmed_gtin": null,
+  "order_check_reason": "unregistered_gtin",
+  "order_check_gtins": [
+    "3123349011227"
+  ]
+}

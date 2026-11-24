@@ -21,6 +21,8 @@ jobs:
       - name: Verify the order replay and paired height records
         run: |
           python scripts/export_order_study.py --check
+          python scripts/export_photo_report.py --check
+          python scripts/report_photo_readouts.py --check
           python scripts/compare_transport_height.py audit --out docs/experiments/current-height
       - name: Audit the recorded software PLC trace
         run: python plc/run_interop.py --check runs/plc-interop
@@ -28,6 +30,8 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/ui-contract.mjs
+      - run: node --test tests/package-reader.mjs
+      - run: python scripts/vendor_package_reader.py
       - run: g++ -std=c++17 -O2 -Wall -Wextra -Werror cpp/modbus_client.cpp -o /tmp/pickloop-device
       - run: python -m pickloop.cli run --seed 8 --fault suction_once --no-record --out runs/ci
       - uses: actions/upload-artifact@v4

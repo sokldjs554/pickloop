@@ -1,0 +1,20 @@
+[
+  {
+    "file": "metadata.csv",
+    "url": "https://storage.googleapis.com/openimages/2018_04/test/test-images-with-rotation.csv",
+    "sha256": "de55c6b8cbda32a79f4a20f28572d54e9c49d527a4006725675764074a51a36d",
+    "bytes": 45227339
+  },
+  {
+    "file": "boxes.csv",
+    "url": "https://storage.googleapis.com/openimages/v5/test-annotations-bbox.csv",
+    "sha256": "fe22e579b9453875601576859d14ef3304058165de139c66b725e599202bd7b1",
+    "bytes": 77484237
+  },
+  {
+    "file": "classes.csv",
+    "url": "https://storage.googleapis.com/openimages/v7/oidv7-class-descriptions-boxable.csv",
+    "sha256": "1839e0e7e84130ae281f7f67413768601b031581c0c42e7fc17527b8e2a99aa9",
+    "bytes": 12064
+  }
+]

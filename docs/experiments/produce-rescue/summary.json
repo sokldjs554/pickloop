@@ -1,0 +1,167 @@
+{
+  "scope": "Previously unseen source photos after conservative duplicate screening",
+  "submitted": 40,
+  "screened_out": 0,
+  "total": 40,
+  "known": 24,
+  "outside": 16,
+  "policies": {
+    "before": {
+      "correct_named": 12,
+      "wrong_named": 0,
+      "target_held": 12,
+      "outside_held": 16,
+      "outside_false_named": 0
+    },
+    "after": {
+      "correct_named": 15,
+      "wrong_named": 0,
+      "target_held": 9,
+      "outside_held": 16,
+      "outside_false_named": 0
+    }
+  },
+  "newly_correct": 3,
+  "new_wrong": 0,
+  "by_source_class": {
+    "Artichoke": {
+      "total": 4,
+      "known": 0,
+      "outside": 4,
+      "policies": {
+        "before": {
+          "correct_named": 0,
+          "wrong_named": 0,
+          "target_held": 0,
+          "outside_held": 4,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 0,
+          "wrong_named": 0,
+          "target_held": 0,
+          "outside_held": 4,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 0,
+      "new_wrong": 0
+    },
+    "Banana": {
+      "total": 8,
+      "known": 8,
+      "outside": 0,
+      "policies": {
+        "before": {
+          "correct_named": 5,
+          "wrong_named": 0,
+          "target_held": 3,
+          "outside_held": 0,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 7,
+          "wrong_named": 0,
+          "target_held": 1,
+          "outside_held": 0,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 2,
+      "new_wrong": 0
+    },
+    "Cucumber": {
+      "total": 8,
+      "known": 8,
+      "outside": 0,
+      "policies": {
+        "before": {
+          "correct_named": 1,
+          "wrong_named": 0,
+          "target_held": 7,
+          "outside_held": 0,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 2,
+          "wrong_named": 0,
+          "target_held": 6,
+          "outside_held": 0,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 1,
+      "new_wrong": 0
+    },
+    "Pineapple": {
+      "total": 8,
+      "known": 8,
+      "outside": 0,
+      "policies": {
+        "before": {
+          "correct_named": 6,
+          "wrong_named": 0,
+          "target_held": 2,
+          "outside_held": 0,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 6,
+          "wrong_named": 0,
+          "target_held": 2,
+          "outside_held": 0,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 0,
+      "new_wrong": 0
+    },
+    "Pumpkin": {
+      "total": 4,
+      "known": 0,
+      "outside": 4,
+      "policies": {
+        "before": {
+          "correct_named": 0,
+          "wrong_named": 0,
+          "target_held": 0,
+          "outside_held": 4,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 0,
+          "wrong_named": 0,
+          "target_held": 0,
+          "outside_held": 4,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 0,
+      "new_wrong": 0
+    },
+    "Strawberry": {
+      "total": 8,
+      "known": 0,
+      "outside": 8,
+      "policies": {
+        "before": {
+          "correct_named": 0,
+          "wrong_named": 0,
+          "target_held": 0,
+          "outside_held": 8,
+          "outside_false_named": 0
+        },
+        "after": {
+          "correct_named": 0,
+          "wrong_named": 0,
+          "target_held": 0,
+          "outside_held": 8,
+          "outside_false_named": 0
+        }
+      },
+      "newly_correct": 0,
+      "new_wrong": 0
+    }
+  },
+  "seal_sha256": "29ea6090317fc8104cbaf52b939b3d647d9a6d1ab7db1033204f46e761c175ca"
+}

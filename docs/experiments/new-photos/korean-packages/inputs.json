@@ -1,0 +1,53 @@
+[
+  {
+    "id": "d147e8ffb242",
+    "source_gtin": "8801043014809",
+    "source_name": "Shin Ramyun",
+    "front_record": "front_ko",
+    "source_image_id": "1",
+    "source_url": "https://world.openfoodfacts.org/product/8801043014809",
+    "image_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/880/104/301/4809/1.jpg",
+    "sha256": "d147e8ffb242c54c002f643dc4859b67b5714e0c3d4b43be9fab6d4468e2cc2d",
+    "uploader": "openfoodfacts-contributors",
+    "licence": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "full_size": [
+      3024,
+      4032
+    ],
+    "expected_substring": "라면"
+  },
+  {
+    "id": "38be9c15fd45",
+    "source_gtin": "8801073110502",
+    "source_name": "Buldak Ramen",
+    "front_record": "front_ko",
+    "source_image_id": "55",
+    "source_url": "https://world.openfoodfacts.org/product/8801073110502",
+    "image_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/880/107/311/0502/55.jpg",
+    "sha256": "38be9c15fd4506ee300c9af31128fae4f114e7b6dcf0110096e0a2d05c1f2b01",
+    "uploader": "macrofactor",
+    "licence": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "full_size": [
+      1275,
+      1698
+    ],
+    "expected_substring": "불닭볶음면"
+  },
+  {
+    "id": "b932a3b4f6ee",
+    "source_gtin": "8801062160709",
+    "source_name": "Choco Pie",
+    "front_record": "front_en",
+    "source_image_id": "5",
+    "source_url": "https://world.openfoodfacts.org/product/8801062160709",
+    "image_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/880/106/216/0709/5.jpg",
+    "sha256": "b932a3b4f6ee3ac97566319bf42184369507219c55a71a144b0c666b81497308",
+    "uploader": "qualityofvoid7",
+    "licence": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "full_size": [
+      2352,
+      1980
+    ],
+    "expected_substring": "초코파이"
+  }
+]

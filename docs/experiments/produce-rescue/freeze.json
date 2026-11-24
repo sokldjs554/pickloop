@@ -1,0 +1,18 @@
+{
+  "frozen_utc": "2026-11-24T07:20:31.678210+00:00",
+  "inference_performed": false,
+  "blind_sha256": "79fe4275ba4e2087b631b08ecc63b5cd3d302c03637a28a778b4907d54edbac2",
+  "labels_sha256": "aefa7dfa11f5f2030260238db0eb0045c8f22bf35a05b929e008ae14ea1a33ce",
+  "selection_plan_sha256": "3ffb147462521f4d6c12a2070419f476d1bf56ede866c65d59fcbf4a4400b4e9",
+  "count": 40,
+  "source_groups": 40,
+  "unique_authors": 40,
+  "raw_sha_unique": 40,
+  "decoded_pixel_sha_unique": 40,
+  "prior_116_raw_overlap": 0,
+  "prior_116_pixel_overlap": 0,
+  "prior_16_author_overlap": 0,
+  "new_dhash_hamming_min": 12,
+  "source": "Open Images test, full physical photographs, per-image CC BY2 metadata",
+  "model_access": "No model runs or prediction outputs. Catalogue names array only for fixed registry membership."
+}

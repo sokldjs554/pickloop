@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-11-24T06:41:19.213744+00:00",
+  "harness_sha256": "6cf920b298a5910cf1e5a934fbabe9a16fa3319f0959b54e9a2c39385b7b44b2",
+  "source_protocol_sha256": "853966b0b336beb1bd035bb9b1b1a7a395924ca20e7b65c0f245f30a0c1623c7",
+  "inputs_sha256": "072bc3d8a137f19461096ba99e63e7d32ea3a815a290f044dc5fdb9ea1c10a12",
+  "inference_inputs_sha256": "ddb736657734f62e31aa1c023d8d36d2ebc3215de28bb5b3f433cea9d632034c",
+  "screening_sha256": "9ccea832e9d26f9584f26919df2ff2fc26c6e060d0d5948f07a3150d1aff31ee",
+  "truth_manifest_sha256": {
+    "new": "25c72b92c4f1530258752584fceafaeb25a1c960320b0fad87edbf5f0d0a7c83",
+    "prior": "fa6a3f32e0d98881621ebb48c57502916cb7b95eede614cc79a668e5a244db7d",
+    "produce_control": "93acdba1b4f5ca740dc9c2bdda370ec53f722c0bd4ee29ccc7ad92eb7889b3fb"
+  },
+  "registry_sha256": "51c1a9f83904a29bf04f7a1654786990da5bbf14914b4396d7bb93e7d9390486",
+  "original_manifests": {
+    "original-blind-new.csv": "c3f0a5668152b3f22a973cd5f4c4a9295efcf3c2999654b956039185d8d582f8",
+    "original-labels-new.csv": "25c72b92c4f1530258752584fceafaeb25a1c960320b0fad87edbf5f0d0a7c83",
+    "original-blind-prior.csv": "0a8c69b9074682ab2e413a0bcb89dadbd977bc320b3fbaa1612efa7e10034aac",
+    "original-labels-prior.csv": "fa6a3f32e0d98881621ebb48c57502916cb7b95eede614cc79a668e5a244db7d",
+    "original-blind-control.csv": "0240e1b440380c68cf2e5c495096cea32b2820ce30a962241f04b4c5bbe8fbd4",
+    "original-labels-control.csv": "93acdba1b4f5ca740dc9c2bdda370ec53f722c0bd4ee29ccc7ad92eb7889b3fb"
+  },
+  "reference_archive_sha256": "f2434611ed5dd472dae830d6c7fbdf4b75dfd1697ba25f1280f0a1d0ce9170b0",
+  "reference_count": 5502,
+  "reference_index_sha256": "320e4acf06d027ea94fe791313214f10ffc5c45777996792ad29b1ab369d7980",
+  "candidates": 58,
+  "included": 56,
+  "cohorts": {
+    "new": 35,
+    "prior": 7,
+    "produce_control": 16
+  },
+  "registered_gtins": {
+    "7310865074225": "God-Morgon-Apple-Juice",
+    "7310860007372": "God-Morgon-Orange-Juice",
+    "7310860007259": "God-Morgon-Orange-Red-Grapefruit-Juice"
+  },
+  "duplicate_rule": "Exclude new/control if file/pixel identical OR pHash<=8 AND dHash<=8 on whole image OR background-trimmed image. Include earlier candidates in the reference pool. Prior seven remain development even if duplicate.",
+  "selection": "ID-sorted, prediction-independent; crop used for dedup only, classifier gets original EXIF-oriented RGB.",
+  "roles": [
+    "new_primary",
+    "alternate_gtin_challenge",
+    "prior_development",
+    "produce_control",
+    "identity_unverified"
+  ],
+  "baseline": "Existing default 81-way catalogue + Bravo panel resolution; old optional juice gate is NOT applied.",
+  "after": "product_text.recognize_exact(baseline_decision, callable returning original RGB)",
+  "blinding": "Truth manifests hashed as bytes only at prepare; no truth/GTIN/name/URL is parsed or supplied to classifiers. Labels joined after complete sealed prediction ledger.",
+  "analysis": "Descriptive micro counts; known exact-name recall denominator=known only; unknown false-accept denominator=unknown only. All paired transitions including correct->bad. Multiple views grouped conservatively; no iid confidence interval.",
+  "prior_role": "All seven previous external photos are development evidence, not unseen evaluation.",
+  "exact_identity": "Original registered 1-L GTINs in primary; alternate GTIN same-flavour is a separate challenge with exact UNKNOWN; controls use registered fine-class identity, not a packaged GTIN claim.",
+  "tuning": "No threshold/data/model edits after first new-image inference; interrupted batches preserved, never selective rerun."
+}

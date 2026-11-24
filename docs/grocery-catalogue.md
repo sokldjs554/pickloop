@@ -2,6 +2,8 @@
 
 과일 28종, 포장 상품 31종, 채소 22종을 등록했다. 두 주스 실험에서 미등록으로 분류한 2,656장의 공식 상품명을 모두 복원했다. 사진을 새로 받았을 때 모델이 붙이는 이름과 데이터셋 저자가 기록한 정답을 한 행에서 비교할 수 있다. [공개 데모에서 사진별 정답 조회](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence#previous-photos) · [이전 사진 전체](experiments/grocery-catalogue/previous-cohort.csv) · [오분류·보류한 사진과 공식 이름](experiments/grocery-catalogue/previous-unknown-review.csv)
 
+기본 사진 판별기는 보류했거나 고드 모르곤 주스 세 종류 중 하나를 선택하면 사진에서 글자와 바코드를 확인한다. 아래 표는 기존 81품목 판별기의 동결 기록이며, 현재 기본값의 외부 사진 평가는 별도로 공개한다. [새 실물 사진 결과와 직접 실행](new-photo-recognition.md)
+
 ## Codespaces에서 사진 한 장 판별하기
 
 이 저장소의 새 Codespace를 열고 아래 명령을 실행한다. 예시 사진은 평가에 사용한 공개 매장 사진이다. 자기 사진은 저장소에 업로드한 뒤 마지막 줄의 파일 경로를 바꾸면 된다. 코드가 사진의 픽셀을 읽어 이름을 예측한다. 첫 실행 때 인코더 가중치를 내려받아 SHA-256을 확인하고 로컬에 보관한다.

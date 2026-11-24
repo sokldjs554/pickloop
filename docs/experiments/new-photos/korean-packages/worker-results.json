@@ -1,0 +1,35 @@
+[
+  {
+    "barcode": {
+      "kind": "empty",
+      "codes": []
+    },
+    "text": "Bade\n\nNES.\n\n“iy\n\nen,\n\n{5\n\n65\n\n—\n\nrg Al\n\nHES\n\n—~B\n\n~\n\n= 와\n\nCY 16\n\nwo r—\n\n<r ¥\n\n> 6\n\n7\n\nda\n\n12\n\nalll |\n\n2\n\n{>   2\n\nid\n\n가\n\n“7\n\n14\n\n85. .\n\n0 개([\n\n출 /\n\nNF\n\n몰\n\n뽑\n\nSHIN RA,\n\nom\n\n르…\n\nANN\n\nNA\n\n&\n\n-\n\n20943\n\nAX\n\nkcal)\n\n“^ 이\n\n41,\n\nA)\n\noi 따\n\n= 토르\n\nru ER\n\n\\   AN\n\n\\\n\nNN yy\n\nTY © TO =\n\nW&\n\nWW",
+    "id": "d147e8ffb242",
+    "png_sha256": "6d4f89e7979e1a55ce9d786d54eaf218a4765dab82ec2c90cbc6ae6e6be0a650",
+    "expected_substring": "라면",
+    "exact_text_match": false
+  },
+  {
+    "barcode": {
+      "kind": "empty",
+      "codes": []
+    },
+    "text": "-- ~ 빠따\n\npe\n\n노예:\n\n= 78\n\n< on\n\n9\n\n/Samyand\n\nAt\n\n3\n\nie\n\n3 Sa\n\n스 So\n\n도기\n\nAY\n\nLT\n\n&\n\n«3\n\n~\n\n26\n\na:\n\n0 (\n\nH\n\n}\n\n3197\n\nW\n\n=\n\n=2\n\nHr ol}\n\nbra\n\n” 호치\n\n[207\n\n9\n\n《\n\nIx\n\nBA",
+    "id": "38be9c15fd45",
+    "png_sha256": "e0629b88ce7232179719d730282ee2692a0e6959930e6e5006aeb5a9f359dfa9",
+    "expected_substring": "불닭볶음면",
+    "exact_text_match": false
+  },
+  {
+    "barcode": {
+      "kind": "empty",
+      "codes": []
+    },
+    "text": "~”\n\ngo\n\nfs\n\n“70\n\npa\n\n&\n\nfA\n\nA\n\nby\n\nhy\n\nwt\n\nRt\n\n1a)\n\n닐\n\nrill\n\nwr\n\n마네 거일\n\n§\n\nel\n\nPAL\n\nA\n\naH\n\nxa!\n\nAy\n\nty\n\n10\n\nat\n\nTL\n\nhl\n\n기해\n\nIh\n\n{\n\ni\n\n{Al\n\n한\n\n171\n\nWlighds™\n\n1)\n\n|\n\noii\n\ny\n\nUR EEG 6\n\nwf \"\n\nWl\n\niY i\n\noA\n\nmma\n\n=\n\n$4\n\n|\n\n세\n\nGib)\n\nuf\n\nApa\n\nbape\n\nLL\n\nIo\n\nied\n\nfit’\n\n1\n\nin\n\ni\n\n00\n\n5)\n\n세\n\ni\n\niy\n\n101\n\n5)\n\n<i\n\n28\n\ni\n\nod\n\n14 i\n\nZa)\n\nN¥\n\nlk\n\nhy\n\nrz\n\n1\\. ~\n\ni\n\nre\n\nw\n\ni\n\n—\n\nA\n\n—\n\n더\n\n1…ㅡ=\n\nws\n\n4\n\n‘12 packs\n\nProduct enlarged (0 show\n\n336 (11.8502)\n\n개\n\nContains 12 pouc\n\nhesx28¢\n\n te",
+    "id": "b932a3b4f6ee",
+    "png_sha256": "d6c962385e441ea14246640dacf929af2e8f362bd3d0100dfe5569f3e860f4fb",
+    "expected_substring": "초코파이",
+    "exact_text_match": false
+  }
+]

@@ -1,0 +1,310 @@
+{
+  "ledger_sha256": "d5746510470698d44572774b41f6eaffd164adabebd366828df44b84e3c0a775",
+  "total": 33,
+  "confirmed": 0,
+  "method": "Post-study order confirmation on the frozen predictions. Not a separately trained or tested model.",
+  "rows": [
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "apple"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-00b7083b7cd829cb"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-0392ad220df9290d"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-06826030e1b7d1f3"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-1137bb80e9b5c8b6"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-1230684b507e6968"
+    },
+    {
+      "photo_name": "God-Morgon-Orange-Juice",
+      "printed_fruit_words": [
+        "orange"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-128b044de60a6242"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "apple"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-20227763df0f3621"
+    },
+    {
+      "photo_name": "God-Morgon-Apple-Juice",
+      "printed_fruit_words": [
+        "apple"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-2874d2801bee038e"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-29c598821ffebabf"
+    },
+    {
+      "photo_name": "God-Morgon-Orange-Juice",
+      "printed_fruit_words": [
+        "orange"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-2eca27540a00d80d"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "orange",
+        "grapefruit"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-3a3f6e5417850d89"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-584351374f9dd7e4"
+    },
+    {
+      "photo_name": "God-Morgon-Orange-Juice",
+      "printed_fruit_words": [
+        "orange"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-63455b37f6fb074a"
+    },
+    {
+      "photo_name": "God-Morgon-Apple-Juice",
+      "printed_fruit_words": [
+        "apple"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-696557e5fb415bd8"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "apple"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-8002e17bcce9369f"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "apple"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-822050428801e3e2"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-88d58ba6fa70e7e6"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-94fc91a92a480162"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-9ffef5a8b7322827"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-a2e53fc60c4f6ad3"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [
+        "6415130089834"
+      ],
+      "id": "NX-af7befe46b07d908"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "orange",
+        "grapefruit"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-b1e4fdbce0cfce35"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-b85ca6fa7b3eaa3e"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-bb58e04f2bc8d716"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "apple"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-bb8e1a5da4035a5c"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-beec70e2bd2bfbd8"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-cb050c427c4b5a3a"
+    },
+    {
+      "photo_name": "God-Morgon-Orange-Juice",
+      "printed_fruit_words": [
+        "orange"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-d03141e8696f584c"
+    },
+    {
+      "photo_name": "God-Morgon-Orange-Juice",
+      "printed_fruit_words": [
+        "orange"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-d152da1019eb25f9"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [
+        "6415130050506"
+      ],
+      "id": "NX-d8b994d82ee6e239"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-d9b6853fd82f1d81"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "orange"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-e1cc3f6709d89c18"
+    },
+    {
+      "photo_name": null,
+      "printed_fruit_words": [
+        "grapefruit"
+      ],
+      "confirmed_order_sku": null,
+      "confirmed_gtin": null,
+      "order_check_gtins": [],
+      "id": "NX-e2b46e70c866ef66"
+    }
+  ]
+}

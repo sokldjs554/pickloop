@@ -1,0 +1,74 @@
+# 처음 보는 실물 사진에서 무엇을 읽었나
+
+독립적으로 모은 새 주스 사진에서 등록 1L 제품을 정확히 맞힌 수는 **0/6에서 1/6**으로 늘었다. 반면 미등록 규격 27장에 등록 상품명을 잘못 붙인 수는 **0장에서 6장**으로 늘었다. 맞힌 한 장은 오렌지주스 포장 앞면이 보이는 제조사 홍보 사진이었다. 이 결과로 매장 사진에서 정확한 규격을 식별할 수 있다고 말하기는 어렵다. [공개 화면](https://pickloop-robot-ops.ykh13571.chatgpt.site/recognition) · [사진별 정답·판정·출처](experiments/new-photos/rows.csv)
+
+| 사진 | 수 | 변경 전 | 변경 후 |
+|---|---:|---:|---:|
+| 등록 1L 제품 | 6 | 정답 0, 보류 6 | 정답 1, 보류 5 |
+| 같은 맛이지만 상품 코드가 다른 제품 | 18 | 잘못 이름 붙임 0 | 잘못 이름 붙임 6 |
+| 그 밖의 미등록 주스 | 9 | 잘못 이름 붙임 0 | 잘못 이름 붙임 0 |
+| 개발 중 사용한 이전 사진 | 7 | 등록 0/6 정답, 미등록 1장 보류 | 등록 6/6 정답, 미등록 1장 보류 |
+
+기존 모델이 처음에 보류한 사진에도 상품명 확인 기회를 주도록 바꿨다. 사진 전체와 포장 부분의 글자를 읽고 브랜드·맛·다른 규격 표기를 대조한다. 바코드가 여러 개이거나 상품명과 충돌하면 규격을 보류한다. 새 등록 사진의 일반 앞면 1장과 뒷면 4장은 모두 이름을 맞히지 못했다. 다른 규격인데도 이름을 붙인 6장은 모두 맛 표기를 읽은 사진이었다. 이 6장과 정답 1장 모두 바코드로 규격을 확인한 경우는 0장이었다.
+
+주스 후보 35장의 정답·사진 출처와 채점 기준을 먼저 고정했다. 기존 자료 5,502장과 이전 사진, 새 사진끼리 중복을 검사해 비슷한 사진 2장을 보수적으로 제외했다. 채점한 33장에는 같은 촬영에서 나온 여러 컷도 있다. 등록 주스 6장 중 4장에서는 실제 맛과 일치하는 과일 단어가 반복해서 읽혔다. 성분표의 단어도 포함하는 사후 확인이다. 상품명 1/6과 별도로 집계했다. [사진별 텍스트·규격 판정](experiments/new-photos/order-readouts.json)
+
+일반 식료품 확인용으로 따로 모은 16장에서 기본 경로는 등록 생과일·채소 6/12장을 맞히고 미등록 딸기 4장을 모두 보류했다. [평가 절차·판별기 해시·상세 결과](experiments/new-photos/report.md) · [이전 공식 주스 60장 전후 결과](experiments/prior-juice-regression/README.md)
+
+## 보류된 생과일·채소를 다시 확인한 결과
+
+새 생과일·채소 사진 40장에서 등록 바나나·오이·파인애플은 24장 중 12장 → 15장을 맞혔다. 미등록 16장에 잘못 이름을 붙인 수는 0장 → 0장이었다. 기존 모델이 보류한 경우에 전체 사진과 중앙 부분을 ResNet-18로 확인한다. 이 시험에는 모델 선택 전에 본 개발 사진 16장을 넣지 않았다. 아래 표는 처음 보는 사진만 집계했다. [사진별 판정·측정 조건](experiments/produce-rescue/)
+
+| 품목 | 사진 | 집계한 값 | 기존 | 추가 확인 |
+|---|---:|---|---:|---:|
+| 아티초크 | 4 | 잘못 이름 붙임 | 0 | 0 |
+| 바나나 | 8 | 등록명 정답 | 5 | 7 |
+| 오이 | 8 | 등록명 정답 | 1 | 2 |
+| 파인애플 | 8 | 등록명 정답 | 6 | 6 |
+| 호박 | 4 | 잘못 이름 붙임 | 0 | 0 |
+| 딸기 | 8 | 잘못 이름 붙임 | 0 | 0 |
+
+```bash
+pickloop recognize "photo.jpg" --produce
+```
+
+## 내 사진으로 확인하기
+
+- **브라우저에서 포장 읽기** · 공개 화면의 ‘내 사진의 글자와 바코드 읽기’에서 사진을 선택한다. 글자와 판독한 코드는 기기에서 처리한다. 사진에 찍힌 EAN이 현재 등록한 주스 코드 3개와 일치하면 이름을 표시한다. 위 33장의 수치는 아래 파이썬 판별기로 측정했다. [공개 사진 판독기](https://pickloop-robot-ops.ykh13571.chatgpt.site/recognition#read-package)
+- **Codespaces에서 전체 모델 쓰기** · 이미 열려 있는 Codespace에서는 저장한 개인 변경을 확인한 뒤 최신 main을 받고 필요한 패키지를 설치한다. 처음 이미지를 읽을 때 공개 모델 가중치를 내려받는다. 저장소의 개발 컨테이너에는 Tesseract와 영어 글자 데이터가 포함된다.
+
+```bash
+git pull --ff-only
+python -m pip install -e '.[catalogue]'
+pickloop recognize "photo.jpg"
+```
+
+사진을 Codespaces 터미널에서 실행하는 디렉터리에 올리고 파일명을 바꿔 실행한다. 브라우저에서 전체 모델을 쓰려면 다음 명령을 실행하고 Codespaces의 **Ports → 8000**에서 페이지를 연 뒤 주소 끝에 `/recognition.html#try-photo`를 붙인다.
+
+```bash
+pickloop serve --host 0.0.0.0 --port 8000
+```
+
+| 출력 | 해석 |
+|---|---|
+| `photo_name` | 사진에서 추정한 카탈로그 품목. 근거가 부족하면 null |
+| `printed_fruit_words` | 같은 사진의 복수 OCR 판독에서 반복된 사과·오렌지·자몽 단어. 성분 설명에서도 나올 수 있음 |
+| `confirmed_order_sku`, `confirmed_gtin` | 현재 등록된 바코드 하나를 읽고 글자와 충돌하지 않았을 때만 확정하는 규격과 코드 |
+| `prediction` | 기본 모드의 상품명 후보. `--require-gtin`으로 실행하면 등록 규격까지 확인해야 이름을 반환 |
+
+바코드가 보이는 미등록 제품의 실물 사진을 따로 2장 확인했다. 250mL 오렌지 팩과 다른 브랜드의 오렌지주스 병에서 각각 다른 코드를 실제로 읽었고 두 사진 모두 보류했다. 등록 1L 제품의 실물 바코드 면은 조사한 공개 사진에서 확보하지 못해 등록 코드 성공률을 산출할 수 없다. 바코드 모드로 새 주스 사진 33장을 판정하면 등록 제품까지 포함해 모두 규격을 보류한다. 실물 출고 장치 연결은 없다. [바코드 면 원본·판정](experiments/new-photos/rescan)
+
+공개 브라우저에 쓰는 한국어·영어 판독 엔진도 실물 포장 앞면 3장으로 따로 확인했다. 신라면에서 한글 ‘라면’을 온전히 읽지 못했다. 불닭볶음면 사진은 이름 오른쪽이 잘렸고, 롯데 초코파이는 영문 앞면이었다. 두 엔진의 판독을 제품명 정답률로 합치지 않았다. [앞면 출처·출력 원문](experiments/new-photos/korean-packages)
+
+같은 입력으로 시험하려면 아래 예시를 실행한다. 사과주스 뒷면에서 `printed_fruit_words`에는 `apple`이 나오고 `confirmed_order_sku`는 `null`이다.
+
+```bash
+python scripts/fetch_recognition_photos.py work/photo-samples --cohort new --id NX-00b7083b7cd829cb
+pickloop recognize work/photo-samples/new/blind/NX-00b7083b7cd829cb.jpg --require-gtin
+```
+
+전체 평가 사진을 복원할 때는 `python -m pip install pypdf==6.21.4` 후 `python scripts/fetch_recognition_photos.py work/photo-samples`를 실행한다. 원본 제공처의 바이트가 바뀌면 검증이 멈춘다. 엄밀히 같은 코드로 역사적 결과를 반복하려면 별도 worktree에서 동결 커밋을 사용한다. 발표한 결과는 Codex가 실행했다. [동결 커밋](https://github.com/sokldjs554/pickloop/tree/1d39baa22fb65c0a9f58fea23e3b5c6a104a722c) · [전체 평가 재현 명령](experiments/new-photos/README.md)
+
+```bash
+git worktree add --detach ../pickloop-photo-freeze 1d39baa22fb65c0a9f58fea23e3b5c6a104a722c
+```

@@ -1,0 +1,1017 @@
+[
+  {
+    "class": "Banana",
+    "rank": 1,
+    "imageid": "00423c885ef8e8b0",
+    "decision": "excluded",
+    "reason": "unripe on-plant fruit: banana/plantain ambiguity"
+  },
+  {
+    "class": "Banana",
+    "rank": 2,
+    "imageid": "0b2e4b673751320f",
+    "decision": "excluded",
+    "reason": "red/short cultivar: banana/plantain ambiguity"
+  },
+  {
+    "class": "Banana",
+    "rank": 3,
+    "imageid": "1adc6a5947edc664",
+    "decision": "excluded",
+    "reason": "unripe fruit: banana/plantain ambiguity"
+  },
+  {
+    "class": "Banana",
+    "rank": 4,
+    "imageid": "1f9212dccc4a85d2",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Banana",
+    "rank": 5,
+    "imageid": "2fdf75881f68dd04",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Banana",
+    "rank": 6,
+    "imageid": "3371fc25ea314f7c",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Banana",
+    "rank": 7,
+    "imageid": "3accf7a985ed31e1",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Banana",
+    "rank": 8,
+    "imageid": "3b3f0b25d84ca601",
+    "decision": "excluded",
+    "reason": "unripe on-plant fruit: banana/plantain ambiguity"
+  },
+  {
+    "class": "Banana",
+    "rank": 9,
+    "imageid": "3c9eccf612faecda",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Banana",
+    "rank": 10,
+    "imageid": "40f151ffc7282ffb",
+    "decision": "excluded",
+    "reason": "cooked Saba bananas (Nilagang Saba)"
+  },
+  {
+    "class": "Banana",
+    "rank": 11,
+    "imageid": "41c9a881abbd32d6",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Banana",
+    "rank": 12,
+    "imageid": "4449db3e28d372c6",
+    "decision": "excluded",
+    "reason": "unripe fruit: banana/plantain ambiguity"
+  },
+  {
+    "class": "Banana",
+    "rank": 13,
+    "imageid": "4ad81d54074c54fb",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Banana",
+    "rank": 14,
+    "imageid": "4ee0ff6dfabf8303",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 1,
+    "imageid": "008aa959e28d602b",
+    "decision": "excluded",
+    "reason": "prepared mixed chopped dish"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 2,
+    "imageid": "021d93ed50abb1ea",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 3,
+    "imageid": "02411066fff6347c",
+    "decision": "excluded",
+    "reason": "mixed prepared salad"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 4,
+    "imageid": "03be3d072f7cb0b7",
+    "decision": "excluded",
+    "reason": "mixed prepared salad"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 5,
+    "imageid": "06e83bda7dd99c96",
+    "decision": "excluded",
+    "reason": "preserved pickles in brine"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 6,
+    "imageid": "073724d5bc9110f4",
+    "decision": "excluded",
+    "reason": "oiled/seasoned squash slices"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 7,
+    "imageid": "07a3510f16522f0e",
+    "decision": "excluded",
+    "reason": "preserved pickles"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 8,
+    "imageid": "0821bf4e79c52159",
+    "decision": "excluded",
+    "reason": "zucchini source-label error"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 9,
+    "imageid": "099a78fb2fe828cd",
+    "decision": "excluded",
+    "reason": "mixed prepared vegetables"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 10,
+    "imageid": "1c1f37a952ea15fb",
+    "decision": "excluded",
+    "reason": "mixed harvest with radish/other vegetables"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 11,
+    "imageid": "2041418c4e8970c8",
+    "decision": "excluded",
+    "reason": "steamed zucchini source-label error"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 12,
+    "imageid": "21865e0774dbe0c1",
+    "decision": "excluded",
+    "reason": "mixed harvest and squash ambiguity"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 13,
+    "imageid": "2835f45913fcd61b",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 14,
+    "imageid": "287909df1719f47e",
+    "decision": "excluded",
+    "reason": "zucchini source-label error"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 15,
+    "imageid": "299ab4f5618495f5",
+    "decision": "excluded",
+    "reason": "preserved pickles"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 16,
+    "imageid": "2a2ec5a3f171d9fc",
+    "decision": "excluded",
+    "reason": "kiwano not cucumber (source-label error)"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 17,
+    "imageid": "2afaa8dca2a8f3d8",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 18,
+    "imageid": "2f79f33e5445bb65",
+    "decision": "excluded",
+    "reason": "mixed peppers/cucumbers"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 19,
+    "imageid": "31c57544f03d56e6",
+    "decision": "excluded",
+    "reason": "courgette source-label error"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 20,
+    "imageid": "32129227bd6a8817",
+    "decision": "excluded",
+    "reason": "mixed cucumbers/peppers"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 21,
+    "imageid": "35662ba188f7a487",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 22,
+    "imageid": "3699654bbf89fcf8",
+    "decision": "excluded",
+    "reason": "zucchini source-label error"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 23,
+    "imageid": "38f1ac96136d1d03",
+    "decision": "excluded",
+    "reason": "decoratively prepared cucumber (not ordinary raw presentation)"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 24,
+    "imageid": "398244a4f56198e0",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 25,
+    "imageid": "419d742a1169d5c4",
+    "decision": "excluded",
+    "reason": "mixed squash/cucumber harvest"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 26,
+    "imageid": "42e1353e4b252052",
+    "decision": "excluded",
+    "reason": "preserved pickles"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 27,
+    "imageid": "43b9b8a3dc8602cf",
+    "decision": "excluded",
+    "reason": "cucumber-melon subtype ambiguity"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 28,
+    "imageid": "447b1a9c78dd6e8b",
+    "decision": "excluded",
+    "reason": "preserved pickles"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 29,
+    "imageid": "466e378beff634ab",
+    "decision": "excluded",
+    "reason": "courgette source-label error"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 30,
+    "imageid": "4bd1f4c277d343f8",
+    "decision": "excluded",
+    "reason": "mixed prepared bean salad"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 31,
+    "imageid": "4df9dc09efc766c3",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 32,
+    "imageid": "4e6fb086fde3720e",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 33,
+    "imageid": "546a7dcb054556be",
+    "decision": "excluded",
+    "reason": "mixed cukes and zucchini source-label ambiguity"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 34,
+    "imageid": "546bef454860c4b3",
+    "decision": "excluded",
+    "reason": "mixed squash/cucumber basket"
+  },
+  {
+    "class": "Cucumber",
+    "rank": 35,
+    "imageid": "58502926ff03905a",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 1,
+    "imageid": "0abe7d9ea7e16682",
+    "decision": "excluded",
+    "reason": "prepared rice dish"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 2,
+    "imageid": "0aeb2d73c7b47a54",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 3,
+    "imageid": "0e5038eaea4af0ee",
+    "decision": "excluded",
+    "reason": "mixed rambutan/pineapple fruit display"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 4,
+    "imageid": "0ebf6f99476a18b9",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 5,
+    "imageid": "14805ae79bcffaab",
+    "decision": "excluded",
+    "reason": "decoratively cut/constructed presentation"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 6,
+    "imageid": "1ac684d41db2c9b3",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 7,
+    "imageid": "1e4dcc92b20614b1",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 8,
+    "imageid": "1fc51aca1526620f",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 9,
+    "imageid": "26504e525fac1e13",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 10,
+    "imageid": "26a2393f9024b99f",
+    "decision": "excluded",
+    "reason": "prepared cocktail"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 11,
+    "imageid": "2cbde457ed331c1d",
+    "decision": "excluded",
+    "reason": "prepared mixed charoset"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 12,
+    "imageid": "2fdbbc33b63ca22b",
+    "decision": "excluded",
+    "reason": "mixed fruit platter"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 13,
+    "imageid": "3854a66b940ab028",
+    "decision": "excluded",
+    "reason": "mixed pineapple/citrus presentation"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 14,
+    "imageid": "49d825bb58eed4f3",
+    "decision": "excluded",
+    "reason": "fruit carved into animal/craft"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 15,
+    "imageid": "54c81fa55a882134",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pineapple",
+    "rank": 16,
+    "imageid": "54c99d068997ad54",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 1,
+    "imageid": "05cb03ee727c0eec",
+    "decision": "excluded",
+    "reason": "cherries source-label error"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 2,
+    "imageid": "08a6986e8f9ad9bc",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 3,
+    "imageid": "08b420c6386ae2bf",
+    "decision": "excluded",
+    "reason": "rambutan source-label error"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 4,
+    "imageid": "0e43a894a701cd8e",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 5,
+    "imageid": "10dff3517fc70b13",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 6,
+    "imageid": "11c7144e30fd5762",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 7,
+    "imageid": "13d0f0ce1b8da888",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 8,
+    "imageid": "148c848ed8e16182",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 9,
+    "imageid": "150273a7ac433be6",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 10,
+    "imageid": "1732e868c2094904",
+    "decision": "excluded",
+    "reason": "graphic advertisement/depiction"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 11,
+    "imageid": "1ed9f3cbf24ca44b",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 12,
+    "imageid": "1f9275e03cc9df56",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 13,
+    "imageid": "252a79acd7c5ca67",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 14,
+    "imageid": "261d9b2fee4120ac",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 15,
+    "imageid": "266f6bb1b9d4db14",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 16,
+    "imageid": "278e9d3f55e2d94b",
+    "decision": "excluded",
+    "reason": "mixed watermelon fruit platter"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 17,
+    "imageid": "27a4be7cb0dc74e2",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 18,
+    "imageid": "282264c13ca17788",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 19,
+    "imageid": "2bd772c24bd65661",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 20,
+    "imageid": "2c5392dd758eaf59",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 21,
+    "imageid": "2eb3375c305248c5",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 22,
+    "imageid": "31ebc065f476e678",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 23,
+    "imageid": "321ec2ae7cdf676a",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 24,
+    "imageid": "322b9574f9c4d46c",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 25,
+    "imageid": "356526a168bc449e",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 26,
+    "imageid": "35d894782b94eb74",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 27,
+    "imageid": "3643756ee4e5a4e1",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 28,
+    "imageid": "37eb514d41019fb3",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 29,
+    "imageid": "3a32429a32c313b7",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 30,
+    "imageid": "3c83ee65c4b3adbc",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 31,
+    "imageid": "4090ef2ff1c4b62f",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 32,
+    "imageid": "45d7833a80399823",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 33,
+    "imageid": "46a0dc33d4fd181e",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 34,
+    "imageid": "48fab6e4bbfcc4f1",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 35,
+    "imageid": "4a253a2b88bc4345",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 36,
+    "imageid": "4ac60969dd23fc8c",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 37,
+    "imageid": "50656f73bd333998",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 38,
+    "imageid": "52637e26293243c1",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 39,
+    "imageid": "53fd9421d8dc356f",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 40,
+    "imageid": "55be988f5d5189f6",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 41,
+    "imageid": "5a99c380afcaf4de",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 42,
+    "imageid": "5b2e3b38b7022e0d",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 43,
+    "imageid": "5da863b70ee31e8d",
+    "decision": "excluded",
+    "reason": "prepared dessert/meal/preserved presentation rather than raw target"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 44,
+    "imageid": "5e0a15749bc59cf5",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Strawberry",
+    "rank": 45,
+    "imageid": "61db29be5caecff5",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Artichoke",
+    "rank": 1,
+    "imageid": "053fbbafa21f1255",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Artichoke",
+    "rank": 2,
+    "imageid": "07011714dad566a8",
+    "decision": "excluded",
+    "reason": "pine cone source-label error"
+  },
+  {
+    "class": "Artichoke",
+    "rank": 3,
+    "imageid": "0b0521b290e33c55",
+    "decision": "excluded",
+    "reason": "succulent source-label error"
+  },
+  {
+    "class": "Artichoke",
+    "rank": 4,
+    "imageid": "0d9da98e3e1ee109",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Artichoke",
+    "rank": 5,
+    "imageid": "0f76dd41ef4bce5d",
+    "decision": "excluded",
+    "reason": "open flower rather than raw edible bud"
+  },
+  {
+    "class": "Artichoke",
+    "rank": 6,
+    "imageid": "261aaae4c64fff03",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Artichoke",
+    "rank": 7,
+    "imageid": "2d9eaf6aa2efbaa9",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 1,
+    "imageid": "00045d609ca3f4eb",
+    "decision": "excluded",
+    "reason": "carving underway, altered pumpkin"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 2,
+    "imageid": "0040b9648db8bee2",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 3,
+    "imageid": "055340c50841e031",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 4,
+    "imageid": "059108da497d5b23",
+    "decision": "excluded",
+    "reason": "polystyrene imitation (title and appearance)"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 5,
+    "imageid": "0642b6fbe50c96fb",
+    "decision": "excluded",
+    "reason": "carved/altered rotting jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 6,
+    "imageid": "13e97b4eb10a430d",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 7,
+    "imageid": "154e6083804b4ffc",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 8,
+    "imageid": "1c9cfbc2631a37c2",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 9,
+    "imageid": "24bfd7c114cd0d85",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 10,
+    "imageid": "2965b9e3e47b55a0",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 11,
+    "imageid": "2a0e8fde10d44da9",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 12,
+    "imageid": "2f1a58272e1b0436",
+    "decision": "excluded",
+    "reason": "bottle gourd/squash subtype ambiguity"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 13,
+    "imageid": "30376950ed921d29",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 14,
+    "imageid": "31444e8b4d31dec2",
+    "decision": "excluded",
+    "reason": "zucchini source-label error"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 15,
+    "imageid": "3d19ccb9d6716a4e",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 16,
+    "imageid": "414abf4caa4448da",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 17,
+    "imageid": "47b5d5ac38d3c714",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 18,
+    "imageid": "47efca82ee7fd54a",
+    "decision": "excluded",
+    "reason": "staged child dominates central target; not single dominant raw item"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 19,
+    "imageid": "4c2133bd1f1d7b47",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 20,
+    "imageid": "5ca7a35111dea32a",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 21,
+    "imageid": "5e331c2db50a32e5",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 22,
+    "imageid": "5f29420164df556f",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 23,
+    "imageid": "5f721372d331a03d",
+    "decision": "excluded",
+    "reason": "mixed squash/flowers decorative arrangement"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 24,
+    "imageid": "677585175dbf1166",
+    "decision": "excluded",
+    "reason": "human/flower presentation dominates"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 25,
+    "imageid": "6e96ed90b429c780",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 26,
+    "imageid": "70953781d3d173c3",
+    "decision": "excluded",
+    "reason": "shiny decorative imitation; physical raw-food status uncertain"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 27,
+    "imageid": "759a526044a638ab",
+    "decision": "excluded",
+    "reason": "carved jack-o-lantern"
+  },
+  {
+    "class": "Pumpkin",
+    "rank": 28,
+    "imageid": "78237450c652ad1f",
+    "decision": "selected",
+    "reason": "physical raw single dominant class, source label independently visually confirmed"
+  }
+]

@@ -1,0 +1,258 @@
+{
+  "protocol": "Historical replay only. All 60 official test photos whose truth is one of three named God Morgon juices.",
+  "baseline_method": "Reuse archived 81-class + Bravo decision after per-photo SHA-256 and complete official test-list verification.",
+  "rgb_method": "EXIF transpose, convert to RGB, whole image, identical array for former gate and frozen default.",
+  "cohort_overlap": "The 19 previously reported mixed-juice images are a subset of these 60.",
+  "policies": [
+    "old_default",
+    "former_juice_gate",
+    "frozen_default"
+  ],
+  "archived_predictions_sha256": "6e7982856b3c907a584d084b60cb684b20609a28a5e803f08ad2083f45a7530f",
+  "previous_mixed_ledger_sha256": "6dd85e0dc167a4f89207a20dda7257e40e4468e537107746ee7709411d49f1d0",
+  "archive_prefix": "GroceryStoreDataset-fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/",
+  "sealed_freeze_sha256": "c7dc451911337cc311902388b20c1f2e1c9820349e9fa4f72cb6edcc4ca8e15b",
+  "sealed_source_sha256": "cfaeab29d25cbb8721b6beabe94a41799a8ab4edd6ed90e1d6dd55747a7299df",
+  "frozen_product_text_sha256": "3bbbfa242b489920a52d59ee29cc8f478b7c6b2c63511e2815687d034106d3b7",
+  "frozen_barcode_sha256": "f38cd2aab03acf1fedb0a6427ea863c4560153f6e84119e78c5e3a0e48602f31",
+  "former_gate_sha256": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
+  "barcode_library": {
+    "name": "zxing-cpp",
+    "version": "2.3.0"
+  },
+  "full": {
+    "photos": 60,
+    "policies": {
+      "old_default": {
+        "correct_named": 25,
+        "wrong_named": 32,
+        "held": 3
+      },
+      "former_juice_gate": {
+        "correct_named": 31,
+        "wrong_named": 4,
+        "held": 25
+      },
+      "frozen_default": {
+        "correct_named": 34,
+        "wrong_named": 5,
+        "held": 21
+      }
+    },
+    "transitions": {
+      "old_default_vs_former_juice_gate": {
+        "correct_to_correct": 15,
+        "correct_to_wrong": 0,
+        "correct_to_held": 10,
+        "wrong_to_correct": 16,
+        "wrong_to_wrong": 4,
+        "wrong_to_held": 12,
+        "held_to_correct": 0,
+        "held_to_wrong": 0,
+        "held_to_held": 3,
+        "new_wrong": 0
+      },
+      "old_default_vs_frozen_default": {
+        "correct_to_correct": 17,
+        "correct_to_wrong": 0,
+        "correct_to_held": 8,
+        "wrong_to_correct": 16,
+        "wrong_to_wrong": 5,
+        "wrong_to_held": 11,
+        "held_to_correct": 1,
+        "held_to_wrong": 0,
+        "held_to_held": 2,
+        "new_wrong": 0
+      },
+      "former_juice_gate_vs_frozen_default": {
+        "correct_to_correct": 29,
+        "correct_to_wrong": 1,
+        "correct_to_held": 1,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 4,
+        "wrong_to_held": 0,
+        "held_to_correct": 5,
+        "held_to_wrong": 0,
+        "held_to_held": 20,
+        "new_wrong": 1
+      }
+    }
+  },
+  "by_truth": {
+    "God-Morgon-Apple-Juice": {
+      "photos": 19,
+      "policies": {
+        "old_default": {
+          "correct_named": 7,
+          "wrong_named": 12,
+          "held": 0
+        },
+        "former_juice_gate": {
+          "correct_named": 14,
+          "wrong_named": 3,
+          "held": 2
+        },
+        "frozen_default": {
+          "correct_named": 13,
+          "wrong_named": 3,
+          "held": 3
+        }
+      },
+      "transitions": {
+        "old_default_vs_former_juice_gate": {
+          "correct_to_correct": 5,
+          "correct_to_wrong": 0,
+          "correct_to_held": 2,
+          "wrong_to_correct": 9,
+          "wrong_to_wrong": 3,
+          "wrong_to_held": 0,
+          "held_to_correct": 0,
+          "held_to_wrong": 0,
+          "held_to_held": 0,
+          "new_wrong": 0
+        },
+        "old_default_vs_frozen_default": {
+          "correct_to_correct": 4,
+          "correct_to_wrong": 0,
+          "correct_to_held": 3,
+          "wrong_to_correct": 9,
+          "wrong_to_wrong": 3,
+          "wrong_to_held": 0,
+          "held_to_correct": 0,
+          "held_to_wrong": 0,
+          "held_to_held": 0,
+          "new_wrong": 0
+        },
+        "former_juice_gate_vs_frozen_default": {
+          "correct_to_correct": 13,
+          "correct_to_wrong": 0,
+          "correct_to_held": 1,
+          "wrong_to_correct": 0,
+          "wrong_to_wrong": 3,
+          "wrong_to_held": 0,
+          "held_to_correct": 0,
+          "held_to_wrong": 0,
+          "held_to_held": 2,
+          "new_wrong": 0
+        }
+      }
+    },
+    "God-Morgon-Orange-Juice": {
+      "photos": 22,
+      "policies": {
+        "old_default": {
+          "correct_named": 18,
+          "wrong_named": 1,
+          "held": 3
+        },
+        "former_juice_gate": {
+          "correct_named": 10,
+          "wrong_named": 1,
+          "held": 11
+        },
+        "frozen_default": {
+          "correct_named": 14,
+          "wrong_named": 1,
+          "held": 7
+        }
+      },
+      "transitions": {
+        "old_default_vs_former_juice_gate": {
+          "correct_to_correct": 10,
+          "correct_to_wrong": 0,
+          "correct_to_held": 8,
+          "wrong_to_correct": 0,
+          "wrong_to_wrong": 1,
+          "wrong_to_held": 0,
+          "held_to_correct": 0,
+          "held_to_wrong": 0,
+          "held_to_held": 3,
+          "new_wrong": 0
+        },
+        "old_default_vs_frozen_default": {
+          "correct_to_correct": 13,
+          "correct_to_wrong": 0,
+          "correct_to_held": 5,
+          "wrong_to_correct": 0,
+          "wrong_to_wrong": 1,
+          "wrong_to_held": 0,
+          "held_to_correct": 1,
+          "held_to_wrong": 0,
+          "held_to_held": 2,
+          "new_wrong": 0
+        },
+        "former_juice_gate_vs_frozen_default": {
+          "correct_to_correct": 10,
+          "correct_to_wrong": 0,
+          "correct_to_held": 0,
+          "wrong_to_correct": 0,
+          "wrong_to_wrong": 1,
+          "wrong_to_held": 0,
+          "held_to_correct": 4,
+          "held_to_wrong": 0,
+          "held_to_held": 7,
+          "new_wrong": 0
+        }
+      }
+    },
+    "God-Morgon-Orange-Red-Grapefruit-Juice": {
+      "photos": 19,
+      "policies": {
+        "old_default": {
+          "correct_named": 0,
+          "wrong_named": 19,
+          "held": 0
+        },
+        "former_juice_gate": {
+          "correct_named": 7,
+          "wrong_named": 0,
+          "held": 12
+        },
+        "frozen_default": {
+          "correct_named": 7,
+          "wrong_named": 1,
+          "held": 11
+        }
+      },
+      "transitions": {
+        "old_default_vs_former_juice_gate": {
+          "correct_to_correct": 0,
+          "correct_to_wrong": 0,
+          "correct_to_held": 0,
+          "wrong_to_correct": 7,
+          "wrong_to_wrong": 0,
+          "wrong_to_held": 12,
+          "held_to_correct": 0,
+          "held_to_wrong": 0,
+          "held_to_held": 0,
+          "new_wrong": 0
+        },
+        "old_default_vs_frozen_default": {
+          "correct_to_correct": 0,
+          "correct_to_wrong": 0,
+          "correct_to_held": 0,
+          "wrong_to_correct": 7,
+          "wrong_to_wrong": 1,
+          "wrong_to_held": 11,
+          "held_to_correct": 0,
+          "held_to_wrong": 0,
+          "held_to_held": 0,
+          "new_wrong": 0
+        },
+        "former_juice_gate_vs_frozen_default": {
+          "correct_to_correct": 6,
+          "correct_to_wrong": 1,
+          "correct_to_held": 0,
+          "wrong_to_correct": 0,
+          "wrong_to_wrong": 0,
+          "wrong_to_held": 0,
+          "held_to_correct": 1,
+          "held_to_wrong": 0,
+          "held_to_held": 11,
+          "new_wrong": 1
+        }
+      }
+    }
+  },
+  "former_gate_disagreements_with_published_mixed": []
+}

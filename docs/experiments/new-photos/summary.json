@@ -1,0 +1,2620 @@
+{
+  "schema_version": 1,
+  "experiment": "new-external-pixel-only-before-after",
+  "generated_at": "2026-11-24T06:43:02.212796+00:00",
+  "executor": "Codex",
+  "baseline_commit": "2ebacf1f83192eb83983cde93256b871e49af764",
+  "roles": {
+    "new_primary": {
+      "n": 15,
+      "known": 6,
+      "unknown": 9,
+      "source_groups": 10,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 15,
+        "known_held": 6,
+        "unknown_correct_rejections": 9,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 0.16666666666666666,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 14,
+        "known_held": 5,
+        "unknown_correct_rejections": 9,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 9,
+        "held->correct": 1,
+        "held->held": 5
+      },
+      "formerly_correct_to_bad": 0
+    },
+    "alternate_gtin_challenge": {
+      "n": 18,
+      "known": 0,
+      "unknown": 18,
+      "source_groups": 7,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 18,
+        "known_held": 0,
+        "unknown_correct_rejections": 18,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 6,
+        "known_wrong": 0,
+        "held": 12,
+        "known_held": 0,
+        "unknown_correct_rejections": 12,
+        "unknown_false_accepts": 6,
+        "unknown_false_accept_rate": 0.3333333333333333,
+        "named": 6,
+        "family_matches": 6
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 12,
+        "correct_rejection->false_accept": 6
+      },
+      "formerly_correct_to_bad": 0
+    },
+    "prior_development": {
+      "n": 7,
+      "known": 6,
+      "unknown": 1,
+      "source_groups": 4,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 7,
+        "known_held": 6,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 6,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 6,
+        "family_matches": 6
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1,
+        "held->correct": 6
+      },
+      "formerly_correct_to_bad": 0
+    },
+    "produce_control": {
+      "n": 16,
+      "known": 12,
+      "unknown": 4,
+      "source_groups": 16,
+      "before": {
+        "correct_names": 6,
+        "known_exact_recall": 0.5,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 10,
+        "known_held": 6,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 6,
+        "family_matches": 6
+      },
+      "after": {
+        "correct_names": 6,
+        "known_exact_recall": 0.5,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 10,
+        "known_held": 6,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 6,
+        "family_matches": 6
+      },
+      "paired_transitions": {
+        "correct->correct": 6,
+        "correct_rejection->correct_rejection": 4,
+        "held->held": 6
+      },
+      "formerly_correct_to_bad": 0
+    },
+    "identity_unverified": {
+      "n": 0,
+      "known": 0,
+      "unknown": 0,
+      "source_groups": 0,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {},
+      "formerly_correct_to_bad": 0
+    }
+  },
+  "by_stratum": [
+    {
+      "role": "alternate_gtin_challenge",
+      "view_type": "back",
+      "capture_type": "Open Food Facts original upload",
+      "n": 4,
+      "known": 0,
+      "unknown": 4,
+      "source_groups": 3,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 4,
+        "known_held": 0,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 4,
+        "known_held": 0,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 4
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "view_type": "front",
+      "capture_type": "Open Food Facts original upload",
+      "n": 13,
+      "known": 0,
+      "unknown": 13,
+      "source_groups": 6,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 13,
+        "known_held": 0,
+        "unknown_correct_rejections": 13,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 6,
+        "known_wrong": 0,
+        "held": 7,
+        "known_held": 0,
+        "unknown_correct_rejections": 7,
+        "unknown_false_accepts": 6,
+        "unknown_false_accept_rate": 0.46153846153846156,
+        "named": 6,
+        "family_matches": 6
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 7,
+        "correct_rejection->false_accept": 6
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "view_type": "front",
+      "capture_type": "Retail or food-service supplier packshot",
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "view_type": "back",
+      "capture_type": "Open Food Facts original upload",
+      "n": 7,
+      "known": 4,
+      "unknown": 3,
+      "source_groups": 6,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 7,
+        "known_held": 4,
+        "unknown_correct_rejections": 3,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 7,
+        "known_held": 4,
+        "unknown_correct_rejections": 3,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 3,
+        "held->held": 4
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "view_type": "context",
+      "capture_type": "Manufacturer product photograph in PDF",
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "held->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "view_type": "front",
+      "capture_type": "Open Food Facts original upload",
+      "n": 5,
+      "known": 0,
+      "unknown": 5,
+      "source_groups": 4,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 5,
+        "known_held": 0,
+        "unknown_correct_rejections": 5,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 5,
+        "known_held": 0,
+        "unknown_correct_rejections": 5,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 5
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "view_type": "front",
+      "capture_type": "Retail or food-service supplier packshot",
+      "n": 2,
+      "known": 1,
+      "unknown": 1,
+      "source_groups": 2,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 1,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 1,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1,
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "view_type": "unclassified",
+      "capture_type": "contributor photograph of physical carton",
+      "n": 2,
+      "known": 2,
+      "unknown": 0,
+      "source_groups": 2,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 2,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 2,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 2,
+        "family_matches": 2
+      },
+      "paired_transitions": {
+        "held->correct": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "view_type": "unclassified",
+      "capture_type": "manufacturer studio packshot",
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "held->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "view_type": "unclassified",
+      "capture_type": "retailer studio packshot",
+      "n": 4,
+      "known": 3,
+      "unknown": 1,
+      "source_groups": 4,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 4,
+        "known_held": 3,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 3,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 3,
+        "family_matches": 3
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1,
+        "held->correct": 3
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "view_type": "context",
+      "capture_type": "physical_photo",
+      "n": 16,
+      "known": 12,
+      "unknown": 4,
+      "source_groups": 16,
+      "before": {
+        "correct_names": 6,
+        "known_exact_recall": 0.5,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 10,
+        "known_held": 6,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 6,
+        "family_matches": 6
+      },
+      "after": {
+        "correct_names": 6,
+        "known_exact_recall": 0.5,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 10,
+        "known_held": 6,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 6,
+        "family_matches": 6
+      },
+      "paired_transitions": {
+        "correct->correct": 6,
+        "correct_rejection->correct_rejection": 4,
+        "held->held": 6
+      },
+      "formerly_correct_to_bad": 0
+    }
+  ],
+  "by_route": [
+    {
+      "role": "alternate_gtin_challenge",
+      "recognition_source": "barcode",
+      "n": 2,
+      "known": 0,
+      "unknown": 2,
+      "source_groups": 2,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "recognition_source": "package_text",
+      "n": 15,
+      "known": 0,
+      "unknown": 15,
+      "source_groups": 7,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 15,
+        "known_held": 0,
+        "unknown_correct_rejections": 15,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 6,
+        "known_wrong": 0,
+        "held": 9,
+        "known_held": 0,
+        "unknown_correct_rejections": 9,
+        "unknown_false_accepts": 6,
+        "unknown_false_accept_rate": 0.4,
+        "named": 6,
+        "family_matches": 6
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 9,
+        "correct_rejection->false_accept": 6
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "recognition_source": "registered_panel_and_text",
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "recognition_source": "package_text",
+      "n": 15,
+      "known": 6,
+      "unknown": 9,
+      "source_groups": 10,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 15,
+        "known_held": 6,
+        "unknown_correct_rejections": 9,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 0.16666666666666666,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 14,
+        "known_held": 5,
+        "unknown_correct_rejections": 9,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 9,
+        "held->correct": 1,
+        "held->held": 5
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "recognition_source": "package_text",
+      "n": 6,
+      "known": 5,
+      "unknown": 1,
+      "source_groups": 4,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 6,
+        "known_held": 5,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 5,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 5,
+        "family_matches": 5
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1,
+        "held->correct": 5
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "recognition_source": "registered_panel_and_text",
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "held->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "recognition_source": "baseline",
+      "n": 6,
+      "known": 6,
+      "unknown": 0,
+      "source_groups": 6,
+      "before": {
+        "correct_names": 6,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 6,
+        "family_matches": 6
+      },
+      "after": {
+        "correct_names": 6,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 6,
+        "family_matches": 6
+      },
+      "paired_transitions": {
+        "correct->correct": 6
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "recognition_source": "package_text",
+      "n": 10,
+      "known": 6,
+      "unknown": 4,
+      "source_groups": 10,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 10,
+        "known_held": 6,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 10,
+        "known_held": 6,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 4,
+        "held->held": 6
+      },
+      "formerly_correct_to_bad": 0
+    }
+  ],
+  "by_source_group": [
+    {
+      "role": "alternate_gtin_challenge",
+      "source_group": "OFF-6415130050490",
+      "ids": [
+        "NX-128b044de60a6242"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/6415130050490"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 1,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 1,
+        "unknown_false_accept_rate": 1.0,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct_rejection->false_accept": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "source_group": "OFF-6415130050506",
+      "ids": [
+        "NX-2874d2801bee038e",
+        "NX-584351374f9dd7e4",
+        "NX-8002e17bcce9369f",
+        "NX-d8b994d82ee6e239"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/6415130050506"
+      ],
+      "n": 4,
+      "known": 0,
+      "unknown": 4,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 4,
+        "known_held": 0,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 1,
+        "known_wrong": 0,
+        "held": 3,
+        "known_held": 0,
+        "unknown_correct_rejections": 3,
+        "unknown_false_accepts": 1,
+        "unknown_false_accept_rate": 0.25,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 3,
+        "correct_rejection->false_accept": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "source_group": "OFF-6415130089827",
+      "ids": [
+        "NX-20227763df0f3621",
+        "NX-bb8e1a5da4035a5c"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/6415130089827"
+      ],
+      "n": 2,
+      "known": 0,
+      "unknown": 2,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "source_group": "OFF-6415130089834",
+      "ids": [
+        "NX-88d58ba6fa70e7e6",
+        "NX-af7befe46b07d908",
+        "NX-d152da1019eb25f9",
+        "NX-e1cc3f6709d89c18"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/6415130089834"
+      ],
+      "n": 4,
+      "known": 0,
+      "unknown": 4,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 4,
+        "known_held": 0,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 1,
+        "known_wrong": 0,
+        "held": 3,
+        "known_held": 0,
+        "unknown_correct_rejections": 3,
+        "unknown_false_accepts": 1,
+        "unknown_false_accept_rate": 0.25,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 3,
+        "correct_rejection->false_accept": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "source_group": "OFF-7310865074768",
+      "ids": [
+        "NX-2eca27540a00d80d",
+        "NX-63455b37f6fb074a"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/7310865074768"
+      ],
+      "n": 2,
+      "known": 0,
+      "unknown": 2,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 2,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 2,
+        "unknown_false_accept_rate": 1.0,
+        "named": 2,
+        "family_matches": 2
+      },
+      "paired_transitions": {
+        "correct_rejection->false_accept": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "source_group": "OFF-7310865081650",
+      "ids": [
+        "NX-696557e5fb415bd8",
+        "NX-822050428801e3e2",
+        "NX-beec70e2bd2bfbd8",
+        "NX-cb050c427c4b5a3a"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/7310865081650"
+      ],
+      "n": 4,
+      "known": 0,
+      "unknown": 4,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 4,
+        "known_held": 0,
+        "unknown_correct_rejections": 4,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 1,
+        "known_wrong": 0,
+        "held": 3,
+        "known_held": 0,
+        "unknown_correct_rejections": 3,
+        "unknown_false_accepts": 1,
+        "unknown_false_accept_rate": 0.25,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 3,
+        "correct_rejection->false_accept": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "alternate_gtin_challenge",
+      "source_group": "S-kaupat-6415130050520",
+      "ids": [
+        "NX-e2b46e70c866ef66"
+      ],
+      "source_urls": [
+        "https://www.s-kaupat.fi/tuote/god-morgon-classic-appelsiini-verigreippi-taysmehu-100-1-l/6415130050520"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "Arla-7310860007259",
+      "ids": [
+        "NX-b1e4fdbce0cfce35"
+      ],
+      "source_urls": [
+        "https://kund.arla.se/sortiment/produkt/god-morgon/apelsin-rod-grape-1000ml-102922/"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "Arla-7313619002567",
+      "ids": [
+        "NX-0392ad220df9290d"
+      ],
+      "source_urls": [
+        "https://kund.arla.se/sortiment/produkt/bramhults/nypressad-apelsin-utan-fruktkott-850ml-82893/"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "EckesGranini-brochure2025-7310860007372",
+      "ids": [
+        "NX-d03141e8696f584c"
+      ],
+      "source_urls": [
+        "https://a.storyblok.com/f/243238/x/e14cfc3015/eckes_sortimentsbroschyr_2025-v2_high.pdf#page=8"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "held->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "OFF-3123349011227",
+      "ids": [
+        "NX-06826030e1b7d1f3",
+        "NX-1137bb80e9b5c8b6",
+        "NX-bb58e04f2bc8d716"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/3123349011227"
+      ],
+      "n": 3,
+      "known": 0,
+      "unknown": 3,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 3,
+        "known_held": 0,
+        "unknown_correct_rejections": 3,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 3,
+        "known_held": 0,
+        "unknown_correct_rejections": 3,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 3
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "OFF-3503780002235",
+      "ids": [
+        "NX-9ffef5a8b7322827",
+        "NX-d9b6853fd82f1d81"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/3503780002235"
+      ],
+      "n": 2,
+      "known": 0,
+      "unknown": 2,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "OFF-7310860007259",
+      "ids": [
+        "NX-3a3f6e5417850d89"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/7310860007259"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "OFF-7310860007310",
+      "ids": [
+        "NX-1230684b507e6968"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/7310860007310"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "OFF-7310860007372",
+      "ids": [
+        "NX-a2e53fc60c4f6ad3",
+        "NX-b85ca6fa7b3eaa3e"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/7310860007372"
+      ],
+      "n": 2,
+      "known": 2,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 2,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 2,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "OFF-7310865074225",
+      "ids": [
+        "NX-00b7083b7cd829cb"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/7310865074225"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "new_primary",
+      "source_group": "OFF-7310865085498",
+      "ids": [
+        "NX-29c598821ffebabf",
+        "NX-94fc91a92a480162"
+      ],
+      "source_urls": [
+        "https://world.openfoodfacts.org/product/7310865085498"
+      ],
+      "n": 2,
+      "known": 0,
+      "unknown": 2,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 0,
+        "unknown_correct_rejections": 2,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "source_group": "prior-product:7310860007259",
+      "ids": [
+        "GMX-46ff865df16a",
+        "GMX-785205990644",
+        "GMX-b7e2638425aa"
+      ],
+      "source_urls": [
+        "https://handla.ica.se/produkt/1201739",
+        "https://world.openfoodfacts.org/product/7310860007259",
+        "https://www.godmorgon.com/products/classic/godmorgon-classic-orange-red-grapefruit"
+      ],
+      "n": 3,
+      "known": 3,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 3,
+        "known_held": 3,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 3,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 3,
+        "family_matches": 3
+      },
+      "paired_transitions": {
+        "held->correct": 3
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "source_group": "prior-product:7310860007372",
+      "ids": [
+        "GMX-649ceaeb1b3d",
+        "GMX-7c855061af48"
+      ],
+      "source_urls": [
+        "https://handla.ica.se/produkt/1201853",
+        "https://world.openfoodfacts.org/product/7310860007372"
+      ],
+      "n": 2,
+      "known": 2,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 2,
+        "known_held": 2,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 2,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 2,
+        "family_matches": 2
+      },
+      "paired_transitions": {
+        "held->correct": 2
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "source_group": "prior-product:7310865074225",
+      "ids": [
+        "GMX-28c6aec5bc49"
+      ],
+      "source_urls": [
+        "https://handla.ica.se/produkt/1395834"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "held->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "prior_development",
+      "source_group": "prior-product:7313619002413",
+      "ids": [
+        "GMX-1f308fa8fac0"
+      ],
+      "source_urls": [
+        "https://handla.ica.se/produkt/2151620"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:004a9ec75eca5910",
+      "ids": [
+        "pc-9d0c5fe0ba1c92a3"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/lindatrawnik/4740682415"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:02aeb6528711637a",
+      "ids": [
+        "pc-cc7a451f0fd04465"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/camera_is_a_mirror_with_memory/16273171042"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:072b81ef8ad73bc5",
+      "ids": [
+        "pc-90832327841fcf10"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/infrogmation/5215741161"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:1e8a39add490c98c",
+      "ids": [
+        "pc-96adff428a8c8437"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/adamnaif/374435512"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:21c4ea545cc662f1",
+      "ids": [
+        "pc-414df6733ea68355"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/theonewithout/9231578384"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:26204a3f7590cd5b",
+      "ids": [
+        "pc-172352ebc189a1f8"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/lindah/2590783740"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:27d4b3f273ee822d",
+      "ids": [
+        "pc-2f5fecd52a4af83a"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/hulagway/5208339950"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:2aee86498d2bb628",
+      "ids": [
+        "pc-c04d2754e061f8eb"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/ptc24/371955646"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:356b1b9ddd7e3b22",
+      "ids": [
+        "pc-d7e5646518179c25"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/brendan-c/5242022634"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:3b86a77cb70f180d",
+      "ids": [
+        "pc-d8775819e098f8d3"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/73269789@N00/4754860454"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:3c47349cca9f3fb2",
+      "ids": [
+        "pc-7c7249be51525772"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/mauropm/11879524916"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:53737b934851332b",
+      "ids": [
+        "pc-e9fc07e42cf96c82"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/crobj/350453017"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "after": {
+        "correct_names": 1,
+        "known_exact_recall": 1.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 0,
+        "known_held": 0,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 1,
+        "family_matches": 1
+      },
+      "paired_transitions": {
+        "correct->correct": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:6f333c32b47d6172",
+      "ids": [
+        "pc-2cdd792f21c86170"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/uniform-studio/3725683276/"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:7bee5757d71ab859",
+      "ids": [
+        "pc-77a4cafd2b4f3358"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/seokchanyun/6568681133"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:8618d12bef849fce",
+      "ids": [
+        "pc-68229330c81d9a4b"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/29233640@N07/9169840427"
+      ],
+      "n": 1,
+      "known": 1,
+      "unknown": 0,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": 0.0,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 1,
+        "unknown_correct_rejections": 0,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": null,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "held->held": 1
+      },
+      "formerly_correct_to_bad": 0
+    },
+    {
+      "role": "produce_control",
+      "source_group": "openimages-validation:884acc36cfcc7034",
+      "ids": [
+        "pc-6a2fd4435735e015"
+      ],
+      "source_urls": [
+        "https://www.flickr.com/photos/7147684@N03/12420676734"
+      ],
+      "n": 1,
+      "known": 0,
+      "unknown": 1,
+      "source_groups": 1,
+      "before": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "after": {
+        "correct_names": 0,
+        "known_exact_recall": null,
+        "named_wrong": 0,
+        "known_wrong": 0,
+        "held": 1,
+        "known_held": 0,
+        "unknown_correct_rejections": 1,
+        "unknown_false_accepts": 0,
+        "unknown_false_accept_rate": 0.0,
+        "named": 0,
+        "family_matches": 0
+      },
+      "paired_transitions": {
+        "correct_rejection->correct_rejection": 1
+      },
+      "formerly_correct_to_bad": 0
+    }
+  ],
+  "screening": {
+    "candidates": 58,
+    "inferred": 56,
+    "status_counts": {
+      "development_replay": 7,
+      "included": 49,
+      "excluded": 2
+    },
+    "exclusion_reasons": {
+      "perceptual_near_duplicate_candidate": 2
+    }
+  },
+  "files": {
+    "protocol.json": "0ecf17b009c5e1a745643c2115e641a4379e005fa48d9bf2935bd25e69e9b1aa",
+    "model-freeze.json": "4b3c9cf7fde746fad750866a126a7c6ed1c2d82dbc97f0f4989eb231b2548467",
+    "predictions-blind.jsonl": "d5746510470698d44572774b41f6eaffd164adabebd366828df44b84e3c0a775",
+    "predictions-seal.json": "fc7d43a80d762ef0bc39e707bf369888e4dfa7e9153dc65b225335f8f126664f",
+    "inputs.csv": "072bc3d8a137f19461096ba99e63e7d32ea3a815a290f044dc5fdb9ea1c10a12",
+    "screening.csv": "9ccea832e9d26f9584f26919df2ff2fc26c6e060d0d5948f07a3150d1aff31ee",
+    "labels-joined-after.csv": "01564ea8d5f7058a04546e7290cb12d955de12c0881ca4ef6a1bbb184c3e080c",
+    "rows.csv": "25d33112e179ac67784adada3ebf9da1dbc3666231762b23e85ebcaa46e4540d",
+    "source-groups.csv": "7a7357155b8c5b85441fa482dd1920b7f17bddb2d14c93ec8b35336b37504db1"
+  },
+  "scope": "Small selected external-photo cohort. Prior seven are development only. Alternate GTIN family matches are not exact-SKU hits. Multiple views share source groups; no independent-photo confidence intervals. Produce controls evaluate fine-class identity separately."
+}

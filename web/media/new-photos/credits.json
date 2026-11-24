@@ -1,0 +1,26 @@
+[
+  {
+    "id": "NX-00b7083b7cd829cb",
+    "thumbnail": "NX-00b7083b7cd829cb.jpg",
+    "original_sha256": "00b7083b7cd829cb0b10dd80d7680a67d1f63e7d00879279aa37ca8e4e0a8f4c",
+    "source_url": "https://world.openfoodfacts.org/product/7310865074225",
+    "original_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/507/4225/3.jpg",
+    "author": "blackfatrat",
+    "author_url": "https://world.openfoodfacts.org/contributor/blackfatrat",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "Uploaded to Open Food Facts. EXIF orientation applied and resized without cropping. Thumbnail under CC BY-SA 3.0."
+  },
+  {
+    "id": "NX-88d58ba6fa70e7e6",
+    "thumbnail": "NX-88d58ba6fa70e7e6.jpg",
+    "original_sha256": "88d58ba6fa70e7e607d82ce2c64157ab25bb572214e98c4710fdc6843e762b65",
+    "source_url": "https://world.openfoodfacts.org/product/6415130089834",
+    "original_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/008/9834/1.jpg",
+    "author": "smoothie-app",
+    "author_url": "https://world.openfoodfacts.org/contributor/smoothie-app",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "Uploaded to Open Food Facts. EXIF orientation applied and resized without cropping. Thumbnail under CC BY-SA 3.0."
+  }
+]

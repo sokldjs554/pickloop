@@ -1,0 +1,32 @@
+{
+  "verified_at": "2026-11-24T06:46:40.210042+00:00",
+  "executor": "Codex",
+  "tests": {
+    "command": "PYTHONPATH=src python -m pytest -q tests/test_new_photo_evaluation.py",
+    "passed": 10
+  },
+  "audit_command": "PYTHONPATH=src python scripts/evaluate_new_photos.py audit --out docs/experiments/new-photos",
+  "published_row_reduction": "passed",
+  "independent_raw_prediction_identity_and_count_reduction": "passed",
+  "current_frozen_source_file_hash_check": "passed",
+  "new_juice_supplementary_micro": {
+    "photos": 33,
+    "known": 6,
+    "unknown": 27,
+    "before_correct_known": 0,
+    "after_correct_known": 1,
+    "before_unknown_false_accepts": 0,
+    "after_unknown_false_accepts": 6
+  },
+  "files": {
+    "summary.json": "47a73efe6db27e0672346bef6821c29f6cf7676a145dcd4d373d62d58410a7c6",
+    "rows.csv": "25d33112e179ac67784adada3ebf9da1dbc3666231762b23e85ebcaa46e4540d",
+    "report.md": "2537cbe85250fc02a98fea4384a73990ef5fffc68aad799dd3c53ff39c55136d",
+    "README.md": "6f645923a72febb2d52e06fb10cf1e48ff106d77d1fb0bd9d94b3bcf293bbfa4",
+    "summary.md": "afcbfbf0c84e0592910bff29077948058b4fa3d0a915ff3d14dd308fe8c1acd3",
+    "protocol.json": "0ecf17b009c5e1a745643c2115e641a4379e005fa48d9bf2935bd25e69e9b1aa",
+    "model-freeze.json": "4b3c9cf7fde746fad750866a126a7c6ed1c2d82dbc97f0f4989eb231b2548467",
+    "predictions-blind.jsonl": "d5746510470698d44572774b41f6eaffd164adabebd366828df44b84e3c0a775",
+    "predictions-seal.json": "fc7d43a80d762ef0bc39e707bf369888e4dfa7e9153dc65b225335f8f126664f"
+  }
+}
