@@ -6,6 +6,18 @@
 
 복구 정책의 동결 평가 576회는 PR #1 이전 소스로 실행했다. 각 조건에서 같은 예산의 단순 재시도·재관측·재계획을 비교할 수 있다. 더 이른 120회는 정책별 시도 예산이 달랐다. [4정책 실험 명세](ablation-protocol.md)
 
+### 최근 실행에서 확인할 수 있는 기능
+
+| 주요업무 | 실행 증거 |
+|---|---|
+| 포장 상품과 규격 식별 | 동일한 새 실물 사진에서 맛·용량을 읽은 상품명 후보와 바코드로 확정한 주문 규격을 각각 채점했다. [사진별 원문과 출처](experiments/fresh-size-eval/) · [기존 오수락 재검사](experiments/size-review/) |
+| 주문 수량에 맞는 상품 피킹 | MuJoCo에서 같은 1 L 상품 두 개의 접근 경로를 검사하고 한 개를 골라 옮겼다. 도착 상품과 출발 위치에 남은 상품을 별도로 확인한다. [주문 피킹 실행](https://pickloop-robot-ops.ykh13571.chatgpt.site/orders#order-pick) · [배치 판정 원본](../runs/order-pick/duplicate/result.json) |
+| 설비 통신 장애 처리 | 밸브 해제 응답을 유실한 C++ 제어기가 재접속해 처리 ID와 밸브 출력을 확인했다. 소프트웨어 PLC로 재현한 시험이다. [전송·재조회·종료 기록](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence#plc) |
+
+국내 공개 구현과도 기능 단위로 대조했다. `robot_auto_factory`는 정렬된 빨강·파랑 상자 위치에서 각 주문 수량만큼 선택한다. PickLoop에서는 동일한 1 L 제품 두 개를 배치해 어느 쪽을 집었는지와 다른 한 개가 제자리에 있는지를 확인했다. [비교 소스 · 주문 수량 선택](https://github.com/Hyuna-319/robot_auto_factory/blob/d4f7250e4336f509d63e837cdfa8c2614be08523/auto_factory_ws/src/user_gui/user_gui/control.py#L88-L113)
+
+`rokey10_b1_1st_project`는 치수가 겹치는 분류 후보를 구별할 때 그리퍼로 측정한 물성을 활용한다. PickLoop에서 겹치는 단서는 포장의 맛 표기다. 용량 판독과 주문 코드 일치 여부를 각각 기록해 어디까지 식별했는지 확인할 수 있다. [비교 소스 · 치수와 물성 판정](https://github.com/CHOI-510/rokey10_b1_1st_project/blob/de67e45717b2768c0691141a959afbde0c5c5400/box_judge/box_judge/judge_algorithm.py)
+
 | 공고 요구사항 | 기존 근거 | 새 프로젝트 구현 | 검증 방법·원본 | 남은 한계 |
 |---|---|---|---|---|
 | D01 상품·박스 검출/분할 | ReachBench HSV 성분 분할. [감사 §1](research/existing-projects.md#1-reachbench--가장-가까운-출발점과-중복-범위) | RGB-D 상품 후보 분할과 파란 배치 상자의 테두리·바닥 깊이 추정. [검출 코드](../src/pickloop/bin_perception.py) | [상자 위치·회전·크기 32조건, 배치 8건, 보류 4건](../runs/bin-perception/metrics.json) · [영상과 재현 절차](bin-perception.md) | 고정 카메라와 파란 직사각형 상자 시뮬레이션. 실물 골판지·혼잡 적층 미검증 |

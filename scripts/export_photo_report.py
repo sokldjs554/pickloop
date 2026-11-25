@@ -205,6 +205,55 @@ def produce_study():
             table(("품목", "집계 기준", "사진 수", "기존 판정", "추가 확인 후"), rows))
 
 
+def fresh_size_study():
+    report = read(ROOT / "docs/experiments/fresh-size-eval/public-summary.json")
+    final = read(ROOT / "docs/experiments/fresh-size-eval/metrics.json")["final"]
+    sections = []
+    labels = {"dev": "개발 사진", "final": "최종 평가 사진"}
+    for group in sorted(report["subsets"], key=lambda g: g["split"] != "final"):
+        rows = []
+        for key, label in (("before", "상품명 후보 · 수정 전"), ("after", "상품명 후보 · 수정 후"),
+                           ("order", "주문 SKU 확정 · Python"), ("browser", "주문 SKU 확정 · 브라우저")):
+            score = group[key]
+            if score["correct"] + score["wrong"] + score["held"] != group["n"]:
+                raise ValueError(f"photo counts differ for {group['split']}/{key}")
+            rows.append((label, score["correct"], score["wrong"], score["held"]))
+        block = (f"<h4>{labels[group['split']]} {group['n']}장</h4>"
+                        f"<p class='score-summary'>상품명 정답 {group['before']['correct']} → {group['after']['correct']}장 · "
+                        f"잘못 부여한 이름 {group['before']['wrong']} → {group['after']['wrong']}장</p>"
+                        f"<p>이 중 Python 등록품은 {group['model_known']}장, "
+                        f"250mL까지 등록한 브라우저의 등록품은 {group['web_known']}장입니다.</p>"
+                        + table(("판정", "정답 상품명", "잘못 부여한 이름", "보류"), rows))
+        if group["split"] == "final":
+            block += (f"<p>최종 사진에서 눈으로 바코드가 보이는 {final['visibly_coded']}장 중 "
+                      f"브라우저가 올바른 코드를 읽은 사진은 {final['visible_correctly_decoded']}장이었습니다. "
+                      "두 사진 모두 미등록 상품이어서 주문 확정을 보류했습니다.</p>")
+        if group["split"] == "dev":
+            block = "<details><summary>개발 사진 결과 보기</summary>" + block + "</details>"
+        sections.append(block)
+    old = read(ROOT / "docs/experiments/size-review/results.json")["juice_33"]
+    before, after = old["before"], old["after"]
+    sections.append(f"<h4>설계에 사용한 기존 {old['photos']}장 재검사</h4>"
+                    f"<p>미등록 {old['unknown']}장에 등록 이름을 잘못 붙인 경우는 "
+                    f"{before['unknown_false_accept']} → {after['unknown_false_accept']}장, "
+                    f"등록 {old['known']}장을 맞힌 경우는 {before['known_correct']} → "
+                    f"{after['known_correct']}장이었습니다. 같은 맛·용량의 다른 상품 코드는 "
+                    "포장 글자만으로 구분하기 어렵습니다.</p>")
+    examples = []
+    example_titles = {"registered_1l_reverse": "등록 1 L 뒷면", "demo_only_250ml_front": "시연용 250mL 앞면",
+                      "unregistered_alternate_1l_front": "다른 코드의 1 L 앞면"}
+    for item in report.get("examples", []):
+        link = external(item["image_url"], example_titles[item["role"]])
+        candidate = sku(item["photo_name"]) if item["photo_name"] else "보류"
+        examples.append(f"<li>{link} · 실제 상품 코드 {safe(item['gtin'])} · "
+                        f"수정 후 상품명 후보 {safe(candidate)}</li>")
+    if examples:
+        sections.append("<h4>결과를 사진과 대조하기</h4><ul>" + "".join(examples) + "</ul>")
+    return ("<p>같은 실물 사진을 수정 전후로 읽었습니다. 개발과 최종 평가에는 서로 다른 상품 코드를 배정했습니다. "
+            "이전 연구와 같은 상품이나 사진 제공처가 포함됩니다. 정답은 실제 상품에 등록 이름을 부여한 장수입니다. 보류에는 미등록 상품과 놓친 등록 상품이 모두 들어갑니다.</p>"
+            + "".join(sections))
+
+
 def generate():
     with (STUDY / "rows.csv").open(encoding="utf-8", newline="") as stream:
         records = list(csv.DictReader(stream))
@@ -254,7 +303,7 @@ def generate():
     confirm_credit = " · ".join((external(confirm["uploader_url"], confirm["uploader"]),
                                  external(confirm["image_url"], "Open Food Facts 원본"),
                                  external(confirm["licence_url"], "CC BY-SA 3.0")))
-    return Template(TEMPLATE.read_text()).substitute(score_summary=score_summary, confirm_credit=confirm_credit,
+    return Template(TEMPLATE.read_text()).substitute(score_summary=score_summary, confirm_credit=confirm_credit, fresh_study=fresh_size_study(),
         **reader_example(), produce=produce_study(), primary=metrics(new_rows), examples=examples_html(records), strata=views,
         other='<h3>별도로 측정한 사진</h3>' + table(("대상", "기존 → 수정 후"), others),
         details="".join(detail_block(rows, role, readouts) for role, rows in cohorts.items()))

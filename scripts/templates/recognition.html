@@ -15,7 +15,7 @@
 <main id="read-package" class="review-main photo-review">
   <h1>포장 사진 판독</h1>
   <p class="intro">포장 바코드로 상품명과 용량을 확인합니다. 등록 규격은 God Morgon 1L 주스 3종과 시연용 오렌지 주스 250mL입니다.</p>
-  <nav class="review-nav" aria-label="사진 인식"><a href="#read-package">내 포장 사진 읽기</a><a href="#new-photos">주스 평가</a><a href="#produce">과일·채소 평가</a><a href="#photo-results">사진별 비교</a><a href="#try-photo">전체 판별기 실행</a></nav>
+  <nav class="review-nav" aria-label="사진 인식"><a href="#read-package">내 포장 사진 읽기</a><a href="#size-study">새 사진 평가</a><a href="#produce">과일·채소 평가</a><a href="#photo-results">사진별 비교</a><a href="#try-photo">전체 판별기 실행</a></nav>
   <section aria-label="브라우저 판독">
     <form id="package-reader" aria-label="브라우저 포장 사진 판독">
       <div class="reader-actions">
@@ -42,9 +42,16 @@
     <details><summary>어떤 글자를 읽기 어려웠나</summary><p>실제 신라면 포장 사진에서 작은 영문 글자 일부를 읽었지만 큰 한글 ‘라면’은 놓쳤습니다. 불닭볶음면처럼 이름이 잘리거나 포장이 접힌 사진도 원문을 확인해 주세요. <a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/new-photos/korean-packages">사진 3장의 출처와 판독 원문</a></p></details>
   </section>
   <h2 class="separate-evaluation">별도 판별기 평가</h2>
+  <section id="size-study" class="report-section">
+    <details class="report-panel">
+      <summary><h3>처음 보는 포장 · 맛과 용량을 구별한 결과</h3></summary>
+      $fresh_study
+      <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/fresh-size-eval">사진별 정답·판정·출처</a><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/size-review">기존 오수락 6장 재검사</a></div>
+    </details>
+  </section>
   <section id="new-photos" class="report-section">
     <details class="report-panel">
-      <summary><h3>상품명 판별기 · 새 주스 사진 33장</h3></summary>
+      <summary><h3>상품명 판별기 · 기존 주스 사진 33장</h3></summary>
       $score_summary
       <p>이 평가는 1L 주스 3종을 등록한 시점의 결과입니다. 250mL 오렌지 주스는 이후 브라우저 시연용으로 등록했습니다.</p>
       <details class="score-details"><summary>판정별 집계와 예시 사진 보기</summary>
@@ -84,7 +91,7 @@
       </form>
       <p id="photo-status" role="status" aria-live="polite"></p>
       <dl id="photo-answer" class="photo-answer" hidden>
-        <dt>상품명 후보</dt><dd id="photo-name"></dd><dt>포장에서 읽힌 과일 단어</dt><dd id="photo-words"></dd>
+        <dt>포장에서 추정한 맛</dt><dd id="photo-flavour"></dd><dt>용량 근거</dt><dd id="photo-size"></dd><dt>카탈로그 상품명 후보</dt><dd id="photo-name"></dd><dt>포장에서 읽힌 과일 단어</dt><dd id="photo-words"></dd>
         <dt>주문 규격 확인</dt><dd id="photo-confirmed"></dd><dt>사진에서 읽은 상품 코드</dt><dd id="photo-gtin"></dd>
       </dl>
       <div id="photo-local"><p>내 사진을 판별하려면 프로젝트 Codespaces에서 아래 명령을 실행한 뒤 포트 8000의 <code>/recognition.html#try-photo</code>를 여세요. 사진 선택 창에서 실행할 수 있습니다.</p>
