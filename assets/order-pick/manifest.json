@@ -30,6 +30,20 @@
       "texture_sha256": "82b5cfd5b5a2e7d760d963d091683c9505db87ae07cc2937ad0cf4d8d497b17a"
     },
     {
+      "texture": "orange-1000ml.png",
+      "sku": "God-Morgon-Orange-Juice",
+      "volume_ml": 1000,
+      "source": "orange.png with a simulated 1000 ML shipping label",
+      "texture_sha256": "5516410c862080241f25718c18bab49a93d46be980174439b13ec962d134334d"
+    },
+    {
+      "texture": "orange-500ml.png",
+      "sku": "God-Morgon-Orange-Juice",
+      "volume_ml": 500,
+      "source": "orange.png with a simulated 500 ML shipping label",
+      "texture_sha256": "19fa30c3118f0363b4b9119a184898cce4663c0a3422da7506df7d13d4ff162a"
+    },
+    {
       "texture": "orange-obscured.png",
       "sku": "God-Morgon-Orange-Juice",
       "source": "orange.png with opaque tape over both flavour legends",

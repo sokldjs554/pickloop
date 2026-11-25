@@ -1,0 +1,2225 @@
+{
+  "dev": {
+    "n": 3,
+    "groups": 3,
+    "before": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 3,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 2,
+      "unknown_held": 2,
+      "unknown_falsely_named": 0
+    },
+    "after": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 3,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 2,
+      "unknown_held": 2,
+      "unknown_falsely_named": 0
+    },
+    "before_order": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 3,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 2,
+      "unknown_held": 2,
+      "unknown_falsely_named": 0
+    },
+    "order": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 3,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 2,
+      "unknown_held": 2,
+      "unknown_falsely_named": 0
+    },
+    "browser": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 3,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 2,
+      "unknown_held": 2,
+      "unknown_falsely_named": 0
+    },
+    "visibly_coded": 0,
+    "visible_correctly_decoded": 0,
+    "name_transitions": {
+      "HOLD -> HOLD": 3
+    },
+    "strata": {
+      "gtin": {
+        "6415130089827": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "7310865074225": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "7310865081650": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "volume_ml": {
+        "1000": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "1750": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "250": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "volume_print": {
+        "hidden": {
+          "n": 2,
+          "groups": 2,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "visible": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "view": {
+        "front": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "nutrition": {
+          "n": 2,
+          "groups": 2,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "barcode_visible": {
+        "0": {
+          "n": 3,
+          "groups": 3,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "visible_glare": {
+        "0": {
+          "n": 3,
+          "groups": 3,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "visible_blur": {
+        "0": {
+          "n": 3,
+          "groups": 3,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      }
+    }
+  },
+  "final": {
+    "n": 10,
+    "groups": 7,
+    "before": {
+      "correct": 0,
+      "wrong": 2,
+      "held": 8,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 9,
+      "unknown_held": 7,
+      "unknown_falsely_named": 2
+    },
+    "after": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 10,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 9,
+      "unknown_held": 9,
+      "unknown_falsely_named": 0
+    },
+    "before_order": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 10,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 9,
+      "unknown_held": 9,
+      "unknown_falsely_named": 0
+    },
+    "order": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 10,
+      "known": 1,
+      "known_held": 1,
+      "unknown": 9,
+      "unknown_held": 9,
+      "unknown_falsely_named": 0
+    },
+    "browser": {
+      "correct": 0,
+      "wrong": 0,
+      "held": 10,
+      "known": 2,
+      "known_held": 2,
+      "unknown": 8,
+      "unknown_held": 8,
+      "unknown_falsely_named": 0
+    },
+    "visibly_coded": 2,
+    "visible_correctly_decoded": 2,
+    "name_transitions": {
+      "HOLD -> HOLD": 8,
+      "God-Morgon-Orange-Juice -> HOLD": 2
+    },
+    "strata": {
+      "gtin": {
+        "3270190023975": {
+          "n": 2,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 1,
+          "visible_correctly_decoded": 1
+        },
+        "3560070478637": {
+          "n": 2,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 1,
+          "visible_correctly_decoded": 1
+        },
+        "6415130050490": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 1,
+            "held": 0,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 0,
+            "unknown_falsely_named": 1
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "6415130089834": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 1,
+            "held": 0,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 0,
+            "unknown_falsely_named": 1
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "6415130126539": {
+          "n": 2,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "7310860007372": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "7310865074768": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "volume_ml": {
+        "1000": {
+          "n": 8,
+          "groups": 5,
+          "before": {
+            "correct": 0,
+            "wrong": 1,
+            "held": 7,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 6,
+            "unknown_falsely_named": 1
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 2,
+          "visible_correctly_decoded": 2
+        },
+        "1750": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "250": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 1,
+            "held": 0,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 0,
+            "unknown_falsely_named": 1
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      },
+      "volume_print": {
+        "hidden": {
+          "n": 3,
+          "groups": 3,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 3,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "visible": {
+          "n": 7,
+          "groups": 6,
+          "before": {
+            "correct": 0,
+            "wrong": 2,
+            "held": 5,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 7,
+            "unknown_held": 5,
+            "unknown_falsely_named": 2
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 7,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 7,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 7,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 7,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 6,
+            "unknown_held": 6,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 2,
+          "visible_correctly_decoded": 2
+        }
+      },
+      "view": {
+        "barcode": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 1,
+          "visible_correctly_decoded": 1
+        },
+        "front": {
+          "n": 4,
+          "groups": 4,
+          "before": {
+            "correct": 0,
+            "wrong": 2,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 4,
+            "unknown_held": 2,
+            "unknown_falsely_named": 2
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 4,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 4,
+            "unknown_held": 4,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 4,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 4,
+            "unknown_held": 4,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 4,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 4,
+            "unknown_held": 4,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 4,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 3,
+            "unknown_held": 3,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "front_oblique": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "ingredients": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "nutrition": {
+          "n": 2,
+          "groups": 2,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "reverse": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 1,
+            "unknown_held": 1,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 1,
+          "visible_correctly_decoded": 1
+        }
+      },
+      "barcode_visible": {
+        "0": {
+          "n": 8,
+          "groups": 7,
+          "before": {
+            "correct": 0,
+            "wrong": 2,
+            "held": 6,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 5,
+            "unknown_falsely_named": 2
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 2,
+            "known_held": 2,
+            "unknown": 6,
+            "unknown_held": 6,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        },
+        "1": {
+          "n": 2,
+          "groups": 2,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 2,
+          "visible_correctly_decoded": 2
+        }
+      },
+      "visible_glare": {
+        "0": {
+          "n": 8,
+          "groups": 6,
+          "before": {
+            "correct": 0,
+            "wrong": 2,
+            "held": 6,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 5,
+            "unknown_falsely_named": 2
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 7,
+            "unknown_held": 7,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 8,
+            "known": 2,
+            "known_held": 2,
+            "unknown": 6,
+            "unknown_held": 6,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 1,
+          "visible_correctly_decoded": 1
+        },
+        "1": {
+          "n": 2,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 2,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 2,
+            "unknown_held": 2,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 1,
+          "visible_correctly_decoded": 1
+        }
+      },
+      "visible_blur": {
+        "0": {
+          "n": 9,
+          "groups": 6,
+          "before": {
+            "correct": 0,
+            "wrong": 2,
+            "held": 7,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 9,
+            "unknown_held": 7,
+            "unknown_falsely_named": 2
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 9,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 9,
+            "unknown_held": 9,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 9,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 9,
+            "unknown_held": 9,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 9,
+            "known": 0,
+            "known_held": 0,
+            "unknown": 9,
+            "unknown_held": 9,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 9,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 8,
+            "unknown_held": 8,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 2,
+          "visible_correctly_decoded": 2
+        },
+        "1": {
+          "n": 1,
+          "groups": 1,
+          "before": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "after": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "before_order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "order": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "browser": {
+            "correct": 0,
+            "wrong": 0,
+            "held": 1,
+            "known": 1,
+            "known_held": 1,
+            "unknown": 0,
+            "unknown_held": 0,
+            "unknown_falsely_named": 0
+          },
+          "visibly_coded": 0,
+          "visible_correctly_decoded": 0
+        }
+      }
+    }
+  }
+}

@@ -30,11 +30,15 @@ STAGES = {
 SCENARIOS = {
     "orange": "기본 배치", "orange-swapped": "두 주스의 위치 교환",
     "mixed": "두 주스의 위치 교환", "mixed-standard": "기본 배치",
-    "ambiguous": "같은 상품 두 개", "unreadable": "맛 표시 가림", "absent": "주문 상품 없음",
+    "duplicate": "같은 맛·용량 두 개 중 한 개 주문", "wrong-volume": "주문과 다른 용량만 있음",
+    "unspecified-volume": "같은 맛·다른 용량, 주문 용량 미지정", "unreadable-volume": "같은 맛 두 개, 용량 표기 없음", "unreadable": "맛 표시 가림", "absent": "주문 상품 없음",
 }
 REASONS = {
     "ORDER_NOT_FOUND": "주문과 일치한다고 확인한 상품이 없습니다.",
-    "ORDER_AMBIGUOUS": "주문과 일치하는 상품이 두 개여서 하나를 선택할 수 없습니다.",
+    "ORDER_VOLUME_MISMATCH": "읽은 용량과 주문한 용량이 다릅니다.",
+    "ORDER_VOLUME_UNCONFIRMED": "두 번의 촬영에서 같은 용량을 확인할 수 없습니다.",
+    "ORDER_VOLUME_AMBIGUOUS": "서로 다른 용량을 읽었고 주문에 용량이 없습니다.",
+    "ORDER_NO_SAFE_APPROACH": "후보의 흡착면 여유 또는 접근 경로를 확보하지 못했습니다.",
     "ORDER_LABEL_UNCONFIRMED": "주문 후보의 포장 표기를 확인할 수 없습니다.",
     "RELEASE_NOT_CONFIRMED": "흡착 해제를 확인할 수 없습니다.",
     "EVALUATOR_DISAGREEMENT": "최종 물리 판정과 카메라 확인 결과가 다릅니다.",
@@ -79,16 +83,25 @@ def receipt_html(result):
     selected = result["selected"]
     evaluation = result["evaluation"]
     trace = result["trace"]
-    facts = [("주문", name(result["order_sku"]))]
+    volume = result.get("order_volume_ml")
+    facts = [("주문", f'{name(result["order_sku"])} {volume} mL × 1' if volume else name(result["order_sku"]) + " 1개 · 용량 미지정")]
     if selected:
         xyz = " / ".join(f"{v * 1000:.0f}" for v in selected["position_m"])
         facts.extend([("카메라 선택", name(selected["prediction"])), ("선택 좌표 X / Y / Z", xyz + " mm")])
+    if selected and selected.get("volume_ml"):
+        facts.append(("확인한 용량", f'{selected["volume_ml"]} mL'))
+    selection = result.get("selection", {})
+    if len(selection.get("matching_ids", [])) > 1:
+        paths = [f'{c["candidate_id"]} {1000 * c["pick_plan"]["approach_distance_m"]:.1f} mm'
+                 for c in result["candidates"] if c.get("pick_plan", {}).get("eligible")]
+        facts.append(("안전 접근 후보", " / ".join(paths)))
+        facts.append(("선택 근거", f'컵이 들어갈 면적과 접근 경로를 확인한 뒤 시작 위치에서 가장 가까운 {selected["candidate_id"]}를 선택했습니다.'))
     if result["reason"]:
         reason = result["reason"]
         facts.append(("보류 사유", REASONS.get(reason, reason)))
     issued = any(row["stage"] == "VALVE_COMMAND" and row.get("value") for row in trace)
     if issued:
-        facts.append(("상자 안 상품", name(evaluation["delivered_sku"])))
+        facts.append(("상자 안 상품", f'{name(evaluation["delivered_sku"])} · {evaluation["count_in_bin"]}개'))
         facts.append(("배치 확인", "카메라 재관측과 물리 판정 모두 일치" if
                       result["placement_camera"]["verified"] and evaluation["verified"] else "확인 미완료"))
     else:

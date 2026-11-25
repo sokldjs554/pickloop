@@ -1,0 +1,13 @@
+{"id": "SZ-1014461837dafd6c", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-1a7761debc5a94c8", "engine": "156.0.8078.79", "symbols": [{"format": "EAN-13", "text": "3270190023975", "isValid": true}], "decision": {"kind": "unregistered", "codes": ["3270190023975"]}, "display": "상품 확정 보류 · 미등록 바코드 3270190023975"}
+{"id": "SZ-1f6f6e1c94d5d741", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-249e74a48ff049cc", "engine": "156.0.8078.79", "symbols": [{"format": "EAN-13", "text": "3560070478637", "isValid": true}], "decision": {"kind": "unregistered", "codes": ["3560070478637"]}, "display": "상품 확정 보류 · 미등록 바코드 3560070478637"}
+{"id": "SZ-494872dbe384d173", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-5df9a46f78f106fe", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-66d17098bc4cfcb4", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-68545337fabb522c", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-6e004cc30a885916", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-7ae3f8433dc57b28", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-827abe84a7d4e0fe", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-bb4ece4eaeaff2a0", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}
+{"id": "SZ-d23c39ed0cdf1456", "engine": "156.0.8078.79", "symbols": [], "decision": {"kind": "empty", "codes": []}, "display": "상품 확정 보류 · 바코드를 읽지 못했습니다"}

@@ -1,0 +1,41 @@
+{
+  "frozen_utc": "2026-11-25T09:13:42.798372+00:00",
+  "before_revision": "8db3040dc546b9b0e5dd08ad6cd3449de53187e6",
+  "blind_sha256": "06094b2d54a3938732f07affe6777d45a15efc7b61a3d519ba7466dc641c31de",
+  "label_sha256": "e738023f00d97fb02393242ef70903183ebdc7b3c6953629ac8ced8e1e4e5960",
+  "weights_sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
+  "runner_sha256": "0b525a2cfe38a934a9052f09b5c82becfbe9182ade5af6d936d0356254e9a9fa",
+  "browser": {
+    "web/package-reader.js": "3fd362cab148049b324d97e2e677cf77cfda803c7e96c1985d400826ee02d25e",
+    "web/vendor/package-reader/registry.json": "7861094f9666eb57ea0fb116d529641eea148c85f8da3fe7250b12fc442d168c",
+    "web/vendor/package-reader/zxing_reader.wasm": "1c961d9d9a1f0001f5d00486bcf8e1b1a91fcf9fe17ebcbd6e2b6efe21e23038",
+    "web/vendor/package-reader/zxing/reader/index.js": "13660bded2c85ab7ca58b052678e697302e84a3f6a3a32ad2f46419ff920d45e"
+  },
+  "before": {
+    "grocery_catalogue.py": "7c24596878b4e01ab8bb3ce20a9b28ae3970035a8e5f0b763bec705890854a05",
+    "catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
+    "catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
+    "carton_matcher.py": "9ae3670c1b1a7e46018a201e443b74d8b0e5427e7623ebe101245e6eeb2c3243",
+    "product_text.py": "3bbbfa242b489920a52d59ee29cc8f478b7c6b2c63511e2815687d034106d3b7",
+    "photo_readout.py": "e5cea378107f24c74efe9d7310cfa161d1586ee8cc9f2c1ae0a790fc6d147748",
+    "pack_barcode.py": "f38cd2aab03acf1fedb0a6427ea863c4560153f6e84119e78c5e3a0e48602f31",
+    "juice_gate.py": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
+    "data/grocery_catalogue.npz": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
+    "data/juice_gate.npz": "496c81c7de627748b79c7661fa7377d6d5e3a62d2cf0dd09f3e2e3a0050b7aea",
+    "data/bravo_carton_panels.npz": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c"
+  },
+  "after": {
+    "grocery_catalogue.py": "7c24596878b4e01ab8bb3ce20a9b28ae3970035a8e5f0b763bec705890854a05",
+    "catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
+    "catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
+    "carton_matcher.py": "9ae3670c1b1a7e46018a201e443b74d8b0e5427e7623ebe101245e6eeb2c3243",
+    "product_text.py": "50ec7dada9e4364af614a242a6f91b1c37a8b7ddc77a5a6c9f8393f146d9a846",
+    "photo_readout.py": "a9c824b2f98ad86e8eea569c7748f304f5bfc8547adcae428e81cf02b4cb9e93",
+    "pack_barcode.py": "f38cd2aab03acf1fedb0a6427ea863c4560153f6e84119e78c5e3a0e48602f31",
+    "juice_gate.py": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
+    "package_size.py": "ade9c2b0d578aafb6eeb82aaced6cb7111bffcb56d35747af8d99f3ccacfc215",
+    "data/grocery_catalogue.npz": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
+    "data/juice_gate.npz": "496c81c7de627748b79c7661fa7377d6d5e3a62d2cf0dd09f3e2e3a0050b7aea",
+    "data/bravo_carton_panels.npz": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c"
+  }
+}

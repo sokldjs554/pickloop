@@ -1,8 +1,10 @@
-"""Identify a unique grocery SKU in camera images and physically deliver the selected parcel."""
+"""Identify an ordered grocery SKU in camera images and physically deliver the selected parcel."""
 from dataclasses import asdict
 import argparse
 import hashlib
 import json
+import re
+from decimal import Decimal
 import time
 from pathlib import Path
 import subprocess
@@ -27,6 +29,8 @@ MIX = 'God-Morgon-Orange-Red-Grapefruit-Juice'
 MINT = 'Unregistered-Mint-Tea'
 ART = ROOT / 'assets/order-pick'
 CASES = {'standard': ('orange', 'mixed', 'mint'), 'swapped': ('mixed', 'orange', 'mint'),
+         'duplicate': ('orange-1000ml', 'orange-1000ml', 'mint'),
+         'different-sizes': ('orange-1000ml', 'orange-500ml', 'mint'),
          'ambiguous': ('orange', 'orange', 'mint'), 'unreadable': ('orange-obscured', 'mixed', 'mint'),
          'absent': ('mixed', 'mint', 'mint'), 'unknown-only': ('mint', 'mint', 'mint')}
 BIN = BinFixture((.34, .185), (.204, .145), .20, .056)
@@ -89,6 +93,23 @@ def inspect_face(obs, wide_point):
                       top_yaw_rad=float(np.arctan2(edge[1], edge[0])))
 
 
+def confirmed_volume(reads):
+    """Agree on one volume in both camera reads of the fixture's shipping label."""
+    volumes = []
+    for line in reads:
+        values = set()
+        for number, unit in re.findall(r'(?<![\w.,-])(\d+(?:[.,]\d+)?)\s*(ml|cl|l)\b', line.lower()):
+            ml = Decimal(number.replace(',', '.')) * {'ml': 1, 'cl': 10, 'l': 1000}[unit]
+            if ml > 0 and ml == int(ml):
+                values.add(int(ml))
+        volumes.append(values)
+    if len(set().union(*volumes)) > 1:
+        return None, 'conflict'
+    if len(volumes) == 2 and all(len(values) == 1 for values in volumes):
+        return next(iter(volumes[0])), 'confirmed'
+    return None, 'unreadable'
+
+
 def shipping_label_decision(generic, carton, first_face, second_face):
     """Require agreement between accepted catalogue identity and the human-readable label."""
     if generic['prediction'] not in TARGETS:
@@ -109,10 +130,12 @@ def shipping_label_decision(generic, carton, first_face, second_face):
     if named is None:
         return dict(prediction='UNKNOWN', reason=reason, reads=reads)
     if carton['prediction'] == 'UNKNOWN' and any(carton.get('juice_gate_text', [])):
-        return dict(prediction='UNKNOWN', reason='carton_text_unconfirmed', reads=reads)
+        return dict(prediction='UNKNOWN', reason='carton_text_unconfirmed', label_prediction=named, reads=reads)
     if named != generic['prediction'] or carton['prediction'] not in ('UNKNOWN', named):
-        return dict(prediction='UNKNOWN', reason='flavour_disagrees_with_classifier', reads=reads)
-    return dict(prediction=named, reason='catalogue_and_shipping_label_agree', reads=reads)
+        return dict(prediction='UNKNOWN', reason='flavour_disagrees_with_classifier', label_prediction=named, reads=reads)
+    volume_ml, volume_status = confirmed_volume(reads)
+    return dict(prediction=named, reason='catalogue_and_shipping_label_agree', reads=reads,
+                volume_ml=volume_ml, volume_status=volume_status)
 
 
 class Reader:
@@ -164,16 +187,55 @@ def read_candidates(cell, obs, proposals, reader, directory, name):
     return rows
 
 
-def choose(order, candidates):
-    matches = [row for row in candidates if row['prediction'] == order]
-    if len(matches) > 1:
-        raise OperationError('ORDER_AMBIGUOUS')
-    unclear = any(row['prediction'] == 'UNKNOWN' and row['generic']['prediction'] == order for row in candidates)
-    if unclear:
+def pick_plan(cell, candidate):
+    """Check room for the cup on the measured face and the unloaded approach."""
+    p = np.asarray(candidate['position_m'])
+    face_xy = np.array(candidate['corners_base_m'], np.float32)[:, :2].copy()
+    margin = cv2.pointPolygonTest(face_xy, tuple(p[:2]), True)
+    approach = [*p[:2], .28]
+    result = dict(eligible=False, face_edge_distance_m=margin,
+                  required_edge_distance_m=.012 + candidate['uncertainty_m'],
+                  approach_distance_m=float(np.linalg.norm(np.asarray(cell.tcp) - approach)))
+    if margin < result['required_edge_distance_m']:
+        return {**result, 'reason': 'INSUFFICIENT_CUP_CLEARANCE'}
+    try:
+        hover, _, _ = cell.plan_move(approach, allow_contact=False)
+        cell.plan_move(p, allow_contact=True, start=hover)
+    except OperationError as exc:
+        return {**result, 'reason': exc.code}
+    return {**result, 'eligible': True, 'reason': 'CLEAR_APPROACH'}
+
+
+def identity_matches(order, candidates, volume_ml):
+    if any(row['prediction'] == 'UNKNOWN' and order in
+           (row['generic']['prediction'], row['shipping_label'].get('label_prediction')) for row in candidates):
         raise OperationError('ORDER_LABEL_UNCONFIRMED')
+    matches = [row for row in candidates if row['prediction'] == order]
     if not matches:
         raise OperationError('ORDER_NOT_FOUND')
-    return matches[0]
+    labels = [row['shipping_label'] for row in matches]
+    if any(label.get('volume_status') == 'conflict' for label in labels):
+        raise OperationError('ORDER_VOLUME_UNCONFIRMED')
+    if volume_ml is None and len(matches) == 1:
+        return matches  # A single flavour-only order retains its historical semantics.
+    if any(label.get('volume_status') != 'confirmed' for label in labels):
+        raise OperationError('ORDER_VOLUME_UNCONFIRMED')
+    if volume_ml is None:
+        if len({label['volume_ml'] for label in labels}) != 1:
+            raise OperationError('ORDER_VOLUME_AMBIGUOUS')
+        return matches
+    exact = [row for row in matches if row['shipping_label']['volume_ml'] == volume_ml]
+    if not exact:
+        raise OperationError('ORDER_VOLUME_MISMATCH')
+    return exact
+
+
+def choose(order, candidates, volume_ml=None):
+    matches = identity_matches(order, candidates, volume_ml)
+    safe = [row for row in matches if row['pick_plan']['eligible']]
+    if not safe:
+        raise OperationError('ORDER_NO_SAFE_APPROACH')
+    return min(safe, key=lambda row: (row['pick_plan']['approach_distance_m'], row['candidate_id']))
 
 
 class Record:
@@ -256,7 +318,7 @@ def move_order(cell, rec, selected, destination):
     cell.step_for(.15)
 
 
-def verify_camera(cell, reader, directory, order, output):
+def verify_camera(cell, reader, directory, order, volume_ml, output):
     obs = cell.observe()
     output['camera'] = camera_metadata(obs)
     Image.fromarray(obs.rgb).save(directory/'placed-overview.png')
@@ -264,8 +326,10 @@ def verify_camera(cell, reader, directory, order, output):
     proposals = [p for p in Perception.proposals(obs, cell.sim_time) if dest.contains_payload(p['position'][:2])]
     candidates = read_candidates(cell, obs, proposals, reader, directory, 'placed')
     output['candidates'] = candidates
-    selected = choose(order, candidates)
-    p = np.asarray(selected['position_m'])
+    matches = identity_matches(order, candidates, volume_ml)
+    if len(candidates) != 1:
+        raise OperationError('DESTINATION_COUNT_MISMATCH')
+    p = np.asarray(matches[0]['position_m'])
     cell.step_for(.2)
     second = cell.observe()
     dest = detect_bin(second, cell.sim_time)
@@ -277,22 +341,24 @@ def verify_camera(cell, reader, directory, order, output):
     output.update(verified=True, second_observation=camera_metadata(second), second_position_m=locations[0].tolist())
 
 
-def independent_evaluation(cell, labels, order):
-    # The evaluator receives the material manifest only after control ends.
-    # truth_summary checks all 8 parcel corners against the fixture and actual floor.
+def independent_evaluation(cell, fixtures, order, volume_ml):
+    # Consult the physical material manifest only after the control loop ends.
     truth = cell.truth_summary()
-    objects = []
-    for item, sku in zip(truth['objects'], labels, strict=True):
-        objects.append(dict(sku=sku, position_m=item['position'], speed_m_s=item['speed_m_s'], in_bin=item['in_bin']))
+    objects = [dict(sku=label['sku'], volume_ml=label.get('volume_ml'), fixture_texture=label['texture'],
+                    position_m=item['position'], speed_m_s=item['speed_m_s'], in_bin=item['in_bin'])
+               for item, label in zip(truth['objects'], fixtures, strict=True)]
     inside = [obj for obj in objects if obj['in_bin']]
-    delivered = inside[0]['sku'] if len(inside) == 1 else None
-    correct = bool(delivered == order and len(inside) == 1 and inside[0]['speed_m_s'] < .02 and truth['attached'] is None)
-    return dict(verified=correct, delivered_sku=delivered, objects=objects, attached_at_finish=truth['attached'] is not None,
-                drops=truth['drop_count'], collisions=truth['collision_count'],
-                wrong_placements=sum(obj['sku'] != order for obj in inside))
+    delivered = inside[0] if len(inside) == 1 else {}
+    wrong = sum(obj['sku'] != order or (volume_ml is not None and obj['volume_ml'] != volume_ml) for obj in inside)
+    correct = bool(delivered and not wrong and delivered['speed_m_s'] < .02 and truth['attached'] is None)
+    return dict(verified=correct, delivered_sku=delivered.get('sku'), delivered_volume_ml=delivered.get('volume_ml'),
+                count_in_bin=len(inside), objects=objects, attached_at_finish=truth['attached'] is not None,
+                drops=truth['drop_count'], collisions=truth['collision_count'], wrong_placements=wrong)
 
 
-def run_case(case, order, directory, reader, seed=21):
+def run_case(case, order, directory, reader, seed=21, volume_ml=None):
+    if volume_ml is not None and (type(volume_ml) is not int or volume_ml <= 0):
+        raise ValueError('Order volume must be a positive integer in mL')
     if case not in CASES:
         raise ValueError(f'Unsupported layout {case}')
     if order not in reader.head.names:
@@ -309,7 +375,7 @@ def run_case(case, order, directory, reader, seed=21):
     start_wall = time.time_ns()
     with Cell(seed=seed, run_id=directory.name, bin_layout=[BIN], parcel_textures=textures) as cell:
         record = Record(cell, directory)
-        output = dict(schema_version=1, id=directory.name, case=case, order_sku=order, seed=seed,
+        output = dict(schema_version=2, id=directory.name, case=case, order_sku=order, order_volume_ml=volume_ml, quantity=1, seed=seed,
                       started_unix_ns=start_wall, sensor='MuJoCo rendered RGB-D overview + steerable optical zoom',
                       catalogue_classes=len(reader.head.names), head_sha256=hashlib.sha256(DEFAULT_HEAD.read_bytes()).hexdigest(),
                       encoder_sha256=WEIGHTS_SHA, fixture_manifest_sha256=hashlib.sha256((ART/'manifest.json').read_bytes()).hexdigest(),
@@ -324,8 +390,16 @@ def run_case(case, order, directory, reader, seed=21):
             output['destination'] = asdict(destination)
             proposals = [p for p in Perception.proposals(obs, cell.sim_time) if p['position'][1] < .10]
             output['candidates'] = read_candidates(cell, obs, proposals, reader, directory, 'source')
-            selected = choose(order, output['candidates'])
+            selectable = identity_matches(order, output['candidates'], volume_ml)
+            for candidate in selectable:
+                candidate['pick_plan'] = pick_plan(cell, candidate)
+            selected = choose(order, output['candidates'], volume_ml)
+            output['selection'] = dict(rule='shortest_clear_approach_then_candidate_id',
+                                       start_tcp_m=cell.tcp.tolist(), matching_ids=[r['candidate_id'] for r in selectable],
+                                       selected_id=selected['candidate_id'])
+            selected_volume = selected['shipping_label']['volume_ml']
             output['selected'] = {key: selected[key] for key in ('candidate_id','position_m','bbox_xywh_px','top_yaw_rad','crop','prediction')}
+            output['selected']['volume_ml'] = selected_volume
             record.event('ORDER_MATCHED', candidate=selected['candidate_id'], observation_id=obs.observation_id)
             fresh = cell.observe()
             matches = [p for p in Perception.proposals(fresh, cell.sim_time)
@@ -334,7 +408,7 @@ def run_case(case, order, directory, reader, seed=21):
                 raise OperationError('TARGET_MOVED')
             record.event('POSE_RECONFIRMED', observation_id=fresh.observation_id, position_m=matches[0]['position'].tolist())
             move_order(cell, record, selected, destination)
-            verify_camera(cell, reader, directory, order, output['placement_camera'])
+            verify_camera(cell, reader, directory, order, selected_volume, output['placement_camera'])
             output['status'] = 'COMPLETED'
             record.photo('VERIFIED')
         except OperationError as exc:
@@ -344,10 +418,8 @@ def run_case(case, order, directory, reader, seed=21):
             record.photo('HELD', cell.observe().rgb, reason=exc.code)
         finally:
             record.close()
-        labels = [fixtures[p.name]['sku'] for p in textures]
-        output['evaluation'] = independent_evaluation(cell, labels, order)
-        for item, texture in zip(output['evaluation']['objects'], textures, strict=True):
-            item['fixture_texture'] = texture.name
+        expected_volume = output['selected']['volume_ml'] if output['selected'] else volume_ml
+        output['evaluation'] = independent_evaluation(cell, [fixtures[p.name] for p in textures], order, expected_volume)
         if output['status'] == 'COMPLETED' and not output['evaluation']['verified']:
             output['status'], output['reason'] = 'HELD', 'EVALUATOR_DISAGREEMENT'
         output.update(frames=record.frames, trace=record.trace, clip='motion.mp4' if record.movie_frames else None,
@@ -361,11 +433,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--case', choices=CASES, default='standard')
     parser.add_argument('--order', default=ORANGE)
+    parser.add_argument('--volume-ml', type=int, help='required label volume in mL')
     parser.add_argument('--weights', type=Path)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--seed', type=int, default=21)
     args = parser.parse_args()
-    result = run_case(args.case, args.order, args.out, Reader(args.weights), args.seed)
+    result = run_case(args.case, args.order, args.out, Reader(args.weights), args.seed, args.volume_ml)
     print(json.dumps({k: result[k] for k in ('id','case','order_sku','status','reason','selected')}, indent=2))
 
 

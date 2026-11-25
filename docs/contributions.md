@@ -52,3 +52,5 @@ PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른�
 |---|---|---|
 | 4초 · 첫 흡착 실패 직후 | [팔과 흡착축 사이의 틈](../web/data/runs/suction_once-3000-recovery-aaff86/frames/00023-scene.jpg) | [내려간 축과 가이드](../web/data/runs/suction_once-3000-recovery-f5e7ef/frames/00023-scene.jpg) |
 | 6초 · 빈 흡착기 상승 | [팔 위로 드러난 축](../web/data/runs/suction_once-3000-recovery-aaff86/frames/00032-scene.jpg) | [가이드 안으로 들어간 축](../web/data/runs/suction_once-3000-recovery-f5e7ef/frames/00033-scene.jpg) |
+
+사용자가 요청한 용량별 오인식 재검사, 새로운 상품 코드로 분리한 사진 평가, 중복 상품 한 개 선택 및 배치 검증, PLC 응답 유실 기록의 공개 화면 반영은 Codex가 수행했다. [사진별 판정](experiments/fresh-size-eval/) · [동일 상품 두 개의 주문 실행](../runs/order-pick/duplicate/result.json) · [설비 통신 시험](plc-interop.md)

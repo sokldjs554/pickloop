@@ -392,14 +392,19 @@ class Cell:
         finally:self._stopping=False
         return {'motion_settled':bool(np.max(np.abs(self.data.qvel[:4]))<.02),'distance_limited':distance_limited,'contact_pairs':sorted(self._active_contacts),'valve_retained':self.valve}
 
-    def move_to(self,xyz,allow_contact=True):
+    def plan_move(self, xyz, allow_contact=True, start=None):
+        """Check the same joint trajectory used by motion, without commanding the robot."""
         try: target=scara_ik(np.array(xyz))
         except ValueError as e: raise OperationError(str(e)) from e
-        t,traj=quintic_trajectory(self.data.ctrl.copy(),target,dt=self.model.opt.timestep)
+        t,traj=quintic_trajectory(self.data.ctrl.copy() if start is None else start,target,dt=self.model.opt.timestep)
         # Dense sampling (<=25ms) is conservative for static obstacles but is not continuous collision proof.
         for q in traj[::max(1,int(.025/self.model.opt.timestep))]:
             obstacle=self._collision_at(q,allow_contact)
             if obstacle: raise OperationError('PATH_BLOCKED',{'obstacle':obstacle})
+        return target,t,traj
+
+    def move_to(self,xyz,allow_contact=True):
+        target,t,traj=self.plan_move(xyz,allow_contact)
         for q in traj[1:]:
             self._command_velocity=(q-self.data.ctrl)/self.model.opt.timestep
             self.data.ctrl[:]=q; self.step()

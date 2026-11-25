@@ -1,9 +1,62 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "runs": [
+    {
+      "id": "duplicate",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": 1000,
+      "status": "COMPLETED",
+      "reason": null,
+      "result": "duplicate/result.json",
+      "poster": "duplicate/03-lifted.jpg",
+      "clip": "duplicate/motion.mp4",
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "duplicate/00-observe.jpg"
+        },
+        {
+          "stage": "APPROACH",
+          "sim_time_s": 3.93,
+          "image": "duplicate/01-approach.jpg"
+        },
+        {
+          "stage": "SEALED",
+          "sim_time_s": 4.13,
+          "image": "duplicate/02-sealed.jpg"
+        },
+        {
+          "stage": "LIFTED",
+          "sim_time_s": 5.905,
+          "image": "duplicate/03-lifted.jpg"
+        },
+        {
+          "stage": "TRANSPORTED",
+          "sim_time_s": 8.095,
+          "image": "duplicate/04-transported.jpg"
+        },
+        {
+          "stage": "PLACED",
+          "sim_time_s": 9.75,
+          "image": "duplicate/05-placed.jpg"
+        },
+        {
+          "stage": "RELEASED",
+          "sim_time_s": 10.15,
+          "image": "duplicate/06-released.jpg"
+        },
+        {
+          "stage": "VERIFIED",
+          "sim_time_s": 16.355,
+          "image": "duplicate/07-verified.jpg"
+        }
+      ]
+    },
     {
       "id": "orange",
       "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": null,
       "status": "COMPLETED",
       "reason": null,
       "result": "orange/result.json",
@@ -55,6 +108,7 @@
     {
       "id": "orange-swapped",
       "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": null,
       "status": "COMPLETED",
       "reason": null,
       "result": "orange-swapped/result.json",
@@ -106,6 +160,7 @@
     {
       "id": "mixed",
       "order_sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+      "order_volume_ml": null,
       "status": "COMPLETED",
       "reason": null,
       "result": "mixed/result.json",
@@ -157,6 +212,7 @@
     {
       "id": "mixed-standard",
       "order_sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+      "order_volume_ml": null,
       "status": "HELD",
       "reason": "ORDER_NOT_FOUND",
       "result": "mixed-standard/result.json",
@@ -178,6 +234,7 @@
     {
       "id": "unreadable",
       "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": null,
       "status": "HELD",
       "reason": "ORDER_LABEL_UNCONFIRMED",
       "result": "unreadable/result.json",
@@ -197,29 +254,9 @@
       ]
     },
     {
-      "id": "ambiguous",
-      "order_sku": "God-Morgon-Orange-Juice",
-      "status": "HELD",
-      "reason": "ORDER_AMBIGUOUS",
-      "result": "ambiguous/result.json",
-      "poster": "ambiguous/overview.png",
-      "clip": null,
-      "frames": [
-        {
-          "stage": "OBSERVE",
-          "sim_time_s": 0.5,
-          "image": "ambiguous/00-observe.jpg"
-        },
-        {
-          "stage": "HELD",
-          "sim_time_s": 0.95,
-          "image": "ambiguous/01-held.jpg"
-        }
-      ]
-    },
-    {
       "id": "absent",
       "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": null,
       "status": "HELD",
       "reason": "ORDER_NOT_FOUND",
       "result": "absent/result.json",
@@ -237,21 +274,87 @@
           "image": "absent/01-held.jpg"
         }
       ]
+    },
+    {
+      "id": "wrong-volume",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": 500,
+      "status": "HELD",
+      "reason": "ORDER_VOLUME_MISMATCH",
+      "result": "wrong-volume/result.json",
+      "poster": "wrong-volume/overview.png",
+      "clip": null,
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "wrong-volume/00-observe.jpg"
+        },
+        {
+          "stage": "HELD",
+          "sim_time_s": 0.95,
+          "image": "wrong-volume/01-held.jpg"
+        }
+      ]
+    },
+    {
+      "id": "unspecified-volume",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": null,
+      "status": "HELD",
+      "reason": "ORDER_VOLUME_AMBIGUOUS",
+      "result": "unspecified-volume/result.json",
+      "poster": "unspecified-volume/overview.png",
+      "clip": null,
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "unspecified-volume/00-observe.jpg"
+        },
+        {
+          "stage": "HELD",
+          "sim_time_s": 0.95,
+          "image": "unspecified-volume/01-held.jpg"
+        }
+      ]
+    },
+    {
+      "id": "unreadable-volume",
+      "order_sku": "God-Morgon-Orange-Juice",
+      "order_volume_ml": 1000,
+      "status": "HELD",
+      "reason": "ORDER_VOLUME_UNCONFIRMED",
+      "result": "unreadable-volume/result.json",
+      "poster": "unreadable-volume/overview.png",
+      "clip": null,
+      "frames": [
+        {
+          "stage": "OBSERVE",
+          "sim_time_s": 0.5,
+          "image": "unreadable-volume/00-observe.jpg"
+        },
+        {
+          "stage": "HELD",
+          "sim_time_s": 0.95,
+          "image": "unreadable-volume/01-held.jpg"
+        }
+      ]
     }
   ],
   "source_sha256": {
-    "src/pickloop/order_pick.py": "342703ddd66b3ffe4a2fb0c049eea62f1b798db50d018cd8499210d63e59fde9",
-    "src/pickloop/simulation.py": "2e08c7831b2561c9b6133f4ca056faa341dda03bb1b14a7220a8c5f771800626",
+    "src/pickloop/order_pick.py": "d3b0dda2c56c66edb78b8ac84931769b5fe10e818394792f7a2cc8b726bfa365",
+    "src/pickloop/simulation.py": "f55b633dd711fd438615c0902c44c0e7ca7d6dd384a7061688eb810f00a11b17",
     "src/pickloop/perception.py": "44db9501a04ee51e17cdb55a981439678cbed54991057ed5c72388a9c008fb35",
     "src/pickloop/bin_perception.py": "cc0153c750e58b18370b3e7d41c8d03ffc47e4a6b21e367b05722c8b52151d7c",
     "src/pickloop/juice_gate.py": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
     "src/pickloop/data/juice_gate.npz": "496c81c7de627748b79c7661fa7377d6d5e3a62d2cf0dd09f3e2e3a0050b7aea",
-    "src/pickloop/grocery_catalogue.py": "3cfb5edbe3fae3bd2c8b7e759b2b3b4ba1c6715825c9d882814d0812590ab253",
+    "src/pickloop/grocery_catalogue.py": "7c24596878b4e01ab8bb3ce20a9b28ae3970035a8e5f0b763bec705890854a05",
     "src/pickloop/catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
     "src/pickloop/catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
-    "scripts/run_order_pick.py": "c9ec46a71ed1d6564d46a10404bf8f0c1f15ed479d173971c3994f4b8aaf0f52",
-    "scripts/make_order_labels.py": "4947079a9800de2ea3b1263a791fa5279f99c1bbcd93af88f60ccb3dcc043e0b",
-    "assets/order-pick/manifest.json": "bd151e828b1f7d8a86e9dabad0b0622df6b4f029efc7b3b9654ebe9cc9ad5a21"
+    "scripts/run_order_pick.py": "a1a833980a159bdd77b1d13aae87564f53be23797ad8ce94940e42033a932585",
+    "scripts/make_order_labels.py": "b4bf5802ebeb9f6655d0843c969994d888dd1d7a0f06c8622f124868d3bd35e0",
+    "assets/order-pick/manifest.json": "fdddd41cdaed69a5f8986ec6ea1e2ac443047d3c84c73a89b96ac426703fa746"
   },
   "versions": {
     "mujoco": "3.3.7",

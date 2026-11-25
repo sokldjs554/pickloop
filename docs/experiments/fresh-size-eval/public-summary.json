@@ -1,0 +1,82 @@
+{
+  "subsets": [
+    {
+      "split": "dev",
+      "n": 3,
+      "model_known": 1,
+      "web_known": 1,
+      "before": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 3
+      },
+      "after": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 3
+      },
+      "order": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 3
+      },
+      "browser": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 3
+      }
+    },
+    {
+      "split": "final",
+      "n": 10,
+      "model_known": 1,
+      "web_known": 2,
+      "before": {
+        "correct": 0,
+        "wrong": 2,
+        "held": 8
+      },
+      "after": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 10
+      },
+      "order": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 10
+      },
+      "browser": {
+        "correct": 0,
+        "wrong": 0,
+        "held": 10
+      }
+    }
+  ],
+  "examples": [
+    {
+      "role": "registered_1l_reverse",
+      "id": "SZ-5df9a46f78f106fe",
+      "image_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/000/7372/3.jpg",
+      "gtin": "7310860007372",
+      "photo_name": null,
+      "browser_product": null
+    },
+    {
+      "role": "demo_only_250ml_front",
+      "id": "SZ-1f6f6e1c94d5d741",
+      "image_url": "https://public.keskofiles.com/f/k-ruoka/product/6415130089834?w=700&h=390&fit=max&auto=format&fm=jpg&cs=srgb",
+      "gtin": "6415130089834",
+      "photo_name": null,
+      "browser_product": null
+    },
+    {
+      "role": "unregistered_alternate_1l_front",
+      "id": "SZ-68545337fabb522c",
+      "image_url": "https://public.keskofiles.com/f/k-ruoka/product/6415130050490?h=1000",
+      "gtin": "6415130050490",
+      "photo_name": null,
+      "browser_product": null
+    }
+  ]
+}

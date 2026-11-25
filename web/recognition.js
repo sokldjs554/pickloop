@@ -51,9 +51,26 @@
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.detail || "사진을 판별하지 못했습니다.");
+      const sizeLabels = {
+        registered_gtin: "등록 바코드와 일치",
+        printed_1l: "포장에서 1 L 표기 확인",
+        contradictory: "등록 용량과 충돌",
+        unread: "포장에서 용량 미확인",
+        not_applicable: "용량 비교 대상 밖",
+      };
+      field("photo-flavour", displayName(data.flavour_candidate, "미확인"));
+      const size = [sizeLabels[data.size_status] || "근거 없음", ...(data.size_evidence || [])];
+      field("photo-size", size.join(" · "));
       field("photo-name", displayName(data.photo_name, "보류"));
       field("photo-words", (data.printed_fruit_words || []).map(word => fruit[word] || word).join(" · ") || "확인된 단어 없음");
-      field("photo-confirmed", displayName(data.confirmed_order_sku, "규격 미확인"));
+      const heldReasons = {
+        unregistered_gtin: "보류 · 미등록 상품 코드",
+        multiple_gtins: "보류 · 한 사진에서 여러 상품 코드 검출",
+        barcode_text_conflict: "보류 · 상품 코드와 포장 표기 충돌",
+      };
+      field("photo-confirmed", data.confirmed_order_sku
+        ? displayName(data.confirmed_order_sku) + " 1 L"
+        : heldReasons[data.order_check_reason] || "보류 · 등록 바코드 미확인");
       field("photo-gtin", (data.order_check_gtins || []).join(" · ") || "읽힌 바코드 없음");
       status.textContent = file.name;
       result.hidden = false;

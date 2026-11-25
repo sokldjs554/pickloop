@@ -1,15 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "id": "absent",
   "case": "absent",
   "order_sku": "God-Morgon-Orange-Juice",
+  "order_volume_ml": null,
+  "quantity": 1,
   "seed": 21,
-  "started_unix_ns": 1795497937489405746,
+  "started_unix_ns": 1795597358738585338,
   "sensor": "MuJoCo rendered RGB-D overview + steerable optical zoom",
   "catalogue_classes": 81,
   "head_sha256": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
   "encoder_sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
-  "fixture_manifest_sha256": "bd151e828b1f7d8a86e9dabad0b0622df6b4f029efc7b3b9654ebe9cc9ad5a21",
+  "fixture_manifest_sha256": "fdddd41cdaed69a5f8986ec6ea1e2ac443047d3c84c73a89b96ac426703fa746",
   "status": "HELD",
   "reason": "ORDER_NOT_FOUND",
   "selected": null,
@@ -33,7 +35,7 @@
       "zoom": {
         "observation_id": "absent-zoom-0002",
         "sim_time_s": 0.5,
-        "received_monotonic_ns": 16409309219327,
+        "received_monotonic_ns": 115830575835355,
         "resolution_px": [
           480,
           480
@@ -131,7 +133,7 @@
         "camera": {
           "observation_id": "absent-zoom-0003",
           "sim_time_s": 0.5,
-          "received_monotonic_ns": 16409380554976,
+          "received_monotonic_ns": 115830648960785,
           "resolution_px": [
             480,
             480
@@ -275,7 +277,7 @@
       "zoom": {
         "observation_id": "absent-zoom-0004",
         "sim_time_s": 0.5,
-        "received_monotonic_ns": 16409457794599,
+        "received_monotonic_ns": 115830721871377,
         "resolution_px": [
           480,
           480
@@ -373,7 +375,7 @@
         "camera": {
           "observation_id": "absent-zoom-0005",
           "sim_time_s": 0.5,
-          "received_monotonic_ns": 16409553885404,
+          "received_monotonic_ns": 115830840543817,
           "resolution_px": [
             480,
             480
@@ -499,7 +501,9 @@
         "reads": [
           "GOD MORGON ORANGE & RED GRAPEFRUIT",
           "GOD MORGON ORANGE & RED GRAPEFRUIT"
-        ]
+        ],
+        "volume_ml": null,
+        "volume_status": "unreadable"
       },
       "prediction": "God-Morgon-Orange-Red-Grapefruit-Juice",
       "decision_source": "catalogue_and_shipping_label_ocr"
@@ -523,7 +527,7 @@
       "zoom": {
         "observation_id": "absent-zoom-0006",
         "sim_time_s": 0.5,
-        "received_monotonic_ns": 16409636890967,
+        "received_monotonic_ns": 115830937554892,
         "resolution_px": [
           480,
           480
@@ -621,7 +625,7 @@
         "camera": {
           "observation_id": "absent-zoom-0007",
           "sim_time_s": 0.5,
-          "received_monotonic_ns": 16409717166328,
+          "received_monotonic_ns": 115831019608785,
           "resolution_px": [
             480,
             480
@@ -753,7 +757,7 @@
   "overview": {
     "observation_id": "absent-obs-0001",
     "sim_time_s": 0.5,
-    "received_monotonic_ns": 16409222521850,
+    "received_monotonic_ns": 115830488371873,
     "resolution_px": [
       480,
       480
@@ -828,39 +832,44 @@
   "evaluation": {
     "verified": false,
     "delivered_sku": null,
+    "delivered_volume_ml": null,
+    "count_in_bin": 0,
     "objects": [
       {
         "sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+        "volume_ml": null,
+        "fixture_texture": "mixed.png",
         "position_m": [
           0.353493644263241,
           -0.184707648521293,
           0.08498658277401176
         ],
         "speed_m_s": 2.9477885410420594e-11,
-        "in_bin": false,
-        "fixture_texture": "mixed.png"
+        "in_bin": false
       },
       {
         "sku": "Unregistered-Mint-Tea",
+        "volume_ml": null,
+        "fixture_texture": "mint.png",
         "position_m": [
           0.49503522856997045,
           -0.1723270638102023,
           0.08498658277401176
         ],
         "speed_m_s": 2.947789581876275e-11,
-        "in_bin": false,
-        "fixture_texture": "mint.png"
+        "in_bin": false
       },
       {
         "sku": "Unregistered-Mint-Tea",
+        "volume_ml": null,
+        "fixture_texture": "mint.png",
         "position_m": [
           0.20392143247120204,
           -0.10846054314673947,
           0.08498658277401176
         ],
         "speed_m_s": 2.947797214659787e-11,
-        "in_bin": false,
-        "fixture_texture": "mint.png"
+        "in_bin": false
       }
     ],
     "attached_at_finish": false,
@@ -910,5 +919,5 @@
   "clip_fps": 6,
   "clip_frames": 0,
   "finished_sim_time_s": 0.95,
-  "finished_unix_ns": 1795497938986685620
+  "finished_unix_ns": 1795597360369135893
 }

@@ -62,3 +62,15 @@ def test_browser_product_readout_links_to_separate_picking_and_defers_study_tabl
     assert html.index('id="package-result" hidden') < html.index('href="orders.html#order-pick"') < html.index('id="package-text"')
     summary = html.index('등록 6장 중 1장 정답 / 미등록 27장 중 6장에 등록 이름 부여')
     assert html.index('id="new-photos"') < summary < html.index('<details class="score-details">') < html.index('<table', summary)
+
+
+def test_photo_benchmark_keeps_order_confirmation_separate_from_candidate_names():
+    html = (WEB / "recognition.html").read_text()
+    start = html.index('id="size-study"')
+    study = html[start:html.index('id="new-photos"', start)]
+    assert "<details" in study and "처음 보는 포장" in study
+    assert "상품명 후보 · 수정 후" in study
+    assert "주문 SKU 확정 · 브라우저" in study
+    assert "주문 SKU 확정 · Python" in study
+    assert "기존 33장 재검사" in study
+    assert "docs/experiments/fresh-size-eval" in study
