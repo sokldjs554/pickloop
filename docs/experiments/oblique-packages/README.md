@@ -64,6 +64,8 @@ Across the 15 registered side views, 2 shifted into a correct name and 0 lost a 
 
 The Python side counts by flavour were apple 1/2 → 1/2, orange 1/8 → 3/8 and orange/red grapefruit 0/5 → 2/5. Chromium scored 0/2 → 0/2, 1/8 → 3/8 and 0/5 → 0/5 respectively. The earlier rejected nine-reference Python expansion had achieved 3/15 sides and 37/45 fronts, while naming one of the 14 plain-red controls as registered. [Earlier candidate and rejection](../registered-recall/production.md)
 
+The release keeps the 32 references. We also screened the earlier 41-reference gallery as a fallback. Python's additional orange side candidate resembled a Finnish 1 L carton more closely in the fruit region. In Chromium, two earlier possible side gains already had a competing package. Among the nine remaining side photographs eligible for a retry, the expanded optical matcher added zero matches. The release preserves these holds. [Source crops and original 41-reference experiment](../registered-recall/production.md)
+
 ## New photographs and operating time
 
 Three newly sourced whole-panel photographs show two separate same-brand controls. Two angles show the same organic orange carton, and one shows a Fruit Crush carton. Both shipped readers and the new Python reader held all three. On its first run with concurrent jobs, the Chromium candidate held two and reached its 120-second application deadline on the Fruit Crush image (2.4 MB). The replay did not capture a completed identity or order for this attempt. [Input sources, product records and groups](supplemental-labels.csv) · [Chromium first attempts](supplemental-browser.jsonl)

@@ -12,5 +12,11 @@
     "package-reader.js": "e645e28561361b0d913e96300cab72b16332dc3ce91312e7737ab7f87bb0e535",
     "vendor/package-reader/panel-worker.js": "1088ea1a282f9d77820a7b279f6dc6f5557cc2a16d51af4206595702b24dac6d",
     "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b"
+  },
+  "browser_release": {
+    "decision_worker_sha256": "1088ea1a282f9d77820a7b279f6dc6f5557cc2a16d51af4206595702b24dac6d",
+    "form_script_sha256": "dab3dfc9145fb56e76a03da489cacdb4e68836b0d5238a75ce069af79c42c37d",
+    "example_sha256": "787b9393075dd1b412fa2efcfebd4b49b5e9169e44dcdc8f480533e5ae9bb773",
+    "form_changes_after_freeze": "Shows a retake tip on ambiguous or insufficient evidence; selected an original archived side exposure for the example. Photo, OCR, geometry and barcode decision functions are unchanged from the recorded run."
   }
 }
