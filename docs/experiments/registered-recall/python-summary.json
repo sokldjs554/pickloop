@@ -1,0 +1,1080 @@
+{
+  "archive": {
+    "all": {
+      "n": 74,
+      "registered": 60,
+      "before": {
+        "registered_correct": 0,
+        "registered_wrong_name": 4,
+        "registered_held": 56,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 14,
+        "other_catalogue_names": {
+          "God-Morgon-Red-Grapefruit-Juice": 6,
+          "Arla-Medium-Fat-Milk": 1
+        },
+        "total_empty": 67
+      },
+      "after": {
+        "registered_correct": 35,
+        "registered_wrong_name": 2,
+        "registered_held": 23,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 14,
+        "other_catalogue_names": {
+          "God-Morgon-Red-Grapefruit-Juice": 4,
+          "Arla-Medium-Fat-Milk": 1
+        },
+        "total_empty": 34
+      },
+      "before_order": {
+        "registered_correct": 0,
+        "registered_wrong_name": 0,
+        "registered_held": 60,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 14,
+        "other_catalogue_names": {},
+        "total_empty": 74
+      },
+      "after_order": {
+        "registered_correct": 0,
+        "registered_wrong_name": 0,
+        "registered_held": 60,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 14,
+        "other_catalogue_names": {},
+        "total_empty": 74
+      },
+      "gained_correct_registered": 35,
+      "lost_correct_registered": 0
+    },
+    "gtin": {
+      "7310860007259": {
+        "n": 19,
+        "registered": 19,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 19,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 19
+        },
+        "after": {
+          "registered_correct": 9,
+          "registered_wrong_name": 0,
+          "registered_held": 10,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 10
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 19,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 19
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 19,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 19
+        },
+        "gained_correct_registered": 9,
+        "lost_correct_registered": 0
+      },
+      "7310860007372": {
+        "n": 22,
+        "registered": 22,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 1,
+          "registered_held": 21,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {
+            "Arla-Medium-Fat-Milk": 1
+          },
+          "total_empty": 21
+        },
+        "after": {
+          "registered_correct": 14,
+          "registered_wrong_name": 1,
+          "registered_held": 7,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {
+            "Arla-Medium-Fat-Milk": 1
+          },
+          "total_empty": 7
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 22,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 22
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 22,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 22
+        },
+        "gained_correct_registered": 14,
+        "lost_correct_registered": 0
+      },
+      "7310860007396": {
+        "n": 14,
+        "registered": 0,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 14,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 3
+          },
+          "total_empty": 11
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 14,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 3
+          },
+          "total_empty": 11
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 14,
+          "other_catalogue_names": {},
+          "total_empty": 14
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 14,
+          "other_catalogue_names": {},
+          "total_empty": 14
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "7310865074225": {
+        "n": 19,
+        "registered": 19,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 3,
+          "registered_held": 16,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 3
+          },
+          "total_empty": 16
+        },
+        "after": {
+          "registered_correct": 12,
+          "registered_wrong_name": 1,
+          "registered_held": 6,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 1
+          },
+          "total_empty": 6
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 19,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 19
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 19,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 19
+        },
+        "gained_correct_registered": 12,
+        "lost_correct_registered": 0
+      }
+    },
+    "view": {
+      "front": {
+        "n": 54,
+        "registered": 45,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 2,
+          "registered_held": 43,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 9,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 3
+          },
+          "total_empty": 51
+        },
+        "after": {
+          "registered_correct": 33,
+          "registered_wrong_name": 1,
+          "registered_held": 11,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 9,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 2
+          },
+          "total_empty": 19
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 45,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 9,
+          "other_catalogue_names": {},
+          "total_empty": 54
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 45,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 9,
+          "other_catalogue_names": {},
+          "total_empty": 54
+        },
+        "gained_correct_registered": 33,
+        "lost_correct_registered": 0
+      },
+      "side visible": {
+        "n": 20,
+        "registered": 15,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 2,
+          "registered_held": 13,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 3,
+            "Arla-Medium-Fat-Milk": 1
+          },
+          "total_empty": 16
+        },
+        "after": {
+          "registered_correct": 2,
+          "registered_wrong_name": 1,
+          "registered_held": 12,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 2,
+            "Arla-Medium-Fat-Milk": 1
+          },
+          "total_empty": 15
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 15,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {},
+          "total_empty": 20
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 15,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {},
+          "total_empty": 20
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      }
+    },
+    "barcode_visible": {
+      "0": {
+        "n": 65,
+        "registered": 55,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 2,
+          "registered_held": 53,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 10,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 4
+          },
+          "total_empty": 61
+        },
+        "after": {
+          "registered_correct": 34,
+          "registered_wrong_name": 1,
+          "registered_held": 20,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 10,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 3
+          },
+          "total_empty": 28
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 55,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 10,
+          "other_catalogue_names": {},
+          "total_empty": 65
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 55,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 10,
+          "other_catalogue_names": {},
+          "total_empty": 65
+        },
+        "gained_correct_registered": 34,
+        "lost_correct_registered": 0
+      },
+      "1": {
+        "n": 9,
+        "registered": 5,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 2,
+          "registered_held": 3,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 4,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 2,
+            "Arla-Medium-Fat-Milk": 1
+          },
+          "total_empty": 6
+        },
+        "after": {
+          "registered_correct": 1,
+          "registered_wrong_name": 1,
+          "registered_held": 3,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 4,
+          "other_catalogue_names": {
+            "Arla-Medium-Fat-Milk": 1,
+            "God-Morgon-Red-Grapefruit-Juice": 1
+          },
+          "total_empty": 6
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 5,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 4,
+          "other_catalogue_names": {},
+          "total_empty": 9
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 5,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 4,
+          "other_catalogue_names": {},
+          "total_empty": 9
+        },
+        "gained_correct_registered": 1,
+        "lost_correct_registered": 0
+      }
+    },
+    "web_developer_exposure": {
+      "contact sheet only": {
+        "n": 27,
+        "registered": 16,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 3,
+          "registered_held": 13,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 11,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 5
+          },
+          "total_empty": 22
+        },
+        "after": {
+          "registered_correct": 10,
+          "registered_wrong_name": 1,
+          "registered_held": 5,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 11,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 3
+          },
+          "total_empty": 14
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 16,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 11,
+          "other_catalogue_names": {},
+          "total_empty": 27
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 16,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 11,
+          "other_catalogue_names": {},
+          "total_empty": 27
+        },
+        "gained_correct_registered": 10,
+        "lost_correct_registered": 0
+      },
+      "early worker": {
+        "n": 12,
+        "registered": 9,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 9,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 3,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 1
+          },
+          "total_empty": 11
+        },
+        "after": {
+          "registered_correct": 7,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 3,
+          "other_catalogue_names": {
+            "God-Morgon-Red-Grapefruit-Juice": 1
+          },
+          "total_empty": 4
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 9,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 3,
+          "other_catalogue_names": {},
+          "total_empty": 12
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 9,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 3,
+          "other_catalogue_names": {},
+          "total_empty": 12
+        },
+        "gained_correct_registered": 7,
+        "lost_correct_registered": 0
+      },
+      "unviewed": {
+        "n": 35,
+        "registered": 35,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 1,
+          "registered_held": 34,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {
+            "Arla-Medium-Fat-Milk": 1
+          },
+          "total_empty": 34
+        },
+        "after": {
+          "registered_correct": 18,
+          "registered_wrong_name": 1,
+          "registered_held": 16,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {
+            "Arla-Medium-Fat-Milk": 1
+          },
+          "total_empty": 16
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 35,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 35
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 35,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 35
+        },
+        "gained_correct_registered": 18,
+        "lost_correct_registered": 0
+      }
+    }
+  },
+  "public": {
+    "all": {
+      "n": 8,
+      "registered": 2,
+      "before": {
+        "registered_correct": 1,
+        "registered_wrong_name": 0,
+        "registered_held": 1,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 6,
+        "other_catalogue_names": {},
+        "total_empty": 7
+      },
+      "after": {
+        "registered_correct": 0,
+        "registered_wrong_name": 0,
+        "registered_held": 2,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 6,
+        "other_catalogue_names": {},
+        "total_empty": 8
+      },
+      "before_order": {
+        "registered_correct": 0,
+        "registered_wrong_name": 0,
+        "registered_held": 2,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 6,
+        "other_catalogue_names": {},
+        "total_empty": 8
+      },
+      "after_order": {
+        "registered_correct": 0,
+        "registered_wrong_name": 0,
+        "registered_held": 2,
+        "outside_falsely_named_registered": 0,
+        "outside_no_registered_name": 6,
+        "other_catalogue_names": {},
+        "total_empty": 8
+      },
+      "gained_correct_registered": 0,
+      "lost_correct_registered": 1
+    },
+    "gtin": {
+      "7310860007396": {
+        "n": 1,
+        "registered": 0,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "7310865074225": {
+        "n": 2,
+        "registered": 2,
+        "before": {
+          "registered_correct": 1,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 2
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 2
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 0,
+          "other_catalogue_names": {},
+          "total_empty": 2
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 1
+      },
+      "7310865074768": {
+        "n": 1,
+        "registered": 0,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "7313619002147": {
+        "n": 1,
+        "registered": 0,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "7313619002246": {
+        "n": 1,
+        "registered": 0,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "7313619002314": {
+        "n": 1,
+        "registered": 0,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "7313619002611": {
+        "n": 1,
+        "registered": 0,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      }
+    },
+    "view": {
+      "front": {
+        "n": 6,
+        "registered": 1,
+        "before": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {},
+          "total_empty": 6
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {},
+          "total_empty": 6
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {},
+          "total_empty": 6
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 5,
+          "other_catalogue_names": {},
+          "total_empty": 6
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "side visible": {
+        "n": 2,
+        "registered": 1,
+        "before": {
+          "registered_correct": 1,
+          "registered_wrong_name": 0,
+          "registered_held": 0,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 1
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 2
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 2
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 1,
+          "other_catalogue_names": {},
+          "total_empty": 2
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 1
+      }
+    },
+    "barcode_visible": {
+      "0": {
+        "n": 8,
+        "registered": 2,
+        "before": {
+          "registered_correct": 1,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 7
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 8
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 8
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 8
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 1
+      }
+    },
+    "web_developer_exposure": {
+      "unviewed": {
+        "n": 8,
+        "registered": 2,
+        "before": {
+          "registered_correct": 1,
+          "registered_wrong_name": 0,
+          "registered_held": 1,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 7
+        },
+        "after": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 8
+        },
+        "before_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 8
+        },
+        "after_order": {
+          "registered_correct": 0,
+          "registered_wrong_name": 0,
+          "registered_held": 2,
+          "outside_falsely_named_registered": 0,
+          "outside_no_registered_name": 6,
+          "other_catalogue_names": {},
+          "total_empty": 8
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 1
+      }
+    }
+  }
+}

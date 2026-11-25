@@ -1,0 +1,15 @@
+id,prior_id,gtin,truth,view,fold,before,after,before_reason,after_reason
+RR-00b7083b7cd829cb,NX-00b7083b7cd829cb,7310865074225,God-Morgon-Apple-Juice,back,fold-2,,,brand_unverified,brand_unverified
+RR-28c6aec5bc49460c,GMX-28c6aec5bc49,7310865074225,God-Morgon-Apple-Juice,front,fold-2,God-Morgon-Apple-Juice,,flavour_and_printed_1l,incompatible_pack_artwork
+RR-3a3f6e5417850d89,NX-3a3f6e5417850d89,7310860007259,God-Morgon-Orange-Red-Grapefruit-Juice,back,fold-0,,,brand_unverified,brand_unverified
+RR-46ff865df16aa846,GMX-46ff865df16a,7310860007259,God-Morgon-Orange-Red-Grapefruit-Juice,front,fold-0,,,size_unverified,incompatible_pack_artwork
+RR-5df9a46f78f106fe,SZ-5df9a46f78f106fe,7310860007372,God-Morgon-Orange-Juice,nutrition,fold-1,,,brand_unverified,brand_unverified
+RR-649ceaeb1b3d025d,GMX-649ceaeb1b3d,7310860007372,God-Morgon-Orange-Juice,front,fold-1,,,size_unverified,size_unverified
+RR-78520599064476ca,GMX-785205990644,7310860007259,God-Morgon-Orange-Red-Grapefruit-Juice,front,fold-0,,God-Morgon-Orange-Red-Grapefruit-Juice,size_unverified,registered_pack_artwork
+RR-7c855061af48db07,GMX-7c855061af48,7310860007372,God-Morgon-Orange-Juice,front,fold-1,God-Morgon-Orange-Juice,,flavour_and_printed_1l,competing_pack_artwork
+RR-827abe84a7d4e0fe,SZ-827abe84a7d4e0fe,7310865074225,God-Morgon-Apple-Juice,nutrition,fold-2,,,brand_unverified,brand_unverified
+RR-a2e53fc60c4f6ad3,NX-a2e53fc60c4f6ad3,7310860007372,God-Morgon-Orange-Juice,back,fold-1,,,brand_unverified,brand_unverified
+RR-b1e4fdbce0cfce35,NX-b1e4fdbce0cfce35,7310860007259,God-Morgon-Orange-Red-Grapefruit-Juice,front,fold-0,,,conflicting_product_or_size,conflicting_product_or_size
+RR-b7e2638425aa59f0,GMX-b7e2638425aa,7310860007259,God-Morgon-Orange-Red-Grapefruit-Juice,front,fold-0,,,size_unverified,incompatible_pack_artwork
+RR-b85ca6fa7b3eaa3e,NX-b85ca6fa7b3eaa3e,7310860007372,God-Morgon-Orange-Juice,back,fold-1,,,brand_unverified,brand_unverified
+RR-d03141e8696f584c,NX-d03141e8696f584c,7310860007372,God-Morgon-Orange-Juice,context,fold-1,,,size_unverified,size_unverified

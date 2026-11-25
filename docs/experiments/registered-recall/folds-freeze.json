@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-25T09:53:46.318202+00:00",
+  "files": {
+    "folds-labels.csv": "f799ff1564eb0adc2e8db4ab7dd298607c674c9c8d54070d9e0cc8cd7cc3652c",
+    "folds-blind.csv": "cda61cc67265da29d0de909122ccf067891e448ef02ac0b8b7df13c104c76afd",
+    "folds-withheld.json": "5e3903d1bdaaa1614093d391dc6970c976355370ddba670cf16be2e9d31a1ac8"
+  }
+}
