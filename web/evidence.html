@@ -142,8 +142,14 @@
 <p>정상 시뮬레이션에서 첫 AMR이 충전 구역을 비운 뒤 77.80초에 두 번째 AMR이 진입 권한을 얻었습니다. 단자 전압·전류로 적산한 충전량은 각각 0.336370 Wh와 0.288264 Wh였습니다.</p>
 <p>접점 열림, 낮은 전압, 전류 없음, 충전 중 전류 단절을 각각 시험했습니다. 네 경우 모두 첫 차량은 릴레이를 열고 정지했고 다음 차량은 대기했습니다.</p>
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/dock-charging.md">충전 조건·6개 시나리오</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/dock-charging/normal-seed-0/result.json">정상 인계 기록</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/dock-charging/current_interrupt-seed-0/result.json">전류 단절 기록</a></div></section>
-<section id="plc"><h2>C++ 제어기와 소프트웨어 PLC 통신</h2>
-<p>기존 C++ 클라이언트를 Awlsim의 S7 CPU와 독립 Modbus TCP 서버에 연결했습니다. 루프백 TCP 연결 18개로 13단계를 실행했고, PLC는 명령 쓰기 7건을 처리해 밸브 출력을 2번 바꿨습니다. 응답을 잃으면 상태를 다시 읽고, 명령 도달을 확인할 수 없으면 보류하는 동작을 기록했습니다.</p>
+<section id="plc"><h2>밸브를 끄라는 명령의 응답이 끊기면</h2>
+<p>소프트웨어 PLC(Awlsim)와 C++ 제어기를 Modbus TCP로 연결한 시험입니다. 물체를 받침대에 내려놓은 상태에서 밸브 해제를 요청하고, PLC가 보낸 응답 한 건을 의도적으로 끊었습니다.</p>
+<ol>
+<li><strong>해제 요청.</strong> 연결 15에서 명령 2147483682를 보냈습니다. PLC 스캔 9에서 밸브가 꺼졌고, 제어기에는 쓰기 응답이 도착하지 않았습니다. <a href="https://github.com/sokldjs554/pickloop/blob/main/runs/plc-interop/wire.jsonl#L15">전송 기록</a> · <a href="https://github.com/sokldjs554/pickloop/blob/main/runs/plc-interop/scans.jsonl#L9">PLC 출력</a></li>
+<li><strong>재연결 후 조회.</strong> 제어기는 연결 16을 열고 상태 레지스터를 읽었습니다. 마지막 처리 ID가 방금 보낸 명령과 일치했습니다. <a href="https://github.com/sokldjs554/pickloop/blob/main/runs/plc-interop/wire.jsonl#L16">조회 요청과 응답</a></li>
+<li><strong>밸브 OFF 확인.</strong> 제어기가 읽은 압력은 0 kPa, 물체 부착 입력은 꺼짐이었습니다. 최종 실행 횟수는 켜기 1회와 끄기 1회를 합한 2회였습니다. <a href="https://github.com/sokldjs554/pickloop/blob/main/runs/plc-interop/steps.jsonl#L11-L13">복구 판정과 최종 상태</a></li>
+</ol>
+<details><summary>명령 자체가 전달되지 않은 경우</summary><p>별도의 시험에서는 해제 요청을 PLC에 전달하기 전에 끊었습니다. 다시 읽은 ID는 이전 명령이었고 밸브는 ON이었습니다. 제어기는 해제 완료를 보류했습니다. <a href="https://github.com/sokldjs554/pickloop/blob/main/runs/plc-interop/steps.jsonl#L8-L9">명령 결과와 유지 상태</a></p></details>
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/plc-interop.md">PLC 시험 구성과 재현</a><a href="https://github.com/sokldjs554/pickloop/tree/main/runs/plc-interop">TCP·PLC 스캔 원문</a></div>
 <div class="evidence-links"><a href="./#integration-evidence">ROS 2 정상·취소·중복 요청 / C++ Modbus TCP 원문</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/hardware-acceptance.md">실물 인수 시험 항목</a></div>
 </section>
