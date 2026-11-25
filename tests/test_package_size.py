@@ -17,3 +17,14 @@ def test_conflicts_veto_positive_reads(token):
 @pytest.mark.parametrize("token", ["per 1 L", "serving size 1 L", "1 L of water", "1. 1 L", "1 L/kg", "L", "1", "100%"])
 def test_unusable_or_unrelated_size_never_promotes_a_package(token):
     assert printed_size([token, token])[0] != "printed_1l"
+
+
+@pytest.mark.parametrize("amount", ["100 ml", "180 ml", "100 mi"])
+def test_nutrition_reference_is_ignored_in_photo_and_flavour_paths(amount):
+    from pickloop.product_text import printed_flavour
+    from pickloop.juice_gate import ORANGE
+
+    panel = f"NAHRWERTANGABEN PER/PRO {amount}: Energie 183 kJ / 43 kcal"
+    assert printed_size([panel, panel]) == ("unread", [])
+    assert printed_size([panel + " NET 250 ml"])[0] == "contradictory"
+    assert printed_flavour(["GOD MORGON ORANGE", "ORANGE", panel])[0] == ORANGE

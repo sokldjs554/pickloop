@@ -1,12 +1,12 @@
 """Recover a God Morgon catalogue flavour from a photographed package label."""
 import re
 import subprocess
-import unicodedata
 
 import cv2
 import numpy as np
 
 from .juice_gate import APPLE, MIX, ORANGE, TARGETS, align_panel, ocr
+from .package_size import normalized, printed_size
 from .pack_barcode import REGISTERED_GTINS, read_ean13
 
 
@@ -21,29 +21,16 @@ OTHER = re.compile(
     r"bravo|tropicana|innocent|granini classic|smoo?thie)\b|"
     r"\b(?:pulp\W*free|(?:no|without)\s+pulp|utan\s+fruktkott|vitamin\s+d)\b"
 )
-SIZE = re.compile(r"(?<![\w.,])(\d{1,4}(?:[.,]\d{1,2})?)\s*[-–]?\s*(ml|cl|dl|l|litre[s]?|liter[s]?)\b")
 APPLE_WORD = re.compile(r"\b(?:apple|appel|apfel|omena)(?:juice|mehu|saft)?\b")
 ORANGE_WORD = re.compile(r"\b(?:orange|apelsin|appelsin|appelsiini)(?:juice|mehu|saft)?\b")
 GRAPE_WORD = re.compile(r"\b(?:red\s*)?(?:grapefruit|grapefrukt|grape|verigreippi)(?:juice|mehu|saft)?\b")
 RED_WORD = re.compile(r"\b(?:red|rod|redgrapefruit|verigreippi)\b")
 
 
-def normalized(read):
-    return "".join(c for c in unicodedata.normalize("NFKD", read.lower()) if not unicodedata.combining(c))
-
-
-def contradictory_size(line):
-    for amount, unit in SIZE.findall(line):
-        value = float(amount.replace(",", ".")) * {"ml": 1, "cl": 10, "dl": 100}.get(unit, 1000)
-        if value != 1000:
-            return True
-    return re.search(r"\b(?:[2-9]|\d{2})\s*(?:x|×)\s*\d|\bpack of\s*(?:[2-9]|\d{2})\b", line) is not None
-
-
 def printed_flavour(reads, registered_panel=False, *, veto_size=True):
     """Corroborate brand and flavour, with a veto across all readings of this photograph."""
     texts = [normalized(text) for text in reads]
-    if any(OTHER.search(t) or (veto_size and contradictory_size(t)) for t in texts):
+    if any(OTHER.search(t) or (veto_size and printed_size([t])[0] == "contradictory") for t in texts):
         return None, "conflicting_product_or_size"
     if not registered_panel and not any(BRAND.search(re.sub(r"\S+\.(?:com|se|dk|fi|no|net)\b", "", t)) for t in texts):
         return None, "brand_unverified"
