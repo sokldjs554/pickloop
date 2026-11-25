@@ -1,0 +1,538 @@
+[
+  {
+    "id": "Bravo-Apple-Juice_006",
+    "path": "train/Packages/Juice/Bravo-Apple-Juice/Bravo-Apple-Juice_006.jpg",
+    "sha256": "aa9c5dc41cd0980bff8866458aeac55746f442a55bb317032cec0b104261c890",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Apple-Juice_007",
+    "path": "train/Packages/Juice/Bravo-Apple-Juice/Bravo-Apple-Juice_007.jpg",
+    "sha256": "1f21ae21172e6bc82eee94bd807cf957497a3c9398106a1193a8f0610c7d5176",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Apple-Juice_008",
+    "path": "train/Packages/Juice/Bravo-Apple-Juice/Bravo-Apple-Juice_008.jpg",
+    "sha256": "74992c39d014da2cd9c02045a3f39c6f4f96f0ffdd726be3aea71620beddf348",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Apple-Juice_009",
+    "path": "train/Packages/Juice/Bravo-Apple-Juice/Bravo-Apple-Juice_009.jpg",
+    "sha256": "a2089afbfd8fc22ff520af8cae50b3b65c7ef92cacd28c30c6468924ac699ec5",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Apple-Juice_010",
+    "path": "train/Packages/Juice/Bravo-Apple-Juice/Bravo-Apple-Juice_010.jpg",
+    "sha256": "bc58fd389624704bc08c8c8f4842e3d8dafff8bcd371221b6f9230112a05fcd3",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Orange-Juice_008",
+    "path": "train/Packages/Juice/Bravo-Orange-Juice/Bravo-Orange-Juice_008.jpg",
+    "sha256": "f017f9949403d0f4918f9f4be2dd73b867d819cab1b4c37d570ef6e0a50a024f",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Orange-Juice_009",
+    "path": "train/Packages/Juice/Bravo-Orange-Juice/Bravo-Orange-Juice_009.jpg",
+    "sha256": "56d3b845ffac531976adadaf6ea0fa68ced27543870fb9f797bc95c1c8868c6d",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Orange-Juice_010",
+    "path": "train/Packages/Juice/Bravo-Orange-Juice/Bravo-Orange-Juice_010.jpg",
+    "sha256": "22acf8d88841af012c4d759d9134d190799cb5af7739309f050c32563f17f898",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Orange-Juice_011",
+    "path": "train/Packages/Juice/Bravo-Orange-Juice/Bravo-Orange-Juice_011.jpg",
+    "sha256": "767f1d05339298a577c424483dc6b70ad4f3c40fae6ee8f32fb099903fe39d67",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Orange-Juice_012",
+    "path": "train/Packages/Juice/Bravo-Orange-Juice/Bravo-Orange-Juice_012.jpg",
+    "sha256": "406d7889287b2fd9766defb54afd51dd77ce9ebf309d119c341479739163d371",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Bravo-Orange-Juice_013",
+    "path": "train/Packages/Juice/Bravo-Orange-Juice/Bravo-Orange-Juice_013.jpg",
+    "sha256": "e976b04966ed4d39f45f1281a1c9e46b6dbc1acd7d61cc1fd27a9bc040231df9",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "God-Morgon-Apple-Juice_008",
+    "path": "train/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_008.jpg",
+    "sha256": "7ceae89f56415444c7066332f50c353c7c937dce8acd5fb3070807e3f915ca31",
+    "source_role": "development",
+    "target": "God-Morgon-Apple-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Apple-Juice_009",
+    "path": "train/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_009.jpg",
+    "sha256": "96faa4ab81591736e4afe1b167009bc646c288539b727a7ce41bf962f63451a3",
+    "source_role": "development",
+    "target": "God-Morgon-Apple-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Apple-Juice_010",
+    "path": "train/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_010.jpg",
+    "sha256": "3109c08e20cef30c3f1888138991bc84ceb43deb247347d68afab703ca2cb109",
+    "source_role": "development",
+    "target": "God-Morgon-Apple-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Apple-Juice_011",
+    "path": "train/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_011.jpg",
+    "sha256": "f3d76080885c54436c57f61de5295a20e83cb39715bba79186e8704a024b0e98",
+    "source_role": "development",
+    "target": "God-Morgon-Apple-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Juice_015",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_015.jpg",
+    "sha256": "d07ef645d00d042fc60c3fb657702dc4f1bbbaaff9ffda279f6f2a39841e6181",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Juice_016",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_016.jpg",
+    "sha256": "64275a0518f19d71dceed2d4902aa923dd8553a4511dfb67da33c77734fa2d77",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Juice_017",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_017.jpg",
+    "sha256": "ad767c113cc6e59e5c6bc3635d451d947d2641220c5c8c903d02fa40fe5dc652",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Juice_018",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_018.jpg",
+    "sha256": "5762bae36948654acf8d8754605bc76f77547826731468d63b7aaedb8c4d6f46",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Juice_019",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_019.jpg",
+    "sha256": "5375a023bc115db4b56f05285dbb1335bf5103f5396f3b00fbc8c0777f7510dd",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Red-Grapefruit-Juice_002",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_002.jpg",
+    "sha256": "b1b5c95d63febf3861c8dd85fafc0833b9af49b58381f0ef329aff5bcebd57ee",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Red-Grapefruit-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Red-Grapefruit-Juice_003",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_003.jpg",
+    "sha256": "e93343ca7c60cd99bb8cef110c342cf34e95a6737313eab40ceee2cb688926b1",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Red-Grapefruit-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Red-Grapefruit-Juice_004",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_004.jpg",
+    "sha256": "5058dc7aec8aa1acd9ae3623b6c27eb98933f39d480c30ad68c9b347f0103f5e",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Red-Grapefruit-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Orange-Red-Grapefruit-Juice_005",
+    "path": "train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_005.jpg",
+    "sha256": "21387d2faa78a2822bd13eb34316932425b619a5713fc1062cda78b0be3a306b",
+    "source_role": "development",
+    "target": "God-Morgon-Orange-Red-Grapefruit-Juice",
+    "group": "target"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_001",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_001.jpg",
+    "sha256": "4c822feacb572e6f8da0076fa44e1b1c42bdeb327cb72c9bf8bc849bd412fecf",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_002",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_002.jpg",
+    "sha256": "7e17bd627139d604ccef5d90ffe17a9286e3a36d3c89296a25c8a714394b3e9b",
+    "source_role": "development",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_003",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_003.jpg",
+    "sha256": "b825565b1d76052a750f7c184dd8313624bf763eae8758b83455300af000dac6",
+    "source_role": "development",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_004",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_004.jpg",
+    "sha256": "98f47b77338dbad89272a49ade051fc00a4b1c2153f66f78b6cbcec6a3b3122b",
+    "source_role": "development",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_005",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_005.jpg",
+    "sha256": "75cddf357a4d41443e79f68b408d1dc5cc251b9fbab321215194b952d467d057",
+    "source_role": "development",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_006",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_006.jpg",
+    "sha256": "02130d511489af3d90e99016cb4543d41a134c57ace46e7df020c05c0e3ab2af",
+    "source_role": "development",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_007",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_007.jpg",
+    "sha256": "776fcef825941dd490de4a9ad1a5ab6cd928f335507c48de8f2a387f915f01cf",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_009",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_009.jpg",
+    "sha256": "199a0e10332a5305a30e3a44a22ab0d5108f8957e7edc287d6e76198d2d5a979",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_010",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_010.jpg",
+    "sha256": "fbfbd3ab152134a8c571d0978e18b5fda2edec9f0c6af16144c01b4def7675c0",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_011",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_011.jpg",
+    "sha256": "f3989c138a5f081a06bfe21a4e5a339d43274818a846d5cac37cd80185ea40bf",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_012",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_012.jpg",
+    "sha256": "5960a52d246732eee522a3c631b4901e3a1f1a482240ce6e6c937429f85dc770",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_013",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_013.jpg",
+    "sha256": "6e769af56e3678cb78c9d55af81c472dae2d04575388b84629b5502e5ab2f11a",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_015",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_015.jpg",
+    "sha256": "c5f378ecce5d36c3ed7b7fdac2a61dab6050c61d1e4eb26e60f19e8ee4990bb0",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_016",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_016.jpg",
+    "sha256": "5257bf471f782ce04fa7172fd2d8e7c47df18b6a8eff37b5b1e9ff72bfe52689",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_017",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_017.jpg",
+    "sha256": "a46800da0014c73fad9dfd961a4a95c3723daff4918bfa140eb1ea9338f77a1d",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_018",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_018.jpg",
+    "sha256": "93b0a6fd7fde893e404ff2896e9e96ae4b1ca1b3ebb6b6456d8b91eb3f53d528",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_019",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_019.jpg",
+    "sha256": "8eaa8c7b1884eb4cf878b5228227022ab1d38b5a215b983682c299b2abcbfedf",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_020",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_020.jpg",
+    "sha256": "11c2ab89b00d962df6fb484005008c36f62ea53192360dc1d403c92a19dbd066",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_022",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_022.jpg",
+    "sha256": "040033414ee4e3abc40e2bc1f9b8af301d349c6dfa603f1d2a5ca83d12e60232",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_023",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_023.jpg",
+    "sha256": "41a52b341a1cb172a8a976a19894eefdeb13db1dc113eb1edf4781ef587f1fc4",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_024",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_024.jpg",
+    "sha256": "9f145e5bfb322acc72d0fa9a08e6e22ae3f5653e905dc0bb93c66fbfb0053efa",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_025",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_025.jpg",
+    "sha256": "25f7f8820b7383e5472124c062cf2d901dc81271527a1ad6bfbf3a8992299315",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_026",
+    "path": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_026.jpg",
+    "sha256": "4eb34f7fd9236edfb1e4fe6c87a7efb8d7d9801b468e11e6f1a2e09ccee22fcd",
+    "source_role": "fit",
+    "target": null,
+    "group": "sibling"
+  },
+  {
+    "id": "Tropicana-Apple-Juice_021",
+    "path": "train/Packages/Juice/Tropicana-Apple-Juice/Tropicana-Apple-Juice_021.jpg",
+    "sha256": "8b4da3c96106a1b1a08a79247b28c308338269240f9329a616bd89726f53e114",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Apple-Juice_022",
+    "path": "train/Packages/Juice/Tropicana-Apple-Juice/Tropicana-Apple-Juice_022.jpg",
+    "sha256": "b98d5d0bc8c5cd79b8ed6c40aba5a3bd863f0695e2aa31d03e7bc52a2982bdaa",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Apple-Juice_023",
+    "path": "train/Packages/Juice/Tropicana-Apple-Juice/Tropicana-Apple-Juice_023.jpg",
+    "sha256": "c077e39b45d6eedc9087c276eb538e21aaff5e1cdbff2428686264be53c3679b",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Apple-Juice_024",
+    "path": "train/Packages/Juice/Tropicana-Apple-Juice/Tropicana-Apple-Juice_024.jpg",
+    "sha256": "47239f3a4c81935438e8ce4d6afc8a22bad20a75e34f2a7fc8780ee26f9c1134",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Apple-Juice_025",
+    "path": "train/Packages/Juice/Tropicana-Apple-Juice/Tropicana-Apple-Juice_025.jpg",
+    "sha256": "eab381cffb2f33f87fb8808a4e836345cf71c479b01de1ace6289cf166e9fd90",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Apple-Juice_026",
+    "path": "train/Packages/Juice/Tropicana-Apple-Juice/Tropicana-Apple-Juice_026.jpg",
+    "sha256": "82e2f66e78fd07faf7ff5bccd5bb463129e6ca7891d149748193276c56c8b0a4",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Golden-Grapefruit_006",
+    "path": "train/Packages/Juice/Tropicana-Golden-Grapefruit/Tropicana-Golden-Grapefruit_006.jpg",
+    "sha256": "d0e6aaadbb1d2a55fd695f9fbadc0c3c82699d2bfa29d7df8ed411c8f1fdce22",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Golden-Grapefruit_007",
+    "path": "train/Packages/Juice/Tropicana-Golden-Grapefruit/Tropicana-Golden-Grapefruit_007.jpg",
+    "sha256": "38d0e5139591fa4ad2ca3d44f1cfce2e35a3b317205af3337a70556632dbfb13",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Golden-Grapefruit_008",
+    "path": "train/Packages/Juice/Tropicana-Golden-Grapefruit/Tropicana-Golden-Grapefruit_008.jpg",
+    "sha256": "651fa4c4261c4cd0829784a8a31ea0932219042fbbed375d9ac6ff93b26cffb9",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Golden-Grapefruit_009",
+    "path": "train/Packages/Juice/Tropicana-Golden-Grapefruit/Tropicana-Golden-Grapefruit_009.jpg",
+    "sha256": "5d932676f8feeb191c3fab02775cfb1261035b5d0e8338620c3d46cb38cfb089",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Golden-Grapefruit_010",
+    "path": "train/Packages/Juice/Tropicana-Golden-Grapefruit/Tropicana-Golden-Grapefruit_010.jpg",
+    "sha256": "e34e5435117b797138b9062857c418ffeb4c5c6884d9b9805c40b3ce82680248",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Juice-Smooth_021",
+    "path": "train/Packages/Juice/Tropicana-Juice-Smooth/Tropicana-Juice-Smooth_021.jpg",
+    "sha256": "0942a23feeb4070914e175fd5fb6e386478c530f8ed89895fd6f38c3ffbf5998",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Juice-Smooth_022",
+    "path": "train/Packages/Juice/Tropicana-Juice-Smooth/Tropicana-Juice-Smooth_022.jpg",
+    "sha256": "fc73d9f8e6d84bb2c7885af9734a36725378a133c01465a849f253b196acb75c",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Juice-Smooth_023",
+    "path": "train/Packages/Juice/Tropicana-Juice-Smooth/Tropicana-Juice-Smooth_023.jpg",
+    "sha256": "dcf4dfcd85fe640b8de84926b9df7216a0c6c2992e17c7629afc1cd96a5fdb55",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Juice-Smooth_024",
+    "path": "train/Packages/Juice/Tropicana-Juice-Smooth/Tropicana-Juice-Smooth_024.jpg",
+    "sha256": "3752f5832caf02f014b95dd3f415676081907c562831b2c9a5bfaa31bb59c162",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Juice-Smooth_025",
+    "path": "train/Packages/Juice/Tropicana-Juice-Smooth/Tropicana-Juice-Smooth_025.jpg",
+    "sha256": "8a07b5e5a49cb618c1a6415004fa700996ff0d92b2f38bfaa343627785ea38c2",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Mandarin-Morning_012",
+    "path": "train/Packages/Juice/Tropicana-Mandarin-Morning/Tropicana-Mandarin-Morning_012.jpg",
+    "sha256": "65d9a414621b7faf09eced26b79bd53cbb86dd5286663f650ac2b84b1120ae66",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Mandarin-Morning_013",
+    "path": "train/Packages/Juice/Tropicana-Mandarin-Morning/Tropicana-Mandarin-Morning_013.jpg",
+    "sha256": "14170e0b4955c61d5d5291a46482b91df45cfb492f4ba3da36090875294c85ec",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Mandarin-Morning_014",
+    "path": "train/Packages/Juice/Tropicana-Mandarin-Morning/Tropicana-Mandarin-Morning_014.jpg",
+    "sha256": "4e4257b368687408aa7b63235c2dec55470af43ae15e7251af78d7286712bd3f",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  },
+  {
+    "id": "Tropicana-Mandarin-Morning_015",
+    "path": "train/Packages/Juice/Tropicana-Mandarin-Morning/Tropicana-Mandarin-Morning_015.jpg",
+    "sha256": "3bb83a41d342ba60b1a4013d92e04165f32abe6f1801fd3b24f704923545c2d5",
+    "source_role": "development",
+    "target": null,
+    "group": "other_juice"
+  }
+]

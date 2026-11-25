@@ -1,0 +1,282 @@
+{
+  "archive": {
+    "n": 74,
+    "registered": 60,
+    "v2": {
+      "correct": 35,
+      "held_registered": 23,
+      "wrong_on_registered": 2,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 40,
+      "held_registered": 19,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 1,
+      "optical_orders": 0
+    },
+    "gained": 5,
+    "lost": 0
+  },
+  "public": {
+    "n": 8,
+    "registered": 2,
+    "v2": {
+      "correct": 2,
+      "held_registered": 0,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 2,
+      "held_registered": 0,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 0,
+    "lost": 0
+  },
+  "archive excluding plausible same-GTIN setting": {
+    "n": 65,
+    "registered": 51,
+    "v2": {
+      "correct": 30,
+      "held_registered": 19,
+      "wrong_on_registered": 2,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 35,
+      "held_registered": 15,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 1,
+      "optical_orders": 0
+    },
+    "gained": 5,
+    "lost": 0
+  },
+  "view front": {
+    "n": 54,
+    "registered": 45,
+    "v2": {
+      "correct": 33,
+      "held_registered": 11,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 37,
+      "held_registered": 8,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 4,
+    "lost": 0
+  },
+  "view side visible": {
+    "n": 20,
+    "registered": 15,
+    "v2": {
+      "correct": 2,
+      "held_registered": 12,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 3,
+      "held_registered": 11,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 1,
+      "optical_orders": 0
+    },
+    "gained": 1,
+    "lost": 0
+  },
+  "gtin 7310860007259": {
+    "n": 19,
+    "registered": 19,
+    "v2": {
+      "correct": 9,
+      "held_registered": 10,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 10,
+      "held_registered": 9,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 1,
+    "lost": 0
+  },
+  "gtin 7310860007372": {
+    "n": 22,
+    "registered": 22,
+    "v2": {
+      "correct": 14,
+      "held_registered": 7,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 15,
+      "held_registered": 6,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 1,
+    "lost": 0
+  },
+  "gtin 7310860007396": {
+    "n": 14,
+    "registered": 0,
+    "v2": {
+      "correct": 0,
+      "held_registered": 0,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 0,
+      "held_registered": 0,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 1,
+      "optical_orders": 0
+    },
+    "gained": 0,
+    "lost": 0
+  },
+  "gtin 7310865074225": {
+    "n": 19,
+    "registered": 19,
+    "v2": {
+      "correct": 12,
+      "held_registered": 6,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 15,
+      "held_registered": 4,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 3,
+    "lost": 0
+  },
+  "early_exposure contact sheet only": {
+    "n": 27,
+    "registered": 16,
+    "v2": {
+      "correct": 10,
+      "held_registered": 5,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 13,
+      "held_registered": 3,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 3,
+    "lost": 0
+  },
+  "early_exposure early worker": {
+    "n": 12,
+    "registered": 9,
+    "v2": {
+      "correct": 7,
+      "held_registered": 2,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 7,
+      "held_registered": 2,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 1,
+      "optical_orders": 0
+    },
+    "gained": 0,
+    "lost": 0
+  },
+  "early_exposure unviewed": {
+    "n": 35,
+    "registered": 35,
+    "v2": {
+      "correct": 18,
+      "held_registered": 16,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 20,
+      "held_registered": 14,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 2,
+    "lost": 0
+  },
+  "barcode_visible 0": {
+    "n": 65,
+    "registered": 55,
+    "v2": {
+      "correct": 34,
+      "held_registered": 20,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 39,
+      "held_registered": 16,
+      "wrong_on_registered": 0,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "gained": 5,
+    "lost": 0
+  },
+  "barcode_visible 1": {
+    "n": 9,
+    "registered": 5,
+    "v2": {
+      "correct": 1,
+      "held_registered": 3,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 0,
+      "optical_orders": 0
+    },
+    "expanded": {
+      "correct": 1,
+      "held_registered": 3,
+      "wrong_on_registered": 1,
+      "false_registered_on_outside": 1,
+      "optical_orders": 0
+    },
+    "gained": 0,
+    "lost": 0
+  }
+}

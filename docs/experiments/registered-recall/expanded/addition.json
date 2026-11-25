@@ -1,0 +1,245 @@
+[
+  {
+    "id": "God-Morgon-Apple-Juice_006",
+    "gtin": "7310865074225",
+    "view": "front",
+    "corners": [
+      [
+        44,
+        36
+      ],
+      [
+        160,
+        22
+      ],
+      [
+        190,
+        329
+      ],
+      [
+        86,
+        341
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Apple-Juice_006.jpg",
+    "sha256": "58ee352097189334037851b4a307b1f877a895bd2521670692b9be26b5cd3188",
+    "source": "train/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_006.jpg"
+  },
+  {
+    "id": "God-Morgon-Apple-Juice_016",
+    "gtin": "7310865074225",
+    "view": "front",
+    "corners": [
+      [
+        105,
+        83
+      ],
+      [
+        191,
+        81
+      ],
+      [
+        167,
+        257
+      ],
+      [
+        102,
+        270
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Apple-Juice_016.jpg",
+    "sha256": "9f6270363c5f9a01f3b4b0bcfe822ac288021062c43c53703418dbb0a81e0e44",
+    "source": "train/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_016.jpg"
+  },
+  {
+    "id": "God-Morgon-Apple-Juice_015",
+    "gtin": "7310865074225",
+    "view": "front",
+    "corners": [
+      [
+        42,
+        114
+      ],
+      [
+        119,
+        44
+      ],
+      [
+        338,
+        255
+      ],
+      [
+        262,
+        333
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Apple-Juice_015.jpg",
+    "sha256": "097518912f8a3ca1bc377b068845460dfc2eb533d789cdd9fca63f09f23d4fe1",
+    "source": "train/Packages/Juice/God-Morgon-Apple-Juice/God-Morgon-Apple-Juice_015.jpg"
+  },
+  {
+    "id": "God-Morgon-Orange-Juice_001",
+    "gtin": "7310860007372",
+    "view": "front",
+    "corners": [
+      [
+        194,
+        63
+      ],
+      [
+        310,
+        56
+      ],
+      [
+        314,
+        343
+      ],
+      [
+        212,
+        345
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Orange-Juice_001.jpg",
+    "sha256": "b0409bbf2025f2c27fd981082f2d2cfbae38b942044003b2c72a53a65b3f49e0",
+    "source": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_001.jpg"
+  },
+  {
+    "id": "God-Morgon-Orange-Juice_020",
+    "gtin": "7310860007372",
+    "view": "front",
+    "corners": [
+      [
+        81,
+        107
+      ],
+      [
+        169,
+        70
+      ],
+      [
+        225,
+        277
+      ],
+      [
+        163,
+        325
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Orange-Juice_020.jpg",
+    "sha256": "7395194683ab076f6d0278bb1f33d300ea1371438a5c9fee82a6656475a3d386",
+    "source": "train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_020.jpg"
+  },
+  {
+    "id": "God-Morgon-Orange-Red-Grapefruit-Juice_001",
+    "gtin": "7310860007259",
+    "view": "front",
+    "corners": [
+      [
+        49,
+        94
+      ],
+      [
+        151,
+        71
+      ],
+      [
+        218,
+        314
+      ],
+      [
+        134,
+        344
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Orange-Red-Grapefruit-Juice_001.jpg",
+    "sha256": "b25e09ed8682580dceba7826d5c52a046c94dc313d68242327adc6b24746b9f4",
+    "source": "train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_001.jpg"
+  },
+  {
+    "id": "God-Morgon-Orange-Red-Grapefruit-Juice_019",
+    "gtin": "7310860007259",
+    "view": "ingredients",
+    "corners": [
+      [
+        77,
+        102
+      ],
+      [
+        145,
+        98
+      ],
+      [
+        205,
+        243
+      ],
+      [
+        154,
+        274
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Orange-Red-Grapefruit-Juice_019.jpg",
+    "sha256": "1f6fd055d5beb5056b3de113ebf8a3c18a48657b9a8e24388e923d60beb45dc0",
+    "source": "train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_019.jpg"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_008",
+    "gtin": "legacy-red-grapefruit",
+    "view": "front",
+    "corners": [
+      [
+        98,
+        69
+      ],
+      [
+        186,
+        48
+      ],
+      [
+        228,
+        322
+      ],
+      [
+        138,
+        328
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Red-Grapefruit-Juice_008.jpg",
+    "sha256": "9ad861f66572d85ca21fc2b15a4a99927e51aa7d8af57cf37706d171f1fa83a5",
+    "source": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_008.jpg"
+  },
+  {
+    "id": "God-Morgon-Red-Grapefruit-Juice_021",
+    "gtin": "legacy-red-grapefruit",
+    "view": "ingredients",
+    "corners": [
+      [
+        103,
+        91
+      ],
+      [
+        204,
+        73
+      ],
+      [
+        198,
+        211
+      ],
+      [
+        107,
+        245
+      ]
+    ],
+    "coordinate_long_edge": 348,
+    "file": "God-Morgon-Red-Grapefruit-Juice_021.jpg",
+    "sha256": "9115de7029ffa8e1420b9718fd39dfdaeae7da7e56b2a69449fde262d8afcff3",
+    "source": "train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_021.jpg"
+  }
+]

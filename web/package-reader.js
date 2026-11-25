@@ -85,7 +85,7 @@ export function conflictingPrint(product, text) {
   for (const match of words.matchAll(/(?<![\w.,/])(\d{1,4}(?:[.,]\d{1,3})?)\s*[-–]?\s*(ml|cl|dl|litres?|liters?|l)\b/g)) {
     const before = words.slice(0, match.index);
     const after = words.slice(match.index + match[0].length);
-    if (/(?:\b(?:per|par|por|pr|serving size|portion|serving)\s*[:=]?|\/|\d\s*[.,])\s*$/.test(before)
+    if (/(?:\b(?:per|pro|par|por|pr|serving size|portion|serving)\s*[:=]?|\/|\d\s*[.,])\s*$/.test(before)
         || /^\s*(?:\/|(?:of\s+)?water\b)/.test(after)) continue;
     if (Number(match[1].replace(',', '.')) * (units[match[2]] || 1000) !== expected) return 'size';
   }

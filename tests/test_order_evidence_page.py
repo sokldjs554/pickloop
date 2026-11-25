@@ -74,3 +74,17 @@ def test_photo_benchmark_keeps_order_confirmation_separate_from_candidate_names(
     assert "주문 SKU 확정 · Python" in study
     assert "기존 33장 재검사" in study
     assert "docs/experiments/fresh-size-eval" in study
+
+
+def test_visual_example_uses_a_credited_evaluation_photo_in_the_normal_reader():
+    from hashlib import sha256
+    import csv
+    labels = ROOT / "docs/experiments/registered-recall/archive-labels.csv"
+    with labels.open(newline="") as stream:
+        row, = (item for item in csv.DictReader(stream) if item["id"] == "RR-009da16eaa64ff47")
+    html = (WEB / "recognition.html").read_text()
+    buttons = [attrs for tag, attrs in Elements(html).elements
+               if tag == "button" and attrs.get("id") == "package-visual-example"]
+    button, = buttons
+    assert sha256((WEB / button["data-src"]).read_bytes()).hexdigest() == row["sha256"]
+    assert row["native_id"] in html

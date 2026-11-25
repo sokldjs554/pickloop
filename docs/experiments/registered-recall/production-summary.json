@@ -1,0 +1,596 @@
+{
+  "archive": {
+    "n": 74,
+    "registered": 60,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 4,
+      "held_registered": 56,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 11
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 14
+    },
+    "v1": {
+      "correct_registered": 35,
+      "wrong_name_on_registered": 2,
+      "held_registered": 23,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 11
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 14
+    },
+    "production": {
+      "correct_registered": 35,
+      "wrong_name_on_registered": 2,
+      "held_registered": 23,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 11
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 14
+    },
+    "changed_photo_names_v1_to_production": 0,
+    "changed_orders_v1_to_production": 0
+  },
+  "public": {
+    "n": 8,
+    "registered": 2,
+    "before": {
+      "correct_registered": 1,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 2,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "v1": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 2,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 2,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "production": {
+      "correct_registered": 2,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 2,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "changed_photo_names_v1_to_production": 2,
+    "changed_orders_v1_to_production": 0
+  },
+  "legacy-validation": {
+    "n": 20,
+    "registered": 16,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 1,
+      "empty_on_outside": 3
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 4
+    },
+    "v1": {
+      "correct_registered": 6,
+      "wrong_name_on_registered": 0,
+      "held_registered": 10,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 1,
+      "empty_on_outside": 3
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 4
+    },
+    "production": {
+      "correct_registered": 6,
+      "wrong_name_on_registered": 0,
+      "held_registered": 10,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 1,
+      "empty_on_outside": 3
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 4
+    },
+    "changed_photo_names_v1_to_production": 0,
+    "changed_orders_v1_to_production": 0
+  },
+  "archive regression": {
+    "n": 74,
+    "registered": 60,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 4,
+      "held_registered": 56,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 11
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 14
+    },
+    "v1": {
+      "correct_registered": 35,
+      "wrong_name_on_registered": 2,
+      "held_registered": 23,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 11
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 14
+    },
+    "production": {
+      "correct_registered": 35,
+      "wrong_name_on_registered": 2,
+      "held_registered": 23,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 11
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 14
+    },
+    "changed_photo_names_v1_to_production": 0,
+    "changed_orders_v1_to_production": 0
+  },
+  "same enrolled composition": {
+    "n": 1,
+    "registered": 1,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "v1": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "production": {
+      "correct_registered": 1,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "changed_photo_names_v1_to_production": 1,
+    "changed_orders_v1_to_production": 0
+  },
+  "supplemental validation": {
+    "n": 20,
+    "registered": 16,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 1,
+      "empty_on_outside": 3
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 4
+    },
+    "v1": {
+      "correct_registered": 6,
+      "wrong_name_on_registered": 0,
+      "held_registered": 10,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 1,
+      "empty_on_outside": 3
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 4
+    },
+    "production": {
+      "correct_registered": 6,
+      "wrong_name_on_registered": 0,
+      "held_registered": 10,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 1,
+      "empty_on_outside": 3
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 4
+    },
+    "changed_photo_names_v1_to_production": 0,
+    "changed_orders_v1_to_production": 0
+  },
+  "targeted policy retest": {
+    "n": 1,
+    "registered": 1,
+    "before": {
+      "correct_registered": 1,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "v1": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "production": {
+      "correct_registered": 1,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 1,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "changed_photo_names_v1_to_production": 1,
+    "changed_orders_v1_to_production": 0
+  },
+  "untargeted public foil": {
+    "n": 6,
+    "registered": 0,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "v1": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "production": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 0,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 6
+    },
+    "changed_photo_names_v1_to_production": 0,
+    "changed_orders_v1_to_production": 0
+  },
+  "main excluding enrolled composition": {
+    "n": 81,
+    "registered": 61,
+    "before": {
+      "correct_registered": 1,
+      "wrong_name_on_registered": 4,
+      "held_registered": 56,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 17
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 61,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 20
+    },
+    "v1": {
+      "correct_registered": 35,
+      "wrong_name_on_registered": 2,
+      "held_registered": 24,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 17
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 61,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 20
+    },
+    "production": {
+      "correct_registered": 36,
+      "wrong_name_on_registered": 2,
+      "held_registered": 23,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 17
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 61,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 20
+    },
+    "changed_photo_names_v1_to_production": 1,
+    "changed_orders_v1_to_production": 0
+  },
+  "main excluding enrolled composition and policy retest": {
+    "n": 80,
+    "registered": 60,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 4,
+      "held_registered": 56,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 17
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 20
+    },
+    "v1": {
+      "correct_registered": 35,
+      "wrong_name_on_registered": 2,
+      "held_registered": 23,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 17
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 20
+    },
+    "production": {
+      "correct_registered": 35,
+      "wrong_name_on_registered": 2,
+      "held_registered": 23,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 3,
+      "empty_on_outside": 17
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 60,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 20
+    },
+    "changed_photo_names_v1_to_production": 0,
+    "changed_orders_v1_to_production": 0
+  },
+  "archive unviewed by browser developer": {
+    "n": 35,
+    "registered": 35,
+    "before": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 1,
+      "held_registered": 34,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "before_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 35,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "v1": {
+      "correct_registered": 18,
+      "wrong_name_on_registered": 1,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "v1_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 35,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "production": {
+      "correct_registered": 18,
+      "wrong_name_on_registered": 1,
+      "held_registered": 16,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "production_order": {
+      "correct_registered": 0,
+      "wrong_name_on_registered": 0,
+      "held_registered": 35,
+      "falsely_named_as_registered": 0,
+      "other_catalogue_name_on_outside": 0,
+      "empty_on_outside": 0
+    },
+    "changed_photo_names_v1_to_production": 0,
+    "changed_orders_v1_to_production": 0
+  }
+}

@@ -172,6 +172,7 @@ test('visual identification preserves the separation from barcode-confirmed orde
   const empty = {kind: 'empty', codes: []};
   const barcode = {kind: 'registered', product: apple, codes: ['7310865074225']};
   assert.equal(reader.photoDecision(empty, panel, '100% Apple juice · per 100 ml').kind, 'photo');
+  assert.equal(reader.photoDecision(empty, panel, 'NAHRWERTANGABEN PER/PRO 180 ML: Energie 183 kJ').kind, 'photo');
   assert.equal(reader.photoDecision(barcode, null, '').kind, 'barcode');
   assert.equal(reader.photoDecision(empty, panel, null).kind, 'hold');
   assert.equal(reader.photoDecision(barcode, {...panel, product: 'God-Morgon-Orange-Juice'}, '').reason, 'mismatch');

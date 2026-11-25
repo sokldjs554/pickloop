@@ -1,0 +1,25 @@
+{
+  "method": "Replayed every original, hash-verified photograph through the released file chooser. All visible names, reasons, optical outcomes and raw records match the published ledgers.",
+  "files": {
+    "web/package-reader.js": "e645e28561361b0d913e96300cab72b16332dc3ce91312e7737ab7f87bb0e535",
+    "web/vendor/package-reader/panel-worker.js": "f8224b6b2eb41d9013aff590eb4f57445ff97e9447b90a405efd25787ea033c5",
+    "web/data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b",
+    "web/recognition.html": "f87bb53d17a58053505d799b4189cbaa5efee13846d81431aed75c14cc8a8bf9"
+  },
+  "comparisons": {
+    "archive": {
+      "photos": 74,
+      "identical_full_records": 74,
+      "ledger": "archive-browser-production.jsonl",
+      "sha256": "ea098efdae31e0f33963f113b4cd323f5a5a186a185366212a6b4c38ac8ac8a1",
+      "chromium": "156.0.8078.79"
+    },
+    "public": {
+      "photos": 8,
+      "identical_full_records": 8,
+      "ledger": "public-browser-production.jsonl",
+      "sha256": "e4b73ed0f7edbeaf996366137a049abf45bb32dcc9a7891995ffd5620c9fcb6c",
+      "chromium": "156.0.8078.79"
+    }
+  }
+}

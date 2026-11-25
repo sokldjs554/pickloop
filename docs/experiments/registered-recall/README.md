@@ -1,5 +1,7 @@
 # Registered 1 L carton photograph study
 
+For the shipped browser and Python results, including the two targeted apple retests and the rejected gallery expansion, see the [release report](production.md).
+
 The first frozen revision recovered **35 of 60 registered cartons in archived store photographs**, up from 0 of 60. On **two genuinely new Swedish apple packshots**, the earlier Python recognizer named one and the revision held both. The improvement observed on legacy packaging did not transfer to these two independent publisher views. At no point did either Python version confirm an order from these 82 photographs.
 
 | Frozen Python comparison | Photos | Registered targets | Correct names before | Correct names revised | Wrong name on a registered target before → revised | Outside target named as a registered 1 L before → revised |
