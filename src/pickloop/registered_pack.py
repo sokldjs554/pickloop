@@ -53,6 +53,10 @@ def locate(template, query_points, query_descriptors, image):
         return None
     source = template['points'][list(unique.values())]
     target = query_points[list(unique)]
+    return geometric_hit(template, source, target, image)
+
+
+def geometric_hit(template, source, target, image, *, details=False):
     transform, mask = cv2.findHomography(source, target, cv2.RANSAC, 3., maxIters=700)
     if transform is None:
         return None
@@ -93,8 +97,11 @@ def locate(template, query_points, query_descriptors, image):
         # Make the visible lower-front artwork contribute independent evidence.
         score = np.sqrt(score) * max(0., appearance)**5
 
-    return dict(id=template['id'], gtin=template['gtin'], view=template['view'], inliers=count,
-                score=round(float(score),3), appearance=appearance, coverage=round(coverage,3), votes=votes)
+    hit = dict(id=template['id'], gtin=template['gtin'], view=template['view'], inliers=count,
+               score=round(float(score),3), appearance=appearance, coverage=round(coverage,3), votes=votes)
+    if details:
+        return hit, support, quad, transform
+    return hit
 
 
 def front_similarity(reference, query):
@@ -156,4 +163,7 @@ def match_pack(rgb):
             conditional = decide(compatible)
             if conditional and conditional["status"] == "matched":
                 verdict["if_printed_one_litre"] = conditional
+    if verdict is None:
+        from .oblique_pack import match_oblique
+        return match_oblique(rgb)
     return verdict

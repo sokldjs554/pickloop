@@ -1,0 +1,16 @@
+{
+  "frozen_source_before_supplemental_inference": "Candidate recognizers were copied before the supplemental files were used. The matcher developers did not run the supplemental images during selection. The public apple retests, archived view labels and historical selection outcomes were known.",
+  "shipped_python_commit": "3f4fb51",
+  "shipped_browser_commit": "01f849bc10e4a5e106d66289a4b1bd5afd31cc5e",
+  "python": {
+    "oblique_pack.py": "0d611dc715b487974f8e246307bfc1fd1c8a5747231e9a1822731fea12900d61",
+    "registered_pack.py": "d31fc16d3946abd5f09bca28b47dbd054eb58a8e5f9cf66c5c15010aa3119d91",
+    "data/registered_pack.npz": "d0aa8be34cd4e54bf25de00900019357f7995992331b1a62bf437b3001c3dd7e",
+    "data/registered_oblique.npz": "4829c5d7179505b121cbbd436797ac900cff6cc1a531e6bd66cd2d60cba29097"
+  },
+  "browser": {
+    "package-reader.js": "e645e28561361b0d913e96300cab72b16332dc3ce91312e7737ab7f87bb0e535",
+    "vendor/package-reader/panel-worker.js": "1088ea1a282f9d77820a7b279f6dc6f5557cc2a16d51af4206595702b24dac6d",
+    "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b"
+  }
+}

@@ -1,0 +1,4 @@
+# Check out sealed receipts byte-for-byte, including CSV record terminators.
+*.csv -text whitespace=trailing-space,cr-at-eol
+*.json -text
+*.jsonl -text

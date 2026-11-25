@@ -1,0 +1,30 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "runtime": "browser",
+  "rows": [
+    {
+      "id": "RR-7660e2282261b043",
+      "view": "side visible",
+      "ms": 5282.39,
+      "name": null
+    },
+    {
+      "id": "RR-0ba494a20993f2da",
+      "view": "side visible",
+      "ms": 4878.99,
+      "name": null
+    },
+    {
+      "id": "RR-1c1342cb3f7d7971",
+      "view": "side visible",
+      "ms": 5276.6,
+      "name": null
+    },
+    {
+      "id": "RR-009da16eaa64ff47",
+      "view": "front",
+      "ms": 5522.15,
+      "name": "God-Morgon-Orange-Juice"
+    }
+  ]
+}

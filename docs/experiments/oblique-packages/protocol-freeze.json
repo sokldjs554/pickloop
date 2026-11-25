@@ -1,0 +1,10 @@
+{
+  "utc": "2026-11-25T15:33:29.533717+00:00",
+  "files": {
+    "protocol.md": "9ab855845688e38e6d41082a0be9beae3201e14f6127cf4a6a55b694cec76f33",
+    "supplemental-labels.csv": "1892b1c879a1ee0028d608437e9c43528481e87d600d574f400d47765d24257b",
+    "supplemental-blind.csv": "4eddeafc9d776e9fbb5cde2820ac67cb7b14122bf3e002b1a20ff26e5499fea7",
+    "supplemental-duplicate-screen.csv": "59b3e16b31fe744542b5f8a2fc8e091ca40d46686b0cc02d87f4a7873f04f720"
+  },
+  "role": "Frozen before any supplemental inference; do not use these images for development."
+}

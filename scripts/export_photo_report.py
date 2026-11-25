@@ -156,14 +156,14 @@ def reader_example():
     reference = "https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/"
     studies = ROOT / "docs/experiments"
     with (studies / "registered-recall/archive-labels.csv").open(newline="") as stream:
-        visual, = (row for row in csv.DictReader(stream) if row["id"] == "RR-009da16eaa64ff47")
+        visual, = (row for row in csv.DictReader(stream) if row["id"] == "RR-787b9393075dd1b4")
     with (studies / "grocery-catalogue/training.csv").open(newline="") as stream:
         hold, = (row for row in csv.DictReader(stream)
                  if Path(row["path"]).name == "God-Morgon-Red-Grapefruit-Juice_001.jpg")
     enrolled = {row["sha256"] for row in read(studies / "registered-photo-recall/enrollment.json")}
     values = {}
     for label, filename, path, digest in (
-        ("visual", "orange-store-eval.jpg", visual["native_id"], visual["sha256"]),
+        ("visual", "orange-side-store.jpg", visual["native_id"], visual["sha256"]),
         ("example", "grapefruit-front.jpg", hold["path"], hold["sha256"]),
     ):
         if sha256((MEDIA / filename).read_bytes()).hexdigest() != digest or digest in enrolled:
@@ -212,6 +212,26 @@ def produce_study():
             f'미등록 {summary["outside"]}장에 잘못 이름을 붙인 수는 {before["outside_false_named"]}장에서 '
             f'{after["outside_false_named"]}장이었습니다.</p>' +
             table(("품목", "집계 기준", "사진 수", "기존 판정", "추가 확인 후"), rows))
+
+
+def oblique_photo_study():
+    scores = read(ROOT / "docs/experiments/oblique-packages/scores.json")["scores"]
+    cohorts = (("archive_registered_side_visible", "옆면이 많이 보인 등록품", "correct_registered"),
+               ("archive_registered_front", "앞면이 보인 등록품", "correct_registered"),
+               ("archive_registered", "등록품 전체", "correct_registered"),
+               ("archive_controls", "미등록 레드자몽에 등록 이름을 붙인 경우", "wrong_registered"))
+    rows = []
+    for key, label, outcome in cohorts:
+        row = [label, scores["browser"][key]["n"]]
+        for runtime in ("browser", "python"):
+            pair = scores[runtime][key]
+            row.append(f'{pair["baseline"][outcome]} → {pair["candidate"][outcome]}')
+        rows.append(row)
+    return ("<h3>비스듬한 포장 사진의 판독 결과</h3><p>같은 매장 사진을 이전 배포본과 현재 판독기에 각각 넣어 상품명을 비교했습니다. "
+            "마지막 행은 미등록 상품에 등록 이름을 잘못 붙인 장수입니다. 같은 진열대에서 찍은 여러 장과 이전 개발에서 확인한 사진도 포함됩니다.</p>"
+            + table(("촬영 조건", "사진 수", "브라우저 · 전 → 후", "Python · 전 → 후"), rows)
+            + "<p>이전 버전을 평가한 매장 사진을 같은 조건으로 다시 읽었습니다. 한 상품을 여러 각도에서 찍은 사진이 포함되며, 새로 수집한 등록품 옆면 사진은 0장입니다.</p>"
+            + '<p><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/oblique-packages">사진별 판정·촬영 조건·재현 방법</a></p>')
 
 
 def registered_photo_study():
@@ -266,13 +286,14 @@ def registered_photo_study():
     sections.append("<h3>두 사과 주스 사진의 후속 수정 확인</h3><p>제조사에서 확인한 새 포장을 등록하고, "
                     "1 L 표기가 반복해 읽히면 다른 용량의 경쟁 후보를 제외하도록 Python 판정을 수정했습니다. "
                     "같은 두 사진을 다시 사용한 결과입니다. 첫 사진은 새 기준 사진과 구도가 같아 독립 성능 집계에서 제외합니다.</p>"
-                    + table(("다시 읽은 사진", "현재 브라우저 판정", "현재 Python 판정"), cases))
-    return ("<p>같은 원본 사진을 수정 전후에 한 장씩 입력했습니다. 매장 표는 이전 버전과 현재 배포본의 상품명을 비교합니다. 공개 사진 표는 두 사과 사진을 검토하기 전에 동결한 첫 수정본까지의 비교입니다. "
+                    + table(("다시 읽은 사진", "당시 브라우저 판정", "당시 Python 판정"), cases))
+    return (oblique_photo_study() + '<details class="score-details"><summary>이전 등록 상품 판독 실험</summary>'
+            + "<p>같은 원본 사진을 수정 전후에 한 장씩 입력했습니다. 매장 표는 바코드 중심 판독기와 옆면 보완 전 배포본의 상품명을 비교합니다. 공개 사진 표는 두 사과 사진을 검토하기 전에 동결한 첫 수정본까지의 비교입니다. "
             "Python은 주문품 외 식료품도 이름을 붙일 수 있습니다. 미등록품 열에는 등록 주문명을 잘못 붙인 경우만 셉니다. 주문 규격은 등록 바코드를 읽었을 때 별도로 확정합니다. 브라우저에는 250mL 시연 상품이 추가 등록돼 있습니다.</p>"
             + "".join(sections)
             + "<p>매장 사진의 상품 코드는 데이터셋이 각 품목에 연결한 ICA 상품 페이지에서 확인했습니다. "
               "같은 제품의 여러 각도가 있고 기준 사진과 촬영 환경이 비슷한 경우도 있습니다. 이 자료는 이전 프로젝트 평가에도 사용했습니다. 매장 사진 12장은 초기 브라우저 시험에 사용했고, 추가 27장은 개발 중 미리 확인한 사진입니다. "
-              "기존에 보류했던 스웨덴산 1 L 오렌지 영양표 사진은 이번에 등록 자료로 사용해 새 정답 수에서 제외했습니다.</p>")
+              "기존에 보류했던 스웨덴산 1 L 오렌지 영양표 사진은 이번에 등록 자료로 사용해 새 정답 수에서 제외했습니다.</p></details>")
 
 
 def fresh_size_study():
