@@ -36,6 +36,18 @@ def build(archive, out):
             entries.append(dict(texture=f'{filename}.png', sku=product, source_path=path,
                                 source_sha256=hashlib.sha256(raw).hexdigest(), crop_ltrb=crop,
                                 source_url=f'https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/{REVISION}/dataset/{path}'))
+    # Size is a printed experimental shipping-label field read by the zoom camera.
+    for volume_ml in (1000, 500):
+        sized = Image.open(out/'orange.png').copy()
+        draw = ImageDraw.Draw(sized)
+        draw.rectangle((0, 332, 511, 415), fill='#241d17')
+        draw.text((256, 351), 'GOD MORGON', anchor='mm', fill='#fff3cf',
+                  font=ImageFont.truetype(str(fonts/'DejaVuSans-Bold.ttf'), 23))
+        draw.text((256, 390), f'ORANGE  {volume_ml} ML', anchor='mm', fill='#fff3cf',
+                  font=ImageFont.truetype(str(fonts/'DejaVuSans-Bold.ttf'), 31))
+        sized.save(out/f'orange-{volume_ml}ml.png')
+        entries.append(dict(texture=f'orange-{volume_ml}ml.png', sku=LABELS[0][1], volume_ml=volume_ml,
+                            source=f'orange.png with a simulated {volume_ml} ML shipping label'))
     obscured = Image.open(out/'orange.png').copy()
     tape = ImageDraw.Draw(obscured)
     tape.rectangle((195, 127, 454, 182), fill='#beb2a1')

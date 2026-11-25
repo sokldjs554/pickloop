@@ -16,10 +16,10 @@
   <nav class="review-nav" aria-label="검증 항목"><a href="#order-pick">피킹 실행</a><a href="recognition.html">새 실물 사진 인식</a><a href="#juice-check">이전 맛 오인식 비교</a><a href="#height-trial">운반 높이 실험</a></nav>
   <section id="order-pick" aria-labelledby="order-title">
     <h2 id="order-title">카메라가 선택한 상품</h2>
-    <p>실제 상품 사진을 모의 포장 윗면에 붙이고 맛을 적은 출고 라벨을 더했습니다. 81품목 인식기의 판정과 라벨을 두 번 읽은 결과로 오렌지·혼합주스 주문을 처리합니다. 상자에 놓은 뒤 카메라로 다시 읽고 물리 상태와 대조했습니다.</p>
+    <p>실제 상품 사진을 모의 포장 윗면에 붙이고 맛을 적은 출고 라벨을 더했습니다. 81품목 인식기와 두 번의 확대 촬영으로 맛을 확인합니다. 용량 지정 주문은 두 촬영에서 용량까지 일치해야 합니다. 같은 맛·용량이 여러 개면 컵의 여유와 접근 경로를 검사한 뒤 가까운 한 개를 선택합니다. 상자에 놓은 뒤 카메라로 다시 읽고 물리 상태와 대조했습니다.</p>
     <p><strong>배치 완료 ${completed}건 · 작업 보류 ${held}건</strong></p>
     $cases
-    <div class="evidence-links"><a href="data/order-pick/index.json">실행 목록 JSON</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/order-pick.md">모형 포장·카메라·재현 방법</a></div>
+    <div class="evidence-links"><a href="data/order-pick/index.json">현재 규칙의 실행 목록 JSON</a><a href="data/order-pick/ambiguous/result.json">이전 규칙이 같은 맛 두 개를 보류한 원본</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/order-pick.md">모형 포장·카메라·재현 방법</a></div>
   </section>
   <section id="juice-check" aria-labelledby="juice-title">
     <h2 id="juice-title">맛을 한 번 더 확인하면</h2>
@@ -32,6 +32,7 @@
     $height
     <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/current-height.md">Codespaces에서 직접 재현</a><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/current-height">조건별 원본</a><a href="https://github.com/sokldjs554/pickloop/pull/1">지원자가 직접 수정한 PR #1</a></div>
   </section>
+  <p class="evidence-links"><a href="evidence.html#plc">밸브 해제 응답이 끊긴 PLC 기록</a></p>
 </main>
 <script>
   document.querySelectorAll('.order-case').forEach((entry) => {

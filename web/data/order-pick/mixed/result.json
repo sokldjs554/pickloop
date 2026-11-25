@@ -1,15 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "id": "mixed",
   "case": "swapped",
   "order_sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+  "order_volume_ml": null,
+  "quantity": 1,
   "seed": 21,
-  "started_unix_ns": 1795497926101933069,
+  "started_unix_ns": 1795597348484577886,
   "sensor": "MuJoCo rendered RGB-D overview + steerable optical zoom",
   "catalogue_classes": 81,
   "head_sha256": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
   "encoder_sha256": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
-  "fixture_manifest_sha256": "bd151e828b1f7d8a86e9dabad0b0622df6b4f029efc7b3b9654ebe9cc9ad5a21",
+  "fixture_manifest_sha256": "fdddd41cdaed69a5f8986ec6ea1e2ac443047d3c84c73a89b96ac426703fa746",
   "status": "COMPLETED",
   "reason": null,
   "selected": {
@@ -27,7 +29,8 @@
     ],
     "top_yaw_rad": -0.01767107295661088,
     "crop": "source-2-face.png",
-    "prediction": "God-Morgon-Orange-Red-Grapefruit-Juice"
+    "prediction": "God-Morgon-Orange-Red-Grapefruit-Juice",
+    "volume_ml": null
   },
   "candidates": [
     {
@@ -49,7 +52,7 @@
       "zoom": {
         "observation_id": "mixed-zoom-0002",
         "sim_time_s": 0.5,
-        "received_monotonic_ns": 16397935062029,
+        "received_monotonic_ns": 115820312625780,
         "resolution_px": [
           480,
           480
@@ -147,7 +150,7 @@
         "camera": {
           "observation_id": "mixed-zoom-0003",
           "sim_time_s": 0.5,
-          "received_monotonic_ns": 16398005096009,
+          "received_monotonic_ns": 115820389472337,
           "resolution_px": [
             480,
             480
@@ -291,7 +294,7 @@
       "zoom": {
         "observation_id": "mixed-zoom-0004",
         "sim_time_s": 0.5,
-        "received_monotonic_ns": 16398070968729,
+        "received_monotonic_ns": 115820460437726,
         "resolution_px": [
           480,
           480
@@ -389,7 +392,7 @@
         "camera": {
           "observation_id": "mixed-zoom-0005",
           "sim_time_s": 0.5,
-          "received_monotonic_ns": 16398161101882,
+          "received_monotonic_ns": 115820550272767,
           "resolution_px": [
             480,
             480
@@ -515,10 +518,19 @@
         "reads": [
           "GOD MORGON ORANGE & RED GRAPEFRUIT",
           "GOD MORGON ORANGE & RED GRAPEFRUIT"
-        ]
+        ],
+        "volume_ml": null,
+        "volume_status": "unreadable"
       },
       "prediction": "God-Morgon-Orange-Red-Grapefruit-Juice",
-      "decision_source": "catalogue_and_shipping_label_ocr"
+      "decision_source": "catalogue_and_shipping_label_ocr",
+      "pick_plan": {
+        "eligible": true,
+        "face_edge_distance_m": 0.025368097683193532,
+        "required_edge_distance_m": 0.01401150152737289,
+        "approach_distance_m": 0.22114536363008783,
+        "reason": "CLEAR_APPROACH"
+      }
     },
     {
       "candidate_id": "source-3",
@@ -539,7 +551,7 @@
       "zoom": {
         "observation_id": "mixed-zoom-0006",
         "sim_time_s": 0.5,
-        "received_monotonic_ns": 16398248253784,
+        "received_monotonic_ns": 115820697977053,
         "resolution_px": [
           480,
           480
@@ -637,7 +649,7 @@
         "camera": {
           "observation_id": "mixed-zoom-0007",
           "sim_time_s": 0.5,
-          "received_monotonic_ns": 16398356348135,
+          "received_monotonic_ns": 115820827364656,
           "resolution_px": [
             480,
             480
@@ -763,7 +775,9 @@
         "reads": [
           "GOD MORGON ORANGE",
           "GOD MORGON © ORANGE"
-        ]
+        ],
+        "volume_ml": null,
+        "volume_status": "unreadable"
       },
       "prediction": "God-Morgon-Orange-Juice",
       "decision_source": "catalogue_and_shipping_label_ocr"
@@ -774,7 +788,7 @@
     "camera": {
       "observation_id": "mixed-obs-0009",
       "sim_time_s": 16.155,
-      "received_monotonic_ns": 16403339643632,
+      "received_monotonic_ns": 115826158387889,
       "resolution_px": [
         480,
         480
@@ -844,7 +858,7 @@
         "zoom": {
           "observation_id": "mixed-zoom-0010",
           "sim_time_s": 16.155,
-          "received_monotonic_ns": 16403421294264,
+          "received_monotonic_ns": 115826249555140,
           "resolution_px": [
             480,
             480
@@ -942,7 +956,7 @@
           "camera": {
             "observation_id": "mixed-zoom-0011",
             "sim_time_s": 16.155,
-            "received_monotonic_ns": 16403519305916,
+            "received_monotonic_ns": 115826348930324,
             "resolution_px": [
               480,
               480
@@ -1068,7 +1082,9 @@
           "reads": [
             "GOD MORGON ND i ORANGE & RED GRAPEFRUIT",
             "GOD MORGON ORANGE & RED GRAPEFRUIT"
-          ]
+          ],
+          "volume_ml": null,
+          "volume_status": "unreadable"
         },
         "prediction": "God-Morgon-Orange-Red-Grapefruit-Juice",
         "decision_source": "catalogue_and_shipping_label_ocr"
@@ -1077,7 +1093,7 @@
     "second_observation": {
       "observation_id": "mixed-obs-0012",
       "sim_time_s": 16.355,
-      "received_monotonic_ns": 16404128606245,
+      "received_monotonic_ns": 115826974568840,
       "resolution_px": [
         480,
         480
@@ -1136,7 +1152,7 @@
   "overview": {
     "observation_id": "mixed-obs-0001",
     "sim_time_s": 0.5,
-    "received_monotonic_ns": 16397844940072,
+    "received_monotonic_ns": 115820221191553,
     "resolution_px": [
       480,
       480
@@ -1202,42 +1218,59 @@
     "rim_points": 1366,
     "floor_points": 4297
   },
+  "selection": {
+    "rule": "shortest_clear_approach_then_candidate_id",
+    "start_tcp_m": [
+      0.19000000000000003,
+      -0.32,
+      0.34
+    ],
+    "matching_ids": [
+      "source-2"
+    ],
+    "selected_id": "source-2"
+  },
   "evaluation": {
     "verified": true,
     "delivered_sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+    "delivered_volume_ml": null,
+    "count_in_bin": 1,
     "objects": [
       {
         "sku": "God-Morgon-Orange-Red-Grapefruit-Juice",
+        "volume_ml": null,
+        "fixture_texture": "mixed.png",
         "position_m": [
           0.33894815247287047,
           0.18528922548388688,
           0.0969865827754535
         ],
         "speed_m_s": 1.2908529131906735e-15,
-        "in_bin": true,
-        "fixture_texture": "mixed.png"
+        "in_bin": true
       },
       {
         "sku": "God-Morgon-Orange-Juice",
+        "volume_ml": null,
+        "fixture_texture": "orange.png",
         "position_m": [
           0.49503522856997045,
           -0.1723270638102023,
           0.0849865827754535
         ],
         "speed_m_s": 1.2249934905499145e-15,
-        "in_bin": false,
-        "fixture_texture": "orange.png"
+        "in_bin": false
       },
       {
         "sku": "Unregistered-Mint-Tea",
+        "volume_ml": null,
+        "fixture_texture": "mint.png",
         "position_m": [
           0.20392143247120204,
           -0.10846054314673947,
           0.0849865827754535
         ],
         "speed_m_s": 1.2872745863114091e-15,
-        "in_bin": false,
-        "fixture_texture": "mint.png"
+        "in_bin": false
       }
     ],
     "attached_at_finish": false,
@@ -1438,5 +1471,5 @@
   "clip_fps": 6,
   "clip_frames": 96,
   "finished_sim_time_s": 16.355,
-  "finished_unix_ns": 1795497932646074451
+  "finished_unix_ns": 1795597355515058586
 }
