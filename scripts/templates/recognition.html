@@ -20,7 +20,7 @@
     <form id="package-reader" aria-label="브라우저 포장 사진 판독">
       <div class="reader-actions">
         <button id="package-confirm" type="button" data-src="media/new-photos/orange-250ml-original.jpg">상품 확정 예시</button>
-        <button id="package-visual-example" type="button" data-src="$visual_src">바코드 없는 사진 판정 예시</button>
+        <button id="package-visual-example" type="button" data-src="$visual_src">옆면 사진 판정 예시</button>
         <button id="package-example" type="button" data-src="$example_src">확정 보류 예시</button>
         <button id="package-cancel" type="button" hidden>취소</button>
       </div>
@@ -31,13 +31,14 @@
     <h3 id="package-identity" aria-live="polite"></h3>
     <h3 id="package-barcode" aria-live="polite"></h3>
     <p id="package-status" role="status" aria-live="polite"></p>
+    <p id="package-retake" hidden>같은 상품의 맛과 용량이 적힌 앞면이나 바코드 면을 가까이 찍어 다시 선택해 주세요.</p>
     <div id="package-result" hidden>
       <p class="pick-link"><a href="orders.html#order-pick">주문 피킹 시뮬레이션 보기</a> <span>별도 데모 · 주문부터 배치와 실패 복구까지</span></p>
       <div class="package-reading">
         <div class="package-transcript"><h4>포장에서 읽은 글자</h4><pre id="package-text"></pre></div>
         <figure><img id="package-preview" alt="판독에 사용한 포장 사진" hidden>
           <figcaption><span id="package-credit" hidden>예시 · 미등록 레드자몽 단일 맛<br>$example_credit</span>
-          <span id="package-visual-credit" hidden>오렌지 주스 앞면 · 공식 테스트 분할의 매장 사진<br>$visual_credit</span>
+          <span id="package-visual-credit" hidden>오렌지 주스 옆면 · 성분 표시와 과일 그림이 보이는 매장 사진<br>$visual_credit</span>
           <span id="package-confirm-credit" hidden>시연용 오렌지 주스 250mL · 바코드 면<br>$confirm_credit</span></figcaption>
         </figure>
       </div>

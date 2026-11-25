@@ -16,7 +16,7 @@ PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU �
 
 공개 매장 자료의 81개 상품을 등록했다. 기존 미등록 사진 2,656장의 공식 상품명과 예측을 확인하거나 Codespaces에서 `pickloop recognize 사진.jpg`로 직접 판별할 수 있다. [상품별 공개 데모](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence#photos) · [재현과 사진별 결과](docs/grocery-catalogue.md)
 
-브라우저에서 **바코드 없는 사진 판정 예시**를 누르면 손에 든 오렌지 주스의 이름과 용량을 판독한다. 같은 화면에서 내 사진을 선택할 수 있다. 등록한 스웨덴산 1 L 주스 3종의 포장을 비교하며, 바코드로 확인한 주문 규격을 별도로 표시한다. [실물 사진 판독](https://pickloop-robot-ops.ykh13571.chatgpt.site/recognition#read-package) · [매장·제조사·소매점 사진의 전후 결과](docs/experiments/registered-recall/)
+브라우저에서 **옆면 사진 판정 예시**를 누르면 손에 든 오렌지 주스의 성분 표시를 대조해 상품명을 판정한다. 같은 화면에서 내 사진을 선택할 수 있다. 등록한 스웨덴산 1 L 주스 3종의 포장을 비교하며, 바코드로 확인한 주문 규격을 별도로 표시한다. [실물 사진 판독](https://pickloop-robot-ops.ykh13571.chatgpt.site/recognition#read-package) · [옆면·앞면 사진의 전후 결과](docs/experiments/oblique-packages/)
 
 ### 지원자가 직접 수정한 복구 규칙
 

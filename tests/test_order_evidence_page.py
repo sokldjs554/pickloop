@@ -61,7 +61,7 @@ def test_browser_product_readout_links_to_separate_picking_and_defers_study_tabl
     assert 'id="order-pick"' in (WEB / 'orders.html').read_text()
     assert html.index('id="package-result" hidden') < html.index('href="orders.html#order-pick"') < html.index('id="package-text"')
     summary = html.index('등록 6장 중 1장 정답 / 미등록 27장 중 6장에 등록 이름 부여')
-    assert html.index('id="new-photos"') < summary < html.index('<details class="score-details">') < html.index('<table', summary)
+    assert html.index('id="new-photos"') < summary < html.index('<details class="score-details">', summary) < html.index('<table', summary)
 
 
 def test_photo_benchmark_keeps_order_confirmation_separate_from_candidate_names():
@@ -81,10 +81,18 @@ def test_visual_example_uses_a_credited_evaluation_photo_in_the_normal_reader():
     import csv
     labels = ROOT / "docs/experiments/registered-recall/archive-labels.csv"
     with labels.open(newline="") as stream:
-        row, = (item for item in csv.DictReader(stream) if item["id"] == "RR-009da16eaa64ff47")
+        row, = (item for item in csv.DictReader(stream) if item["id"] == "RR-787b9393075dd1b4")
     html = (WEB / "recognition.html").read_text()
     buttons = [attrs for tag, attrs in Elements(html).elements
                if tag == "button" and attrs.get("id") == "package-visual-example"]
     button, = buttons
     assert sha256((WEB / button["data-src"]).read_bytes()).hexdigest() == row["sha256"]
     assert row["native_id"] in html
+    assert row["view"] == "side visible"
+    with (ROOT / "docs/experiments/oblique-packages/paired.csv").open(newline="") as stream:
+        decisions = [result for result in csv.DictReader(stream) if result["id"] == row["id"]]
+    assert {result["runtime"] for result in decisions} == {"browser", "python"}
+    for result in decisions:
+        assert result["baseline_outcome"] != "correct_registered"
+        assert result["candidate_name"] == row["truth"]
+        assert not result["candidate_order"]

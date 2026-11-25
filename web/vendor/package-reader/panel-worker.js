@@ -6,11 +6,15 @@ function loadRuntime() {
   return new Promise(resolve => cv.then(() => resolve()));
 }
 
-function extract(own, rgba, size) {
+function extract(own, rgba, size, stretch) {
   const scale = size / Math.max(rgba.rows, rgba.cols);
   const frame = own(new cv.Mat());
-  cv.resize(rgba, frame, new cv.Size(Math.max(1, Math.round(rgba.cols * scale)),
+  cv.resize(rgba, frame, new cv.Size(Math.max(1, Math.round(rgba.cols * scale * stretch)),
     Math.max(1, Math.round(rgba.rows * scale))), 0, 0, scale < 1 ? cv.INTER_AREA : cv.INTER_LINEAR);
+  return features(own, frame);
+}
+
+function features(own, frame) {
   const gray = own(new cv.Mat());
   cv.cvtColor(frame, gray, cv.COLOR_RGBA2GRAY);
   const orb = own(new cv.ORB());
@@ -151,7 +155,65 @@ function assess(own, reference, query, matcher) {
     appearance = frontSimilarity(own, contour, query.frame, reference.appearance);
     score = Math.sqrt(score) * Math.max(0, appearance) ** 5;
   }
-  return {gtin: reference.gtin, view: reference.view, inliers: keep.length, votes, cover, score, appearance};
+  // A shelf can contain a perfectly matching carton behind the subject. Measure the
+  // distance in original frame proportions, also when matching a widened query.
+  const normalized = corners.map(([x, y]) => [x / query.width, y / query.height]);
+  const face = own(cv.matFromArray(4, 1, cv.CV_32FC2, normalized.flat()));
+  const centerDistance = cv.pointPolygonTest(face, new cv.Point(.5, .5), true);
+  return {reference, corners, gtin: reference.gtin, view: reference.view, inliers: keep.length,
+    votes, cover, score, appearance, centerDistance, areaFraction: projected / frameArea};
+}
+
+// Rectification can expose fine lettering on foreshortened panels. Require an
+// independent ORB detection in the rectified pixels and a second homography
+// that projects the reference corners back near the same four locations.
+function refine(own, candidate, frame, matcher) {
+  const {reference, corners} = candidate;
+  const {width, height} = reference;
+  const rectangle = [[0, 0], [width, 0], [width, height], [0, height]];
+  const from = own(cv.matFromArray(4, 1, cv.CV_32FC2, corners.flat()));
+  const to = own(cv.matFromArray(4, 1, cv.CV_32FC2, rectangle.flat()));
+  const transform = own(cv.getPerspectiveTransform(from, to));
+  const aligned = own(new cv.Mat());
+  cv.warpPerspective(frame, aligned, transform, new cv.Size(width, height));
+  const query = features(own, aligned);
+  if (query.points.length < 12) return null;
+  const result = assess(own, reference, query, matcher);
+  if (!result || result.corners.some(([x, y], i) =>
+    Math.hypot(x - rectangle[i][0], y - rectangle[i][1]) > .12 * Math.max(width, height))) return null;
+  return {...result, centerDistance: candidate.centerDistance, areaFraction: candidate.areaFraction};
+}
+
+function scoped(run) {
+  const allocations = [];
+  try {
+    return run(value => { allocations.push(value); return value; });
+  } finally {
+    for (const value of allocations.reverse()) value.delete();
+  }
+}
+
+function panelDecision(seen, registry, recovery = false) {
+  seen.sort((a, b) => b.score - a.score);
+  const best = seen[0], other = best && seen.find(r => r.gtin !== best.gtin);
+  const product = best && registry[best.gtin];
+  if (!best) return null;
+  const enrolled = name => Boolean(name && !name.endsWith('250ml'));
+  const rival = other?.score || 0;
+  const supported = best.view === 'front'
+    ? best.inliers >= 17 && best.votes[0] >= 4 && best.appearance >= .88 && best.score >= Math.max(2.8, 1.38 * rival)
+    : Math.min(...best.votes) >= 3 && best.cover >= .16 && best.score >= Math.max(14, 1.45 * rival);
+  if (supported && enrolled(product)) {
+    const peripheral = best.centerDistance < -.25 || (best.centerDistance < -.12 && best.areaFraction < .10);
+    if (peripheral || (recovery && (best.centerDistance < -.12 || best.areaFraction < .04 ||
+      (best.view === 'front' && best.votes[1] < 2)))) return {status: 'off_center'};
+  }
+  if (supported) return enrolled(product)
+    ? {product, view: best.view, inliers: best.inliers}
+    : {status: 'incompatible'};
+  if (best.view === 'front' && best.score >= 2.8 && seen.some(hit =>
+    !enrolled(registry[hit.gtin]) && hit.score >= .65 * best.score)) return {status: 'ambiguous'};
+  return null;
 }
 
 async function readPanel(image) {
@@ -171,35 +233,27 @@ async function readPanel(image) {
   try {
     const rgba = own(cv.matFromImageData(ctx.getImageData(0, 0, canvas.width, canvas.height)));
     canvas.width = canvas.height = 1;
-    const query = extract(own, rgba, 720);
-    if (query.points.length < 12) return null;
     cv.setRNGSeed(441);
     const matcher = own(new cv.BFMatcher(cv.NORM_HAMMING, false));
     const seen = [];
-    for (const template of gallery.templates) {
-      const temporary = [];
-      try {
-        const result = assess(value => { temporary.push(value); return value; }, template, query, matcher);
-        if (result) seen.push(result);
-      } finally {
-        for (const mat of temporary.reverse()) mat.delete();
+    for (const [size, stretch] of [[720, 1], [490, 1.7], [490, 1]]) {
+      const query = extract(own, rgba, size, stretch);
+      if (query.points.length < 12) continue;
+      const candidates = gallery.templates.map(template => scoped(local => assess(local, template, query, matcher)))
+        .filter(Boolean);
+      seen.push(...candidates);
+      if (size === 720) {
+        const first = panelDecision(seen, registry);
+        if (first) return first.status === 'off_center' ? null : first;
+      }
+      for (const candidate of candidates) {
+        if (candidate.centerDistance < -.12 || candidate.areaFraction < .04) continue;
+        const hit = scoped(local => refine(local, candidate, query.frame, matcher));
+        if (hit) seen.push(hit);
       }
     }
-    seen.sort((a, b) => b.score - a.score);
-    const best = seen[0], other = best && seen.find(r => r.gtin !== best.gtin);
-    const product = best && registry[best.gtin];
-    if (!best) return null;
-    const enrolled = name => Boolean(name && !name.endsWith('250ml'));
-    const rival = other?.score || 0;
-    const supported = best.view === 'front'
-      ? best.inliers >= 17 && best.votes[0] >= 4 && best.appearance >= .88 && best.score >= Math.max(2.8, 1.38 * rival)
-      : Math.min(...best.votes) >= 3 && best.cover >= .16 && best.score >= Math.max(14, 1.45 * rival);
-    if (supported) return enrolled(product)
-      ? {product, view: best.view, inliers: best.inliers}
-      : {status: 'incompatible'};
-    if (best.view === 'front' && best.score >= 2.8 && seen.some(hit =>
-      !enrolled(registry[hit.gtin]) && hit.score >= .65 * best.score)) return {status: 'ambiguous'};
-    return null;
+    const decision = panelDecision(seen, registry, true);
+    return decision?.status === 'off_center' ? null : decision;
   } finally {
     for (const mat of allocations.reverse()) mat.delete();
   }

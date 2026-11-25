@@ -190,3 +190,18 @@ test('visual identification preserves the separation from barcode-confirmed orde
   assert.equal(reader.photoDecision(empty, null, 'God Morgon Apple 1L').kind, 'hold');
   assert.equal(reader.conflictingPrint('God-Morgon-Orange-Juice-250ml', '250 mL • per 100 ml'), null);
 });
+
+test('a recovered front needs fruit-region matches and a foreground panel', async () => {
+  const {createContext, runInContext} = await import('node:vm');
+  const worker = createContext({self: {}, importScripts() {}});
+  const source = await readFile(new URL('../web/vendor/package-reader/panel-worker.js', import.meta.url), 'utf8');
+  runInContext(source, worker);
+  const primary = {gtin: '7310865074225', view: 'front', inliers: 36, votes: [19, 8],
+    cover: .3, score: 5, appearance: .95, areaFraction: .25, centerDistance: .03};
+  const decide = (...candidates) => worker.panelDecision(candidates, registered, true);
+  assert.equal(decide(primary).product, registered[primary.gtin]);
+  assert.equal(decide({...primary, votes: [26, 0]}).product, undefined);
+  assert.equal(decide({...primary, centerDistance: -.3, areaFraction: .055}).product, undefined);
+  const sibling = {...primary, gtin: 'another-volume', score: 4.8};
+  assert.equal(decide(primary, sibling).status, 'ambiguous');
+});

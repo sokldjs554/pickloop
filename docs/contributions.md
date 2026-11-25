@@ -56,3 +56,5 @@ PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른�
 사용자가 요청한 용량별 오인식 재검사, 새로운 상품 코드로 분리한 사진 평가, 중복 상품 한 개 선택 및 배치 검증, PLC 응답 유실 기록의 공개 화면 반영은 Codex가 수행했다. [사진별 판정](experiments/fresh-size-eval/) · [동일 상품 두 개의 주문 실행](../runs/order-pick/duplicate/result.json) · [설비 통신 시험](plc-interop.md)
 
 등록 상품의 포장 비교와 브라우저 판독, 제조사 디자인 등록, 매장·공개 사진 재검사는 Codex가 수행했다. 첫 평가의 결과와 이미 본 실패 사진을 다시 확인한 결과는 따로 공개했다. [등록품 평가와 기여 범위](experiments/registered-recall/production.md)
+
+Codex가 옆면 사진 판독을 수정하고 기존 매장 사진과 추가로 수집한 유사 상품 옆면에서 검증했다. [판독 전후 기록](experiments/oblique-packages/)

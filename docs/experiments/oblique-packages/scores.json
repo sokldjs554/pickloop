@@ -1,0 +1,1152 @@
+{
+  "ledgers_sha256": {
+    "archive-python.jsonl": "4823cab95fae7c4abbcbe113add08891db8ddeab04c2e8c37e530ad4d7514f54",
+    "public-python.jsonl": "ec3b9614f35538d7c61fd31f4fcf66bf2e544535f2e33a04f8fc2ace06aae031",
+    "legacy-validation-python.jsonl": "199470283f9270f1dffd8aa3eac9413841e4d1ed8824669e20f166778ca0d915",
+    "supplemental-python.jsonl": "99d61ff876c60513fc4a19273d3dda39039d3cb55ebac453dd3d0c988092bfd5",
+    "archive-browser.jsonl": "f8081d1e2aeb4ebd8300d675fc2d7e728cb9c9926b891a5f8da1e88f592b240d",
+    "public-browser.jsonl": "e4b73ed0f7edbeaf996366137a049abf45bb32dcc9a7891995ffd5620c9fcb6c",
+    "legacy-validation-browser.jsonl": "4cbb65bd4ae6b03f586c6769013ca64609466fd13c7bc0c8faa8a997e2e220cd",
+    "supplemental-browser.jsonl": "2320ac3fdb37ef186a944b30d8869dba7581292a63e049a4230a7cd1a2f0ce3a"
+  },
+  "scores": {
+    "python": {
+      "archive_all": {
+        "n": 74,
+        "baseline": {
+          "correct_registered": 35,
+          "held": 34,
+          "wrong_registered": 0,
+          "wrong_broad": 2,
+          "correct_broad": 3,
+          "runtime_error": 0,
+          "completed": 74,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 39,
+          "held": 31,
+          "wrong_registered": 0,
+          "wrong_broad": 1,
+          "correct_broad": 3,
+          "runtime_error": 0,
+          "completed": 74,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 4,
+        "lost_correct_registered": 0
+      },
+      "archive_controls": {
+        "n": 14,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 11,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 3,
+          "runtime_error": 0,
+          "completed": 14,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 11,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 3,
+          "runtime_error": 0,
+          "completed": 14,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "archive_registered": {
+        "n": 60,
+        "baseline": {
+          "correct_registered": 35,
+          "held": 23,
+          "wrong_registered": 0,
+          "wrong_broad": 2,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 60,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 39,
+          "held": 20,
+          "wrong_registered": 0,
+          "wrong_broad": 1,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 60,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 4,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_front": {
+        "n": 45,
+        "baseline": {
+          "correct_registered": 33,
+          "held": 11,
+          "wrong_registered": 0,
+          "wrong_broad": 1,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 45,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 33,
+          "held": 11,
+          "wrong_registered": 0,
+          "wrong_broad": 1,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 45,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_excluding_flagged_setting": {
+        "n": 12,
+        "baseline": {
+          "correct_registered": 2,
+          "held": 9,
+          "wrong_registered": 0,
+          "wrong_broad": 1,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 12,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 6,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 12,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 4,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_gtin_7310860007259": {
+        "n": 5,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 5,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 5,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 2,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 5,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_gtin_7310860007372": {
+        "n": 8,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 1,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 3,
+          "held": 5,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_gtin_7310865074225": {
+        "n": 2,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 1,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 1,
+          "held": 1,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_visible": {
+        "n": 15,
+        "baseline": {
+          "correct_registered": 2,
+          "held": 12,
+          "wrong_registered": 0,
+          "wrong_broad": 1,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 15,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 6,
+          "held": 9,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 15,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 4,
+        "lost_correct_registered": 0
+      },
+      "legacy-validation_all": {
+        "n": 20,
+        "baseline": {
+          "correct_registered": 6,
+          "held": 13,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 1,
+          "runtime_error": 0,
+          "completed": 20,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 6,
+          "held": 13,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 1,
+          "runtime_error": 0,
+          "completed": 20,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "legacy-validation_controls": {
+        "n": 4,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 1,
+          "runtime_error": 0,
+          "completed": 4,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 1,
+          "runtime_error": 0,
+          "completed": 4,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "legacy-validation_registered": {
+        "n": 16,
+        "baseline": {
+          "correct_registered": 6,
+          "held": 10,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 16,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 6,
+          "held": 10,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 16,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_all": {
+        "n": 8,
+        "baseline": {
+          "correct_registered": 2,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 2,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_controls": {
+        "n": 6,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 6,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 6,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_registered": {
+        "n": 2,
+        "baseline": {
+          "correct_registered": 2,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 2,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_registered_front": {
+        "n": 1,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_registered_side_visible": {
+        "n": 1,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_all": {
+        "n": 3,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 3,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 3,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_controls": {
+        "n": 3,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 3,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 3,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_group_fruit-crush-20240722": {
+        "n": 1,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 1,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 1,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_group_organic-orange-20180127": {
+        "n": 2,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      }
+    },
+    "browser": {
+      "archive_all": {
+        "n": 74,
+        "baseline": {
+          "correct_registered": 30,
+          "held": 43,
+          "wrong_registered": 1,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 74,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 32,
+          "held": 42,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 74,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      },
+      "archive_controls": {
+        "n": 14,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 13,
+          "wrong_registered": 1,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 14,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 14,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 14,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "archive_registered": {
+        "n": 60,
+        "baseline": {
+          "correct_registered": 30,
+          "held": 30,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 60,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 32,
+          "held": 28,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 60,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_front": {
+        "n": 45,
+        "baseline": {
+          "correct_registered": 29,
+          "held": 16,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 45,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 29,
+          "held": 16,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 45,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_excluding_flagged_setting": {
+        "n": 12,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 11,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 12,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 3,
+          "held": 9,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 12,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_gtin_7310860007259": {
+        "n": 5,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 5,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 5,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 5,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 5,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_gtin_7310860007372": {
+        "n": 8,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 7,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 3,
+          "held": 5,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_gtin_7310865074225": {
+        "n": 2,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "archive_registered_side_visible": {
+        "n": 15,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 14,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 15,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 3,
+          "held": 12,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 15,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 2,
+        "lost_correct_registered": 0
+      },
+      "legacy-validation_all": {
+        "n": 20,
+        "baseline": {
+          "correct_registered": 6,
+          "held": 14,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 20,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 7,
+          "held": 13,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 20,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 1,
+        "lost_correct_registered": 0
+      },
+      "legacy-validation_controls": {
+        "n": 4,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 4,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 4,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 4,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 4,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "legacy-validation_registered": {
+        "n": 16,
+        "baseline": {
+          "correct_registered": 6,
+          "held": 10,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 16,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 7,
+          "held": 9,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 16,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 1,
+        "lost_correct_registered": 0
+      },
+      "public_all": {
+        "n": 8,
+        "baseline": {
+          "correct_registered": 2,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 2,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 8,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_controls": {
+        "n": 6,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 6,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 6,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 6,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_registered": {
+        "n": 2,
+        "baseline": {
+          "correct_registered": 2,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 2,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_registered_front": {
+        "n": 1,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "public_registered_side_visible": {
+        "n": 1,
+        "baseline": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 1,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_all": {
+        "n": 3,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 3,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 1,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_controls": {
+        "n": 3,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 3,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 3,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 1,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_group_fruit-crush-20240722": {
+        "n": 1,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 1,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 1,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 0,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 1,
+          "completed": 0,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      },
+      "supplemental_group_organic-orange-20180127": {
+        "n": 2,
+        "baseline": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "candidate": {
+          "correct_registered": 0,
+          "held": 2,
+          "wrong_registered": 0,
+          "wrong_broad": 0,
+          "correct_broad": 0,
+          "runtime_error": 0,
+          "completed": 2,
+          "orders": 0,
+          "wrong_orders": 0
+        },
+        "gained_correct_registered": 0,
+        "lost_correct_registered": 0
+      }
+    }
+  }
+}

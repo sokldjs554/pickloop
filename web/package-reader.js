@@ -263,7 +263,7 @@ function bindReader() {
   const byId = id => document.getElementById('package-' + id);
   const input = byId('photo'), cancel = byId('cancel'), status = byId('status');
   const barcode = byId('barcode'), text = byId('text'), submit = form.querySelector('[type=submit]');
-  const preview = byId('preview'), resultPanel = byId('result');
+  const preview = byId('preview'), resultPanel = byId('result'), retake = byId('retake');
   const example = byId('example'), credit = byId('credit');
   const confirmExample = byId('confirm'), confirmCredit = byId('confirm-credit');
   const identity = byId('identity'), visualExample = byId('visual-example'), visualCredit = byId('visual-credit');
@@ -282,6 +282,7 @@ function bindReader() {
     cancel.hidden = true;
     form.removeAttribute('aria-busy');
     status.textContent = message;
+    if (retake) retake.hidden = true;
     barcode.textContent = text.textContent = '';
     if (identity) { identity.textContent = ''; delete identity.dataset.source; delete identity.dataset.product; }
     if (visualExample) visualExample.disabled = false;
@@ -378,6 +379,7 @@ function bindReader() {
       const [panel, transcript] = await Promise.all([panelRead, reading]);
       if (signal.aborted) return;
       const decision = photoDecision(barcodes, panel, transcript);
+      if (retake) retake.hidden = panel === undefined || !['no_panel', 'ambiguous'].includes(decision.reason);
       if (barcodes?.kind === 'registered') {
         barcode.textContent = decision.kind === 'barcode' ? barcodeMessage(barcodes)
           : '상품 확정 보류 · 읽은 등록 바코드 ' + barcodes.codes[0];
