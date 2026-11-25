@@ -1,0 +1,14 @@
+{
+  "frozen_utc": "2026-11-25T09:11:23.062012+00:00",
+  "sha256": {
+    "protocol.md": "ee71e91f777033554a322c3f60abaae1b5c94031131cc5f35653f468c114cfd3",
+    "labels.csv": "e738023f00d97fb02393242ef70903183ebdc7b3c6953629ac8ced8e1e4e5960",
+    "blind.csv": "06094b2d54a3938732f07affe6777d45a15efc7b61a3d519ba7466dc641c31de"
+  },
+  "counts": {
+    "dev": 3,
+    "final": 10
+  },
+  "prior_python_revision": "8db3040dc546b9b0e5dd08ad6cd3449de53187e6",
+  "independence": "New scored frames and source composition. Distinct GTINs between dev/final. Product identity and source archive may recur across historical studies; development notes flag known adjacent uploads."
+}
