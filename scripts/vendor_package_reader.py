@@ -5,6 +5,7 @@ import base64
 import hashlib
 import io
 import json
+import re
 import tarfile
 from pathlib import Path
 from urllib.request import urlopen
@@ -21,6 +22,8 @@ ARCHIVES = [
         '4.0.0_best_int/eng.traineddata.gz': 'eng.traineddata.gz'}),
     ('@tesseract.js-data/kor', '1.0.0', 'tepYhsYiRJ8E44R27MHxVteEDDLfYQxuvM6u4JlEHcCYqwpefvI5TGzoMgB67kunOvtyEJYtT5zfJ/6R6FVU9w==', {
         '4.0.0_best_int/kor.traineddata.gz': 'kor.traineddata.gz'}),
+    ('@techstark/opencv-js', '4.10.0-release.1', 'S4XELidRiQeA0q1s9VQLo540wCxUo24r1O4C+LqZ6llX+sPCXvZCPv3Ice8dEIr0uavyZ8YZeKXSBdDgMXSXjw==', {
+        'dist/opencv.js': 'opencv.js', 'LICENSE': 'licenses/opencv.txt'}),
     ('zxing-wasm', '2.2.1', 'njVYnrDCDLVssruDprHGL/NSHm/lH5qsNqHQLNptLSNEf4Zsw9G2Z8A+dN+HFNYmbP8EAlEk3AxV1RiMHdNAQQ==', {
         'dist/es/reader/index.js': 'zxing/reader/index.js', 'dist/es/share.js': 'zxing/share.js',
         'dist/reader/zxing_reader.wasm': 'zxing_reader.wasm', 'LICENSE': 'licenses/zxing-wasm.txt'}),
@@ -58,6 +61,15 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def split_opencv(data):
+    # Externalize the embedded module to avoid transferring its base64 representation.
+    match = re.search(rb'wasmBinaryFile="data:application/octet-stream;base64,([A-Za-z0-9+/=]+)"', data)
+    if not match:
+        raise ValueError('Missing embedded OpenCV WebAssembly module')
+    yield 'opencv.wasm', base64.b64decode(match[1], validate=True)
+    yield 'opencv.js', data[:match.start()] + b'wasmBinaryFile="opencv.wasm"' + data[match.end():]
+
+
 def assets():
     for name, version, checksum, members in ARCHIVES:
         filename = f'{name.rsplit("/", 1)[-1]}-{version}.tgz'
@@ -67,7 +79,11 @@ def assets():
             raise ValueError(f'Archive integrity failed for {name}')
         with tarfile.open(fileobj=io.BytesIO(archive)) as package:
             for source, output in members.items():
-                yield output, package.extractfile('package/' + source).read()
+                data = package.extractfile('package/' + source).read()
+                if output == 'opencv.js':
+                    yield from split_opencv(data)
+                else:
+                    yield output, data
     for name, (url, checksum) in NOTICES.items():
         with urlopen(url, timeout=30) as response:
             data = response.read()

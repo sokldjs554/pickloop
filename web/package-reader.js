@@ -76,6 +76,62 @@ const productLabels = {
   'God-Morgon-Orange-Red-Grapefruit-Juice': 'God Morgon 오렌지·레드자몽 주스 1 L',
 };
 
+// An OCR reading can veto a visually similar carton, including a registered barcode
+// photographed beside conflicting print. Serving-size and per-100 mL rows are common.
+export function conflictingPrint(product, text) {
+  const words = text.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+  const expected = product.endsWith('250ml') ? 250 : 1000;
+  const units = {ml: 1, cl: 10, dl: 100};
+  for (const match of words.matchAll(/(?<![\w.,/])(\d{1,4}(?:[.,]\d{1,3})?)\s*[-–]?\s*(ml|cl|dl|litres?|liters?|l)\b/g)) {
+    const before = words.slice(0, match.index);
+    const after = words.slice(match.index + match[0].length);
+    if (/(?:\b(?:per|par|por|pr|serving size|portion|serving)\s*[:=]?|\/|\d\s*[.,])\s*$/.test(before)
+        || /^\s*(?:\/|(?:of\s+)?water\b)/.test(after)) continue;
+    if (Number(match[1].replace(',', '.')) * (units[match[2]] || 1000) !== expected) return 'size';
+  }
+  if (/\b(?:[2-9]|\d{2,})\s*[x×]\s*\d|\bpack of\s*(?:[2-9]|\d{2,})\b|(?:ml|cl|dl|litres?|liters?|l)\s*[x×]\s*(?:[2-9]|\d{2,})\b/.test(words)) return 'size';
+  if (/\b(?:ne[ck]tar|mango|pineapple|ananas|blood orange|blodapelsin|pear|smoothie|bravo|tropicana|innocent|utan fruktkott)\b/.test(words)) return 'flavour';
+  const apple = /\b(?:apple|appel|omena)(?:juice|mehu)?\b/.test(words);
+  const orange = /\b(?:orange|apelsin|appelsiini)(?:juice|mehu)?\b/.test(words);
+  const grapefruit = /\b(?:grapefruit|grapefrukt|verigreippi)(?:juice|mehu)?\b/.test(words);
+  if (product.includes('-Apple-') ? orange || grapefruit : apple || (grapefruit && !product.includes('-Grapefruit-'))) return 'flavour';
+  return null;
+}
+
+export function photoDecision(barcodes, panel, transcript) {
+  if (!barcodes || !['empty', 'registered'].includes(barcodes.kind)) return {kind: 'hold', reason: 'barcode'};
+  if (panel?.status === 'incompatible' || panel?.status === 'ambiguous') {
+    return {kind: 'hold', reason: panel.status};
+  }
+  if (barcodes.kind === 'registered' && panel?.product && panel.product !== barcodes.product) {
+    return {kind: 'hold', reason: 'mismatch'};
+  }
+  const product = barcodes.product || panel?.product;
+  if (!product) return {kind: 'hold', reason: 'no_panel'};
+  const conflict = conflictingPrint(product, transcript || '');
+  if (conflict) return {kind: 'hold', reason: conflict};
+  if (barcodes.kind === 'registered') return {kind: 'barcode', product};
+  if (transcript == null) return {kind: 'hold', reason: 'ocr_failed'};
+  return {kind: 'photo', product, view: panel.view, inliers: panel.inliers};
+}
+
+function identityMessage(result) {
+  if (result.kind === 'barcode') return '';
+  if (result.kind === 'photo') {
+    const view = {front: '앞면', nutrition: '영양 표시', ingredients: '성분 표시'}[result.view] || '포장 면';
+    return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 기준 사진과 ' + view + ' 특징 ' + result.inliers + '곳 일치';
+  }
+  return ({
+    size: '상품 판정 보류 · 읽힌 용량 또는 묶음 수량이 등록 규격과 다릅니다.',
+    flavour: '상품 판정 보류 · 포장에 적힌 품목 또는 맛이 등록 상품과 다릅니다.',
+    mismatch: '상품 판정 보류 · 읽힌 바코드와 포장 사진이 서로 다른 상품을 가리킵니다.',
+    incompatible: '상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.',
+    ambiguous: '상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.',
+    no_panel: '상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.',
+    ocr_failed: '상품 사진 판정 보류 · 포장 표기의 충돌 여부를 확인할 수 없습니다.',
+  })[result.reason] || '';
+}
+
 function barcodeMessage(result) {
   const digits = result.codes.join(' · ');
   switch (result.kind) {
@@ -157,7 +213,16 @@ async function opticalBarcode(png, signal) {
         // The human-readable code remains useful during a registry failure.
       }
     }
-    return barcodeMessage(describeBarcodes(symbols, registry));
+    return describeBarcodes(symbols, registry);
+  } finally {
+    worker.terminate();
+  }
+}
+
+async function visualPanel(image, signal) {
+  const worker = new Worker(asset('panel-worker.js'));
+  try {
+    return await request(worker, 'match', {image}, signal);
   } finally {
     worker.terminate();
   }
@@ -201,6 +266,7 @@ function bindReader() {
   const preview = byId('preview'), resultPanel = byId('result');
   const example = byId('example'), credit = byId('credit');
   const confirmExample = byId('confirm'), confirmCredit = byId('confirm-credit');
+  const identity = byId('identity'), visualExample = byId('visual-example'), visualCredit = byId('visual-credit');
   let active, previewURL;
   function stop(message) {
     active?.abort();
@@ -217,6 +283,9 @@ function bindReader() {
     form.removeAttribute('aria-busy');
     status.textContent = message;
     barcode.textContent = text.textContent = '';
+    if (identity) { identity.textContent = ''; delete identity.dataset.source; delete identity.dataset.product; }
+    if (visualExample) visualExample.disabled = false;
+    if (visualCredit) visualCredit.hidden = true;
   }
   input.addEventListener('change', () => stop(input.files?.length ? '사진을 선택했습니다. 사진 읽기를 눌러 주세요.' : ''));
   cancel.addEventListener('click', () => stop('사진 읽기를 취소했습니다.'));
@@ -225,6 +294,7 @@ function bindReader() {
     event.preventDefault();
     run();
   });
+  visualExample?.addEventListener('click', () => run(visualExample));
   example.addEventListener('click', () => run(example));
   confirmExample.addEventListener('click', () => run(confirmExample));
 
@@ -239,6 +309,7 @@ function bindReader() {
     active = job;
     const signal = job.signal;
     submit.disabled = confirmExample.disabled = example.disabled = true;
+    if (visualExample) visualExample.disabled = true;
     cancel.hidden = false;
     form.setAttribute('aria-busy', 'true');
     status.textContent = sample ? '예시 사진을 여는 중입니다.' : '사진을 여는 중입니다.';
@@ -248,7 +319,11 @@ function bindReader() {
         // Keep any engine's completed result if the other times out.
         job.abort();
         if (!resultPanel.hidden) {
-          if (barcode.textContent === pendingDecision) barcode.textContent = '상품 확정 보류 · 바코드 판독 시간이 초과되었습니다';
+          if (identity && !identity.dataset.source) {
+            identity.dataset.source = 'none'; identity.dataset.product = '';
+            identity.textContent = '상품 사진 판정 보류 · 처리 시간이 초과되었습니다.';
+          }
+          if (barcode.textContent === pendingDecision || barcode.textContent.includes('확인하는 중입니다')) barcode.textContent = '상품 확정 보류 · 바코드 판독 시간이 초과되었습니다';
           if (!text.textContent) text.textContent = '글자 판독 시간이 초과되었습니다.';
         }
         status.textContent = '처리 시간이 초과되었습니다. 사진을 더 가까이 찍어 다시 시도해 주세요.';
@@ -271,6 +346,7 @@ function bindReader() {
       resultPanel.hidden = false;
       credit.hidden = sample !== example;
       confirmCredit.hidden = sample !== confirmExample;
+      if (visualCredit) visualCredit.hidden = sample !== visualExample;
       barcode.textContent = pendingDecision;
       if (preview) {
         previewURL = URL.createObjectURL(image);
@@ -278,30 +354,51 @@ function bindReader() {
         preview.hidden = false;
       }
       status.textContent = '기기에서 글자와 바코드를 읽는 중입니다. 처음에는 판독기 다운로드가 필요합니다.';
-      const show = async (operation, node, empty, error) => {
-        try {
-          const value = await operation;
-          if (!signal.aborted) node.textContent = value || empty;
-          return true;
-        } catch {
-          if (!signal.aborted) node.textContent = error;
-          return false;
-        }
-      };
-      const result = await Promise.all([
-        show(opticalBarcode(png, signal), barcode, '', '상품 확정 보류 · 바코드 판독기를 실행하지 못했습니다'),
-        show(opticalText(png, signal), text, '읽을 수 있는 글자가 없습니다.', '글자 판독기를 실행하지 못했습니다. 다시 시도해 주세요.'),
-      ]);
-      if (!signal.aborted) {
-        const finished = sample ? '예시 사진 읽기를 마쳤습니다.' : '사진 읽기를 마쳤습니다.';
-        status.textContent = result.every(Boolean) ? finished : '실행한 판독기의 결과를 확인해 주세요.';
+      const optical = opticalBarcode(png, signal).then(value => {
+        if (!signal.aborted) barcode.textContent = value.kind === 'registered'
+          ? '등록 바코드 ' + value.codes[0] + ' · 포장 표기를 확인하는 중입니다.' : barcodeMessage(value);
+        return value;
+      }).catch(() => {
+        if (!signal.aborted) barcode.textContent = '상품 확정 보류 · 바코드 판독기를 실행하지 못했습니다';
+        return null;
+      });
+      const reading = opticalText(png, signal).then(value => {
+        if (!signal.aborted) text.textContent = value || '읽을 수 있는 글자가 없습니다.';
+        return value;
+      }).catch(() => {
+        if (!signal.aborted) text.textContent = '글자 판독기를 실행하지 못했습니다. 다시 시도해 주세요.';
+        return null;
+      });
+      const barcodes = await optical;
+      if (signal.aborted) return;
+      // Check the visual gallery only when optical codes do not block identification.
+      // A small barcode carton is outside the three-product 1 L image gallery.
+      const checkPanel = barcodes?.kind === 'empty' || (barcodes?.kind === 'registered' && !barcodes.product.endsWith('250ml'));
+      const panelRead = checkPanel ? visualPanel(image, signal).catch(() => undefined) : null;
+      const [panel, transcript] = await Promise.all([panelRead, reading]);
+      if (signal.aborted) return;
+      const decision = photoDecision(barcodes, panel, transcript);
+      if (barcodes?.kind === 'registered') {
+        barcode.textContent = decision.kind === 'barcode' ? barcodeMessage(barcodes)
+          : '상품 확정 보류 · 읽은 등록 바코드 ' + barcodes.codes[0];
       }
+      if (decision.kind === 'photo') barcode.textContent = '주문 규격 확정 보류 · 바코드를 읽지 못했습니다.';
+      if (identity) {
+        identity.dataset.source = {photo: 'visual', barcode: 'barcode', hold: 'none'}[decision.kind];
+        identity.dataset.product = decision.product || '';
+        identity.textContent = identityMessage(decision);
+        if (panel === undefined && decision.reason === 'no_panel') {
+          identity.textContent = '상품 사진 판정 보류 · 포장 비교기를 불러오지 못했습니다.';
+        }
+      }
+      status.textContent = sample ? '예시 사진 읽기를 마쳤습니다.' : '사진 읽기를 마쳤습니다.';
     } catch (error) {
       if (!signal.aborted) status.textContent = error.message || unreadable;
     } finally {
       clearTimeout(timer);
       if (active === job) {
         active = null;
+        if (visualExample) visualExample.disabled = false;
         submit.disabled = confirmExample.disabled = example.disabled = false;
         cancel.hidden = true;
         form.removeAttribute('aria-busy');

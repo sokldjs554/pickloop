@@ -1,0 +1,11 @@
+{
+  "study": "First sealed comparison, with separate photo and barcode verdicts",
+  "sha256": {
+    "web/package-reader.js": "c5d9c8239cf66223c898e91d199f2049ab0ce62b8b32d1c20a051bdceb899b64",
+    "web/vendor/package-reader/panel-worker.js": "f8224b6b2eb41d9013aff590eb4f57445ff97e9447b90a405efd25787ea033c5",
+    "web/data/registered-pack-gallery.json": "2004df3c9792873b8260d23e71b9e454de230b278b4651326b9110dbea23cb1b",
+    "web/vendor/package-reader/opencv.js": "a14837ea1874862ea182c4162d83b5f391bc34510935b0d9d7e7c76abc52d0e6",
+    "web/vendor/package-reader/opencv.wasm": "fe8e126d8c3e517bcb0e0c6401dbd6a714f4cd8d78705e6a3edbc7c813a0aae3",
+    "web/vendor/package-reader/registry.json": "7861094f9666eb57ea0fb116d529641eea148c85f8da3fe7250b12fc442d168c"
+  }
+}
