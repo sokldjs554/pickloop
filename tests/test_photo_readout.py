@@ -10,6 +10,7 @@ def decision(name=APPLE, reason="brand_and_apple", route="package_text", codes=(
 def test_strict_preserves_printed_words_and_name_but_holds_unverified_package():
     from pickloop.photo_readout import photo_readout
     evidence = decision()
+    evidence["recognition_text"] = ["GOD MORGON APPLE 1 L", "APPLE 1000 ml"]
     strict = photo_readout(evidence, require_gtin=True)
     assert strict["photo_name"] == APPLE
     assert strict["printed_fruit_words"] == ["apple"]
@@ -76,3 +77,31 @@ def test_recognize_rgb_exposes_opt_in_produce_name_separately_from_order_confirm
     strict = grocery_catalogue.recognize_rgb(rgb, produce=True, require_gtin=True)
     assert strict["photo_name"] == "Cucumber" and strict["prediction"] == "UNKNOWN"
     assert grocery_catalogue.recognize_rgb(rgb)["photo_name"] is None
+
+
+def test_flavour_without_size_returns_candidate_and_holds_exact_name():
+    from pickloop.photo_readout import photo_readout
+    result = photo_readout(decision())
+    assert result["flavour_candidate"] == APPLE
+    assert result["size_status"] == "unread"
+    assert result["prediction"] == "UNKNOWN" and result["photo_name"] is None
+    assert result["photo_name_reason"] == "size_unverified"
+
+
+def test_smaller_size_is_a_hold_with_readable_flavour():
+    from pickloop.photo_readout import photo_readout
+    d = decision(name="UNKNOWN", reason="conflicting_product_or_size")
+    d["recognition_text"] = ["GOD MORGON APPLE 250 ml", "APPLE"]
+    result = photo_readout(d)
+    assert result["flavour_candidate"] == APPLE and result["photo_name"] is None
+    assert result["size_status"] == "contradictory" and result["size_evidence"] == ["250 ml"]
+
+
+def test_conflicting_secondary_quantity_vetoes_order_even_with_registered_code(monkeypatch):
+    from pickloop import photo_readout
+    import numpy as np
+    monkeypatch.setattr(photo_readout, "read_size_band", lambda rgb: ["250 ml", ""])
+    result = photo_readout.photo_readout(decision(route="barcode", reason="registered_gtin", codes=["7310865074225"]),
+                                         require_gtin=True, rgb=np.zeros((8, 8, 3), dtype=np.uint8))
+    assert result["confirmed_order_sku"] is result["photo_name"] is None
+    assert result["prediction"] == "UNKNOWN" and result["order_check_reason"] == "barcode_text_conflict"

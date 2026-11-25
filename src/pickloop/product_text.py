@@ -40,10 +40,10 @@ def contradictory_size(line):
     return re.search(r"\b(?:[2-9]|\d{2})\s*(?:x|×)\s*\d|\bpack of\s*(?:[2-9]|\d{2})\b", line) is not None
 
 
-def printed_flavour(reads, registered_panel=False):
+def printed_flavour(reads, registered_panel=False, *, veto_size=True):
     """Corroborate brand and flavour, with a veto across all readings of this photograph."""
     texts = [normalized(text) for text in reads]
-    if any(OTHER.search(t) or contradictory_size(t) for t in texts):
+    if any(OTHER.search(t) or (veto_size and contradictory_size(t)) for t in texts):
         return None, "conflicting_product_or_size"
     if not registered_panel and not any(BRAND.search(re.sub(r"\S+\.(?:com|se|dk|fi|no|net)\b", "", t)) for t in texts):
         return None, "brand_unverified"

@@ -25,6 +25,8 @@ def report():
         if evidence["recognition_source"] == "baseline":
             raise ValueError("re-read this image in strict mode before claiming a confirmed SKU")
         decision = photo_readout(evidence, require_gtin=True)
+        # This historical report used the frozen pre-size flavour as its photo name.
+        decision["photo_name"] = None if evidence["prediction"] == "UNKNOWN" else evidence["prediction"]
         rows.append({key:decision[key] for key in ("photo_name", "printed_fruit_words", "confirmed_order_sku",
                                                    "confirmed_gtin", "order_check_gtins")} | {"id": row["id"]})
     return {"ledger_sha256": digest, "total": len(rows),
