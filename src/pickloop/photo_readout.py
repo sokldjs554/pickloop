@@ -39,21 +39,11 @@ def photo_readout(result, require_gtin=False, rgb=None):
     name = None if candidate == "UNKNOWN" else candidate
     name_reason = result["recognition_reason"]
     order_reason = identity["recognition_reason"]
-    artwork_name = None
-    if panel and panel["status"] == "matched":
-        proposed = panel["product"]
-        foreign_words = {"God-Morgon-Apple-Juice": ("orange","grapefruit"),
-                         "God-Morgon-Orange-Juice": ("apple","grapefruit"),
-                         "God-Morgon-Orange-Red-Grapefruit-Juice": ("apple",)}[proposed]
-        if (not codes and (not flavour or flavour == proposed)
-                and not any(word in words for word in foreign_words)
-                and result["recognition_reason"] != "conflicting_flavours"
-                and not any(OTHER.search(line) for line in reads)):
-            artwork_name = proposed
+    proposed = panel["product"] if panel and panel["status"] == "matched" else None
     size_reads = []
     size_status, evidence = "not_applicable", []
-    if flavour or confirmed or reads or codes or artwork_name:
-        if rgb is not None and (flavour or confirmed or artwork_name):
+    if flavour or confirmed or reads or codes or proposed:
+        if rgb is not None and (flavour or confirmed or proposed):
             try:
                 size_reads = read_size_band(rgb)
             except (OSError, subprocess.SubprocessError):
@@ -66,6 +56,25 @@ def photo_readout(result, require_gtin=False, rgb=None):
             else:
                 size_status = "registered_gtin"
 
+    # A repeated printed net quantity can resolve two sizes of the same flavour.
+    # Foreign 1 L packs and packs of uncertain size still compete on artwork.
+    if panel and "if_printed_one_litre" in panel:
+        panel = panel.copy()
+        conditional = panel.pop("if_printed_one_litre")
+        if size_status == "printed_1l" and conditional["product"] == flavour and not codes:
+            panel = {**conditional, "resolved_by": "corroborated_printed_volume"}
+
+    artwork_name = None
+    if panel and panel["status"] == "matched":
+        proposed = panel["product"]
+        foreign_words = {"God-Morgon-Apple-Juice": ("orange","grapefruit"),
+                         "God-Morgon-Orange-Juice": ("apple","grapefruit"),
+                         "God-Morgon-Orange-Red-Grapefruit-Juice": ("apple",)}[proposed]
+        if (not codes and (not flavour or flavour == proposed)
+                and not any(word in words for word in foreign_words)
+                and result["recognition_reason"] != "conflicting_flavours"
+                and not any(OTHER.search(line) for line in reads)):
+            artwork_name = proposed
     if candidate in TARGETS or flavour:
         name = None
         if size_status == "contradictory":

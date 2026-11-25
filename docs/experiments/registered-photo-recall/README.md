@@ -1,6 +1,6 @@
 # Registered carton artwork
 
-The gallery contains 31 enrollment photographs. **Every source in [enrollment.json](enrollment.json) is fit data**, including its crops, resizes and transcodes. Seven originals come from the official Grocery Store Dataset training split. The remaining 24 are previously labelled photographs of registered or incompatible cartons. The source polygons exclude the shelf, hand and other products wherever possible. There are 20 front panels, six ingredient panels and five nutrition panels.
+The deployed gallery contains 32 enrollment photographs. The first paired evaluation used the 31-template gallery at commit 099f3c4. After that evaluation the manufacturer updated-art apple front was enrolled. Its photographic composition is shared with the missed public apple case, which is reported only as a post-enrollment check on the deployed revision. [Source, dimensions, rights and checksum](apple-source.json). **Every source in [enrollment.json](enrollment.json) is fit data**, including its crops, resizes and transcodes. Seven originals come from the official Grocery Store Dataset training split. The remaining 24 are previously labelled photographs of registered or incompatible cartons. The source polygons exclude the shelf, hand and other products wherever possible. There are 20 front panels, six ingredient panels and five nutrition panels.
 
 The three registered identities are Swedish God Morgon apple 1 L (7310865074225), orange 1 L (7310860007372) and orange/red grapefruit 1 L (7310860007259). The gallery also contains other flavours, Finnish market cartons, 250 mL packs and Swedish 1.75 L packs. The colour of the fruit and the God Morgon wordmark recur across these products.
 
@@ -16,12 +16,13 @@ Use the repository's pinned OpenCV and Pillow versions with the Grocery Store Da
 python scripts/fetch_recognition_photos.py /tmp/pack-sources --cohort prior
 python scripts/fetch_recognition_photos.py /tmp/pack-sources --cohort new
 python scripts/evaluate_fresh_size.py fetch /tmp/pack-sources/size
+curl -fL https://images.arla.com/filename/07310865074225_C1N1.JPG -o /tmp/pack-sources/size/ARLA-55f09abff8b47d20.jpg
 PYTHONPATH=src python scripts/build_registered_pack_gallery.py \
   /path/to/GroceryStoreDataset.zip /tmp/pack-sources/prior/blind \
   /tmp/pack-sources/new/blind /tmp/pack-sources/size
 ```
 
-The Python package compresses the same JSON bytes that the browser loads. The shared gallery SHA-256 is `2004df3c9792873b8260d23e71b9e454de230b278b4651326b9110dbea23cb1b`.
+The Python package compresses the same JSON bytes that the browser loads. The shared gallery SHA-256 is `14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b`.
 
 ## Source records
 

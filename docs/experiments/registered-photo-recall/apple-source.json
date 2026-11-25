@@ -1,0 +1,47 @@
+{
+  "role": "post_failure_enrollment",
+  "publisher": "Arla Foods AB, Swedish customer portal",
+  "package_brand": "God Morgon / Eckes-Granini",
+  "source_url": "https://kund.arla.se/sortiment/produkt/god-morgon/apple-1000ml-102928/",
+  "identity_url": "https://www.dabas.com/productsheet/07310865074225",
+  "source_page_asset": "https://images.arla.com/filename/07310865074225_C1N1.PNG",
+  "rights": "Arla supplier packshot; no open redistribution licence or permission for republication identified. Distribute feature descriptors and the source link/hash only. The file in the local checksum cache is not for redistribution.",
+  "rights_reference": "https://kund.arla.se/sortiment/produkt/god-morgon/apple-1000ml-102928/",
+  "retrieved_utc": "2026-11-25",
+  "source_content_address": "urn:sha256:55f09abff8b47d20c7d4ff58746184103f64fe44753c2ad02cc325ee03479c72",
+  "same_composition_regression_id": "RR-08be70619c12080f",
+  "same_composition_regression_sha256": "08be70619c12080fdc66bc000e314cadbd05173509c7d6ae0d343f13d1e8fda8",
+  "source_filename_mutability": "Arla filename URLs are mutable. Each retrieval must validate the full SHA-256 before use. No immutable public byte URL was verified.",
+  "dimensions": [
+    486,
+    1600
+  ],
+  "bytes": 89424,
+  "enrollment": {
+    "id": "ARLA-55f09abff8b47d20",
+    "gtin": "7310865074225",
+    "view": "front",
+    "corners": [
+      [
+        1,
+        47
+      ],
+      [
+        76,
+        47
+      ],
+      [
+        76,
+        254
+      ],
+      [
+        1,
+        254
+      ]
+    ],
+    "coordinate_long_edge": 256,
+    "file": "ARLA-55f09abff8b47d20.jpg",
+    "sha256": "55f09abff8b47d20c7d4ff58746184103f64fe44753c2ad02cc325ee03479c72",
+    "source": "https://images.arla.com/filename/07310865074225_C1N1.JPG"
+  }
+}

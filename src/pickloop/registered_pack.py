@@ -11,7 +11,13 @@ import numpy as np
 from .pack_barcode import REGISTERED_GTINS
 
 GALLERY = Path(__file__).with_name('data') / 'registered_pack.npz'
-GALLERY_SHA256 = '2004df3c9792873b8260d23e71b9e454de230b278b4651326b9110dbea23cb1b'
+# Market-specific package volumes from the source records in fresh-size-eval/labels.csv.
+# Keep all unknown-volume and same-volume competitors when comparing 1 L artwork.
+OTHER_VOLUMES_ML = {
+    "6415130089827": 250, "6415130089834": 250,
+    "7310865081650": 1750, "7310865074768": 1750,
+}
+GALLERY_SHA256 = '14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b'
 
 
 def orb():
@@ -142,4 +148,12 @@ def decide(hits):
 
 
 def match_pack(rgb):
-    return decide(candidates(rgb))
+    hits = candidates(rgb)
+    verdict = decide(hits)
+    if verdict and verdict["status"] == "ambiguous" and hits[0]["gtin"] in REGISTERED_GTINS:
+        compatible = [hit for hit in hits if OTHER_VOLUMES_ML.get(hit["gtin"], 1000) == 1000]
+        if len(compatible) != len(hits):
+            conditional = decide(compatible)
+            if conditional and conditional["status"] == "matched":
+                verdict["if_printed_one_litre"] = conditional
+    return verdict

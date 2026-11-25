@@ -785,5 +785,32 @@
     "file": "NX-8002e17bcce9369f.jpg",
     "sha256": "8002e17bcce9369fc5e2b5332ab78732b069c4a63762b5b03a9d75304e198360",
     "source": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/005/0506/1.jpg"
+  },
+  {
+    "id": "ARLA-55f09abff8b47d20",
+    "gtin": "7310865074225",
+    "view": "front",
+    "corners": [
+      [
+        1,
+        47
+      ],
+      [
+        76,
+        47
+      ],
+      [
+        76,
+        254
+      ],
+      [
+        1,
+        254
+      ]
+    ],
+    "coordinate_long_edge": 256,
+    "file": "ARLA-55f09abff8b47d20.jpg",
+    "sha256": "55f09abff8b47d20c7d4ff58746184103f64fe44753c2ad02cc325ee03479c72",
+    "source": "https://images.arla.com/filename/07310865074225_C1N1.JPG"
   }
 ]

@@ -66,3 +66,21 @@ def test_decoded_unregistered_code_bypasses_artwork(monkeypatch):
     result = photo_readout.photo_readout(upstream, rgb=image)
     assert result['photo_name'] is result['confirmed_order_sku'] is None
     assert result['registered_pack'] is None
+
+
+@pytest.mark.parametrize("other_gtin,expected", [
+    ("7310865081650", APPLE),   # Known 1.75 L Swedish apple.
+    ("6415130050506", None),    # A different Finnish 1 L apple.
+    ("unlisted-volume", None),
+])
+def test_only_observed_volume_can_remove_a_different_size_competitor(monkeypatch, other_gtin, expected):
+    image = np.zeros((36, 36, 3), np.uint8)
+    monkeypatch.setattr(registered_pack, "candidates", lambda _: [hit(score=7), hit(gtin=other_gtin, score=6)])
+    upstream = dict(prediction=APPLE, recognition_source="package_text", recognition_reason="brand_and_apple",
+                    recognition_text=["God Morgon apple"], recognition_gtins=[])
+    monkeypatch.setattr(photo_readout, "read_size_band", lambda _: ["1 L"])
+    assert photo_readout.photo_readout(upstream, rgb=image)["photo_name"] is None
+    monkeypatch.setattr(photo_readout, "read_size_band", lambda _: ["1 L", "1000 ml"])
+    verdict = photo_readout.photo_readout(upstream, rgb=image, require_gtin=True)
+    assert verdict["photo_name"] == expected
+    assert verdict["confirmed_order_sku"] is None
