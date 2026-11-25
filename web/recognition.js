@@ -53,6 +53,7 @@
       if (!response.ok) throw new Error(data.detail || "사진을 판별하지 못했습니다.");
       const sizeLabels = {
         registered_gtin: "등록 바코드와 일치",
+        registered_artwork: "같은 용량의 등록 포장 도안과 일치",
         printed_1l: "포장에서 1 L 표기 확인",
         contradictory: "등록 용량과 충돌",
         unread: "포장에서 용량 미확인",
@@ -61,7 +62,12 @@
       field("photo-flavour", displayName(data.flavour_candidate, "미확인"));
       const size = [sizeLabels[data.size_status] || "근거 없음", ...(data.size_evidence || [])];
       field("photo-size", size.join(" · "));
-      field("photo-name", displayName(data.photo_name, "보류"));
+      const artwork = data.registered_pack;
+      const faces = {front: "앞면", nutrition: "영양표", ingredients: "성분표"};
+      const photoName = displayName(data.photo_name, "보류");
+      field("photo-name", artwork?.status === "matched" && data.photo_name_reason === "registered_pack_artwork"
+        ? photoName + " · " + (faces[artwork.view] || "포장 면") + " 특징점 " + artwork.inliers + "개 일치"
+        : photoName);
       field("photo-words", (data.printed_fruit_words || []).map(word => fruit[word] || word).join(" · ") || "확인된 단어 없음");
       const heldReasons = {
         unregistered_gtin: "보류 · 미등록 상품 코드",

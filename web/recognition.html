@@ -14,19 +14,21 @@
 <header class="review-head"><div><a class="name" href="./">PickLoop</a><a href="evidence.html#photos">별도 평가 · 81품목 카탈로그</a><a href="orders.html">주문 피킹</a></div></header>
 <main id="read-package" class="review-main photo-review">
   <h1>포장 사진 판독</h1>
-  <p class="intro">포장 바코드로 상품명과 용량을 확인합니다. 등록 규격은 God Morgon 1L 주스 3종과 시연용 오렌지 주스 250mL입니다.</p>
-  <nav class="review-nav" aria-label="사진 인식"><a href="#read-package">내 포장 사진 읽기</a><a href="#size-study">새 사진 평가</a><a href="#produce">과일·채소 평가</a><a href="#photo-results">사진별 비교</a><a href="#try-photo">전체 판별기 실행</a></nav>
+  <p class="intro">God Morgon 사과·오렌지·오렌지 레드자몽 1 L는 포장 사진을 등록 사진과 비교합니다. 등록 바코드가 보이면 규격을 확인하며, 시연용 오렌지 250 mL도 바코드로 구별합니다.</p>
+  <nav class="review-nav" aria-label="사진 인식"><a href="#read-package">내 포장 사진 읽기</a><a href="#registered-recall">등록 상품 판독 성능</a><a href="#produce">과일·채소 평가</a><a href="#photo-results">사진별 비교</a><a href="#try-photo">전체 판별기 실행</a></nav>
   <section aria-label="브라우저 판독">
     <form id="package-reader" aria-label="브라우저 포장 사진 판독">
       <div class="reader-actions">
         <button id="package-confirm" type="button" data-src="media/new-photos/orange-250ml-original.jpg">상품 확정 예시</button>
-        <button id="package-example" type="button" data-src="media/new-photos/apple-back-original.jpg">확정 보류 예시</button>
+        <button id="package-visual-example" type="button" data-src="media/new-photos/orange-store-eval.jpg">바코드 없는 사진 판정 예시</button>
+        <button id="package-example" type="button" data-src="media/new-photos/grapefruit-front.jpg">확정 보류 예시</button>
         <button id="package-cancel" type="button" hidden>취소</button>
       </div>
       <label for="package-photo">내 포장 사진 · JPEG, PNG, WebP · 최대 15 MiB</label>
       <input id="package-photo" type="file" accept="image/jpeg,image/png,image/webp" required>
       <button type="submit">내 사진 읽기</button>
     </form>
+    <h3 id="package-identity" aria-live="polite"></h3>
     <h3 id="package-barcode" aria-live="polite"></h3>
     <p id="package-status" role="status" aria-live="polite"></p>
     <div id="package-result" hidden>
@@ -34,17 +36,25 @@
       <div class="package-reading">
         <div class="package-transcript"><h4>포장에서 읽은 글자</h4><pre id="package-text"></pre></div>
         <figure><img id="package-preview" alt="판독에 사용한 포장 사진" hidden>
-          <figcaption><span id="package-credit" hidden>예시 · 사과 주스 뒷면<br><a href="https://world.openfoodfacts.org/contributor/blackfatrat" rel="noreferrer">blackfatrat</a> · <a href="https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/507/4225/3.jpg" rel="noreferrer">Open Food Facts 원본</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noreferrer">CC BY-SA 3.0</a></span>
+          <figcaption><span id="package-credit" hidden>예시 · 미등록 레드자몽 단일 맛<br><a href="https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_001.jpg" rel="noreferrer">Grocery Store Dataset 원본</a> · <a href="media/new-photos/LICENSE-GroceryStoreDataset.txt">Marcus Klasson · MIT</a></span>
+          <span id="package-visual-credit" hidden>오렌지 주스 앞면 · 공식 테스트 분할의 매장 사진<br><a href="https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/test/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_014.jpg" rel="noreferrer">Grocery Store Dataset 원본</a> · <a href="media/new-photos/LICENSE-GroceryStoreDataset.txt">Marcus Klasson · MIT</a></span>
           <span id="package-confirm-credit" hidden>시연용 오렌지 주스 250mL · 바코드 면<br><a href="https://world.openfoodfacts.org/contributor/smoothie-app" rel="noreferrer">smoothie-app</a> · <a href="https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/008/9834/3.jpg" rel="noreferrer">Open Food Facts 원본</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="noreferrer">CC BY-SA 3.0</a></span></figcaption>
         </figure>
       </div>
     </div>
     <details><summary>어떤 글자를 읽기 어려웠나</summary><p>실제 신라면 포장 사진에서 작은 영문 글자 일부를 읽었지만 큰 한글 ‘라면’은 놓쳤습니다. 불닭볶음면처럼 이름이 잘리거나 포장이 접힌 사진도 원문을 확인해 주세요. <a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/new-photos/korean-packages">사진 3장의 출처와 판독 원문</a></p></details>
   </section>
+  <section id="registered-recall" class="report-section">
+    <details class="report-panel">
+      <summary><h2>등록 상품을 사진에서 얼마나 알아봤나</h2></summary>
+      <p>같은 원본 사진을 수정 전후에 한 장씩 입력했습니다. 매장 표는 이전 버전과 현재 배포본의 상품명을 비교합니다. 공개 사진 표는 두 사과 사진을 검토하기 전에 동결한 첫 수정본까지의 비교입니다. Python은 주문품 외 식료품도 이름을 붙일 수 있습니다. 미등록품 열에는 등록 주문명을 잘못 붙인 경우만 셉니다. 주문 규격은 등록 바코드를 읽었을 때 별도로 확정합니다. 브라우저에는 250mL 시연 상품이 추가 등록돼 있습니다.</p><h3>공식 테스트 분할의 매장 사진 74장</h3><div class="table-wrap"><table><thead><tr><th scope="col">실행 경로</th><th scope="col">등록품 정답</th><th scope="col">등록품에 다른 이름</th><th scope="col">미등록에 등록 이름 부여</th><th scope="col">보류</th></tr></thead><tbody><tr><th scope="row">브라우저</th><td>0 → 30 / 60장</td><td>0 → 0</td><td>0 → 1 / 14장</td><td>74 → 43</td></tr><tr><th scope="row">Python</th><td>0 → 35 / 60장</td><td>4 → 2</td><td>0 → 0 / 14장</td><td>67 → 34</td></tr></tbody></table></div><h3>포장 추가 등록 전에 평가한 공개 사진 8장</h3><div class="table-wrap"><table><thead><tr><th scope="col">실행 경로</th><th scope="col">등록품 정답</th><th scope="col">등록품에 다른 이름</th><th scope="col">미등록에 등록 이름 부여</th><th scope="col">보류</th></tr></thead><tbody><tr><th scope="row">브라우저</th><td>0 → 1 / 2장</td><td>0 → 0</td><td>0 → 0 / 6장</td><td>8 → 7</td></tr><tr><th scope="row">Python</th><td>1 → 0 / 2장</td><td>0 → 0</td><td>0 → 0 / 6장</td><td>7 → 8</td></tr></tbody></table></div><h3>두 사과 주스 사진의 후속 수정 확인</h3><p>제조사에서 확인한 새 포장을 등록하고, 1 L 표기가 반복해 읽히면 다른 용량의 경쟁 후보를 제외하도록 Python 판정을 수정했습니다. 같은 두 사진을 다시 사용한 결과입니다. 첫 사진은 새 기준 사진과 구도가 같아 독립 성능 집계에서 제외합니다.</p><div class="table-wrap"><table><thead><tr><th scope="col">다시 읽은 사진</th><th scope="col">현재 브라우저 판정</th><th scope="col">현재 Python 판정</th></tr></thead><tbody><tr><th scope="row">제조사 사과 1 L · 새로 등록한 디자인</th><td>사과주스</td><td>사과주스</td></tr><tr><th scope="row">비스듬히 찍은 사과 1 L · 등록에 쓰지 않은 사진</th><td>사과주스</td><td>사과주스</td></tr></tbody></table></div><p>매장 사진의 상품 코드는 데이터셋이 각 품목에 연결한 ICA 상품 페이지에서 확인했습니다. 같은 제품의 여러 각도가 있고 기준 사진과 촬영 환경이 비슷한 경우도 있습니다. 이 자료는 이전 프로젝트 평가에도 사용했습니다. 매장 사진 12장은 초기 브라우저 시험에 사용했고, 추가 27장은 개발 중 미리 확인한 사진입니다. 기존에 보류했던 스웨덴산 1 L 오렌지 영양표 사진은 이번에 등록 자료로 사용해 새 정답 수에서 제외했습니다.</p>
+      <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/registered-recall">사진 출처·장별 결과·재현 방법</a></div>
+    </details>
+  </section>
   <h2 class="separate-evaluation">별도 판별기 평가</h2>
   <section id="size-study" class="report-section">
     <details class="report-panel">
-      <summary><h3>처음 보는 포장 · 맛과 용량을 구별한 결과</h3></summary>
+      <summary><h3>이전 규칙 평가 · 처음 보는 포장과 용량</h3></summary>
       <p>같은 실물 사진을 수정 전후로 읽었습니다. 개발과 최종 평가에는 서로 다른 상품 코드를 배정했습니다. 이전 연구와 같은 상품이나 사진 제공처가 포함됩니다. 정답은 실제 상품에 등록 이름을 부여한 장수입니다. 보류에는 미등록 상품과 놓친 등록 상품이 모두 들어갑니다.</p><h4>최종 평가 사진 10장</h4><p class='score-summary'>상품명 정답 0 → 0장 · 잘못 부여한 이름 2 → 0장</p><p>이 중 Python 등록품은 1장, 250mL까지 등록한 브라우저의 등록품은 2장입니다.</p><div class="table-wrap"><table><thead><tr><th scope="col">판정</th><th scope="col">정답 상품명</th><th scope="col">잘못 부여한 이름</th><th scope="col">보류</th></tr></thead><tbody><tr><th scope="row">상품명 후보 · 수정 전</th><td>0</td><td>2</td><td>8</td></tr><tr><th scope="row">상품명 후보 · 수정 후</th><td>0</td><td>0</td><td>10</td></tr><tr><th scope="row">주문 SKU 확정 · Python</th><td>0</td><td>0</td><td>10</td></tr><tr><th scope="row">주문 SKU 확정 · 브라우저</th><td>0</td><td>0</td><td>10</td></tr></tbody></table></div><p>최종 사진에서 눈으로 바코드가 보이는 2장 중 브라우저가 올바른 코드를 읽은 사진은 2장이었습니다. 두 사진 모두 미등록 상품이어서 주문 확정을 보류했습니다.</p><details><summary>개발 사진 결과 보기</summary><h4>개발 사진 3장</h4><p class='score-summary'>상품명 정답 0 → 0장 · 잘못 부여한 이름 0 → 0장</p><p>이 중 Python 등록품은 1장, 250mL까지 등록한 브라우저의 등록품은 1장입니다.</p><div class="table-wrap"><table><thead><tr><th scope="col">판정</th><th scope="col">정답 상품명</th><th scope="col">잘못 부여한 이름</th><th scope="col">보류</th></tr></thead><tbody><tr><th scope="row">상품명 후보 · 수정 전</th><td>0</td><td>0</td><td>3</td></tr><tr><th scope="row">상품명 후보 · 수정 후</th><td>0</td><td>0</td><td>3</td></tr><tr><th scope="row">주문 SKU 확정 · Python</th><td>0</td><td>0</td><td>3</td></tr><tr><th scope="row">주문 SKU 확정 · 브라우저</th><td>0</td><td>0</td><td>3</td></tr></tbody></table></div></details><h4>설계에 사용한 기존 33장 재검사</h4><p>미등록 27장에 등록 이름을 잘못 붙인 경우는 6 → 1장, 등록 6장을 맞힌 경우는 1 → 0장이었습니다. 같은 맛·용량의 다른 상품 코드는 포장 글자만으로 구분하기 어렵습니다.</p><h4>결과를 사진과 대조하기</h4><ul><li><a href="https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/000/7372/3.jpg" rel="noreferrer">등록 1 L 뒷면</a> · 실제 상품 코드 7310860007372 · 수정 후 상품명 후보 보류</li><li><a href="https://public.keskofiles.com/f/k-ruoka/product/6415130089834?w=700&amp;h=390&amp;fit=max&amp;auto=format&amp;fm=jpg&amp;cs=srgb" rel="noreferrer">시연용 250mL 앞면</a> · 실제 상품 코드 6415130089834 · 수정 후 상품명 후보 보류</li><li><a href="https://public.keskofiles.com/f/k-ruoka/product/6415130050490?h=1000" rel="noreferrer">다른 코드의 1 L 앞면</a> · 실제 상품 코드 6415130050490 · 수정 후 상품명 후보 보류</li></ul>
       <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/fresh-size-eval">사진별 정답·판정·출처</a><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/size-review">기존 오수락 6장 재검사</a></div>
     </details>

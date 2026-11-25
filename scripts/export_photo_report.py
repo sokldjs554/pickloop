@@ -1,6 +1,7 @@
 """Publish measured results from the frozen external photo study."""
 import argparse
 import csv
+import json
 from hashlib import sha256
 from itertools import groupby
 from pathlib import Path
@@ -152,18 +153,26 @@ def examples_html(records):
 
 
 def reader_example():
-    credit, = (row for row in read(MEDIA / "credits.json") if "reader_example" in row)
-    filename = credit["reader_example"]
-    if Path(filename).name != filename or sha256((MEDIA / filename).read_bytes()).hexdigest() != credit["original_sha256"]:
-        raise ValueError("the one-click example must match the credited original")
-    return {
-        "example_src": f"media/new-photos/{safe(filename)}",
-        "example_credit": " · ".join((
-            external(credit["author_url"], credit["author"]),
-            external(credit["original_url"], "Open Food Facts 원본"),
-            external(credit["licence_url"], credit["licence"]),
-        )),
-    }
+    reference = "https://github.com/marcusklasson/GroceryStoreDataset/blob/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/"
+    studies = ROOT / "docs/experiments"
+    with (studies / "registered-recall/archive-labels.csv").open(newline="") as stream:
+        visual, = (row for row in csv.DictReader(stream) if row["id"] == "RR-009da16eaa64ff47")
+    with (studies / "grocery-catalogue/training.csv").open(newline="") as stream:
+        hold, = (row for row in csv.DictReader(stream)
+                 if Path(row["path"]).name == "God-Morgon-Red-Grapefruit-Juice_001.jpg")
+    enrolled = {row["sha256"] for row in read(studies / "registered-photo-recall/enrollment.json")}
+    values = {}
+    for label, filename, path, digest in (
+        ("visual", "orange-store-eval.jpg", visual["native_id"], visual["sha256"]),
+        ("example", "grapefruit-front.jpg", hold["path"], hold["sha256"]),
+    ):
+        if sha256((MEDIA / filename).read_bytes()).hexdigest() != digest or digest in enrolled:
+            raise ValueError(f"expected a credited non-enrollment photograph: {filename}")
+        values[label + "_src"] = f"media/new-photos/{filename}"
+        values[label + "_credit"] = " · ".join((
+            external(reference + path, "Grocery Store Dataset 원본"),
+            '<a href="media/new-photos/LICENSE-GroceryStoreDataset.txt">Marcus Klasson · MIT</a>'))
+    return values
 
 
 def make_thumbnails(directory):
@@ -203,6 +212,67 @@ def produce_study():
             f'미등록 {summary["outside"]}장에 잘못 이름을 붙인 수는 {before["outside_false_named"]}장에서 '
             f'{after["outside_false_named"]}장이었습니다.</p>' +
             table(("품목", "집계 기준", "사진 수", "기존 판정", "추가 확인 후"), rows))
+
+
+def registered_photo_study():
+    root = ROOT / "docs/experiments/registered-recall"
+    web_registry = read(WEB / "vendor/package-reader/registry.json")
+    sections = []
+    for cohort, heading in (("archive", "공식 테스트 분할의 매장 사진"), ("public", "포장 추가 등록 전에 평가한 공개 사진")):
+        with (root / f"{cohort}-labels.csv").open(newline="") as stream:
+            labels = {row["id"]: row for row in csv.DictReader(stream)}
+        results = []
+        for method, title in (("browser", "브라우저"), ("model", "Python")):
+            truth = {key: (web_registry.get(row["gtin"]) if method == "browser" else row["truth"])
+                     for key, row in labels.items()}
+            known = sum(value not in ("", None, "UNKNOWN") for value in truth.values())
+            counts = []
+            for revision in ("before", "production" if cohort == "archive" else "after"):
+                prefix = f"{cohort}-browser-" if method == "browser" else cohort + "-"
+                with (root / f"{prefix}{revision}.jsonl").open() as stream:
+                    raw = [json.loads(line) for line in stream]
+                if len(raw) != len(labels) or {row["id"] for row in raw} != labels.keys():
+                    raise ValueError(f"Incomplete {cohort} {method} {revision} ledger")
+                correct = wrong_known = wrong_unknown = held = 0
+                for row in raw:
+                    target = truth[row["id"]]
+                    prediction = row["product"] if method == "browser" else row["ordinary"]["photo_name"]
+                    if not prediction or prediction == "UNKNOWN":
+                        held += 1
+                    elif prediction == target:
+                        correct += 1
+                    elif target not in ("", None, "UNKNOWN"):
+                        wrong_known += 1
+                    elif prediction in web_registry.values():
+                        wrong_unknown += 1
+                counts.append((correct, wrong_known, wrong_unknown, held))
+            formatted = [f"{a} → {b}" for a, b in zip(*counts, strict=True)]
+            results.append((title, f"{formatted[0]} / {known}장", formatted[1],
+                            f"{formatted[2]} / {len(labels) - known}장", formatted[3]))
+        sections.append(f"<h3>{heading} {len(labels)}장</h3>"
+                        + table(("실행 경로", "등록품 정답", "등록품에 다른 이름", "미등록에 등록 이름 부여", "보류"), results))
+    # The update was prompted by these two cases. Keep the repeat outside the fresh-photo table.
+    names = {"RR-08be70619c12080f": "제조사 사과 1 L · 새로 등록한 디자인", "RR-cbaea96197c4f7c6": "비스듬히 찍은 사과 1 L · 등록에 쓰지 않은 사진"}
+    repeated = {}
+    for stem in ("public-browser-production", "public-production"):
+        with (root / f"{stem}.jsonl").open() as stream:
+            repeated[stem] = {row["id"]: row for row in map(json.loads, stream)}
+    cases = []
+    for key, label in names.items():
+        browser = repeated["public-browser-production"][key]
+        model = repeated["public-production"][key]["ordinary"]
+        cases.append((label, sku(browser["product"]) if browser["product"] else "보류",
+                      sku(model["photo_name"]) if model["photo_name"] else "보류"))
+    sections.append("<h3>두 사과 주스 사진의 후속 수정 확인</h3><p>제조사에서 확인한 새 포장을 등록하고, "
+                    "1 L 표기가 반복해 읽히면 다른 용량의 경쟁 후보를 제외하도록 Python 판정을 수정했습니다. "
+                    "같은 두 사진을 다시 사용한 결과입니다. 첫 사진은 새 기준 사진과 구도가 같아 독립 성능 집계에서 제외합니다.</p>"
+                    + table(("다시 읽은 사진", "현재 브라우저 판정", "현재 Python 판정"), cases))
+    return ("<p>같은 원본 사진을 수정 전후에 한 장씩 입력했습니다. 매장 표는 이전 버전과 현재 배포본의 상품명을 비교합니다. 공개 사진 표는 두 사과 사진을 검토하기 전에 동결한 첫 수정본까지의 비교입니다. "
+            "Python은 주문품 외 식료품도 이름을 붙일 수 있습니다. 미등록품 열에는 등록 주문명을 잘못 붙인 경우만 셉니다. 주문 규격은 등록 바코드를 읽었을 때 별도로 확정합니다. 브라우저에는 250mL 시연 상품이 추가 등록돼 있습니다.</p>"
+            + "".join(sections)
+            + "<p>매장 사진의 상품 코드는 데이터셋이 각 품목에 연결한 ICA 상품 페이지에서 확인했습니다. "
+              "같은 제품의 여러 각도가 있고 기준 사진과 촬영 환경이 비슷한 경우도 있습니다. 이 자료는 이전 프로젝트 평가에도 사용했습니다. 매장 사진 12장은 초기 브라우저 시험에 사용했고, 추가 27장은 개발 중 미리 확인한 사진입니다. "
+              "기존에 보류했던 스웨덴산 1 L 오렌지 영양표 사진은 이번에 등록 자료로 사용해 새 정답 수에서 제외했습니다.</p>")
 
 
 def fresh_size_study():
@@ -303,7 +373,7 @@ def generate():
     confirm_credit = " · ".join((external(confirm["uploader_url"], confirm["uploader"]),
                                  external(confirm["image_url"], "Open Food Facts 원본"),
                                  external(confirm["licence_url"], "CC BY-SA 3.0")))
-    return Template(TEMPLATE.read_text()).substitute(score_summary=score_summary, confirm_credit=confirm_credit, fresh_study=fresh_size_study(),
+    return Template(TEMPLATE.read_text()).substitute(score_summary=score_summary, confirm_credit=confirm_credit, fresh_study=fresh_size_study(), registered_study=registered_photo_study(),
         **reader_example(), produce=produce_study(), primary=metrics(new_rows), examples=examples_html(records), strata=views,
         other='<h3>별도로 측정한 사진</h3>' + table(("대상", "기존 → 수정 후"), others),
         details="".join(detail_block(rows, role, readouts) for role, rows in cohorts.items()))

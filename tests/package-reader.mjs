@@ -83,7 +83,7 @@ test('choosing a different file suppresses an older pending read and a large fil
   globalThis.HTMLImageElement=class {decode() {}};
   try {
     await import('../web/package-reader.js?dom-fixture');
-    ids.example.dataset = {src:'media/new-photos/apple-back-original.jpg'};
+    ids.example.dataset = {src:'media/new-photos/grapefruit-front.jpg'};
     let sampleSignal;
     globalThis.fetch = (path, {signal}) => {
       assert.equal(path, ids.example.dataset.src);
@@ -164,4 +164,29 @@ test('validated image preview uses a disposable local URL and clears on cancel',
       if (value===undefined) delete globalThis[key]; else globalThis[key]=value;
     }
   }
+});
+
+test('visual identification preserves the separation from barcode-confirmed orders and blocks contradictions', () => {
+  const apple = registered['7310865074225'];
+  const panel = {product: apple, view: 'front', inliers: 23};
+  const empty = {kind: 'empty', codes: []};
+  const barcode = {kind: 'registered', product: apple, codes: ['7310865074225']};
+  assert.equal(reader.photoDecision(empty, panel, '100% Apple juice · per 100 ml').kind, 'photo');
+  assert.equal(reader.photoDecision(empty, panel, 'NAHRWERTANGABEN PER/PRO 180 ML: Energie 183 kJ').kind, 'photo');
+  assert.equal(reader.photoDecision(barcode, null, '').kind, 'barcode');
+  assert.equal(reader.photoDecision(empty, panel, null).kind, 'hold');
+  assert.equal(reader.photoDecision(barcode, {...panel, product: 'God-Morgon-Orange-Juice'}, '').reason, 'mismatch');
+  for (const kind of ['multiple', 'unregistered', 'unchecked']) {
+    assert.equal(reader.photoDecision({kind}, panel, 'apple').kind, 'hold');
+  }
+  for (const status of ['ambiguous', 'incompatible']) {
+    assert.equal(reader.photoDecision(barcode, {status}, 'apple').kind, 'hold');
+  }
+  for (const print of ['250ml', '1,75 liter', '6 × 1 L', '500 ml x 2']) {
+    assert.equal(reader.photoDecision(empty, panel, print).reason, 'size');
+    assert.equal(reader.photoDecision(barcode, panel, print).reason, 'size');
+  }
+  assert.equal(reader.photoDecision(empty, panel, 'apelsinjuice').reason, 'flavour');
+  assert.equal(reader.photoDecision(empty, null, 'God Morgon Apple 1L').kind, 'hold');
+  assert.equal(reader.conflictingPrint('God-Morgon-Orange-Juice-250ml', '250 mL • per 100 ml'), null);
 });

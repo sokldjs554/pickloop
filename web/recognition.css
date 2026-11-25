@@ -36,9 +36,10 @@
 #package-reader button:disabled { cursor: wait; opacity: .65; }
 #package-reader #package-example, #package-reader #package-cancel { color: #9be7d8; background: transparent; border: 1px solid #557e78; }
 #package-result { margin: 1rem 0; }
-#package-barcode { margin: 0 0 1rem; padding: .8rem 1rem; border-left: 3px solid var(--teal); background: #19282c; font-size: clamp(1.1rem, 2.6vw, 1.4rem); }
+#package-identity, #package-barcode { margin: 0 0 1rem; padding: .8rem 1rem; border-left: 3px solid var(--teal); background: #19282c; font-size: clamp(1.1rem, 2.6vw, 1.4rem); }
+#package-identity:not(:empty) + #package-barcode { border: 0; padding: 0; background: transparent; font-size: 1rem; color: #c2d1d3; }
 .package-reading { display: grid; grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr); grid-template-areas: "image transcript"; gap: 1rem; align-items: start; }
-#package-barcode:empty, #package-status:empty { display: none; }
+#package-identity:empty, #package-barcode:empty, #package-status:empty { display: none; }
 .package-reading figure { grid-area: image; }
 .package-transcript { grid-area: transcript; min-width: 0; }
 .package-reading figure, .package-reading h4 { margin: 0; }

@@ -1,11 +1,11 @@
 """Read the declared pack volume separately from the brand and fruit words."""
 import re
+import unicodedata
 
 import cv2
 import numpy as np
 
 from .juice_gate import ocr
-from .product_text import carton_region, normalized
 
 
 VOLUME = re.compile(
@@ -18,9 +18,17 @@ MULTIPACK = re.compile(
 )
 # A corrupted unit may veto a suspected other size. It cannot corroborate 1 L.
 DAMAGED_UNIT = re.compile(r"(?<![\w.,])(\d{2,4})\s+m[i1]\b|(?<![\w.,])(\d+[.,]\d+)\s+[ji]ter\b")
-REFERENCE_PREFIX = re.compile(r"(?:\b(?:per|par|por|pr|serving size|portion|serving)\s*[:=]?|/|\d\s*[.,])\s*$")
+REFERENCE_PREFIX = re.compile(r"(?:\b(?:per|pro|par|por|pr|serving size|portion|serving)\s*[:=]?|/|\d\s*[.,])\s*$")
 REFERENCE_SUFFIX = re.compile(r"^\s*(?:/|(?:of\s+)?water\b)")
 FACTORS = {"ml": 1, "cl": 10, "dl": 100}
+
+
+def normalized(read):
+    return "".join(c for c in unicodedata.normalize("NFKD", read.lower()) if not unicodedata.combining(c))
+
+
+def reference_quantity(line, match):
+    return bool(REFERENCE_PREFIX.search(line[:match.start()]) or REFERENCE_SUFFIX.search(line[match.end():]))
 
 
 def printed_size(reads):
@@ -34,13 +42,15 @@ def printed_size(reads):
             evidence.append(match.group())
             conflict = True
         for match in DAMAGED_UNIT.finditer(line):
+            if reference_quantity(line, match):
+                continue
             ml, litres = match.groups()
             value_ml = int(ml) if ml else float(litres.replace(",", ".")) * 1000
             if value_ml != 1000:
                 evidence.append(match.group())
                 conflict = True
         for match in VOLUME.finditer(line):
-            if REFERENCE_PREFIX.search(line[:match.start()]) or REFERENCE_SUFFIX.search(line[match.end():]):
+            if reference_quantity(line, match):
                 continue
             evidence.append(match.group())
             amount, unit = match.groups()
@@ -60,6 +70,8 @@ def printed_size(reads):
 
 def read_size_band(rgb):
     """Re-read small lower-front quantity print using luminance and neutral-ink contrast."""
+    from .product_text import carton_region
+
     region = carton_region(rgb)
     face = rgb if region is None else region
     # For wide context shots keep the entire lower band so an off-centre carton is eligible.

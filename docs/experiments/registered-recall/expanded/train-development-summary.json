@@ -1,0 +1,69 @@
+{
+  "scope": "Official archive train split only. Former development-role partition for target and other juice, all non-enrollment train red grapefruit as sibling challenges. No archive/public benchmark queries.",
+  "normal_product_results": {
+    "God-Morgon-Apple-Juice": {
+      "n": 4,
+      "before_correct": 1,
+      "after_correct": 3,
+      "optical_order_confirmed_before": 0,
+      "optical_order_confirmed_after": 0
+    },
+    "God-Morgon-Orange-Juice": {
+      "n": 5,
+      "before_correct": 2,
+      "after_correct": 2,
+      "optical_order_confirmed_before": 0,
+      "optical_order_confirmed_after": 0
+    },
+    "God-Morgon-Orange-Red-Grapefruit-Juice": {
+      "n": 4,
+      "before_correct": 4,
+      "after_correct": 4,
+      "optical_order_confirmed_before": 0,
+      "optical_order_confirmed_after": 0
+    }
+  },
+  "visual_matcher": {
+    "other_juice": {
+      "n": 31,
+      "before_accepted": 0,
+      "after_accepted": 0,
+      "before_wrong": 0,
+      "after_wrong": 0
+    },
+    "God-Morgon-Apple-Juice": {
+      "n": 4,
+      "before_accepted": 1,
+      "after_accepted": 3,
+      "before_wrong": 0,
+      "after_wrong": 0
+    },
+    "God-Morgon-Orange-Juice": {
+      "n": 5,
+      "before_accepted": 2,
+      "after_accepted": 2,
+      "before_wrong": 0,
+      "after_wrong": 0
+    },
+    "God-Morgon-Orange-Red-Grapefruit-Juice": {
+      "n": 4,
+      "before_accepted": 4,
+      "after_accepted": 4,
+      "before_wrong": 0,
+      "after_wrong": 0
+    },
+    "sibling": {
+      "n": 23,
+      "before_accepted": 0,
+      "after_accepted": 0,
+      "before_wrong": 0,
+      "after_wrong": 0
+    }
+  },
+  "readable_codes": 0,
+  "within_session_recoveries": [
+    "God-Morgon-Apple-Juice_010",
+    "God-Morgon-Apple-Juice_011"
+  ],
+  "limitations": "Both newly accepted photos align to Apple_006, with the same shelf and apparent physical carton. Byte, pixel and perceptual duplicate screens find no duplicate. These data do not test cross-store or cross-session generalization."
+}

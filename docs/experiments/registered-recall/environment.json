@@ -1,0 +1,29 @@
+{
+  "opencv-python-headless": "4.11.0.86",
+  "numpy": "2.2.6",
+  "Pillow": "11.2.1",
+  "torch": "2.7.1+cpu",
+  "timm": "1.0.15",
+  "safetensors": "0.5.3",
+  "python": "3.12.14",
+  "opencv": "4.11.0",
+  "tesseract": "tesseract 5.5.0",
+  "architecture": "x86_64",
+  "official_zip_sha256": "f2434611ed5dd472dae830d6c7fbdf4b75dfd1697ba25f1280f0a1d0ce9170b0",
+  "public_refetch": {
+    "RR-08be70619c12080f": "08be70619c12080fdc66bc000e314cadbd05173509c7d6ae0d343f13d1e8fda8",
+    "RR-1337fc0456cef369": "1337fc0456cef369bf995b8baae1ac0792c28895654424893121f29180a9bb49",
+    "RR-4b0baef57ab23c80": "4b0baef57ab23c80885644abb1f0f1c99d312fa3033ab26ccde0373e166b77c0",
+    "RR-a2b463d4fd295d0a": "a2b463d4fd295d0a2574c6c9465999678f67d9986a8fcebde5dc64255d507320",
+    "RR-b854b216734297e4": "b854b216734297e4183863e3e8f6adebdc768c7cefca5a93fd4dd245163fe157",
+    "RR-cbaea96197c4f7c6": "cbaea96197c4f7c600444360f40da59320f2da5eb1fcd06b07228dc7e8f54e3f",
+    "RR-dee53e1a497716df": "dee53e1a497716df7e673a39f3c1a7685fbd895d909fd8cd2dbcaaa3b097ba9b",
+    "RR-ee78850397c552c1": "ee78850397c552c1092afd5dc4f3362767a87074c4b6da3f05fc1f53400b884f"
+  },
+  "final_helper_sha256": {
+    "score_registered_recall.py": "d02b07a4be8397c230c2f76c449b69910a9090b83752a6c8c3f4057634ef078a",
+    "evaluate_registered_folds.py": "77c511bfc4869d14003dd5edba32fe027fa617d3d322352fadcc3aff1583185a",
+    "evaluate_registered_recall.py": "b0ca75d6f7a969d03440eb34571c5406e1b62047a288ec7e8e877279af2d3e82"
+  },
+  "fetch_note": "The evaluation runner was updated after inference to support versioned publisher URLs and HTTP retries. The infer function is unchanged."
+}

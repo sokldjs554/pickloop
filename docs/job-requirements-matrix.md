@@ -11,6 +11,7 @@
 | 주요업무 | 실행 증거 |
 |---|---|
 | 포장 상품과 규격 식별 | 동일한 새 실물 사진에서 맛·용량을 읽은 상품명 후보와 바코드로 확정한 주문 규격을 각각 채점했다. [사진별 원문과 출처](experiments/fresh-size-eval/) · [기존 오수락 재검사](experiments/size-review/) |
+| 바코드가 보이지 않는 등록품 사진 | 실제 브라우저 업로드와 Python에서 포장의 특징점 위치·과일 그림·경쟁 규격을 대조한다. 등록된 이름을 붙인 비율과 다른 SKU로 잘못 부른 횟수, 바코드로 확정한 주문 건수를 따로 기록했다. [공개 판독기](https://pickloop-robot-ops.ykh13571.chatgpt.site/recognition#read-package) · [측정 사진과 실행 원문](experiments/registered-recall/) |
 | 주문 수량에 맞는 상품 피킹 | MuJoCo에서 같은 1 L 상품 두 개의 접근 경로를 검사하고 한 개를 골라 옮겼다. 도착 상품과 출발 위치에 남은 상품을 별도로 확인한다. [주문 피킹 실행](https://pickloop-robot-ops.ykh13571.chatgpt.site/orders#order-pick) · [배치 판정 원본](../runs/order-pick/duplicate/result.json) |
 | 설비 통신 장애 처리 | 밸브 해제 응답을 유실한 C++ 제어기가 재접속해 처리 ID와 밸브 출력을 확인했다. 소프트웨어 PLC로 재현한 시험이다. [전송·재조회·종료 기록](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence#plc) |
 

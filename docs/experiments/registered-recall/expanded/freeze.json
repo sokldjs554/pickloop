@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T10:05:34.094792+00:00",
+  "upstream_commit": "fc80ba90f803d79d0383df52c5a4ac5de99ff6fc",
+  "gallery_members": 41,
+  "frozen_files": {
+    "registered-pack-gallery.json": "845fefcc71cafafa5c0e498a8209ca3fdd2508c0904e25eb80848c9364e9ab8c",
+    "registered_pack.npz": "7df71f8265d15aac79823b8c7123b6f502c256346deb6dc35cf50ff493ecbda9",
+    "enrollment.json": "c789754df8edca9e9d488e11c84583b8f7efea0ef04d8752eb28cf9f16f1d0ae",
+    "addition.json": "5ae07735696c64e28e4b1f5a6cc84bbc351afc0b35917ec3e4e08ea46d928adb",
+    "train-eval-roster.json": "885de234b0ec8ad7599737073161676f081fbfd68f197b38b855b7541b7c08a0"
+  },
+  "v2_digest": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b",
+  "constraints": "Both gallery thresholds unchanged. No official evaluation/test photographs or primary public photos used. All target queries drawn from original train development rows; sibling controls include non-enrollment fit photos to check high-risk confusions."
+}

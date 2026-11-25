@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T10:09:22.760433+00:00",
+  "base_commit": "3f4fb51",
+  "gallery_json_sha256": "845fefcc71cafafa5c0e498a8209ca3fdd2508c0904e25eb80848c9364e9ab8c",
+  "gallery_npz_sha256": "7df71f8265d15aac79823b8c7123b6f502c256346deb6dc35cf50ff493ecbda9",
+  "registered_pack_py": "f0d6d34169b37906f56f6aa17b2551ec1e333eed3a9d94f23ee7351d6f5b23f8",
+  "enrollment_sha256": "c789754df8edca9e9d488e11c84583b8f7efea0ef04d8752eb28cf9f16f1d0ae",
+  "acceptance": "Requires new correct archival recognition relative to v2, no increased false registered naming of outside products and no loss of public successes. Selection uses the archival follow-up outcomes."
+}
