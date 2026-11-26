@@ -1,0 +1,19 @@
+{
+  "time": "2026-11-26T12:59:29.329591+00:00",
+  "files": {
+    "outside-print.mjs": "9cf0b53d81537be88f457dfc6ea7bb3ffc3468961092439fbf2dc01fdfa4aebb",
+    "test.mjs": "95a5cef3129c0c92117a5697b023228672906783b46c912f273aacd4c8f8973a",
+    "fresh-labels.csv": "a9887aba0333ba7cd56e70cbef504f15be9dc69c0bbc804ea6f9b79914018c96",
+    "screening.csv": "f58900ce650d8353353258a4b5525eb174aba611f64ac5555a12f29cc825d992",
+    "blind.csv": "828b3934d9388f4a447bfc438c53396542cae0b9ab9206f7f9f6083a0c01bacf"
+  },
+  "references": 8074,
+  "positive_training": "The rule uses manufacturer product-line titles and declared volumes. All constants and test scenarios were chosen without scoring these cohorts. Historical 16 transcripts were inspected for feasibility.",
+  "population": {
+    "archive_known": 60,
+    "archive_outside": 14,
+    "clear": 6,
+    "perceptual_flag": 2,
+    "previous_16": 16
+  }
+}

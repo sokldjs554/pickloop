@@ -60,7 +60,7 @@ def test_browser_product_readout_links_to_separate_picking_and_defers_study_tabl
     assert ('a', {'href': 'orders.html#order-pick'}) in page
     assert 'id="order-pick"' in (WEB / 'orders.html').read_text()
     assert html.index('id="package-result" hidden') < html.index('href="orders.html#order-pick"') < html.index('id="package-text"')
-    summary = html.index('등록 6장 중 1장 정답 / 미등록 27장 중 6장에 등록 이름 부여')
+    summary = html.index('현재 Python 판독기 · 등록 6장 중 4장 정답 / 미등록 27장 중 0장에 등록 이름 부여')
     assert html.index('id="new-photos"') < summary < html.index('<details class="score-details">', summary) < html.index('<table', summary)
 
 

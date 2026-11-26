@@ -1,0 +1,20 @@
+id,prior_hits,source,name,cohort,expectation
+FAM-fb438de8e0126e,,Sjekkmat,smooth,fresh_packshot,outside
+FAM-1b88e9aa8ffb65,FAM-1b5948e05309c0,Natmat,lemonade,fresh_source_flag,outside
+FAM-e72110622ad448,,Annelie Niehoff,blog_1,fresh_field,multi_or_scene
+FAM-b6661b594806b3,,Annelie Niehoff,blog_2,fresh_field,other_or_unidentified
+FAM-e9ddf16c70dddd,,MatMalin,matmalin_1,fresh_field,multi_or_scene
+FAM-1f6950ae93af7b,,MatMalin,matmalin_2,fresh_field,multi_or_scene
+FAM-2eabe640de5a8d,,MatMalin,matmalin_4,fresh_field,multi_or_scene
+FAM-3c82a5ec849e55,,FoodMonitor,foodmon_853,fresh_field,other_or_unidentified
+FAM-58f5a5caf80a42,,FoodMonitor,foodmon_833,fresh_field,multi_or_scene
+FAM-3892cfa2be9222,,FoodMonitor,foodmon_836,fresh_field,other_or_unidentified
+FAM-2e5fea86913216,,OFF contributor,7310865089045_1,fresh_field,outside
+FAM-e7e00940995b65,,OFF contributor,7310865089045_4,fresh_field,outside
+FAM-aa51d522aa1907,/tmp/unknown29/blind/U29-aa51d522aa190756.jpg|U29-aa51d522aa190756,OFF contributor,7310865074829_6,fresh_source_flag,outside
+FAM-5085815924879a,,OFF contributor,6415130050483_2,fresh_field,outside
+FAM-b42684cc6e294b,,OFF contributor,6415130050483_3,fresh_field,outside
+FAM-d75466b5f311d7,,OFF contributor,6415130083405_1,fresh_field,outside
+FAM-45766eb5a7cf51,,OFF contributor,6415130083405_2,fresh_field,outside
+FAM-66a7609523af63,,OFF contributor,6415130083405_3,fresh_field,outside
+FAM-ecbf75aa4aa393,,OFF contributor,6415130083405_4,fresh_field,outside

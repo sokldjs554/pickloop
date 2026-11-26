@@ -1,0 +1,44 @@
+{
+  "frozen_utc": "2026-11-26T12:17:33.750145+00:00",
+  "baseline_commit": "719b31ab978f0beb2997a4cd868771ce92071e3e",
+  "registry_sha256": "7861094f9666eb57ea0fb116d529641eea148c85f8da3fe7250b12fc442d168c",
+  "browser_reader_sha256": "ecd96504c374cba86803d3bf0d28fb34aa1930ba8fe2ceacd4ab460cb6a2e79b",
+  "counts": {
+    "strict": 11,
+    "lookalike_control": 5
+  },
+  "manifest_sha256": {
+    "blind.csv": "24c2cd73cf9217bb3b04869426b7ad72fcc5b17bcf90063054b91ca63166b883",
+    "labels.csv": "986fb87cfacfa8d48b6cdaf1d904a3597ae3dedbfcb83c53f6ef1d81b07dee08",
+    "screening.csv": "835005f62fc3308d5a123d6e4ec7e3bb4632b4d46f8767a5eaf102227287d216"
+  },
+  "prior": {
+    "official": 5502,
+    "additional": 2556,
+    "documented_unique_hashes": 6559,
+    "roots": [
+      "pickloop-new-photo-retrieved/prior/blind",
+      "pickloop-new-photo-retrieved/new/blind",
+      "pickloop-new-photo-retrieved/control/blind",
+      "pickloop-rescan-real/blind",
+      "pick-size-26/candidates",
+      "pick-size-26/photos",
+      "pickloop-independent-juice/candidate",
+      "pickloop-new-real/candidates",
+      "pickloop-extra-front",
+      "pickloop-produce-heldout/blind",
+      "pickloop-open-eval/images",
+      "recall-set/photos",
+      "recall-set/candidates",
+      "oblique-eval-search",
+      "side23/candidate",
+      "mix28",
+      "store-side-evaluation",
+      "pick-size-26/preview",
+      "pick-size-26/preview2",
+      "recall-fit",
+      "recall-apple-src",
+      "pl23-side-refs"
+    ]
+  }
+}

@@ -53,19 +53,28 @@ export function imageDimensions(bytes) {
 }
 
 export function describeBarcodes(symbols, registry) {
-  const valid = new Set();
+  const valid = new Map();
   for (const {format, text, isValid} of symbols) {
-    if (!isValid || !['EAN-13', 'UPC-A'].includes(format)) continue;
-    const value = format === 'UPC-A' && /^\d{12}$/.test(text) ? '0' + text : text;
-    if (!/^\d{13}$/.test(value) || (format === 'UPC-A' && value[0] !== '0')) continue;
-    const sum = [...value].reduce((total, digit, i) => total + Number(digit) * (i % 2 ? 3 : 1), 0);
-    if (sum % 10 === 0) valid.add(value);
+    if (!isValid) continue;
+    let code = text;
+    if (format === 'EAN-8') {
+      if (!/^\d{8}$/.test(code)) continue;
+    } else if (format === 'UPC-A' || format === 'UPC-E') {
+      // ZXing returns a UPC-E expanded to its GTIN, with an optional EAN leading zero.
+      if (/^\d{12}$/.test(code)) code = '0' + code;
+      if (!/^0\d{12}$/.test(code) || (format === 'UPC-E' && !/^0[01]/.test(code))) continue;
+    } else if (format !== 'EAN-13' || !/^\d{13}$/.test(code)) {
+      continue;
+    }
+    const key = code.padStart(14, '0');
+    const sum = [...key].reduce((total, digit, i) => total + Number(digit) * (i % 2 ? 1 : 3), 0);
+    if (sum % 10 === 0 && (!valid.has(key) || valid.get(key).length > code.length)) valid.set(key, code);
   }
-  const codes = [...valid].sort();
+  const codes = [...valid.values()].sort();
   if (codes.length === 0) return {kind: 'empty', codes};
   if (codes.length > 1) return {kind: 'multiple', codes};
   if (!registry) return {kind: 'unchecked', codes};
-  const product = registry[codes[0]];
+  const product = registry[codes[0]] || registry[codes[0].padStart(13, '0')];
   return product ? {kind: 'registered', codes, product} : {kind: 'unregistered', codes};
 }
 
@@ -98,19 +107,35 @@ export function conflictingPrint(product, text) {
   return null;
 }
 
+// On a front, the short line immediately before the concentrate statement is
+// a net-capacity field. OCR can merge its decimal and read the L as a one.
+function compactFrontCapacityConflict(product, transcript) {
+  return product === 'God-Morgon-Orange-Juice' &&
+    /^[ \t]*1[.,]?75[ \t]*[l1][ \t]*(?:\r?\n[ \t]*)+juice (?:partly )?from concentrate\b/im.test(transcript);
+}
+
 export function photoDecision(barcodes, panel, transcript) {
+  if (barcodes?.kind === 'unregistered') return {kind: 'hold', reason: 'unregistered_code'};
   if (!barcodes || !['empty', 'registered'].includes(barcodes.kind)) return {kind: 'hold', reason: 'barcode'};
+  if (barcodes.kind === 'empty' && panel?.status === 'ambiguous' && panel.outsideCapacity === '1.75 L') return {kind:'hold',reason:'ambiguous_capacity'};
   if (panel?.status === 'incompatible' || panel?.status === 'ambiguous') {
     return {kind: 'hold', reason: panel.status};
   }
-  if (barcodes.kind === 'registered' && panel?.product && panel.product !== barcodes.product) {
+  const panelCandidate = panel?.product || panel?.marketCandidate;
+  if (barcodes.kind === 'registered' && panelCandidate && panelCandidate !== barcodes.product) {
     return {kind: 'hold', reason: 'mismatch'};
   }
   const product = barcodes.product || panel?.product;
+  if (!product && barcodes.kind === 'empty' && panel?.status === 'outside_family') {
+    return {kind: 'hold', reason: 'outside_family', family: panel.family};
+  }
   if (!product) return {kind: 'hold', reason: 'no_panel'};
   const conflict = conflictingPrint(product, transcript || '');
   if (conflict) return {kind: 'hold', reason: conflict};
   if (barcodes.kind === 'registered') return {kind: 'barcode', product};
+  if (panel.view === 'front' && compactFrontCapacityConflict(product, transcript || '')) {
+    return {kind: 'hold', reason: 'size'};
+  }
   if (transcript == null) return {kind: 'hold', reason: 'ocr_failed'};
   if (panel.view === 'side-ean-bands') {
     return {kind: 'photo', product, view: panel.view, gtin: panel.gtin, scanBands: panel.scanBands};
@@ -132,10 +157,35 @@ function identityMessage(result) {
       return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 옆면 바코드 ' +
         result.gtin + ' · ' + result.scanLines + '개 선에서 같은 번호를 읽었습니다.';
     }
+    if (result.view === 'orange-nutrition-values') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] +
+        ' · 앞면 오렌지 표기와 옆면 영양표에서 가려지지 않은 네 줄의 끝을 대조했습니다.';
+    }
+    if (result.view === 'orange-rear-print') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] +
+        ' · 접힌 윗면의 orange 글자, 뒷면 문단과 이어진 옆면 영양표를 확인했습니다.';
+    }
+    if (result.view === 'orange-nutrition-heading') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] +
+        ' · 오렌지 표기와 옆면 영양표의 제목·수치 행 배치를 확인했습니다.';
+    }
+    if (result.view === 'orange-adjoining-panels') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] +
+        ' · 같은 팩에서 앞면과 이어진 옆면 인쇄를 확인했습니다.';
+    }
+    if (result.view === 'split-fruit-collar') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] +
+        ' · 같은 팩에서 브랜드와 뚜껑 아래의 두 과일 무늬를 확인했습니다.';
+    }
     const view = {lettering: '브랜드·맛 표기', front: '앞면', nutrition: '영양 표시', ingredients: '성분 표시'}[result.view] || '포장 면';
     return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 기준 사진과 ' + view + ' 특징 ' + result.inliers + '곳 일치';
   }
+  if (result.reason === 'ambiguous_capacity') return '미등록 용량 · 같은 포장의 브랜드, 제품명 및 등록 범위 밖의 1.75 L 표기를 확인했습니다. 정확한 상품 판정은 보류합니다.';
+  if (result.reason === 'outside_family') {
+    return '미등록 제품군 · 한 포장에서 등록 목록 밖의 제품군 표기를 확인했습니다. ' + result.family + '.';
+  }
   return ({
+    unregistered_code: '미등록 상품 · 읽은 바코드가 등록 목록에 없습니다.',
     size: '상품 판정 보류 · 읽힌 용량 또는 묶음 수량이 등록 규격과 다릅니다.',
     flavour: '상품 판정 보류 · 포장에 적힌 품목 또는 맛이 등록 상품과 다릅니다.',
     mismatch: '상품 판정 보류 · 읽힌 바코드와 포장 사진이 서로 다른 상품을 가리킵니다.',
@@ -161,7 +211,7 @@ export async function decodeSymbols(png, wasmBinary) {
   const zxing = await import('./vendor/package-reader/zxing/reader/index.js');
   const overrides = wasmBinary ? {wasmBinary} : {locateFile: () => asset('zxing_reader.wasm')};
   zxing.prepareZXingModule({overrides});
-  return zxing.readBarcodes(png, {formats: ['EAN-13', 'UPC-A'], tryRotate: true, tryHarder: true, maxNumberOfSymbols: 255});
+  return zxing.readBarcodes(png, {formats: ['EAN-13', 'UPC-A', 'EAN-8', 'UPC-E'], tryRotate: true, tryHarder: true, maxNumberOfSymbols: 255});
 }
 
 if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {

@@ -136,18 +136,29 @@ def decide(hits):
     if not hits:
         return None
     best = hits[0]
+    product = REGISTERED_GTINS.get(best['gtin'])
     rival = max((hit['score'] for hit in hits if hit['gtin'] != best['gtin']), default=0.)
+    ambiguous = False
     if best['view'] == 'front':
         supported = (best['inliers'] >= 17 and best['votes'][0] >= 4 and best['appearance'] >= .88
                      and best['score'] >= 2.8 and best['score'] >= 1.38*rival)
+        outside_rivals = [hit for hit in hits if hit['gtin'] not in REGISTERED_GTINS
+                          and hit['score'] >= .65 * best['score']]
+        # Shared graphics can give a registered front more keypoints. A
+        # comparable rival of equal or unknown volume can still win on both
+        # aligned artwork and geometric coverage.
+        competing_artwork = product is not None and any(
+            hit['view'] == 'front' and OTHER_VOLUMES_ML.get(hit['gtin'], 1000) == 1000
+            and hit['appearance'] > best['appearance'] and hit['coverage'] >= best['coverage']
+            for hit in outside_rivals
+        )
+        ambiguous = best['score'] >= 2.8 and (competing_artwork or (not supported and bool(outside_rivals)))
     else:
         supported = min(best['votes']) >= 3 and best['coverage'] >= .16 and best['score'] >= max(14,1.45*rival)
-    product = REGISTERED_GTINS.get(best['gtin'])
-    if supported:
-        status = 'matched' if product else 'incompatible'
-    elif best['view'] == 'front' and best['score'] >= 2.8 and any(
-            h['gtin'] not in REGISTERED_GTINS and h['score'] >= .65*best['score'] for h in hits):
+    if ambiguous:
         status, product = 'ambiguous', None
+    elif supported:
+        status = 'matched' if product else 'incompatible'
     else:
         return None
     return dict(status=status, product=product, template=best['id'], view=best['view'],

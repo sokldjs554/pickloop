@@ -17,6 +17,25 @@ test('only a distinct verified optical barcode can claim a registry match', () =
   assert.equal(reader.describeBarcodes([symbol('036000291452','UPC-A')], registered).codes[0], '0036000291452');
   assert.equal(reader.describeBarcodes([symbol('3123349011227')], registered).kind, 'unregistered');
 });
+test('reads short retail codes, rejects bad checksums and blocks mixed-package orders', () => {
+  const short = symbol('48512343', 'EAN-8');
+  const upce = symbol('0012345000065', 'UPC-E');
+  assert.deepEqual(reader.describeBarcodes([short], registered), {kind:'unregistered', codes:['48512343']});
+  assert.equal(reader.describeBarcodes([short, symbol('0000048512343')], registered).codes.length, 1);
+  assert.equal(reader.describeBarcodes([short], {'0000048512343':'short SKU'}).product, 'short SKU');
+  assert.deepEqual(reader.describeBarcodes([upce, symbol('012345000065','UPC-A')], registered).codes, ['0012345000065']);
+  assert.equal(reader.describeBarcodes([symbol('48512344','EAN-8')], registered).kind, 'empty');
+  const several = reader.describeBarcodes([short, symbol('7310865074225')], registered);
+  assert.equal(several.kind, 'multiple');
+  assert.equal(reader.photoDecision(several, {product:registered['7310865074225']}, '').kind, 'hold');
+});
+test('the shipped optical decoder sees both retail barcodes on the same raster', async () => {
+  const png = await readFile(new URL('./fixtures/two-retail-codes.png', import.meta.url));
+  const wasm = await readFile(new URL('../web/vendor/package-reader/zxing_reader.wasm', import.meta.url));
+  const symbols = await reader.decodeSymbols(png, wasm);
+  assert.deepEqual(reader.describeBarcodes(symbols, registered),
+    {kind:'multiple', codes:['48512343', '7310865074225']});
+});
 test('enforces pixel limits before creating a browser bitmap', () => {
   assert.ok(reader);
   const header = Uint8Array.from([137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,24,0,0,0,16]);
@@ -196,14 +215,59 @@ test('a recovered front needs fruit-region matches and a foreground panel', asyn
   const worker = createContext({self: {}, importScripts() {}});
   const source = await readFile(new URL('../web/vendor/package-reader/panel-worker.js', import.meta.url), 'utf8');
   runInContext(source, worker);
-  const primary = {gtin: '7310865074225', view: 'front', inliers: 36, votes: [19, 8],
+  const primary = {gtin: '7310865074225', view: 'front', hasIdentityText: true, inliers: 36, votes: [19, 8],
     cover: .3, score: 5, appearance: .95, areaFraction: .25, centerDistance: .03};
   const decide = (...candidates) => worker.panelDecision(candidates, registered, true);
   assert.equal(decide(primary).product, registered[primary.gtin]);
+  assert.equal(decide({...primary, hasIdentityText: false}), null);
+  const blackFlap = {id: 'ARLA-55f09abff8b47d20', width: 100, height: 100};
+  assert.equal(worker.frontIdentityEvidence(blackFlap, [[10,38],[20,38],[30,38],[40,38]]), true);
+  assert.equal(worker.frontIdentityEvidence(blackFlap, [[10,38],[11,38],[12,38],[13,38]]), false);
+  assert.equal(worker.frontIdentityEvidence(blackFlap, [[10,58],[20,58],[30,58],[40,58]]), false);
   assert.equal(decide({...primary, votes: [26, 0]}).product, undefined);
   assert.equal(decide({...primary, centerDistance: -.3, areaFraction: .055}).product, undefined);
   const sibling = {...primary, gtin: 'another-volume', score: 4.8};
   assert.equal(decide(primary, sibling).status, 'ambiguous');
+});
+
+test('same-face visual uncertainty holds an orange name while preserving an independent optical identity', async () => {
+  const {createContext, runInContext} = await import('node:vm');
+  const worker = createContext({self: {}, importScripts() {}});
+  runInContext(await readFile(new URL('../web/vendor/package-reader/panel-worker.js', import.meta.url), 'utf8'), worker);
+  const gtin = '7310860007372', product = 'God-Morgon-Orange-Juice';
+  const registry = {...registered, [gtin]: product};
+  const footprint = [[.3,.2],[.5,.2],[.5,.8],[.3,.8]];
+  const visual = {gtin, view:'front', inliers:100, votes:[100,4], score:10, appearance:.98, footprint,
+    centerDistance:.1, areaFraction:.25};
+  const rival = {...visual, gtin:'6415130050490', score:5, appearance:.975, inliers:51, votes:[50,1]};
+  const resolve = other => worker.panelDecision([visual, other], registry);
+  const pending = resolve(rival);
+  const currentReader = reader;
+  assert.equal(pending.status, 'market_unverified');
+  assert.equal(resolve({...rival, appearance:.95}).product, product);
+  const anotherFace = footprint.map(([x,y]) => [x+.4, y]);
+  assert.equal(resolve({...rival, footprint:anotherFace}).product, product);
+  assert.equal(currentReader.photoDecision({kind:'empty',codes:[]}, pending, 'orange').kind, 'hold');
+  const barcode = {kind:'registered',codes:[gtin],product};
+  assert.equal(currentReader.photoDecision(barcode, pending, 'orange').kind, 'barcode');
+  assert.equal(currentReader.photoDecision(barcode, {product:'God-Morgon-Apple-Juice'}, '').reason, 'mismatch');
+  const unrelated = {kind:'registered', codes:['7310865074225'], product:'God-Morgon-Apple-Juice'};
+  assert.equal(currentReader.photoDecision(unrelated, pending, '').reason, 'mismatch');
+});
+
+test('compact capacity OCR is evaluated only with the concentrate footer and visual front', async () => {
+  const currentReader = reader;
+  const product = 'God-Morgon-Orange-Juice';
+  const panel = {product, view:'front', inliers:80};
+  const empty = {kind:'empty', codes:[]};
+  const printed = '1751\n\nJUICE FROM CONCENTRATE WITH JUICY BTS';
+  assert.equal(currentReader.photoDecision(empty, panel, printed).reason, 'size');
+  assert.equal(currentReader.photoDecision(empty, panel, '1251\nJuice partly from concentrate').kind, 'photo');
+  assert.equal(currentReader.photoDecision(empty, panel, '1001\nJuice from concentrate').kind, 'photo');
+  assert.equal(currentReader.photoDecision(empty, panel, '1751\nOrange juice\nJuice from concentrate').kind, 'photo');
+  assert.equal(currentReader.photoDecision(empty, {...panel, view:'ingredients'}, printed).kind, 'photo');
+  const barcode = {kind:'registered', product, codes:['7310860007372']};
+  assert.equal(currentReader.photoDecision(barcode, panel, printed).kind, 'barcode');
 });
 
 test('a slanted EAN read identifies the photo while standard order checks and printed size still apply', () => {

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "train19",
+    "role": "registered",
+    "gtin": "7310860007372",
+    "file": "God-Morgon-Orange-Juice_019.jpg",
+    "sha256": "5375a023bc115db4b56f05285dbb1335bf5103f5396f3b00fbc8c0777f7510dd",
+    "image_url": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_019.jpg",
+    "corners": [
+      [
+        84.37062072753906,
+        101.16543579101562
+      ],
+      [
+        149.52764892578125,
+        94.9692611694336
+      ],
+      [
+        165.6029052734375,
+        170.33787536621094
+      ],
+      [
+        106.26614379882812,
+        172.0551300048828
+      ]
+    ]
+  },
+  {
+    "id": "train9",
+    "role": "registered",
+    "gtin": "7310860007372",
+    "file": "God-Morgon-Orange-Juice_009.jpg",
+    "sha256": "9cee92d691143cccd303c53993527dc9498f50844dce065416df15b1721c8621",
+    "image_url": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_009.jpg",
+    "corners": [
+      [
+        83.13666534423828,
+        101.18508911132812
+      ],
+      [
+        102.05465698242188,
+        102.53416442871094
+      ],
+      [
+        130.50344848632812,
+        181.44020080566406
+      ],
+      [
+        111.58545684814453,
+        180.09112548828125
+      ]
+    ]
+  },
+  {
+    "id": "train14",
+    "role": "registered",
+    "gtin": "7310860007372",
+    "file": "God-Morgon-Orange-Juice_014.jpg",
+    "sha256": "22384c13c26c89c01df4dda0be196bf8c200fd1cb531bff0dc2abc5ab629eeb7",
+    "image_url": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_014.jpg",
+    "corners": [
+      [
+        102.17461395263672,
+        102.43110656738281
+      ],
+      [
+        134.37863159179688,
+        105.47903442382812
+      ],
+      [
+        161.79473876953125,
+        188.3780975341797
+      ],
+      [
+        129.59071350097656,
+        185.33016967773438
+      ]
+    ]
+  },
+  {
+    "id": "6415130050490-2",
+    "role": "competing",
+    "gtin": "6415130050490",
+    "file": "6415130050490-2.preview.jpg",
+    "sha256": "bea2897c5630251ff8e44252640ef97b349b715cc8558937e8ac6ab493db1b9c",
+    "image_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/005/0490/2.400.jpg",
+    "source_url": "https://world.openfoodfacts.org/product/6415130050490",
+    "uploader": "kiliweb",
+    "license": "CC BY-SA 3.0 (Open Food Facts contributed photograph)",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "corners": [
+      [
+        137.75604248046875,
+        39.95895004272461
+      ],
+      [
+        285.01202392578125,
+        34.15443420410156
+      ],
+      [
+        315.1675109863281,
+        262.5166931152344
+      ],
+      [
+        167.91152954101562,
+        268.3211975097656
+      ]
+    ]
+  },
+  {
+    "id": "7310865074768-3",
+    "role": "competing",
+    "gtin": "7310865074768",
+    "file": "7310865074768-3.preview.jpg",
+    "sha256": "a996b76c324888d748b31f02bed996168f8a2c3792e3c32531ed630191f32f47",
+    "image_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/507/4768/3.400.jpg",
+    "source_url": "https://world.openfoodfacts.org/product/7310865074768",
+    "uploader": "kiliweb",
+    "license": "CC BY-SA 3.0 (Open Food Facts contributed photograph)",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "corners": [
+      [
+        237.95098876953125,
+        -0.09749981760978699
+      ],
+      [
+        392.7929382324219,
+        3.5761497020721436
+      ],
+      [
+        398.6644592285156,
+        162.77769470214844
+      ],
+      [
+        243.822509765625,
+        159.1040496826172
+      ]
+    ]
+  },
+  {
+    "id": "7310865074768-5",
+    "role": "competing",
+    "gtin": "7310865074768",
+    "file": "7310865074768-5.preview.jpg",
+    "sha256": "dd50aa5f6dd1dc0a11a651dea43a7d62242d9673018dee07feee87f597b63e06",
+    "image_url": "https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/507/4768/5.400.jpg",
+    "source_url": "https://world.openfoodfacts.org/product/7310865074768",
+    "uploader": "blindpew",
+    "license": "CC BY-SA 3.0 (Open Food Facts contributed photograph)",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "corners": [
+      [
+        250.63482666015625,
+        3.7076454162597656
+      ],
+      [
+        403.59033203125,
+        13.294977188110352
+      ],
+      [
+        389.401611328125,
+        168.11587524414062
+      ],
+      [
+        236.44610595703125,
+        158.52853393554688
+      ]
+    ]
+  }
+]

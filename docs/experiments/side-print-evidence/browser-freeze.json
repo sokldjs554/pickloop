@@ -1,0 +1,21 @@
+{
+  "data/orange-nutrition.json": "06ab76f7ea82792308fd3d3387267a0d623d08a9c35bbddf6cef854dc2d3e983",
+  "data/orange-side.json": "05e6f650e8ec174d1376ec3c1bf8a2eab80d8592605d4f79edb68c56705a743f",
+  "data/orange-values.json": "c40becb33557c96b0b8945e3260487c06e2535b537be0b95bb525edf251788fb",
+  "data/outside-family.json": "c42008bd80f58bdec6a14008cfe9099b6bd0625132a8c2496f975b8aa98268d3",
+  "data/registered-collar.json": "9573cb1da20633bdd99e26d9976cdd284c54ec2349b31dc4268b8d1bee1d4054",
+  "data/registered-detail-gallery.json": "b4adec90bed28d9b81df666c69552cc2afdf4b298351bd3f451e3d5dc2bedbcc",
+  "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b",
+  "package-reader.js": "2918dbd646dbdbff08a47c0a62af5f7bebcfacaffab40a20ce0c29741e417622",
+  "vendor/package-reader/oblique-ean.js": "faaa8f1a07871ba3376d7ea07227319e8ccbef1cfe197037c25081736f645f51",
+  "vendor/package-reader/orange-nutrition.js": "4227b152b3c3cbe2b28364aae5287b2b11fa33f8e2ea17b9c6ed76c8726322ae",
+  "vendor/package-reader/orange-rear.js": "782081ac72abe32731352e29e4336153b392515ea8586100ea8cbe4e46088358",
+  "vendor/package-reader/orange-side.js": "3bd024d71a64f8381a9718dff85bc556a37e8bf8827d9c5076a17e0b7c9ef8b2",
+  "vendor/package-reader/orange-values.js": "acc410b6ca849c72505cdd6b81ed87b0b78d021bd36efb46bafce972a0d1796a",
+  "vendor/package-reader/outside-family.js": "da2461cf330f054ffbe39bdd37cae1942ffd040c186bf432fc88c576c4f7b5a7",
+  "vendor/package-reader/panel-worker.js": "854ac1a4492cef1aa4b8cca82bfb9be498879b30011af3dd5172bbe229b3c396",
+  "vendor/package-reader/printed-regions.js": "fa51abce5718535fbd0d4b7abe628d4f17a7dc7a4511a48d46e26f57f1ed6775",
+  "vendor/package-reader/registry.json": "7861094f9666eb57ea0fb116d529641eea148c85f8da3fe7250b12fc442d168c",
+  "vendor/package-reader/split-collar.js": "a5f9c9483d4d331ed469711e527cf9d33aeb21ce76e1f84152c4ac309d3327e9",
+  "vendor/package-reader/subpixel-ean.js": "7abff58644696b2283ca9ddb7c0ae7b4f97b46647713c371344e465973007c6f"
+}

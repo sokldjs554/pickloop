@@ -1,0 +1,78 @@
+{
+  "baseline_revision": "719b31ab978f0beb2997a4cd868771ce92071e3e",
+  "baseline_python_source_and_assets_sha256": {
+    "src/pickloop/registered_pack.py": "d31fc16d3946abd5f09bca28b47dbd054eb58a8e5f9cf66c5c15010aa3119d91",
+    "src/pickloop/oblique_pack.py": "0d611dc715b487974f8e246307bfc1fd1c8a5747231e9a1822731fea12900d61",
+    "src/pickloop/grocery_catalogue.py": "7c24596878b4e01ab8bb3ce20a9b28ae3970035a8e5f0b763bec705890854a05",
+    "src/pickloop/catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
+    "src/pickloop/catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
+    "src/pickloop/carton_matcher.py": "9ae3670c1b1a7e46018a201e443b74d8b0e5427e7623ebe101245e6eeb2c3243",
+    "src/pickloop/product_text.py": "2bc28cb36a1ebdb26d79277f9d9094cf346028cf4e66e3b137c2aea69f91a692",
+    "src/pickloop/pack_barcode.py": "f38cd2aab03acf1fedb0a6427ea863c4560153f6e84119e78c5e3a0e48602f31",
+    "src/pickloop/photo_readout.py": "202393bf5a11fa12973cc8818b0a4c090ab1d4b453c457e5bde6af27c7c85375",
+    "src/pickloop/juice_gate.py": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
+    "src/pickloop/package_size.py": "c90c0f6c4b1a5c50b8dbb2f4d7d350c17c2cd4468dddb9fde283cdac8d04414b",
+    "src/pickloop/data/registered_pack.npz": "d0aa8be34cd4e54bf25de00900019357f7995992331b1a62bf437b3001c3dd7e",
+    "src/pickloop/data/registered_oblique.npz": "4829c5d7179505b121cbbd436797ac900cff6cc1a531e6bd66cd2d60cba29097",
+    "src/pickloop/data/grocery_catalogue.npz": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
+    "src/pickloop/data/bravo_carton_panels.npz": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c",
+    "src/pickloop/data/juice_gate.npz": "496c81c7de627748b79c7661fa7377d6d5e3a62d2cf0dd09f3e2e3a0050b7aea"
+  },
+  "updated_python_source_and_assets_sha256": {
+    "src/pickloop/registered_pack.py": "aeb46002f293bd057bed0b28b158dbfc3dd005189d5f0cf7367b98eee9821ce2",
+    "src/pickloop/oblique_pack.py": "0d611dc715b487974f8e246307bfc1fd1c8a5747231e9a1822731fea12900d61",
+    "src/pickloop/grocery_catalogue.py": "7c24596878b4e01ab8bb3ce20a9b28ae3970035a8e5f0b763bec705890854a05",
+    "src/pickloop/catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
+    "src/pickloop/catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
+    "src/pickloop/carton_matcher.py": "9ae3670c1b1a7e46018a201e443b74d8b0e5427e7623ebe101245e6eeb2c3243",
+    "src/pickloop/product_text.py": "439df8b9e63c7e7cd0f5a5c00b8470ff9fb96a3047a9e3a87e4cb9e0bb44fcc1",
+    "src/pickloop/pack_barcode.py": "c09074df2ee8e0ff6d50a35cdf80ec2b5a4d10c4d16e3fe1cf7e11e6a267ba82",
+    "src/pickloop/photo_readout.py": "7d3f414cb3c6ff734c063dcc219a0af1786e89ddec4450da2da933ccb2693ced",
+    "src/pickloop/juice_gate.py": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
+    "src/pickloop/package_size.py": "c90c0f6c4b1a5c50b8dbb2f4d7d350c17c2cd4468dddb9fde283cdac8d04414b",
+    "src/pickloop/data/registered_pack.npz": "d0aa8be34cd4e54bf25de00900019357f7995992331b1a62bf437b3001c3dd7e",
+    "src/pickloop/data/registered_oblique.npz": "4829c5d7179505b121cbbd436797ac900cff6cc1a531e6bd66cd2d60cba29097",
+    "src/pickloop/data/grocery_catalogue.npz": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
+    "src/pickloop/data/bravo_carton_panels.npz": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c",
+    "src/pickloop/data/juice_gate.npz": "496c81c7de627748b79c7661fa7377d6d5e3a62d2cf0dd09f3e2e3a0050b7aea"
+  },
+  "input_ledgers_sha256": {
+    "docs/experiments/new-photos/inputs.csv": "072bc3d8a137f19461096ba99e63e7d32ea3a815a290f044dc5fdb9ea1c10a12",
+    "docs/experiments/new-photos/rows.csv": "25d33112e179ac67784adada3ebf9da1dbc3666231762b23e85ebcaa46e4540d",
+    "docs/experiments/new-photos/predictions-blind.jsonl": "d5746510470698d44572774b41f6eaffd164adabebd366828df44b84e3c0a775",
+    "docs/experiments/registered-recall/archive-labels.csv": "a25ca14543f3af2cf715bffad067572e6fc3bdd8c2f86761ccbb07fb02545fb9",
+    "docs/experiments/registered-recall/legacy-validation-labels.csv": "9e0ba855ce879bc876bd35e9e2de6f2e48d7bafa6406c3041cfecc8d4614ff4f",
+    "docs/experiments/registered-recall/public-labels.csv": "3f94d666e0b9c1f15ae81449365066303fc395569bcfe7ffa0fceddd6c676044",
+    "docs/experiments/oblique-packages/archive-python.jsonl": "4823cab95fae7c4abbcbe113add08891db8ddeab04c2e8c37e530ad4d7514f54",
+    "docs/experiments/oblique-packages/legacy-validation-python.jsonl": "199470283f9270f1dffd8aa3eac9413841e4d1ed8824669e20f166778ca0d915",
+    "docs/experiments/oblique-packages/public-python.jsonl": "ec3b9614f35538d7c61fd31f4fcf66bf2e544535f2e33a04f8fc2ace06aae031"
+  },
+  "external_sha256": {
+    "GroceryStoreDataset.zip": "f2434611ed5dd472dae830d6c7fbdf4b75dfd1697ba25f1280f0a1d0ce9170b0",
+    "DINOv2 small safetensors": "04d27f3400d059fc0cfd7d17dd1909a75bf3ea8fb3eeb48b97cb99e57ee20081",
+    "Tesseract binary": "74b76a5b994adcc18be362bf64ed5118082b2401d5d9a35242e92fc4c62e2b4b",
+    "Tesseract eng.traineddata": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+    "zxing-cpp extension": "b35867be1c4e41773db98fb69f96521d77bc51dc9da59198a1c681fe50c4ba4d"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "tesseract": "tesseract 5.5.0",
+    "packages": {
+      "numpy": "2.2.6",
+      "Pillow": "11.2.1",
+      "opencv-python-headless": "4.11.0.86",
+      "torch": "2.7.1+cpu",
+      "torchvision": "0.22.1+cpu",
+      "timm": "1.0.15",
+      "safetensors": "0.5.3",
+      "scipy": "1.15.3",
+      "zxing-cpp": "2.3.0"
+    }
+  },
+  "output_and_replay_sha256": {
+    "historical-paired.csv": "d6e29223c1e503215420e3b3ff40deb522dfbf230348696a6581722c21222df8",
+    "official-artwork.json": "fc891cfb8d6a783abf1c8f7095eb65759d42bcc7e38fa5cd8fafc4d6eae84eb2",
+    "replay.py": "b8e969877e18c9ad01152e0689f037e3d19f4861eede0a1db1a655da62523fa7",
+    "runtime-probes.jsonl": "7bb154b2c7f844e75f21c8e53b27de0d356e2d743c029f76276efc7da5718cbb"
+  }
+}

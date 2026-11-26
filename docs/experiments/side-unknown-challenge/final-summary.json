@@ -1,0 +1,137 @@
+{
+  "baseline": {
+    "strict": {
+      "images": 11,
+      "distinct_gtins": 8,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 11,
+      "held_order": 11,
+      "reasons": {
+        "no_evidence_hold": 7,
+        "explicit_unregistered_barcode": 3,
+        "ambiguous_hold": 1
+      },
+      "decoded_outside_gtin": {
+        "correct": 3
+      },
+      "unregistered_barcode_in_product_status": 0
+    },
+    "lookalike_control": {
+      "images": 5,
+      "distinct_gtins": 5,
+      "false_registered_product": 1,
+      "false_order": 0,
+      "held_product": 4,
+      "held_order": 5,
+      "reasons": {
+        "outside_gallery": 3,
+        "no_evidence_hold": 1,
+        "false_registered_photo": 1
+      },
+      "decoded_outside_gtin": {},
+      "unregistered_barcode_in_product_status": 0
+    }
+  },
+  "first_candidate": {
+    "strict": {
+      "images": 11,
+      "distinct_gtins": 8,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 11,
+      "held_order": 11,
+      "reasons": {
+        "no_evidence_hold": 7,
+        "explicit_unregistered_barcode": 3,
+        "ambiguous_hold": 1
+      },
+      "decoded_outside_gtin": {
+        "correct": 3
+      },
+      "unregistered_barcode_in_product_status": 3
+    },
+    "lookalike_control": {
+      "images": 5,
+      "distinct_gtins": 5,
+      "false_registered_product": 1,
+      "false_order": 0,
+      "held_product": 4,
+      "held_order": 5,
+      "reasons": {
+        "outside_gallery": 3,
+        "no_evidence_hold": 1,
+        "false_registered_photo": 1
+      },
+      "decoded_outside_gtin": {},
+      "unregistered_barcode_in_product_status": 0
+    }
+  },
+  "final_retest": {
+    "strict": {
+      "images": 11,
+      "distinct_gtins": 8,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 11,
+      "held_order": 11,
+      "reasons": {
+        "no_evidence_hold": 7,
+        "explicit_unregistered_barcode": 3,
+        "incompatible_foreground_capacity": 1
+      },
+      "decoded_outside_gtin": {
+        "correct": 3
+      },
+      "unregistered_barcode_in_product_status": 3
+    },
+    "lookalike_control": {
+      "images": 5,
+      "distinct_gtins": 5,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 5,
+      "held_order": 5,
+      "reasons": {
+        "outside_gallery": 3,
+        "no_evidence_hold": 2
+      },
+      "decoded_outside_gtin": {},
+      "unregistered_barcode_in_product_status": 0
+    }
+  },
+  "interpretation": "The Finnish Apple supplemental control was examined during a previous correction. The 1.75 L ambiguous package was inspected while porting the browser capacity annotation. Both are targeted retests. The final release retained the exact order hold for every photograph.",
+  "changed_from_baseline": [
+    {
+      "id": "U29-d09d2b4e2f1b3aad",
+      "before": "false_registered_photo",
+      "after": "no_evidence_hold",
+      "inspected_for_fix": true
+    },
+    {
+      "id": "U29-d426ca54b41c11c8",
+      "before": "ambiguous_hold",
+      "after": "incompatible_foreground_capacity",
+      "inspected_for_fix": true
+    }
+  ],
+  "ledger_sha256": {
+    "baseline": "9057aad009bdc66c28405150ee37c6d45707c6a413af88ba7f4e41cca6f406f0",
+    "first_candidate": "bbcc22284a479e686775bb95d7c9bac73fc5b6dd8ee04a6f500bede5aeacff15",
+    "final_retest": "2a5170c28bf1a85ebcc5aea86a191419b181c559c15270f368cf9d65c4cbbaf2"
+  },
+  "final_components_sha256": "7b733421e96de88992b44a69891b7eacfcc30f89246eacf22eb50e008473d52c",
+  "earlier_identical_native_replays": {
+    "14-part initial retest": "a46ead000983d1683d0e1fdb5beaf752d43c6a2d91409876dedb825424ade2fc",
+    "16-part thumb-occlusion endpoint": "de24200096a02923a25693222be5e5245b98906deaf600bb841b56272be34a2f",
+    "17-part pre-family release": "cdfa48974b83bdc3c68fb6400205c135fe2b619b85f4a9d516409e07903192f3"
+  },
+  "pre_family_ledger_sha256": "0480c629c30bd5849cdfa1f97ad1bddbfa72d92f725262297cc167b3e64226dd",
+  "final_outside_evidence": {
+    "total": 7,
+    "decoded_unregistered_gtin": 3,
+    "outside_gallery": 3,
+    "incompatible_foreground_capacity": 1,
+    "unresolved": 9
+  }
+}

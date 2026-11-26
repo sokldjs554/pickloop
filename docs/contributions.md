@@ -66,3 +66,5 @@ Codex가 기존 라이다 센서 기록에서 점유 지도를 다시 만들고 
 Codex가 6축 경로, 재구성 지도 주행·온라인 경계 탐색, 24·48개 프로세스의 구역 경합, 추가 DDS 운반 중 취소 3건, 소프트웨어 PLC 재시험을 수행했다. [6축](arm6-planning.md) · [주행](slam-drive.md) · [탐색](slam-exploration.md) · [플릿](fleet-contention.md) · [DDS](ros2-integration.md) · [PLC](plc-interop.md)
 
 Codex가 기존 매장 사진의 사과 바코드와 혼합주스 인쇄 표기 판독을 수정하고 재시험했다. 사용자가 조회한 T4 장치 정보에 맞춰 Isaac Sim 점검 노트북을 작성했다. [브라우저 재시험](experiments/side-panel-retry/) · [GPU 점검 노트북](experiments/isaac-sim/notebook.ipynb)
+
+Codex가 혼합주스와 오렌지의 옆면 판독, 유사 포장 판정, 짧은 소매 바코드 판독을 보완했다. 동일 사진을 파일 선택창으로 다시 실행해 상품명과 주문 결과를 기록했다. [옆면 사진별 전후 기록](experiments/side-print-evidence/) · [미등록 사진별 기록](experiments/side-unknown-challenge/)

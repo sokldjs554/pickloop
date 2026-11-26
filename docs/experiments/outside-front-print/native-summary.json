@@ -1,0 +1,57 @@
+{
+  "combined_components_sha256": "7b733421e96de88992b44a69891b7eacfcc30f89246eacf22eb50e008473d52c",
+  "files": {
+    "native-worker.csv": "f699ad417ff1d908e8959f312b5ef804885f4ae7bd302a39b0843b735664794f",
+    "native-chooser.csv": "2fdbccb54dd5da8dd973f8e3aa01321afe542cd1f3a44a041290c8eee2448990",
+    "native-additional-sources.csv": "d8c595a67402bb43f0875f4cba020cb9d6d7cef5f662d7c6b9aa0f812e003a5e"
+  },
+  "raw_worker_sha256": "ed7a1f6304467a45b40dccb1510484c5655ea175754d88458f57bfff44515537",
+  "raw_chooser_ledgers": {
+    "chooser-confirm/chooser.jsonl": "0d6386ab0fd91f378e129b7fc9bae4b4f7766b96f8dd9b52484c1a8bf400db02",
+    "chooser-foreign/chooser.jsonl": "4f35ee463f076238082fef63dc602ada2daefcc6a7c12cd2bf72ae2b3b168e17",
+    "synthetic/chooser.jsonl": "30952b838eaa35b39ebcb07f5eb654b48fa65914aa89bd87b9b0ec53977f7e26",
+    "synthetic/before/chooser.jsonl": "30952b838eaa35b39ebcb07f5eb654b48fa65914aa89bd87b9b0ec53977f7e26"
+  },
+  "cohorts": {
+    "additional_new": {
+      "rows": 3,
+      "outside_family": 0
+    },
+    "archive_known": {
+      "rows": 60,
+      "outside_family": 0
+    },
+    "archive_outside": {
+      "rows": 14,
+      "outside_family": 0
+    },
+    "fresh_field": {
+      "rows": 16,
+      "outside_family": 0
+    },
+    "fresh_packshot": {
+      "rows": 1,
+      "outside_family": 0
+    },
+    "fresh_source_flag": {
+      "rows": 2,
+      "outside_family": 0
+    },
+    "history16": {
+      "rows": 14,
+      "outside_family": 1
+    },
+    "history16_lookalike": {
+      "rows": 2,
+      "outside_family": 0
+    },
+    "prior_six": {
+      "rows": 6,
+      "outside_family": 2
+    },
+    "repeated_artwork": {
+      "rows": 6,
+      "outside_family": 0
+    }
+  }
+}

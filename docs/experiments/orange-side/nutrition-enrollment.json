@@ -1,0 +1,162 @@
+{
+  "header": {
+    "file": "God-Morgon-Orange-Juice_019.jpg",
+    "sha256": "5375a023bc115db4b56f05285dbb1335bf5103f5396f3b00fbc8c0777f7510dd",
+    "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_019.jpg",
+    "corners": [
+      [
+        28,
+        104
+      ],
+      [
+        151,
+        92
+      ],
+      [
+        200,
+        325
+      ],
+      [
+        111,
+        316
+      ]
+    ],
+    "crop": [
+      [
+        0.008,
+        0.014
+      ],
+      [
+        0.965,
+        0.014
+      ],
+      [
+        0.965,
+        0.111
+      ],
+      [
+        0.008,
+        0.111
+      ]
+    ]
+  },
+  "fronts": [
+    {
+      "file": "God-Morgon-Orange-Juice_005.jpg",
+      "sha256": "5bb315201c9d801033695f7e17beadb05bb7e1918b9c6694b60e7ebde39bb0a4",
+      "gtin": "7310860007372",
+      "view": "front",
+      "corners": [
+        [
+          56,
+          53
+        ],
+        [
+          145,
+          55
+        ],
+        [
+          122,
+          331
+        ],
+        [
+          50,
+          301
+        ]
+      ],
+      "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_005.jpg",
+      "patches": [
+        [
+          8,
+          60,
+          87,
+          83
+        ],
+        [
+          12,
+          82,
+          87,
+          98
+        ]
+      ]
+    },
+    {
+      "file": "God-Morgon-Orange-Juice_009.jpg",
+      "sha256": "9cee92d691143cccd303c53993527dc9498f50844dce065416df15b1721c8621",
+      "gtin": "7310860007372",
+      "view": "front",
+      "corners": [
+        [
+          109,
+          99
+        ],
+        [
+          216,
+          60
+        ],
+        [
+          266,
+          316
+        ],
+        [
+          195,
+          346
+        ]
+      ],
+      "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_009.jpg",
+      "patches": [
+        [
+          15,
+          64,
+          92,
+          94
+        ],
+        [
+          16,
+          88,
+          90,
+          111
+        ]
+      ]
+    },
+    {
+      "file": "God-Morgon-Orange-Juice_010.jpg",
+      "sha256": "88ca3691e305aeb250afc301139402ac4f9225db029c72c5ad4b678fd46a3f1a",
+      "gtin": "7310860007372",
+      "view": "front",
+      "corners": [
+        [
+          180,
+          63
+        ],
+        [
+          293,
+          79
+        ],
+        [
+          239,
+          346
+        ],
+        [
+          142,
+          346
+        ]
+      ],
+      "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Juice/God-Morgon-Orange-Juice_010.jpg",
+      "patches": [
+        [
+          6,
+          60,
+          91,
+          84
+        ],
+        [
+          12,
+          82,
+          88,
+          98
+        ]
+      ]
+    }
+  ]
+}

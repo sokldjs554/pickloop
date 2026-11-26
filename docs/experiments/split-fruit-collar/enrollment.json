@@ -1,0 +1,62 @@
+{
+  "gtin": "7310860007259",
+  "coordinate_long_edge": 348,
+  "logoSources": [
+    "d6823c0468728b8b6b955a344cd38e49ef9f015c9d01a55f32ae475ffbc8b5e1",
+    "c585c84e63de3a70b376c7446457af91f56fc254d0a1e2b8fc3a4224f5290766"
+  ],
+  "references": [
+    {
+      "file": "God-Morgon-Orange-Red-Grapefruit-Juice_001.jpg",
+      "sha256": "b25e09ed8682580dceba7826d5c52a046c94dc313d68242327adc6b24746b9f4",
+      "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_001.jpg",
+      "top": [
+        103,
+        80
+      ],
+      "bottom": [
+        106.5,
+        94
+      ]
+    },
+    {
+      "file": "God-Morgon-Orange-Red-Grapefruit-Juice_008.jpg",
+      "sha256": "c585c84e63de3a70b376c7446457af91f56fc254d0a1e2b8fc3a4224f5290766",
+      "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_008.jpg",
+      "top": [
+        187.5,
+        92
+      ],
+      "bottom": [
+        188,
+        105.5
+      ]
+    },
+    {
+      "file": "God-Morgon-Orange-Red-Grapefruit-Juice_016.jpg",
+      "sha256": "d6823c0468728b8b6b955a344cd38e49ef9f015c9d01a55f32ae475ffbc8b5e1",
+      "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_016.jpg",
+      "top": [
+        124,
+        55
+      ],
+      "bottom": [
+        126,
+        70
+      ]
+    },
+    {
+      "file": "God-Morgon-Orange-Red-Grapefruit-Juice_018.jpg",
+      "sha256": "a68dc2b66b9231c5ee629fbb3e4eb75711877d6de3e31b118cb22eb917e3eaeb",
+      "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_018.jpg",
+      "top": [
+        108.5,
+        110
+      ],
+      "bottom": [
+        118,
+        119
+      ]
+    }
+  ]
+}

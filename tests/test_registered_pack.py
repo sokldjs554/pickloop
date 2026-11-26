@@ -21,6 +21,18 @@ def test_shared_pack_face_requires_fruit_artwork_and_separation_from_other_marke
     assert negative['status'] == 'incompatible' and negative['product'] is None
 
 
+def test_comparable_same_volume_artwork_can_veto_a_front_match():
+    winner = dict(hit(gtin='7310860007372', score=8.0, appearance=.95), coverage=.16)
+    competing = dict(hit(gtin='6415130050490', score=5.6, appearance=.98), coverage=.18)
+
+    assert registered_pack.decide([winner])['status'] == 'matched'
+    ambiguous = registered_pack.decide([winner, competing])
+    assert ambiguous['status'] == 'ambiguous' and ambiguous['product'] is None
+    assert registered_pack.decide([winner, dict(competing, coverage=.12)])['product'] == ORANGE
+    bigger = dict(competing, gtin='7310865074768')
+    assert registered_pack.decide([winner, bigger])['product'] == ORANGE
+
+
 def test_nutrition_needs_header_numeric_column_and_lower_text():
     missing_numbers = hit(view='nutrition', score=60, votes=(41, 0, 11), appearance=None)
     assert registered_pack.decide([missing_numbers]) is None

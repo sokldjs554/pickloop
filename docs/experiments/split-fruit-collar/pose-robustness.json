@@ -1,0 +1,88 @@
+{
+  "analysis": "same-photograph sensitivity and prior collar-only regression",
+  "chromium": "156.0.8078.79",
+  "source_image_sha256": "d027f51d6376a6389eb397d4ee579c105d65cb2568b25e5728d3fde7add8c18c",
+  "source_manifest": "../registered-recall/archive-labels.csv",
+  "source_id": "RR-d027f51d6376a638",
+  "generation": "Pillow 13.0.0; Image.open(source).convert(\"RGB\"); ImageEnhance.Brightness(image).enhance(0.9) for dim only; image.save(output,format=\"JPEG\",quality=85).",
+  "helper_sha256": {
+    "before": "d671a1ba6c7937287d61d92a1b811af9298ef33e6de00c3e40e94218c503c3b1",
+    "after": "a5f9c9483d4d331ed469711e527cf9d33aeb21ce76e1f84152c4ac309d3327e9"
+  },
+  "enrollment_gallery_sha256": "9573cb1da20633bdd99e26d9976cdd284c54ec2349b31dc4268b8d1bee1d4054",
+  "printed_region_helper_sha256": "fa51abce5718535fbd0d4b7abe628d4f17a7dc7a4511a48d46e26f57f1ed6775",
+  "input_results": [
+    {
+      "id": "RR-d027f51d6376a638-jpeg85",
+      "sha256": "2cc13c2b54613975506492c9db44a7597d63f7e838a600c00639ccc116414fb8",
+      "collar_weaker_source_score_before_after": [
+        0.895517,
+        0.895517
+      ],
+      "before": {
+        "product": "God-Morgon-Orange-Red-Grapefruit-Juice",
+        "source": "visual",
+        "barcode_order": null
+      },
+      "after": {
+        "product": "God-Morgon-Orange-Red-Grapefruit-Juice",
+        "source": "visual",
+        "barcode_order": null
+      }
+    },
+    {
+      "id": "RR-d027f51d6376a638-dim",
+      "sha256": "1faf1a50629a3e020c344b6534882fe4b9b66e16c43628b177cef187848ae7d6",
+      "collar_weaker_source_score_before_after": [
+        0.876284,
+        0.905512
+      ],
+      "before": {
+        "product": null,
+        "source": "none",
+        "barcode_order": null
+      },
+      "after": {
+        "product": "God-Morgon-Orange-Red-Grapefruit-Juice",
+        "source": "visual",
+        "barcode_order": null
+      }
+    }
+  ],
+  "collar_only": {
+    "unique_photos": 142,
+    "eligible_mixed": 30,
+    "other": 112,
+    "mixed_above_gate_before": 19,
+    "mixed_above_gate_after": 20,
+    "other_above_gate_before": 0,
+    "other_above_gate_after": 0,
+    "previous_per_image_scores": "collar-only.csv",
+    "replay_csv_sha256": "77bb2c7b605539509fa89fb4fedc346a77cea3588c3a67e7be7c36d58b2bb41a",
+    "changed_scores": [
+      {
+        "id": "RR-d70ea18dee87e263",
+        "sha256": "d70ea18dee87e263429c8507f61ad79e265afd9fd08f117ee2842ed56df106e1",
+        "truth": "God-Morgon-Orange-Red-Grapefruit-Juice",
+        "before": [
+          "0.867031",
+          "0.863921"
+        ],
+        "after": [
+          "0.887384",
+          "0.887164"
+        ],
+        "browser_before": {
+          "product": "God-Morgon-Orange-Red-Grapefruit-Juice",
+          "source": "visual",
+          "barcode_order": null
+        },
+        "browser_after": {
+          "product": "God-Morgon-Orange-Red-Grapefruit-Juice",
+          "source": "visual",
+          "barcode_order": null
+        }
+      }
+    ]
+  }
+}
