@@ -61,6 +61,96 @@
         "seed-8-events.jsonl": "86df713c346a049206ce8bba619973bbc6a4a9ab114ef9d19c9b7bd832aeaee5",
         "seed-8-result.json": "a4d5e85c3364b96da6589a5f9702a5a63b1c3c763e2d180fa1a09346fa239564"
       }
+    },
+    {
+      "seed": 11,
+      "fault": "normal",
+      "action_result": {
+        "action_status": 5,
+        "success": false,
+        "status": "CANCELLED",
+        "run_id": "normal-11-recovery-71c094",
+        "reason": "CANCELLED"
+      },
+      "trigger": {
+        "phase": "TRANSPORT",
+        "run_id": "normal-11-recovery-71c094",
+        "sim_time": 5.79,
+        "attempt": 1
+      },
+      "stop_observed_sim_time_s": 6.715,
+      "output_action": "RETAIN",
+      "valve": true,
+      "pressure_kpa": -55.0,
+      "motion_settled": true,
+      "attached": true,
+      "release_attempted": false,
+      "drops": 0,
+      "sha256": {
+        "seed-11-action.jsonl": "56a0a7aab4793b4fe9a5f85b3cfb7f56a500a09a6b8e0cf40b5332ecd43aedc4",
+        "seed-11-events.jsonl": "6bded8822f1c624b7b356ca68ae2dfa43d44e388867ec6d8de7700bc9ac8506b",
+        "seed-11-result.json": "3b69500befe56299c961c28a53adaf487d2553f1ffaf635664886794ea6e5e69"
+      }
+    },
+    {
+      "seed": 19,
+      "fault": "normal",
+      "action_result": {
+        "action_status": 5,
+        "success": false,
+        "status": "CANCELLED",
+        "run_id": "normal-19-recovery-319e3c",
+        "reason": "CANCELLED"
+      },
+      "trigger": {
+        "phase": "TRANSPORT",
+        "run_id": "normal-19-recovery-319e3c",
+        "sim_time": 5.88,
+        "attempt": 1
+      },
+      "stop_observed_sim_time_s": 6.82,
+      "output_action": "RETAIN",
+      "valve": true,
+      "pressure_kpa": -55.0,
+      "motion_settled": true,
+      "attached": true,
+      "release_attempted": false,
+      "drops": 0,
+      "sha256": {
+        "seed-19-action.jsonl": "6b24d7a9feeb6f13c6203d1dd68ee4f6dc8d6ee6e493887b1a9c6453f7b5a8fc",
+        "seed-19-events.jsonl": "9255cb6487102078993c99705ca5cff1379a4fd3909788a375c803f3812d21c2",
+        "seed-19-result.json": "2d2ee60c866b305da10e13a20230d94d3d0cc7d2a8a60aa3035651e12004d21f"
+      }
+    },
+    {
+      "seed": 41,
+      "fault": "suction_once",
+      "action_result": {
+        "action_status": 5,
+        "success": false,
+        "status": "CANCELLED",
+        "run_id": "suction_once-41-recovery-1aee49",
+        "reason": "CANCELLED"
+      },
+      "trigger": {
+        "phase": "TRANSPORT",
+        "run_id": "suction_once-41-recovery-1aee49",
+        "sim_time": 14.245,
+        "attempt": 2
+      },
+      "stop_observed_sim_time_s": 14.925,
+      "output_action": "RETAIN",
+      "valve": true,
+      "pressure_kpa": -55.0,
+      "motion_settled": true,
+      "attached": true,
+      "release_attempted": false,
+      "drops": 0,
+      "sha256": {
+        "seed-41-action.jsonl": "66c52f93aaccb530455ecc7f055815454d9b9985ee4bddcaa41a9feb7bd81106",
+        "seed-41-events.jsonl": "d85e7cd47ae2686db506fc64e13a1214ee4931b25790b041da53c19d48cb007d",
+        "seed-41-result.json": "4d1b2fd51f7afd91e93c3c54ced2979aa1e0d875658b58728949653bcef8489f"
+      }
     }
   ]
 }

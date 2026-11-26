@@ -11,7 +11,7 @@
 <main class="review-main">
 <h1>직무별 검증</h1>
 <p class="intro">지원자가 직접 실행한 피킹 복구 실험과 Codex가 추가 검증한 실물 사진·보정·주행·설비 연동 기록입니다.</p>
-<nav class="review-nav" aria-label="검증 분야"><a href="recognition.html">새 실물 사진 인식</a><a href="orders.html">주문 피킹 검증</a><a href="#work-scene">로봇 작업 영상</a><a href="#personal">직접 수정한 복구 규칙</a><a href="#photos">식료품 인식</a><a href="#bin">박스 인식</a><a href="#handeye">핸드아이 보정</a><a href="#mobile">라이다 SLAM·경로</a><a href="#devices">도킹·충전</a><a href="#plc">설비 연동</a><a href="#ros-transport-cancel">운반 중 취소</a><a href="#kicad">KiCad 회로·PCB</a></nav>
+<nav class="review-nav" aria-label="검증 분야"><a href="recognition.html">새 실물 사진 인식</a><a href="orders.html">주문 피킹 검증</a><a href="#work-scene">로봇 작업 영상</a><a href="#personal">직접 수정한 복구 규칙</a><a href="#photos">식료품 인식</a><a href="#bin">박스 인식</a><a href="#handeye">핸드아이 보정</a><a href="#arm6">6축 경로 탐색</a><a href="#slam-route">라이다 주행</a><a href="#fleet">플릿 혼잡</a><a href="#devices">도킹·충전</a><a href="#plc">설비 연동</a><a href="#ros-transport-cancel">운반 중 취소</a><a href="#kicad">KiCad 회로·PCB</a></nav>
 <section id="work-scene" class="work-film" aria-labelledby="film-title">
   <div class="film-media"><video controls muted playsinline preload="metadata" width="576" height="360"
     poster="media/picking-recovery.jpg?run=suction_once-3000-recovery-f5e7ef" tabindex="0" aria-label="흡착 실패 후 재시도해 빨간 상자를 옮기는 로봇 시뮬레이션">
@@ -133,6 +133,10 @@
 <p>보지 않은 자세의 픽셀 예측 RMS 오차는 5.156 px, 기준판 위치 일관성 RMS 오차는 11.820 mm였습니다. 별도 합성 실험에서는 한 회전축만 움직인 입력을 보정 불가로 판정했습니다.</p>
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/hand-eye.md">좌표계·출처·재현 명령</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/hand-eye/usda-report.json">시험 자세별 오차</a></div></div><figure><img src="data/role/hand-eye.jpg" width="640" alt="공개 로봇 손목 카메라 기록의 시험 체크보드 코너"><figcaption>USDA 공개 데이터에서 보정 계산에 사용하지 않은 체크보드 관측</figcaption></figure></div>
 </section>
+<section id="arm6"><h2>6축 팔이 지그를 우회하는 경로</h2>
+<p>두 관절 자세를 직선으로 이으면 팔이 지그에 10.83 mm 겹칩니다. 같은 장면에서 양방향 RRT-Connect가 세 시드 모두 우회 경로를 찾았습니다. 경로를 따라 검사한 최소 형상 간 거리는 시드별로 12.21, 8.52, 11.90 mm였습니다.</p>
+<p>별도의 정지 자세 시험에서 6번 관절은 12 N·m 요청에 설정 한계인 8 N·m를 출력했습니다. 두 시험 모두 독립된 6축 MuJoCo 모델에서 수행했습니다.</p>
+<div class="evidence-links"><a href="data/role/arm6-planning.json">관절 경유점·토크 기록</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/arm6-planning.md">시험 조건과 재현</a></div></section>
 <section id="mobile"><h2>라이다 지도 작성과 재방문 보정</h2>
 <div class="field-figure"><div><p>시뮬레이터에서 바퀴와 36개 라이다 거리 측정을 기록한 뒤 사전 지도 없이 지도를 재구성했습니다. 같은 방에서 약 16.7 m를 이동한 세 기록의 위치 RMSE는 바퀴만 사용하면 0.616–0.664 m, 재방문 제약으로 자세를 보정하면 0.012–0.022 m였습니다.</p>
 <p>기존 주행·피킹 임무는 알려진 지도와 EKF로 운행합니다. 여기에 표시한 지도는 별도 센서 기록으로 만든 오프라인 평가 결과입니다.</p>
@@ -140,13 +144,22 @@
 </section>
 <section id="slam-route"><h2>라이다로 만든 지도에서 우회 경로 찾기</h2>
 <div class="field-figure"><div><p>시드 7의 바퀴 오도메트리와 라이다 69개 키프레임으로 점유 지도를 재구성하고, 차체 반경과 여유를 합한 0.370 m를 적용해 A*로 6.373 m 우회 경로를 계산했습니다.</p>
-<p>재구성 지도에서 경로 중심선의 최소 여유 하한은 0.380 m였습니다. 장애물을 지나는 직선은 거절했고, 점유 셀과 미관측 셀을 목표로 주면 모두 <code>NO_PATH</code>로 응답했습니다. 모의 센서 기록 한 건의 오프라인 경로 계획 결과입니다.</p>
+<p>재구성 지도에서 경로 중심선의 최소 여유 하한은 0.380 m였습니다. 장애물을 지나는 직선은 거절했고, 점유 셀과 미관측 셀을 목표로 주면 모두 <code>NO_PATH</code>로 응답했습니다.</p>
+<p>이 경로를 별도 시드 23에서 엔코더·라이다 피드백으로 주행했습니다. 22.92초 동안 6.372 m 이동한 뒤 목표에서 4.3 cm 떨어진 곳에 정지했습니다. 새 장애물을 넣으면 1.060 m 주행 후 차체 여유 10.3 cm에서 멈췄습니다.</p>
+<div class="evidence-links"><a href="data/role/slam-drive.json">도착·제동·거절 조건별 기록</a></div>
 <div class="evidence-links"><a href="data/role/slam-route.json">경로 좌표·검사 원문</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/slam-navigation.md">알고리즘과 재현</a></div></div>
-<figure><img src="data/role/slam-route.png" width="670" loading="lazy" alt="라이다 점유 지도에서 장애물을 피하는 파란 우회 경로와 거절된 빨간 직선"><figcaption>시드 7의 재구성 지도와 계획 경로</figcaption></figure></div></section>
+<figure><img src="data/role/slam-route.png" width="670" loading="lazy" alt="라이다 점유 지도에서 장애물을 피하는 파란 우회 경로와 거절된 빨간 직선"><figcaption>시드 7의 재구성 지도와 계획 경로</figcaption></figure></div>
+<h3>빈 지도에서 출발하면</h3>
+<p>시드 31에서는 사전 지도 없이 시작했습니다. 라이다로 이미 본 공간과 아직 못 본 공간의 경계를 찾아 두 곳으로 이동하고, 멈출 때마다 지도를 갱신했습니다. 2.704 m를 주행하는 동안 관측한 자유 셀은 5,926개에서 8,476개로 늘었습니다. 두 구간의 탐색 한도에 도달해 정지했습니다.</p>
+<div class="evidence-links"><a href="data/role/slam-exploration.json">탐색 구간·지도 변화</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/slam-exploration.md">탐색 방법과 재현</a></div></section>
 <section id="devices"><h2>두 대의 이동로봇이 충전기 하나를 공유할 때</h2>
 <p>정상 시뮬레이션에서 첫 AMR이 충전 구역을 비운 뒤 77.80초에 두 번째 AMR이 진입 권한을 얻었습니다. 단자 전압·전류로 적산한 충전량은 각각 0.336370 Wh와 0.288264 Wh였습니다.</p>
 <p>접점 열림, 낮은 전압, 전류 없음, 충전 중 전류 단절을 각각 시험했습니다. 네 경우 모두 첫 차량은 릴레이를 열고 정지했고 다음 차량은 대기했습니다.</p>
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/dock-charging.md">충전 조건·6개 시나리오</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/dock-charging/normal-seed-0/result.json">정상 인계 기록</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/dock-charging/current_interrupt-seed-0/result.json">전류 단절 기록</a></div></section>
+<section id="fleet"><h2>48대가 한 통로를 동시에 요청하면</h2>
+<p>한 호스트에서 독립 로봇 프로세스 48개를 TCP로 중앙 관제기에 연결했습니다. 먼저 진입한 별도 로봇의 연결이 끊기자 48개 모두 대기했습니다. 통로가 비었다는 모의 신호를 받은 뒤 차례로 진입해 384개 작업을 완료했습니다.</p>
+<p>이 실행에서 최대 동시 점유는 1대, 점유 해제 확인 전 진입 허가는 0건이었습니다. 대기 시간의 95백분위는 0.913초였습니다.</p>
+<div class="evidence-links"><a href="data/role/fleet-48.json">48대 시험 결과</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/fleet-contention.md">24대 대조·이벤트 원문과 재현</a></div></section>
 <section id="plc"><h2>밸브를 끄라는 명령의 응답이 끊기면</h2>
 <p>소프트웨어 PLC(Awlsim)와 C++ 제어기를 Modbus TCP로 연결한 시험입니다. 물체를 받침대에 내려놓은 상태에서 밸브 해제를 요청하고, PLC가 보낸 응답 한 건을 의도적으로 끊었습니다.</p>
 <ol>
@@ -155,11 +168,11 @@
 <li><strong>밸브 OFF 확인.</strong> 제어기가 읽은 압력은 0 kPa, 물체 부착 입력은 꺼짐이었습니다. 최종 실행 횟수는 켜기 1회와 끄기 1회를 합한 2회였습니다. <a href="https://github.com/sokldjs554/pickloop/blob/main/runs/plc-interop/steps.jsonl#L11-L13">복구 판정과 최종 상태</a></li>
 </ol>
 <details><summary>명령 자체가 전달되지 않은 경우</summary><p>별도의 시험에서는 해제 요청을 PLC에 전달하기 전에 끊었습니다. 다시 읽은 ID는 이전 명령이었고 밸브는 ON이었습니다. 제어기는 해제 완료를 보류했습니다. <a href="https://github.com/sokldjs554/pickloop/blob/main/runs/plc-interop/steps.jsonl#L8-L9">명령 결과와 유지 상태</a></p></details>
-<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/plc-interop.md">PLC 시험 구성과 재현</a><a href="https://github.com/sokldjs554/pickloop/tree/main/runs/plc-interop">TCP·PLC 스캔 원문</a></div>
+<div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/plc-interop.md">PLC 시험 구성과 재현</a><a href="data/role/plc-retest.json">추가 실행 13단계·TCP 연결 18개</a><a href="https://github.com/sokldjs554/pickloop/tree/main/runs/plc-interop">TCP·PLC 스캔 원문</a></div>
 <div class="evidence-links"><a href="./#integration-evidence">ROS 2 정상·취소·중복 요청 / C++ Modbus TCP 원문</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/hardware-acceptance.md">실물 인수 시험 항목</a></div>
 </section>
 <section id="ros-transport-cancel"><h2>ROS 2에서 물체 운반 중 취소</h2>
-<p>Jazzy DDS 액션이 <code>TRANSPORT</code>를 보고했을 때 취소를 요청했습니다. MuJoCo 시드 7과 8 모두 정지 확인 후 <code>CANCELLED</code>를 반환했습니다. 두 실행에서 밸브 ON·압력 −55 kPa·물체 부착 상태를 유지했고, 해제 명령과 낙하는 각각 0건이었습니다.</p>
+<p>Jazzy DDS 액션이 <code>TRANSPORT</code>를 보고했을 때 취소를 요청했습니다. MuJoCo 시드 7·8·11·19·41에서 모두 정지 확인 후 <code>CANCELLED</code>를 반환했습니다. 시드 41에서는 첫 흡착에 실패해 두 번째 시도에서 운반 중 취소했습니다. 다섯 번 모두 밸브 ON·압력 −55 kPa·물체 부착 상태를 유지했고, 해제 명령과 낙하는 각각 0건이었습니다.</p>
 <div class="evidence-links"><a href="data/role/ros-transport-cancel.json">취소 요청과 정지 결과</a><a href="https://github.com/sokldjs554/pickloop/tree/main/ros2/evidence/transport-cancel">실행별 DDS·제어기 원문</a></div></section>
 <section id="kicad"><h2>KiCad 압력 입력 회로와 PCB</h2>
 <div class="field-figure"><div><p>4–20 mA 전류를 150 Ω에서 0.6–3.0 V로 바꾸는 벤치 실습용 회로를 설계하고, 40 × 23 mm 2층 보드에 배선했습니다. KiCad 9.0.2에서 ERC 오류·경고, DRC 위반과 미연결 패드는 모두 0건이었습니다.</p>

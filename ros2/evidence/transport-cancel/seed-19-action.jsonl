@@ -1,0 +1,31 @@
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "OBSERVE", "run_id": "normal-19-recovery-319e3c", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "OBSERVE", "run_id": "normal-19-recovery-319e3c", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 0.7, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 1.105, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 1.515, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 1.72, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 2.13, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 2.335, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 2.54, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 2.95, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 3.36, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-19-recovery-319e3c", "sim_time": 3.77, "attempt": 1}}
+{"feedback": {"phase": "SEAL", "run_id": "normal-19-recovery-319e3c", "sim_time": 3.9, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-19-recovery-319e3c", "sim_time": 4.1, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-19-recovery-319e3c", "sim_time": 4.51, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-19-recovery-319e3c", "sim_time": 4.715, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-19-recovery-319e3c", "sim_time": 5.125, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-19-recovery-319e3c", "sim_time": 5.535, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-19-recovery-319e3c", "sim_time": 5.74, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-19-recovery-319e3c", "sim_time": 5.88, "attempt": 1}}
+{"cancel_requested": true, "trigger": {"phase": "TRANSPORT", "run_id": "normal-19-recovery-319e3c", "sim_time": 5.88, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-19-recovery-319e3c", "sim_time": 6.085, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-19-recovery-319e3c", "sim_time": 6.295, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-19-recovery-319e3c", "sim_time": 6.5, "attempt": 1}}
+{"feedback": {"phase": "CANCELLED", "run_id": "normal-19-recovery-319e3c", "sim_time": 6.82, "attempt": 1}}
+{"result": {"action_status": 5, "success": false, "status": "CANCELLED", "run_id": "normal-19-recovery-319e3c", "reason": "CANCELLED"}}

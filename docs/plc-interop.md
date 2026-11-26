@@ -47,3 +47,5 @@ For the checked-in recording, the Python standard library is sufficient. The gat
 ```bash
 python plc/run_interop.py --check runs/plc-interop
 ```
+
+같은 배치를 새 프로세스에서 다시 실행하고 결과를 별도로 보관했다. 클라이언트 확인 13단계, TCP 연결 18회, 명령 스캔 7회와 밸브 상태 변경 2회를 확인했다. 실제 PLC 단자에 연결한 배선·전기 출력 결과는 0건이다. [재시험 원문](../runs/plc-interop-retest/) · [물리 장비 검증에 필요한 항목](hardware-acceptance.md#실제-토크와-plc-출력에-필요한-장비)
