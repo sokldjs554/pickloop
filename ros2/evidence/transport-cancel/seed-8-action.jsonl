@@ -1,0 +1,35 @@
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "QUEUED", "run_id": "", "sim_time": 0.0, "attempt": 1}}
+{"feedback": {"phase": "OBSERVE", "run_id": "normal-8-recovery-028bf0", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "OBSERVE", "run_id": "normal-8-recovery-028bf0", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "OBSERVE", "run_id": "normal-8-recovery-028bf0", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 0.5, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 0.9, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 1.105, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 1.515, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 1.925, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 2.13, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 2.335, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 2.745, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 2.95, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 3.36, "attempt": 1}}
+{"feedback": {"phase": "APPROACH", "run_id": "normal-8-recovery-028bf0", "sim_time": 3.565, "attempt": 1}}
+{"feedback": {"phase": "SEAL", "run_id": "normal-8-recovery-028bf0", "sim_time": 3.895, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-8-recovery-028bf0", "sim_time": 4.095, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-8-recovery-028bf0", "sim_time": 4.3, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-8-recovery-028bf0", "sim_time": 4.71, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-8-recovery-028bf0", "sim_time": 4.915, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-8-recovery-028bf0", "sim_time": 5.325, "attempt": 1}}
+{"feedback": {"phase": "LIFT", "run_id": "normal-8-recovery-028bf0", "sim_time": 5.735, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-8-recovery-028bf0", "sim_time": 5.875, "attempt": 1}}
+{"cancel_requested": true, "trigger": {"phase": "TRANSPORT", "run_id": "normal-8-recovery-028bf0", "sim_time": 5.875, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-8-recovery-028bf0", "sim_time": 5.875, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-8-recovery-028bf0", "sim_time": 6.085, "attempt": 1}}
+{"feedback": {"phase": "TRANSPORT", "run_id": "normal-8-recovery-028bf0", "sim_time": 6.29, "attempt": 1}}
+{"feedback": {"phase": "CANCELLED", "run_id": "normal-8-recovery-028bf0", "sim_time": 6.56, "attempt": 1}}
+{"feedback": {"phase": "CANCELLED", "run_id": "normal-8-recovery-028bf0", "sim_time": 6.56, "attempt": 1}}
+{"result": {"action_status": 5, "success": false, "status": "CANCELLED", "run_id": "normal-8-recovery-028bf0", "reason": "CANCELLED"}}

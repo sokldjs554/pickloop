@@ -1,0 +1,378 @@
+(kicad_sch
+    (version 20250114)
+    (generator "eeschema")
+    (generator_version "9.0")
+    (uuid "d14a126f-70dc-5fc9-9cd3-b641210740bc")
+    (paper "A4")
+    (title_block (title "PickLoop pressure input — shunt bench") (rev "0.1") (comment 1 "KiCad practice design / CAD checks only"))
+    (lib_symbols
+        (symbol "Connector:Screw_Terminal_01x02"
+            (pin_names
+                (offset 1.016)
+                (hide yes)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+            (property "Reference" "J"
+                (at 0 2.54 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                )
+            )
+            (property "Value" "Screw_Terminal_01x02"
+                (at 0 -5.08 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                )
+            )
+            (property "Footprint" ""
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "Datasheet" "~"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "ki_keywords" "screw terminal"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "ki_fp_filters" "TerminalBlock*:*"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (symbol "Screw_Terminal_01x02_1_1"
+                (rectangle
+                    (start -1.27 1.27)
+                    (end 1.27 -3.81)
+                    (stroke
+                        (width 0.254)
+                        (type default)
+                    )
+                    (fill
+                        (type background)
+                    )
+                )
+                (polyline
+                    (pts
+                        (xy -0.5334 0.3302) (xy 0.3302 -0.508)
+                    )
+                    (stroke
+                        (width 0.1524)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )
+                (polyline
+                    (pts
+                        (xy -0.5334 -2.2098) (xy 0.3302 -3.048)
+                    )
+                    (stroke
+                        (width 0.1524)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )
+                (polyline
+                    (pts
+                        (xy -0.3556 0.508) (xy 0.508 -0.3302)
+                    )
+                    (stroke
+                        (width 0.1524)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )
+                (polyline
+                    (pts
+                        (xy -0.3556 -2.032) (xy 0.508 -2.8702)
+                    )
+                    (stroke
+                        (width 0.1524)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )
+                (circle
+                    (center 0 0)
+                    (radius 0.635)
+                    (stroke
+                        (width 0.1524)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )
+                (circle
+                    (center 0 -2.54)
+                    (radius 0.635)
+                    (stroke
+                        (width 0.1524)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )
+                (pin passive line
+                    (at -5.08 0 0)
+                    (length 3.81)
+                    (name "Pin_1"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                    (number "1"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                )
+                (pin passive line
+                    (at -5.08 -2.54 0)
+                    (length 3.81)
+                    (name "Pin_2"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                    (number "2"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                )
+            )
+            (embedded_fonts no)
+        )
+        (symbol "Device:R"
+            (pin_numbers
+                (hide yes)
+            )
+            (pin_names
+                (offset 0)
+            )
+            (exclude_from_sim no)
+            (in_bom yes)
+            (on_board yes)
+            (property "Reference" "R"
+                (at 2.032 0 90)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                )
+            )
+            (property "Value" "R"
+                (at 0 0 90)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                )
+            )
+            (property "Footprint" ""
+                (at -1.778 0 90)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "Datasheet" "~"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "Description" "Resistor"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "ki_keywords" "R res resistor"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (property "ki_fp_filters" "R_*"
+                (at 0 0 0)
+                (effects
+                    (font
+                        (size 1.27 1.27)
+                    )
+                    (hide yes)
+                )
+            )
+            (symbol "R_0_1"
+                (rectangle
+                    (start -1.016 -2.54)
+                    (end 1.016 2.54)
+                    (stroke
+                        (width 0.254)
+                        (type default)
+                    )
+                    (fill
+                        (type none)
+                    )
+                )
+            )
+            (symbol "R_1_1"
+                (pin passive line
+                    (at 0 3.81 270)
+                    (length 1.27)
+                    (name "~"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                    (number "1"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                )
+                (pin passive line
+                    (at 0 -3.81 90)
+                    (length 1.27)
+                    (name "~"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                    (number "2"
+                        (effects
+                            (font
+                                (size 1.27 1.27)
+                            )
+                        )
+                    )
+                )
+            )
+            (embedded_fonts no)
+        )
+    )
+    (junction (at 147.32 86.36) (diameter 0) (color 0 0 0 0) (uuid "666a87e9-4616-51d0-90e6-177098d5991c"))
+    (junction (at 147.32 106.68) (diameter 0) (color 0 0 0 0) (uuid "161e73c5-a3b3-5dda-82fc-a2f59a35f316"))
+    (wire (pts (xy 116.84 95.25) (xy 116.84 86.36)) (stroke (width 0) (type default)) (uuid "34caa2d4-a2c1-5b7c-8f38-813cc50e11cb"))
+    (wire (pts (xy 116.84 97.79) (xy 116.84 106.68)) (stroke (width 0) (type default)) (uuid "9adb0afc-e756-5405-b8f3-715fe1954fe6"))
+    (wire (pts (xy 179.07 95.25) (xy 179.07 86.36)) (stroke (width 0) (type default)) (uuid "943e84bf-043b-543a-bb98-1cfcb6862660"))
+    (wire (pts (xy 179.07 97.79) (xy 179.07 106.68)) (stroke (width 0) (type default)) (uuid "729dd601-5ee5-5799-a256-dada642869e4"))
+    (wire (pts (xy 116.84 86.36) (xy 147.32 86.36)) (stroke (width 0) (type default)) (uuid "fc3d5488-6539-54fd-87f5-f2847cfde853"))
+    (wire (pts (xy 147.32 86.36) (xy 179.07 86.36)) (stroke (width 0) (type default)) (uuid "f35b6582-7077-556f-b833-b3cd4ffac4f5"))
+    (wire (pts (xy 116.84 106.68) (xy 147.32 106.68)) (stroke (width 0) (type default)) (uuid "3a31c043-fca5-5afb-b96f-19c7866e589f"))
+    (wire (pts (xy 147.32 106.68) (xy 179.07 106.68)) (stroke (width 0) (type default)) (uuid "875a8968-3312-5c83-a23d-cf92cfc18aaf"))
+    (wire (pts (xy 147.32 86.36) (xy 147.32 92.71)) (stroke (width 0) (type default)) (uuid "3be38af6-8dc9-5af7-88f8-2d181f944d0e"))
+    (wire (pts (xy 147.32 100.33) (xy 147.32 106.68)) (stroke (width 0) (type default)) (uuid "0845281e-7daa-5019-b2f2-85d2fdd9ef28"))
+    (label "V_SENSE" (at 147.32 86.36 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "cf4149da-ea3f-5bc3-bdb8-4c018a613ea7"))
+    (label "BENCH_RETURN" (at 147.32 106.68 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "6d0f31c2-3d48-5a01-8a76-c546d3475967"))
+    (symbol (lib_id "Connector:Screw_Terminal_01x02") (at 111.76 95.25 0)
+        (mirror y)
+        (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+        (uuid "7926f7aa-3278-56d2-9f38-c359e4edeb96")
+        (property "Reference" "J1" (at 111.76 91.44 0) (effects (font (size 1.27 1.27))))
+        (property "Value" "CURRENT IN" (at 109.22 102.87 0) (effects (font (size 1.27 1.27))))
+        (property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" (at 111.76 95.25 0) (effects (font (size 1.27 1.27)) (hide yes)))
+        (pin "1" (uuid "1c2ac077-0790-5a78-8834-9d372afac343"))
+        (pin "2" (uuid "1c06f348-dff8-5073-b2e8-1f4523cdd4b1"))
+        (instances (project "pressure-bench" (path "/d14a126f-70dc-5fc9-9cd3-b641210740bc" (reference "J1") (unit 1))))
+    )
+    (symbol (lib_id "Connector:Screw_Terminal_01x02") (at 184.15 95.25 0)
+        (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+        (uuid "6127660b-c574-542c-b0dc-acc0506f7f8e")
+        (property "Reference" "J2" (at 184.15 91.44 0) (effects (font (size 1.27 1.27))))
+        (property "Value" "VOLTAGE OUT" (at 186.69 102.87 0) (effects (font (size 1.27 1.27))))
+        (property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" (at 184.15 95.25 0) (effects (font (size 1.27 1.27)) (hide yes)))
+        (pin "1" (uuid "e9614edf-2470-5a26-ad5e-a9b269a7546d"))
+        (pin "2" (uuid "dd591298-3a7c-5980-a414-f3edb4466a44"))
+        (instances (project "pressure-bench" (path "/d14a126f-70dc-5fc9-9cd3-b641210740bc" (reference "J2") (unit 1))))
+    )
+    (symbol (lib_id "Device:R") (at 147.32 96.52 0)
+        (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
+        (uuid "ffc25e95-f985-59cc-a6e5-cd3d219e0b11")
+        (property "Reference" "R1" (at 151.13 95.25 0) (effects (font (size 1.27 1.27)) (justify left)))
+        (property "Value" "150R 1% 0.25W" (at 151.13 97.79 0) (effects (font (size 1.27 1.27)) (justify left)))
+        (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 147.32 96.52 0) (effects (font (size 1.27 1.27)) (hide yes)))
+        (pin "1" (uuid "b99ee015-d338-57bd-a5bd-a549c56a288f"))
+        (pin "2" (uuid "3f7af878-9d45-5f44-b150-e947399c1532"))
+        (instances (project "pressure-bench" (path "/d14a126f-70dc-5fc9-9cd3-b641210740bc" (reference "R1") (unit 1))))
+    )
+    (text "4–20 mA pressure input" (exclude_from_sim no) (at 67.31 66.04 0) (effects (font (size 2.54 2.54) (bold yes)) (justify left top)) (uuid "a62409e7-2cab-53f3-bb70-9ca9d41b99bb"))
+    (text "Passive 150 Ω shunt for low-voltage bench measurements" (exclude_from_sim no) (at 67.31 72.39 0) (effects (font (size 1.52 1.52)) (justify left top)) (uuid "0ad241bc-32c7-5da6-8d50-82465222bc4f"))
+    (text "Isolated current source\n4–20 mA nominal\n≤22 mA limit, ≤5 V compliance" (exclude_from_sim no) (at 67.31 93.98 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "11f79cb0-a326-5eec-b28e-6df084546733"))
+    (text "Floating voltmeter\n≥10 MΩ input impedance" (exclude_from_sim no) (at 196.85 93.98 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "ab5132b9-6d02-551d-ac5a-943b326ee0ff"))
+    (text "J1 and J2 pin 1 are positive. Pin 2 is the shared return." (exclude_from_sim no) (at 67.31 119.38 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "e204ad37-09fe-51aa-8a47-007b62f3bb8d"))
+    (text "Expected V_SENSE  •  4 mA → 0.60 V  •  12 mA → 1.80 V  •  20 mA → 3.00 V" (exclude_from_sim no) (at 67.31 124.46 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "1266929d-5fb9-5c1a-b032-b89e7a9f5ffe"))
+    (text "Use an isolated bench source only. Keep field supplies and controllers disconnected." (exclude_from_sim no) (at 67.31 130.81 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "d7538d65-6d98-529c-b1ba-53f415ea2858"))
+    (sheet_instances (path "/" (page "1")))
+    (embedded_fonts no)
+)

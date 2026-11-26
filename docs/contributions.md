@@ -58,3 +58,7 @@ PCB 경험은 [pcb-experience.md](pcb-experience.md)의 확인 문장을 따른�
 등록 상품의 포장 비교와 브라우저 판독, 제조사 디자인 등록, 매장·공개 사진 재검사는 Codex가 수행했다. 첫 평가의 결과와 이미 본 실패 사진을 다시 확인한 결과는 따로 공개했다. [등록품 평가와 기여 범위](experiments/registered-recall/production.md)
 
 Codex가 옆면 사진 판독을 수정하고 기존 매장 사진과 추가로 수집한 유사 상품 옆면에서 검증했다. [판독 전후 기록](experiments/oblique-packages/)
+
+## 최종 직무 대조에서 추가한 검증
+
+Codex가 기존 라이다 센서 기록에서 점유 지도를 다시 만들고 A* 경로 및 보류 대조군을 검증했다. ROS 2 DDS로 운반 중 취소를 요청해 정지와 흡착 유지 결과를 확인했다. KiCad 압력 입력 실습 회로와 2층 PCB도 Codex가 설계하여 ERC·DRC를 실행했다. [지도·경로](slam-navigation.md) · [DDS 취소](ros2-integration.md#물체를-운반할-때-dds로-취소) · [KiCad 실습](../hardware/kicad-pressure-bench/)

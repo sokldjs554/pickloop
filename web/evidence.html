@@ -11,7 +11,7 @@
 <main class="review-main">
 <h1>직무별 검증</h1>
 <p class="intro">지원자가 직접 실행한 피킹 복구 실험과 Codex가 추가 검증한 실물 사진·보정·주행·설비 연동 기록입니다.</p>
-<nav class="review-nav" aria-label="검증 분야"><a href="recognition.html">새 실물 사진 인식</a><a href="orders.html">주문 피킹 검증</a><a href="#work-scene">로봇 작업 영상</a><a href="#personal">직접 수정한 복구 규칙</a><a href="#photos">식료품 인식</a><a href="#bin">박스 인식</a><a href="#handeye">핸드아이 보정</a><a href="#mobile">라이다 SLAM</a><a href="#devices">도킹·충전</a><a href="#plc">설비 연동</a></nav>
+<nav class="review-nav" aria-label="검증 분야"><a href="recognition.html">새 실물 사진 인식</a><a href="orders.html">주문 피킹 검증</a><a href="#work-scene">로봇 작업 영상</a><a href="#personal">직접 수정한 복구 규칙</a><a href="#photos">식료품 인식</a><a href="#bin">박스 인식</a><a href="#handeye">핸드아이 보정</a><a href="#mobile">라이다 SLAM·경로</a><a href="#devices">도킹·충전</a><a href="#plc">설비 연동</a><a href="#ros-transport-cancel">운반 중 취소</a><a href="#kicad">KiCad 회로·PCB</a></nav>
 <section id="work-scene" class="work-film" aria-labelledby="film-title">
   <div class="film-media"><video controls muted playsinline preload="metadata" width="576" height="360"
     poster="media/picking-recovery.jpg?run=suction_once-3000-recovery-f5e7ef" tabindex="0" aria-label="흡착 실패 후 재시도해 빨간 상자를 옮기는 로봇 시뮬레이션">
@@ -138,6 +138,11 @@
 <p>기존 주행·피킹 임무는 알려진 지도와 EKF로 운행합니다. 여기에 표시한 지도는 별도 센서 기록으로 만든 오프라인 평가 결과입니다.</p>
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/lidar-slam.md">실험 프로토콜</a><a href="https://github.com/sokldjs554/pickloop/blob/main/runs/lidar-slam/summary.json">세 경로와 오차 원문</a></div></div><figure><a href="data/role/lidar-map.png"><img src="data/role/lidar-map.png" width="700" alt="seed 7에서 재구성한 점유 지도와 바퀴·스캔·루프 보정 궤적"></a><figcaption>seed 7의 센서 기록으로 재구성한 지도와 궤적</figcaption></figure></div>
 </section>
+<section id="slam-route"><h2>라이다로 만든 지도에서 우회 경로 찾기</h2>
+<div class="field-figure"><div><p>시드 7의 바퀴 오도메트리와 라이다 69개 키프레임으로 점유 지도를 재구성하고, 차체 반경과 여유를 합한 0.370 m를 적용해 A*로 6.373 m 우회 경로를 계산했습니다.</p>
+<p>재구성 지도에서 경로 중심선의 최소 여유 하한은 0.380 m였습니다. 장애물을 지나는 직선은 거절했고, 점유 셀과 미관측 셀을 목표로 주면 모두 <code>NO_PATH</code>로 응답했습니다. 모의 센서 기록 한 건의 오프라인 경로 계획 결과입니다.</p>
+<div class="evidence-links"><a href="data/role/slam-route.json">경로 좌표·검사 원문</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/slam-navigation.md">알고리즘과 재현</a></div></div>
+<figure><img src="data/role/slam-route.png" width="670" loading="lazy" alt="라이다 점유 지도에서 장애물을 피하는 파란 우회 경로와 거절된 빨간 직선"><figcaption>시드 7의 재구성 지도와 계획 경로</figcaption></figure></div></section>
 <section id="devices"><h2>두 대의 이동로봇이 충전기 하나를 공유할 때</h2>
 <p>정상 시뮬레이션에서 첫 AMR이 충전 구역을 비운 뒤 77.80초에 두 번째 AMR이 진입 권한을 얻었습니다. 단자 전압·전류로 적산한 충전량은 각각 0.336370 Wh와 0.288264 Wh였습니다.</p>
 <p>접점 열림, 낮은 전압, 전류 없음, 충전 중 전류 단절을 각각 시험했습니다. 네 경우 모두 첫 차량은 릴레이를 열고 정지했고 다음 차량은 대기했습니다.</p>
@@ -153,5 +158,13 @@
 <div class="evidence-links"><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/plc-interop.md">PLC 시험 구성과 재현</a><a href="https://github.com/sokldjs554/pickloop/tree/main/runs/plc-interop">TCP·PLC 스캔 원문</a></div>
 <div class="evidence-links"><a href="./#integration-evidence">ROS 2 정상·취소·중복 요청 / C++ Modbus TCP 원문</a><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/hardware-acceptance.md">실물 인수 시험 항목</a></div>
 </section>
+<section id="ros-transport-cancel"><h2>ROS 2에서 물체 운반 중 취소</h2>
+<p>Jazzy DDS 액션이 <code>TRANSPORT</code>를 보고했을 때 취소를 요청했습니다. MuJoCo 시드 7과 8 모두 정지 확인 후 <code>CANCELLED</code>를 반환했습니다. 두 실행에서 밸브 ON·압력 −55 kPa·물체 부착 상태를 유지했고, 해제 명령과 낙하는 각각 0건이었습니다.</p>
+<div class="evidence-links"><a href="data/role/ros-transport-cancel.json">취소 요청과 정지 결과</a><a href="https://github.com/sokldjs554/pickloop/tree/main/ros2/evidence/transport-cancel">실행별 DDS·제어기 원문</a></div></section>
+<section id="kicad"><h2>KiCad 압력 입력 회로와 PCB</h2>
+<div class="field-figure"><div><p>4–20 mA 전류를 150 Ω에서 0.6–3.0 V로 바꾸는 벤치 실습용 회로를 설계하고, 40 × 23 mm 2층 보드에 배선했습니다. KiCad 9.0.2에서 ERC 오류·경고, DRC 위반과 미연결 패드는 모두 0건이었습니다.</p>
+<p>이 자료는 Codex가 만든 CAD 실습입니다. 보드 제작과 실물 측정은 미수행입니다.</p>
+<div class="evidence-links"><a href="data/role/pressure-bench-kicad.zip" download>KiCad 프로젝트 다운로드</a><a href="https://github.com/sokldjs554/pickloop/tree/main/hardware/kicad-pressure-bench">원본과 실습 절차</a></div></div>
+<figure><img src="data/role/pressure-bench-layout.svg" width="680" loading="lazy" alt="전류 입력과 출력 측정용 커넥터, 150옴 저항이 배선된 KiCad 2층 PCB"><figcaption>KiCad에서 출력한 배선도</figcaption></figure></div></section>
 <p><a href="https://github.com/sokldjs554/pickloop/blob/main/docs/job-requirements-matrix.md">채용 공고 전체 대응표</a></p>
 </main></body></html>

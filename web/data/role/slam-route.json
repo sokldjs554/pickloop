@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "domain": "offline planning on simulated 2D LiDAR data",
+  "seed": 7,
+  "log_sha256": "4409e7b18ae9f4a2d5b7fa7765a71cd849c5370dcd1e770812d854083c209447",
+  "source_sha256": {
+    "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd",
+    "scripts/run_slam_navigation.py": "a2f5d65da10d5435ed0a834b15ad03b7df11f0ee672aa65d492b9340f95a90be",
+    "src/pickloop/lidar_slam.py": "bbffaa569a6b4efa45efccf89c68bb9b4d04c6f37327561eebcb30e007857795",
+    "src/pickloop/mobile.py": "a95fc8f0e024515b84e3215dfa2266900e560d68f312e524a7f2ce44de4fd402",
+    "src/pickloop/slam_navigation.py": "013be13a633fbf2ca7c30fce1e07a43f5256fc9ce6d84e059c027a782c75e936"
+  },
+  "sensor_keyframes": 69,
+  "frame": "first_scan_xy_m",
+  "grid_resolution_m": 0.07,
+  "grid_origin_xy_m": [
+    -1.2600000000000002,
+    -1.1900000000000002
+  ],
+  "grid_shape_rows_cols": [
+    91,
+    121
+  ],
+  "radius_m": 0.24,
+  "margin_m": 0.13,
+  "route_xy_m": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      2.9749999999999996,
+      0.24499999999999988
+    ],
+    [
+      5.2,
+      2.8
+    ]
+  ],
+  "route_length_m": 6.373086831842201,
+  "grid_centerline_clearance_lower_bound_m": 0.3804610040332703,
+  "direct_line_grid_clear": false,
+  "controls": {
+    "occupied_goal": {
+      "goal_xy_m": [
+        2.3,
+        0.72
+      ],
+      "goal_cell": 100,
+      "status": "NO_PATH"
+    },
+    "unknown_goal": {
+      "goal_xy_m": [
+        2.3,
+        1.4
+      ],
+      "goal_cell": -1,
+      "status": "NO_PATH"
+    }
+  },
+  "held_out_route": {
+    "min_centerline_clearance_m": 0.47603554833376305,
+    "min_body_clearance_m": 0.23603554833376306,
+    "clears_footprint_and_margin": true
+  },
+  "held_out_direct_line": {
+    "min_centerline_clearance_m": 0.0,
+    "min_body_clearance_m": -0.24,
+    "clears_footprint_and_margin": false
+  }
+}

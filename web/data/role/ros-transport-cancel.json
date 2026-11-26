@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "domain": "ROS 2 Jazzy DDS to local MuJoCo simulator",
+  "bridge_image_id": "sha256:d2c48671d5648f5cc524eead381ba8b31e649cd85c579d71a5354d4263261742",
+  "client_sha256": "0c1d0884c5b5b90f5258a121a491bbe3af37deee49d8730aa571391c7dadefa5",
+  "trials": [
+    {
+      "seed": 7,
+      "action_result": {
+        "action_status": 5,
+        "success": false,
+        "status": "CANCELLED",
+        "run_id": "normal-7-recovery-dd94be",
+        "reason": "CANCELLED"
+      },
+      "trigger": {
+        "phase": "TRANSPORT",
+        "run_id": "normal-7-recovery-dd94be",
+        "sim_time": 5.91,
+        "attempt": 1
+      },
+      "stop_observed_sim_time_s": 6.855,
+      "output_action": "RETAIN",
+      "valve": true,
+      "pressure_kpa": -55.0,
+      "motion_settled": true,
+      "attached": true,
+      "release_attempted": false,
+      "drops": 0,
+      "sha256": {
+        "seed-7-action.jsonl": "88a5407a7a272360a06e92e3a7a1e01768fc77a6804af89e6bfc3a5557825bd4",
+        "seed-7-events.jsonl": "47dfb4c7e01d8cdce8044e8638371a3784823d6f6ab053d8d538a01c4fdcae10",
+        "seed-7-result.json": "5609c8b079899ecc51b702ffcba2ea736a3ba2456e2d9cf72a35bf81c773be42"
+      }
+    },
+    {
+      "seed": 8,
+      "action_result": {
+        "action_status": 5,
+        "success": false,
+        "status": "CANCELLED",
+        "run_id": "normal-8-recovery-028bf0",
+        "reason": "CANCELLED"
+      },
+      "trigger": {
+        "phase": "TRANSPORT",
+        "run_id": "normal-8-recovery-028bf0",
+        "sim_time": 5.875,
+        "attempt": 1
+      },
+      "stop_observed_sim_time_s": 6.56,
+      "output_action": "RETAIN",
+      "valve": true,
+      "pressure_kpa": -55.0,
+      "motion_settled": true,
+      "attached": true,
+      "release_attempted": false,
+      "drops": 0,
+      "sha256": {
+        "seed-8-action.jsonl": "bef3739218656b7eba890ecfd42b01940db8b04305907b12cb3bae9a54f97685",
+        "seed-8-events.jsonl": "86df713c346a049206ce8bba619973bbc6a4a9ab114ef9d19c9b7bd832aeaee5",
+        "seed-8-result.json": "a4d5e85c3364b96da6589a5f9702a5a63b1c3c763e2d180fa1a09346fa239564"
+      }
+    }
+  ]
+}
