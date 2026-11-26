@@ -107,13 +107,21 @@ export function conflictingPrint(product, text) {
   return null;
 }
 
+// On a front, the short line immediately before the concentrate statement is
+// a net-capacity field. OCR can merge its decimal and read the L as a one.
+function compactFrontCapacityConflict(product, transcript) {
+  return product === 'God-Morgon-Orange-Juice' &&
+    /^[ \t]*1[.,]?75[ \t]*[l1][ \t]*(?:\r?\n[ \t]*)+juice (?:partly )?from concentrate\b/im.test(transcript);
+}
+
 export function photoDecision(barcodes, panel, transcript) {
   if (barcodes?.kind === 'unregistered') return {kind: 'hold', reason: 'unregistered_code'};
   if (!barcodes || !['empty', 'registered'].includes(barcodes.kind)) return {kind: 'hold', reason: 'barcode'};
   if (panel?.status === 'incompatible' || panel?.status === 'ambiguous') {
     return {kind: 'hold', reason: panel.status};
   }
-  if (barcodes.kind === 'registered' && panel?.product && panel.product !== barcodes.product) {
+  const panelCandidate = panel?.product || panel?.marketCandidate;
+  if (barcodes.kind === 'registered' && panelCandidate && panelCandidate !== barcodes.product) {
     return {kind: 'hold', reason: 'mismatch'};
   }
   const product = barcodes.product || panel?.product;
@@ -121,6 +129,9 @@ export function photoDecision(barcodes, panel, transcript) {
   const conflict = conflictingPrint(product, transcript || '');
   if (conflict) return {kind: 'hold', reason: conflict};
   if (barcodes.kind === 'registered') return {kind: 'barcode', product};
+  if (panel.view === 'front' && compactFrontCapacityConflict(product, transcript || '')) {
+    return {kind: 'hold', reason: 'size'};
+  }
   if (transcript == null) return {kind: 'hold', reason: 'ocr_failed'};
   if (panel.view === 'side-ean-bands') {
     return {kind: 'photo', product, view: panel.view, gtin: panel.gtin, scanBands: panel.scanBands};
@@ -141,6 +152,14 @@ function identityMessage(result) {
     if (result.view === 'oblique-ean') {
       return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 옆면 바코드 ' +
         result.gtin + ' · ' + result.scanLines + '개 선에서 같은 번호를 읽었습니다.';
+    }
+    if (result.view === 'orange-nutrition-values') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] +
+        ' · 앞면 오렌지 표기와 옆면 영양표에서 가려지지 않은 네 줄의 끝을 대조했습니다.';
+    }
+    if (result.view === 'orange-rear-print') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] +
+        ' · 접힌 윗면의 orange 글자, 뒷면 문단과 이어진 옆면 영양표를 확인했습니다.';
     }
     if (result.view === 'orange-nutrition-heading') {
       return '등록 상품 사진 판정 · ' + productLabels[result.product] +

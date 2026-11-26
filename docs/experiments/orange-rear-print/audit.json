@@ -1,0 +1,43 @@
+{
+  "helper_sha256": "782081ac72abe32731352e29e4336153b392515ea8586100ea8cbe4e46088358",
+  "source_pdf": {
+    "title": "English in Swedish product packages",
+    "author": "Inga-Lena Bohm Fiederling",
+    "term": "Autumn 2014",
+    "url": "https://www.diva-portal.org/smash/get/diva2%3A784978/FULLTEXT01.pdf",
+    "sha256": "33ed2cc12fcb32988166faf79f57910f28b511e40355238f4ac553822c1cbea3",
+    "images": [
+      {
+        "object": 127,
+        "sha256": "0c4cd4089f4ff9a828ae5254251776668fe3b9dd16f4f1d009d205dcc0adc742"
+      },
+      {
+        "object": 128,
+        "sha256": "92fa3d587b8742e5b5a588ad69d3c06073d72c549221f2cb89aa11b4154cb622"
+      },
+      {
+        "object": 131,
+        "sha256": "96734535e3ee48561289a575ae8aeb2e0a9b7bf63bd986579fef158ebcae9a68"
+      },
+      {
+        "object": 132,
+        "sha256": "3e4751e3778cc579f56f3c0e9ad8b87d7cd2a497212d4c29e89e0efa029041d0"
+      }
+    ]
+  },
+  "cancel": {
+    "phase": "while secondary roof OCR was active",
+    "observed_workers": 4,
+    "distinct_ocr_workers": 2,
+    "remaining_after_cancel": 0,
+    "result_hidden": true,
+    "visible_status": "사진 읽기를 취소했습니다.",
+    "seconds_when_cancelled": 72.31
+  },
+  "nutrition_gallery_sha256": "06ab76f7ea82792308fd3d3387267a0d623d08a9c35bbddf6cef854dc2d3e983",
+  "additional_donor": {
+    "id": "God-Morgon-Red-Grapefruit-Juice_021.jpg",
+    "sha256": "9115de7029ffa8e1420b9718fd39dfdaeae7da7e56b2a69449fde262d8afcff3",
+    "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Red-Grapefruit-Juice/God-Morgon-Red-Grapefruit-Juice_021.jpg"
+  }
+}

@@ -93,13 +93,22 @@ def fit_correlation(query, reference):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("cache", type=Path, help="Working directory for original images named by SHA-256")
-    cache = parser.parse_args().cache
+    parser.add_argument("--study-figure", type=Path, help="Optional native JPEG XObject 132 extracted from the 2014 thesis")
+    args = parser.parse_args()
+    cache = args.cache
     cache.mkdir(parents=True, exist_ok=True)
     templates = {}
     for volume, (url, digest, corners) in REFERENCES.items():
         photo = load_image(cache, url, digest, cv2.IMREAD_GRAYSCALE)
         panel = rectify(photo, corners, 160, 33, cv2.INTER_LINEAR)
         templates[volume] = bandpass(panel, (0.6, 1.2))
+    if args.study_figure:
+        raw = args.study_figure.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != "3e4751e3778cc579f56f3c0e9ad8b87d7cd2a497212d4c29e89e0efa029041d0":
+            raise ValueError("Expected the unmodified 711 x 404 px apple XObject from Appendix A")
+        photo = cv2.imdecode(np.frombuffer(raw, np.uint8), cv2.IMREAD_GRAYSCALE)
+        corners = [(499, 86), (708, 87), (707, 119), (500, 118)]
+        templates["2014 1 L"] = bandpass(rectify(photo, corners, 160, 33, cv2.INTER_LINEAR), (0.6, 1.2))
     for sample, (url, digest, corners) in QUERIES.items():
         photo = load_image(cache, url, digest, cv2.IMREAD_COLOR)
         panel = rectify(photo, corners, 330, 570, cv2.INTER_CUBIC)

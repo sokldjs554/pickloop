@@ -178,6 +178,13 @@ async function readOrangeNutrition(rgba, matcher, registry, footprint) {
     }
     return poses.sort((a,b) => b.inliers-a.inliers)[0];
   });
-  if (!best || !registry[best.gtin] || !orangeHeadingSearch(rgba,best,orangeHeaderTemplate(parts.header))) return null;
-  return {product:registry[best.gtin], gtin:best.gtin, view:'orange-nutrition-heading', inliers:best.inliers};
+  if (!best || !registry[best.gtin]) return null;
+  const identity = {product:registry[best.gtin], gtin:best.gtin, inliers:best.inliers};
+  if (orangeHeadingSearch(rgba,best,orangeHeaderTemplate(parts.header))) {
+    return {...identity, view:'orange-nutrition-heading'};
+  }
+  if (typeof readOrangeValues === 'function' && await readOrangeValues(rgba,best)) {
+    return {...identity, view:'orange-nutrition-values'};
+  }
+  return null;
 }

@@ -230,6 +230,46 @@ test('a recovered front needs fruit-region matches and a foreground panel', asyn
   assert.equal(decide(primary, sibling).status, 'ambiguous');
 });
 
+test('same-face visual uncertainty holds an orange name while preserving an independent optical identity', async () => {
+  const {createContext, runInContext} = await import('node:vm');
+  const worker = createContext({self: {}, importScripts() {}});
+  runInContext(await readFile(new URL('../web/vendor/package-reader/panel-worker.js', import.meta.url), 'utf8'), worker);
+  const gtin = '7310860007372', product = 'God-Morgon-Orange-Juice';
+  const registry = {...registered, [gtin]: product};
+  const footprint = [[.3,.2],[.5,.2],[.5,.8],[.3,.8]];
+  const visual = {gtin, view:'front', inliers:100, votes:[100,4], score:10, appearance:.98, footprint,
+    centerDistance:.1, areaFraction:.25};
+  const rival = {...visual, gtin:'6415130050490', score:5, appearance:.975, inliers:51, votes:[50,1]};
+  const resolve = other => worker.panelDecision([visual, other], registry);
+  const pending = resolve(rival);
+  const currentReader = reader;
+  assert.equal(pending.status, 'market_unverified');
+  assert.equal(resolve({...rival, appearance:.95}).product, product);
+  const anotherFace = footprint.map(([x,y]) => [x+.4, y]);
+  assert.equal(resolve({...rival, footprint:anotherFace}).product, product);
+  assert.equal(currentReader.photoDecision({kind:'empty',codes:[]}, pending, 'orange').kind, 'hold');
+  const barcode = {kind:'registered',codes:[gtin],product};
+  assert.equal(currentReader.photoDecision(barcode, pending, 'orange').kind, 'barcode');
+  assert.equal(currentReader.photoDecision(barcode, {product:'God-Morgon-Apple-Juice'}, '').reason, 'mismatch');
+  const unrelated = {kind:'registered', codes:['7310865074225'], product:'God-Morgon-Apple-Juice'};
+  assert.equal(currentReader.photoDecision(unrelated, pending, '').reason, 'mismatch');
+});
+
+test('compact capacity OCR is evaluated only with the concentrate footer and visual front', async () => {
+  const currentReader = reader;
+  const product = 'God-Morgon-Orange-Juice';
+  const panel = {product, view:'front', inliers:80};
+  const empty = {kind:'empty', codes:[]};
+  const printed = '1751\n\nJUICE FROM CONCENTRATE WITH JUICY BTS';
+  assert.equal(currentReader.photoDecision(empty, panel, printed).reason, 'size');
+  assert.equal(currentReader.photoDecision(empty, panel, '1251\nJuice partly from concentrate').kind, 'photo');
+  assert.equal(currentReader.photoDecision(empty, panel, '1001\nJuice from concentrate').kind, 'photo');
+  assert.equal(currentReader.photoDecision(empty, panel, '1751\nOrange juice\nJuice from concentrate').kind, 'photo');
+  assert.equal(currentReader.photoDecision(empty, {...panel, view:'ingredients'}, printed).kind, 'photo');
+  const barcode = {kind:'registered', product, codes:['7310860007372']};
+  assert.equal(currentReader.photoDecision(barcode, panel, printed).kind, 'barcode');
+});
+
 test('a slanted EAN read identifies the photo while standard order checks and printed size still apply', () => {
   const gtin = '7310865074225';
   const panel = {view: 'oblique-ean', product: registered[gtin], gtin, scanLines: 2};
