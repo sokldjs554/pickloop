@@ -217,6 +217,17 @@ test('a slanted EAN read identifies the photo while standard order checks and pr
   assert.equal(reader.photoDecision(differentOptical, panel, '').reason, 'mismatch');
 });
 
+test('a two-band side barcode identifies only the photograph and respects conflicting evidence', () => {
+  const gtin = '7310865074225';
+  const panel = {view: 'side-ean-bands', product: registered[gtin], gtin, scanBands: 2};
+  const empty = {kind: 'empty', codes: []};
+  assert.deepEqual(reader.photoDecision(empty, panel, ''), {...panel, kind: 'photo'});
+  assert.equal(reader.photoDecision(empty, panel, '1.75 L').reason, 'size');
+  assert.equal(reader.photoDecision(empty, panel, null).reason, 'ocr_failed');
+  assert.equal(reader.photoDecision({kind: 'multiple'}, panel, '').kind, 'hold');
+  assert.equal(reader.photoDecision({kind: 'registered', product: 'another pack'}, panel, '').reason, 'mismatch');
+});
+
 test('store retry examples use the same PNG bytes as the measured uploads', async () => {
   const {createHash} = await import('node:crypto');
   const html = await readFile(new URL('../web/recognition.html', import.meta.url), 'utf8');

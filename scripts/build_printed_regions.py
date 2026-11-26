@@ -40,9 +40,13 @@ def build(row, payload):
         compact = np.rint(127 * contrast / np.max(np.abs(contrast))).astype(np.int8)
         zones.append(dict(box=[int(xx), int(yy), int(right), int(bottom)], size=list(size),
                           minimum=minimum, contrast=base64.b64encode(compact.tobytes()).decode()))
-    return dict(id=row["id"], gtin=row["gtin"], width=gray.shape[1], height=gray.shape[0],
+    template = dict(id=row["id"], gtin=row["gtin"], width=gray.shape[1], height=gray.shape[0],
                 points=[[round(k.pt[0],2),round(k.pt[1],2)] for k in keys],
                 descriptors=base64.b64encode(desc.tobytes()).decode(), details=zones)
+    if row.get("oblique"):
+        template["oblique"] = True
+        template["sourceHash"] = row["sha256"]
+    return template
 
 
 if __name__ == "__main__":
@@ -50,7 +54,9 @@ if __name__ == "__main__":
     parser.add_argument("manifest", type=Path)
     parser.add_argument("sources", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument('--additional', type=Path, action='append', default=[],
+                        help='Append separately versioned enrollment annotations')
     args = parser.parse_args()
     refs = [build(row, (args.sources/row["file"]).read_bytes())
-            for row in json.loads(args.manifest.read_text())]
+            for manifest in [args.manifest, *args.additional] for row in json.loads(manifest.read_text())]
     args.output.write_text(json.dumps(dict(version=1, templates=refs), separators=(',',':'))+'\n')

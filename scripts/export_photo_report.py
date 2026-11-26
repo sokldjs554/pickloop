@@ -234,7 +234,8 @@ def store_photo_study():
 def side_lettering_study():
     studies = ROOT / "docs/experiments"
     ledgers = (studies / "store-package-recovery/archive-browser.jsonl",
-               studies / "side-panel-lettering/browser.jsonl")
+               studies / "side-panel-lettering/browser.jsonl",
+               studies / "side-panel-retry/browser.jsonl")
     predictions = []
     for path in ledgers:
         rows = [json.loads(line) for line in path.read_text().splitlines()]
@@ -270,14 +271,14 @@ def side_lettering_study():
     scores = []
     for group, label in labels:
         outcomes = selected[group]
-        before, after = zip(*outcomes, strict=True)
-        scores.append((label, f"{sum(before)} / {len(outcomes)}장", f"{sum(after)} / {len(outcomes)}장"))
+        scores.append((label, *(f"{sum(column)} / {len(outcomes)}장"
+                                for column in zip(*outcomes, strict=True))))
     return ("<h3>기존 매장 사진의 상품 인식 비교</h3>"
-            "<p>같은 원본을 브라우저에 다시 올려 v24와 v25를 비교했습니다. 포장 후보가 모호할 때 "
-            "같은 위치에서 브랜드와 두 맛 표기가 모두 맞으면 혼합주스를 식별합니다.</p>"
-            + table(("사진 조건", "v24", "v25"), scores)
-            + "<p>사과 옆면 두 장은 1 L 규격을 확인하기 어려워 보류했습니다. "
-            "새 매장에서 촬영한 전체 옆면 평가 사진은 사과 0건, 혼합주스 0건입니다.</p>")
+            "<p>같은 원본을 브라우저에 다시 올려 비교했습니다. 사과는 옆면 바코드의 떨어진 두 영역에서 "
+            "읽은 번호가 일치하는지 확인합니다. 혼합주스는 같은 팩에서 브랜드와 두 맛의 표기를 대조합니다.</p>"
+            + table(("사진 조건", "v24", "v25", "이번 재시험"), scores)
+            + "<p>새 매장에서 촬영한 전체 옆면 평가 사진은 사과 0건, 혼합주스 0건입니다.</p>"
+            + '<p><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-panel-retry">사진별 판정과 재현 방법</a></p>')
 
 
 def oblique_photo_study():

@@ -69,3 +69,5 @@
 ## Isaac Sim 실행 환경
 
 NVIDIA 공식 요구사항에서 Linux 컨테이너와 RTX 지원 GPU를 확인했다. 현재 실행 환경에서 NVIDIA 장치와 런타임을 찾지 못해 Isaac Sim 실행 증거는 0건이다. Mac에서 GPU 워크스테이션에 접속하는 방식은 NVIDIA가 안내하는 별도 스트리밍 구성이다. 이 저장소의 MuJoCo 결과를 Isaac Sim 실행으로 집계하지 않는다. [시스템 요구사항](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html) · [Linux 컨테이너 설치](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_container.html) · [스트리밍 설명](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_faq.html)
+
+사용자가 노트북에서 조회한 장치는 Tesla T4 두 장(각 15,360 MiB), 드라이버 580.178.04였다. [Colab·Kaggle 점검 노트북](experiments/isaac-sim/notebook.ipynb)은 GPU 정보를 저장하고, 선택 실행 시 별도 Python 3.11 환경에 Isaac Sim 5.1.0을 설치해 상자의 시작·종료 높이와 정지 속도를 확인한다. 현재 확보한 것은 장치 조회 결과다. 해당 세션의 물리 실행 결과는 아직 0건이다.

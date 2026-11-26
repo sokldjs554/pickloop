@@ -27,17 +27,18 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--chromium", default="/usr/bin/chromium")
     parser.add_argument("--web", type=Path, default=ROOT / "web")
-    parser.add_argument("--release", choices=("v23", "recovery"), default="v23")
+    parser.add_argument("--release", choices=("v23", "recovery", "side-retry"), default="v23")
     args = parser.parse_args()
     web = args.web.resolve()
     freeze = json.loads((HERE.parent / "candidate-models.json").read_text())
     assets = dict(freeze["browser"])
     assets["package-reader.js"] = freeze["browser_release"]["form_script_sha256"]
     manifest = HERE / "inputs.csv"
-    if args.release == "recovery":
-        study = HERE.parents[1] / "store-package-recovery"
-        assets = json.loads((study / "browser-freeze.json").read_text())
-        manifest = study / "field-inputs.csv"
+    if args.release in ("recovery", "side-retry"):
+        experiments = HERE.parents[1]
+        manifest = experiments / "store-package-recovery/field-inputs.csv"
+        study = "side-panel-retry" if args.release == "side-retry" else "store-package-recovery"
+        assets = json.loads((experiments / study / "browser-freeze.json").read_text())
     for name, expected in assets.items():
         verify((web / name).read_bytes(), expected, name)
     originals = {}
