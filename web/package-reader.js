@@ -112,13 +112,20 @@ export function photoDecision(barcodes, panel, transcript) {
   if (conflict) return {kind: 'hold', reason: conflict};
   if (barcodes.kind === 'registered') return {kind: 'barcode', product};
   if (transcript == null) return {kind: 'hold', reason: 'ocr_failed'};
+  if (panel.view === 'oblique-ean') {
+    return {kind: 'photo', product, view: panel.view, gtin: panel.gtin, scanLines: panel.scanLines};
+  }
   return {kind: 'photo', product, view: panel.view, inliers: panel.inliers};
 }
 
 function identityMessage(result) {
   if (result.kind === 'barcode') return '';
   if (result.kind === 'photo') {
-    const view = {front: '앞면', nutrition: '영양 표시', ingredients: '성분 표시'}[result.view] || '포장 면';
+    if (result.view === 'oblique-ean') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 옆면 바코드 ' +
+        result.gtin + ' · ' + result.scanLines + '개 선에서 같은 번호를 읽었습니다.';
+    }
+    const view = {lettering: '브랜드·맛 표기', front: '앞면', nutrition: '영양 표시', ingredients: '성분 표시'}[result.view] || '포장 면';
     return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 기준 사진과 ' + view + ' 특징 ' + result.inliers + '곳 일치';
   }
   return ({
@@ -267,6 +274,11 @@ function bindReader() {
   const example = byId('example'), credit = byId('credit');
   const confirmExample = byId('confirm'), confirmCredit = byId('confirm-credit');
   const identity = byId('identity'), visualExample = byId('visual-example'), visualCredit = byId('visual-credit');
+  const samples = [example, confirmExample, visualExample, byId('store-apple'), byId('store-mixed')].filter(Boolean);
+  function setButtonsDisabled(disabled) {
+    submit.disabled = disabled;
+    for (const button of samples) button.disabled = disabled;
+  }
   let active, previewURL;
   function stop(message) {
     active?.abort();
@@ -277,7 +289,7 @@ function bindReader() {
       URL.revokeObjectURL(previewURL);
       previewURL = null;
     }
-    submit.disabled = confirmExample.disabled = example.disabled = false;
+    setButtonsDisabled(false);
     resultPanel.hidden = confirmCredit.hidden = credit.hidden = true;
     cancel.hidden = true;
     form.removeAttribute('aria-busy');
@@ -285,7 +297,6 @@ function bindReader() {
     if (retake) retake.hidden = true;
     barcode.textContent = text.textContent = '';
     if (identity) { identity.textContent = ''; delete identity.dataset.source; delete identity.dataset.product; }
-    if (visualExample) visualExample.disabled = false;
     if (visualCredit) visualCredit.hidden = true;
   }
   input.addEventListener('change', () => stop(input.files?.length ? '사진을 선택했습니다. 사진 읽기를 눌러 주세요.' : ''));
@@ -295,9 +306,7 @@ function bindReader() {
     event.preventDefault();
     run();
   });
-  visualExample?.addEventListener('click', () => run(visualExample));
-  example.addEventListener('click', () => run(example));
-  confirmExample.addEventListener('click', () => run(confirmExample));
+  for (const button of samples) button.addEventListener('click', () => run(button));
 
   async function run(sample) {
     stop('');
@@ -309,8 +318,7 @@ function bindReader() {
     const job = new AbortController();
     active = job;
     const signal = job.signal;
-    submit.disabled = confirmExample.disabled = example.disabled = true;
-    if (visualExample) visualExample.disabled = true;
+    setButtonsDisabled(true);
     cancel.hidden = false;
     form.setAttribute('aria-busy', 'true');
     status.textContent = sample ? '예시 사진을 여는 중입니다.' : '사진을 여는 중입니다.';
@@ -384,7 +392,9 @@ function bindReader() {
         barcode.textContent = decision.kind === 'barcode' ? barcodeMessage(barcodes)
           : '상품 확정 보류 · 읽은 등록 바코드 ' + barcodes.codes[0];
       }
-      if (decision.kind === 'photo') barcode.textContent = '주문 규격 확정 보류 · 바코드를 읽지 못했습니다.';
+      if (decision.kind === 'photo') barcode.textContent = decision.view === 'oblique-ean'
+        ? '주문 규격 확정 보류 · 바코드를 정면에서 다시 확인해 주세요.'
+        : '주문 규격 확정 보류 · 바코드를 읽지 못했습니다.';
       if (identity) {
         identity.dataset.source = {photo: 'visual', barcode: 'barcode', hold: 'none'}[decision.kind];
         identity.dataset.product = decision.product || '';
@@ -400,8 +410,7 @@ function bindReader() {
       clearTimeout(timer);
       if (active === job) {
         active = null;
-        if (visualExample) visualExample.disabled = false;
-        submit.disabled = confirmExample.disabled = example.disabled = false;
+        setButtonsDisabled(false);
         cancel.hidden = true;
         form.removeAttribute('aria-busy');
       }

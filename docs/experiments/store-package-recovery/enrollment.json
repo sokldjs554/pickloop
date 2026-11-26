@@ -1,0 +1,158 @@
+[
+  {
+    "id": "mixed-current",
+    "file": "current.png",
+    "gtin": "7310860007259",
+    "sha256": "2d8d8ce49fce007dfaa48f7ac54cf3a566625bcdd4614779f6a687ef15c42857",
+    "crop": [
+      5,
+      105,
+      148,
+      262
+    ],
+    "zones": [
+      [
+        45,
+        117,
+        110,
+        177
+      ],
+      [
+        41,
+        189,
+        109,
+        210
+      ],
+      [
+        9,
+        210,
+        145,
+        231
+      ]
+    ],
+    "minima": [
+      0.43,
+      0.5,
+      0.5
+    ],
+    "source": "https://images.arla.com/filename/07310860007259_C1N1.PNG?width=1400&height=1400&format=png&mode=boxpad"
+  },
+  {
+    "id": "mixed-classic",
+    "file": "God-Morgon-Orange-Red-Grapefruit-Juice_008.jpg",
+    "gtin": "7310860007259",
+    "sha256": "c585c84e63de3a70b376c7446457af91f56fc254d0a1e2b8fc3a4224f5290766",
+    "crop": [
+      5,
+      42,
+      243,
+      263
+    ],
+    "zones": [
+      [
+        80,
+        51,
+        185,
+        143
+      ],
+      [
+        26,
+        145,
+        233,
+        184
+      ],
+      [
+        43,
+        181,
+        218,
+        219
+      ]
+    ],
+    "minima": [
+      0.43,
+      0.5,
+      0.5
+    ],
+    "face": {
+      "corners": [
+        [
+          137,
+          100
+        ],
+        [
+          232,
+          85
+        ],
+        [
+          231,
+          311
+        ],
+        [
+          149,
+          331
+        ]
+      ],
+      "coordinate_long_edge": 348
+    },
+    "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_008.jpg"
+  },
+  {
+    "id": "mixed-classic-angle",
+    "file": "God-Morgon-Orange-Red-Grapefruit-Juice_016.jpg",
+    "gtin": "7310860007259",
+    "sha256": "d6823c0468728b8b6b955a344cd38e49ef9f015c9d01a55f32ae475ffbc8b5e1",
+    "crop": [
+      25,
+      33,
+      222,
+      244
+    ],
+    "zones": [
+      [
+        74,
+        43,
+        161,
+        124
+      ],
+      [
+        50,
+        132,
+        211,
+        167
+      ],
+      [
+        46,
+        163,
+        202,
+        195
+      ]
+    ],
+    "minima": [
+      0.43,
+      0.5,
+      0.5
+    ],
+    "face": {
+      "corners": [
+        [
+          66,
+          70
+        ],
+        [
+          177,
+          40
+        ],
+        [
+          241,
+          322
+        ],
+        [
+          143,
+          347
+        ]
+      ],
+      "coordinate_long_edge": 348
+    },
+    "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_016.jpg"
+  }
+]
