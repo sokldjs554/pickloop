@@ -2,7 +2,9 @@
 
 This study asks whether a shopper's photo of a similar God Morgon drink can be assigned to a registered product or approved as an exact order. The registry contains four GTINs. Each package in this challenge has a verified GTIN outside those four.
 
-## v28 baseline and final retest
+[Latest printed-title retest and runnable notebook](printed-titles/README.md)
+
+## v28 baseline and v29 retest
 
 The final reader was evaluated on the same 16 source files. Developers examined the Finnish Apple 1 L control after the first candidate returned the registered Swedish product name. The Norwegian Smooth Orange 1.75 L photograph was also examined while implementing the browser capacity check. Both are targeted retests. All 16 final results are repeat measurements on this frozen set.
 

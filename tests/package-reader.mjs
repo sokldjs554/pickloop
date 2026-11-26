@@ -303,3 +303,26 @@ test('store retry examples use the same PNG bytes as the measured uploads', asyn
     assert.equal(createHash('sha256').update(data).digest('hex'), records.find(row => row.id === id).sha256);
   }
 });
+
+test('outside titles require a heading and two aligned, legible flavor words', async () => {
+  const {outsideTitle} = await import('../web/outside-title.js');
+  const selected = ['SELECTED', 28, 17, 167, 48];
+  const citrus = ['CITRUS', 208, 18, 123, 50];
+  const blood = ['BLOOD', 109, 75, 139, 47];
+  const orange = ['ORANGE', 94, 128, 168, 48];
+  function read(rows) {
+    const tsv = rows.map(([word, x, y, w, h, confidence = 92]) =>
+      [5, 1, 1, 1, 1, 1, x, y, w, h, confidence, word].join('\t')).join('\n');
+    return outsideTitle(tsv, 347);
+  }
+  assert.equal(read([selected, citrus, blood, orange]), '블러드오렌지');
+  assert.equal(read([selected, ['BLEND', 208, 18, 123, 50], ['ORANGE', ...blood.slice(1)],
+    ['MANGO', ...orange.slice(1)]]), '오렌지·망고');
+  assert.equal(read([selected, citrus, blood]), null);
+  assert.equal(read([citrus, blood, orange]), null);
+  assert.equal(read([['ELECTED', ...selected.slice(1)], ['CITAYG', ...citrus.slice(1)], blood, orange]), null);
+  assert.equal(read([selected, ['CITAYG', ...citrus.slice(1)], blood, orange]), '블러드오렌지');
+  assert.equal(read([selected, citrus, blood, ['ORANGE', 230, 128, 110, 48]]), null);
+  assert.equal(read([selected, citrus, blood, [...orange, 40]]), null);
+  assert.equal(read([selected, citrus, blood, orange, orange]), null);
+});
