@@ -1,0 +1,181 @@
+{
+  "baseline_revision": "719b31ab978f0beb2997a4cd868771ce92071e3e",
+  "baseline_worker_sha256": "2baf0af074929050577beefdf17e679976e27f739bbb22fd40714520235e347a",
+  "updated_worker_sha256": "9567bc4e79d992b1b9d8faa0a706a05624d1361ecd0aa1b80707da14ed0b5c9f",
+  "registered_pack_gallery_sha256": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b",
+  "target": {
+    "product_gtin": "6415130050506",
+    "input": "U29-d09d2b4e2f1b3aad.png",
+    "sha256": "d09d2b4e2f1b3aad8836faefffe099106c6c1a37425940154c719eb8fe844cbf"
+  },
+  "baseline_target_first_pass": {
+    "panel_decision": {
+      "product": "God-Morgon-Apple-Juice",
+      "view": "front",
+      "inliers": 205
+    },
+    "top_visual_candidates": [
+      {
+        "id": "ARLA-55f09abff8b47d20",
+        "gtin": "7310865074225",
+        "view": "front",
+        "inliers": 205,
+        "votes": [
+          167,
+          13
+        ],
+        "cover": 0.291130693327149,
+        "score": 8.712759620014687,
+        "appearance": 0.9630555992983353,
+        "centerDistance": 0.09562207245610663,
+        "areaFraction": 0.18785135268415526
+      },
+      {
+        "id": "SZ-68545337fabb522c",
+        "gtin": "6415130050490",
+        "view": "front",
+        "inliers": 188,
+        "votes": [
+          134,
+          0
+        ],
+        "cover": 0.15568125272806638,
+        "score": 1.6603312751572203,
+        "appearance": 0.7194677787925461,
+        "centerDistance": 0.09781325620236557,
+        "areaFraction": 0.1929278826553303
+      },
+      {
+        "id": "NX-20227763df0f3621",
+        "gtin": "6415130089827",
+        "view": "front",
+        "inliers": 73,
+        "votes": [
+          73,
+          0
+        ],
+        "cover": 0.09039882110530414,
+        "score": 1.2108532157380911,
+        "appearance": 0.7629180245006014,
+        "centerDistance": 0.10907166540891615,
+        "areaFraction": 0.20570612085864756
+      }
+    ]
+  },
+  "identity_text_calibration": {
+    "horizontal_region": [
+      0.05,
+      0.95
+    ],
+    "vertical_region": [
+      0.365,
+      0.4
+    ],
+    "min_inliers": 4,
+    "min_fraction_of_width": 0.25,
+    "aligned_probe_cases": [
+      {
+        "input": "U29-d09d2b4e2f1b3aad.png",
+        "sha256": "d09d2b4e2f1b3aad8836faefffe099106c6c1a37425940154c719eb8fe844cbf",
+        "front_inliers": 205,
+        "tagline_inliers": 2,
+        "tagline_fraction_of_width": 0.10285714285714287
+      },
+      {
+        "input": "ARLA-55f09abff8b47d20.jpg",
+        "sha256": "55f09abff8b47d20c7d4ff58746184103f64fe44753c2ad02cc325ee03479c72",
+        "front_inliers": 882,
+        "tagline_inliers": 98,
+        "tagline_fraction_of_width": 0.6590476190476191
+      },
+      {
+        "input": "RR-08be70619c12080f",
+        "sha256": "08be70619c12080fdc66bc000e314cadbd05173509c7d6ae0d343f13d1e8fda8",
+        "front_inliers": 629,
+        "tagline_inliers": 17,
+        "tagline_fraction_of_width": 0.47523809523809524
+      }
+    ]
+  },
+  "updated_target_worker": {
+    "panel_decision": null,
+    "top_matches": [
+      {
+        "recovery": false,
+        "id": "ARLA-55f09abff8b47d20",
+        "gtin": "7310865074225",
+        "view": "front",
+        "inliers": 205,
+        "votes": [
+          167,
+          13
+        ],
+        "cover": 0.291130693327149,
+        "score": 8.712759620014687,
+        "appearance": 0.9630555992983353,
+        "centerDistance": 0.09562207245610663,
+        "areaFraction": 0.18785135268415526,
+        "hasIdentityText": false
+      },
+      {
+        "recovery": true,
+        "id": "ARLA-55f09abff8b47d20",
+        "gtin": "7310865074225",
+        "view": "front",
+        "inliers": 511,
+        "votes": [
+          440,
+          30
+        ],
+        "cover": 0.2729075717049597,
+        "score": 12.378598472201528,
+        "appearance": 0.9460006305930913,
+        "centerDistance": 0.09562207245610663,
+        "areaFraction": 0.18785135268415526,
+        "hasIdentityText": false
+      }
+    ]
+  },
+  "file_chooser": [
+    {
+      "id": "U29-d09d2b4e2f1b3aad.png",
+      "sha256": "d09d2b4e2f1b3aad8836faefffe099106c6c1a37425940154c719eb8fe844cbf",
+      "product": null,
+      "source": "none",
+      "barcode_order": null,
+      "optical_display": "상품 확정 보류 · 바코드를 읽지 못했습니다",
+      "display": "상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.",
+      "chromium": "156.0.8078.79"
+    },
+    {
+      "id": "RR-08be70619c12080f",
+      "sha256": "08be70619c12080fdc66bc000e314cadbd05173509c7d6ae0d343f13d1e8fda8",
+      "product": "God-Morgon-Apple-Juice",
+      "source": "visual",
+      "barcode_order": null,
+      "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+      "display": "등록 상품 사진 판정 · God Morgon 사과 주스 1 L · 기준 사진과 앞면 특징 642곳 일치",
+      "chromium": "156.0.8078.79"
+    },
+    {
+      "id": "RR-cbaea96197c4f7c6",
+      "sha256": "cbaea96197c4f7c600444360f40da59320f2da5eb1fcd06b07228dc7e8f54e3f",
+      "product": "God-Morgon-Apple-Juice",
+      "source": "visual",
+      "barcode_order": null,
+      "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+      "display": "등록 상품 사진 판정 · God Morgon 사과 주스 1 L · 기준 사진과 앞면 특징 574곳 일치",
+      "chromium": "156.0.8078.79"
+    },
+    {
+      "id": "NX-2874d2801bee038e.jpg",
+      "sha256": "2874d2801bee038eca5706e5ec6318109310294f6926c7fdefb2715921880e4d",
+      "product": null,
+      "source": "none",
+      "barcode_order": null,
+      "optical_display": "상품 확정 보류 · 바코드를 읽지 못했습니다",
+      "display": "상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.",
+      "chromium": "156.0.8078.79"
+    }
+  ]
+}

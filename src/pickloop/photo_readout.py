@@ -2,7 +2,7 @@
 import subprocess
 
 from .juice_gate import TARGETS
-from .pack_barcode import REGISTERED_GTINS, read_ean13
+from .pack_barcode import REGISTERED_GTINS, read_retail_codes
 from .package_size import printed_size, read_size_band
 from .product_text import APPLE_WORD, GRAPE_WORD, ORANGE_WORD, OTHER, normalized, printed_flavour, recognize_exact
 from .registered_pack import match_pack
@@ -20,7 +20,7 @@ def photo_readout(result, require_gtin=False, rgb=None):
                 panel = None
     candidate = result["prediction"]
     identity = result
-    if require_gtin and rgb is not None and result["recognition_source"] == "baseline" and read_ean13(rgb):
+    if require_gtin and rgb is not None and result["recognition_source"] == "baseline" and read_retail_codes(rgb):
         identity = recognize_exact(dict(result, prediction="UNKNOWN"), lambda: rgb)
     codes = identity["recognition_gtins"]
     confirmed = None

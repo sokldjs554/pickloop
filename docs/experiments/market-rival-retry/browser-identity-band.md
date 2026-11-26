@@ -1,0 +1,11 @@
+# Browser check for a lookalike apple carton
+
+Chromium 156 assigned the Swedish apple name to a previously unenrolled Finnish 1 L carton with GTIN 6415130050506. The upload confirmed no barcode order. A new check of the distinctive printed line on the enrolled Swedish front held the Finnish carton and preserved both Swedish publisher controls. The older Finnish design also stayed held. [Product labels and source photographs](../side-unknown-challenge/labels.csv) · [Targeted browser evidence](browser-identity-band.json)
+
+The earlier worker selected the Swedish reference `ARLA-55f09abff8b47d20` at its first 720-pixel pass. Its 205 correspondences included only two in the reference line `From naturally crisp apples`, spanning 10.3% of the face width. The Finnish pack instead reads `100% Squeezed fruit`. The Finnish reference for this GTIN depicts an older design and produced no valid competing projection on this upload. The highest outside score was 1.660 versus 8.713 on the Swedish match.
+
+The new check uses the enrolled Swedish image coordinates for that line. It requires four matched features across at least a quarter of the front width. This branch used only the existing registered reference. The Finnish carton also failed the check after perspective recovery. A smaller rendering of the enrolled Swedish composition had 17 matches in the line spanning 47.5% of its front width. A separate, older Swedish apple layout still matched its own reference. [Worker decision](../../../web/vendor/package-reader/panel-worker.js) · [Registered gallery provenance](../registered-photo-recall/enrollment.json)
+
+The Finnish carton was independently sourced before it exposed the mistake. The updated decision is a targeted retest on that photo. One Swedish control shares the enrolled publisher composition, and the other already informed an earlier volume rule.
+
+For the normal upload replay, restore the four source files identified by SHA-256 in the evidence and run the existing browser evaluator against the updated local site. Use the four rows in the `file_chooser` section to construct its manifest. [Browser replay script](../../../scripts/evaluate_registered_browser.py) · [Publisher labels](../registered-recall/public-labels.csv) · [Historical foil labels](../new-photos/rows.csv)

@@ -33,3 +33,14 @@ def test_missing_or_invalid_bars_never_supply_a_product_id():
     from pickloop.pack_barcode import read_ean13
     assert read_ean13(np.full((120, 160, 3), 220, np.uint8)) == ()
     assert read_ean13(ean_image("7310860007258")) == ()
+
+
+def test_short_code_prevents_selecting_an_order_from_a_two_package_scene():
+    from pathlib import Path
+    from PIL import Image
+    from pickloop.pack_barcode import read_ean13, read_retail_codes
+
+    with Image.open(Path(__file__).parent / "fixtures/two-retail-codes.png") as fixture:
+        scene = np.asarray(fixture.convert("RGB"))
+    assert read_ean13(scene) == ("7310865074225",)
+    assert read_retail_codes(scene) == ("48512343", "7310865074225")

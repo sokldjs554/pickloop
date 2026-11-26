@@ -30,7 +30,9 @@ def main():
     shutil.copytree(web / "vendor/package-reader", args.dist / "vendor/package-reader", dirs_exist_ok=True)
     shutil.copytree(web / "media", args.dist / "media", dirs_exist_ok=True)
     (args.dist / "data").mkdir(exist_ok=True)
-    for name in ("grocery-catalogue.json", "grocery-previous-photos.json", "featured-run.json", "registered-pack-gallery.json"):
+    for name in ("grocery-catalogue.json", "grocery-previous-photos.json", "featured-run.json",
+                 "registered-pack-gallery.json", "registered-detail-gallery.json",
+                 "registered-collar.json", "orange-side.json", "orange-nutrition.json"):
         shutil.copy2(web / "data" / name, args.dist / "data" / name)
     featured = json.loads((web / "data/featured-run.json").read_text())
     run_dir = Path("data/runs") / featured["run_id"]

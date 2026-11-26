@@ -1,5 +1,5 @@
 // Disposable classic worker. OpenCV's pinned browser distribution uses importScripts.
-importScripts('opencv.js', 'oblique-ean.js', 'subpixel-ean.js', 'printed-regions.js');
+importScripts('opencv.js', 'oblique-ean.js', 'subpixel-ean.js', 'printed-regions.js', 'split-collar.js', 'orange-side.js', 'orange-nutrition.js');
 
 function loadRuntime() {
   // OpenCV 4.10 exposes a self-resolving thenable. Resolve without returning it.
@@ -123,6 +123,18 @@ function frontSimilarity(own, contour, frame, artwork) {
   return dot(reference, observed) / Math.max(1, Math.sqrt(dot(reference, reference) * dot(observed, observed)));
 }
 
+// This enrolled front shares fruit and brand artwork with other markets.
+const FRONT_IDENTITY_BANDS = {'ARLA-55f09abff8b47d20': [.365, .400]};
+
+function frontIdentityEvidence(reference, inliers) {
+  const band = FRONT_IDENTITY_BANDS[reference.id];
+  if (!band) return true;
+  const [top, bottom] = band;
+  const letters = inliers.filter(([x, y]) => x > .05 * reference.width && x < .95 * reference.width
+    && y > top * reference.height && y < bottom * reference.height).map(([x]) => x);
+  return letters.length >= 4 && Math.max(...letters) - Math.min(...letters) >= .25 * reference.width;
+}
+
 function assess(own, reference, query, matcher) {
   const pairs = correspondences(own, reference, query, matcher);
   if (pairs.length < 12) return null;
@@ -161,7 +173,8 @@ function assess(own, reference, query, matcher) {
   const face = own(cv.matFromArray(4, 1, cv.CV_32FC2, normalized.flat()));
   const centerDistance = cv.pointPolygonTest(face, new cv.Point(.5, .5), true);
   return {reference, corners, gtin: reference.gtin, view: reference.view, inliers: keep.length,
-    votes, cover, score, appearance, centerDistance, footprint: normalized, areaFraction: projected / frameArea};
+    votes, cover, score, appearance, centerDistance, footprint: normalized, areaFraction: projected / frameArea,
+    hasIdentityText: frontIdentityEvidence(reference, keep)};
 }
 
 // Rectification can expose fine lettering on foreshortened panels. Require an
@@ -202,7 +215,8 @@ function panelDecision(seen, registry, recovery = false) {
   const enrolled = name => Boolean(name && !name.endsWith('250ml'));
   const rival = other?.score || 0;
   const supported = best.view === 'front'
-    ? best.inliers >= 17 && best.votes[0] >= 4 && best.appearance >= .88 && best.score >= Math.max(2.8, 1.38 * rival)
+    ? best.hasIdentityText !== false && best.inliers >= 17 && best.votes[0] >= 4 &&
+      best.appearance >= .88 && best.score >= Math.max(2.8, 1.38 * rival)
     : Math.min(...best.votes) >= 3 && best.cover >= .16 && best.score >= Math.max(14, 1.45 * rival);
   if (supported && enrolled(product)) {
     const peripheral = best.centerDistance < -.25 || (best.centerDistance < -.12 && best.areaFraction < .10);
@@ -232,8 +246,17 @@ function barcodeOnPack(own, footprint, center) {
   return u >= -.25 && u <= 1.25 && v >= 0 && v <= 1;
 }
 
+async function readSideEvidence(rgba, matcher, registry, footprint) {
+  const printed = await readPrintedRegions(rgba, matcher, registry, footprint);
+  if (printed && printed.view !== 'split-fruit-collar') return printed;
+  const orange = await readOrangeSide(rgba, matcher, registry, footprint) ||
+    await readOrangeNutrition(rgba, matcher, registry, footprint);
+  if (printed && orange && printed.product !== orange.product) return {status: 'ambiguous'};
+  return printed || orange;
+}
+
 async function resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, decision) {
-  const printed = await readPrintedRegions(rgba, matcher, registry, decision.footprint);
+  const printed = await readSideEvidence(rgba, matcher, registry, decision.footprint);
   if (printed) return printed.product ? printed : decision;
   const faces = seen.filter(hit => hit.view === 'front' && registry[hit.gtin] &&
     !registry[hit.gtin].endsWith('250ml') && hit.score >= .65 * seen[0].score &&
@@ -280,7 +303,7 @@ async function readPanel(image) {
       seen.push(...candidates);
       if (size === 720) {
         const first = panelDecision(seen, registry);
-        if (first?.status === 'off_center') return await readPrintedRegions(rgba, matcher, registry);
+        if (first?.status === 'off_center') return await readSideEvidence(rgba, matcher, registry);
         if (first?.status === 'ambiguous') {
           return await resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, first);
         }
@@ -299,7 +322,7 @@ async function readPanel(image) {
     if (decision && decision.status !== 'off_center') return decision;
     // An identified background pack cannot identify the foreground object. A separate
     // lettering match must place the full set of distinguishing regions near the center.
-    const printed = await readPrintedRegions(rgba, matcher, registry);
+    const printed = await readSideEvidence(rgba, matcher, registry);
     if (decision?.status === 'off_center' || printed?.status) return printed;
     const gray = own(new cv.Mat());
     cv.cvtColor(rgba, gray, cv.COLOR_RGBA2GRAY);

@@ -233,9 +233,8 @@ def store_photo_study():
 
 def side_lettering_study():
     studies = ROOT / "docs/experiments"
-    ledgers = (studies / "store-package-recovery/archive-browser.jsonl",
-               studies / "side-panel-lettering/browser.jsonl",
-               studies / "side-panel-retry/browser.jsonl")
+    ledgers = (studies / "side-panel-retry/browser.jsonl",
+               studies / "side-print-evidence/browser.jsonl")
     predictions = []
     for path in ledgers:
         rows = [json.loads(line) for line in path.read_text().splitlines()]
@@ -243,7 +242,7 @@ def side_lettering_study():
         if len(index) != len(rows):
             raise ValueError(f"duplicate photo IDs in {path}")
         predictions.append(index)
-    selected = {group: [] for group in ("apple", "mixed", "side", "front", "control")}
+    selected = {group: [] for group in ("apple", "orange", "mixed", "side", "front", "control")}
     with (studies / "registered-recall/archive-labels.csv").open(newline="") as source:
         for label in csv.DictReader(source):
             pair = tuple(ledger[label["id"]] for ledger in predictions)
@@ -262,10 +261,12 @@ def side_lettering_study():
             selected["side"].append(outcome)
             if truth == "God-Morgon-Apple-Juice":
                 selected["apple"].append(outcome)
+            elif truth == "God-Morgon-Orange-Juice":
+                selected["orange"].append(outcome)
             elif truth == "God-Morgon-Orange-Red-Grapefruit-Juice":
                 selected["mixed"].append(outcome)
 
-    labels = (("apple", "사과 1 L 옆면 정답"), ("mixed", "오렌지·레드자몽 1 L 옆면 정답"),
+    labels = (("apple", "사과 1 L 옆면 정답"), ("orange", "오렌지 1 L 옆면 정답"), ("mixed", "오렌지·레드자몽 1 L 옆면 정답"),
               ("side", "등록 상품 전체 옆면 정답"), ("front", "등록 상품 전체 앞면 정답"),
               ("control", "미등록 레드자몽 오인"))
     scores = []
@@ -273,12 +274,23 @@ def side_lettering_study():
         outcomes = selected[group]
         scores.append((label, *(f"{sum(column)} / {len(outcomes)}장"
                                 for column in zip(*outcomes, strict=True))))
+    outside = read(studies / "side-unknown-challenge/final-summary.json")["final_retest"]
+    photos = sum(cohort["images"] for cohort in outside.values())
+    wrong_names = sum(cohort["false_registered_product"] for cohort in outside.values())
+    wrong_orders = sum(cohort["false_order"] for cohort in outside.values())
+    positive = sum(count for cohort in outside.values() for reason, count in cohort["reasons"].items()
+                   if reason in {"explicit_unregistered_barcode", "outside_gallery", "outside_label"})
     return ("<h3>기존 매장 사진의 상품 인식 비교</h3>"
-            "<p>같은 원본을 브라우저에 다시 올려 비교했습니다. 사과는 옆면 바코드의 떨어진 두 영역에서 "
-            "읽은 번호가 일치하는지 확인합니다. 혼합주스는 같은 팩에서 브랜드와 두 맛의 표기를 대조합니다.</p>"
-            + table(("사진 조건", "v24", "v25", "이번 재시험"), scores)
+            "<p>같은 매장 사진을 두 판독기의 파일 선택창에 올렸습니다. 오렌지는 앞면과 이어진 옆면 인쇄를, "
+            "혼합주스는 포장 글자 또는 같은 팩의 브랜드·뚜껑 아래 과일 무늬를 대조합니다.</p>"
+            + table(("사진 조건", "이전 판독기(v28)", "이번 판독기"), scores)
             + "<p>새 매장에서 촬영한 전체 옆면 평가 사진은 사과 0건, 혼합주스 0건입니다.</p>"
-            + '<p><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-panel-retry">사진별 판정과 재현 방법</a></p>')
+            + f"<p>별도로 모은 미등록 유사 상품 사진 {photos}장에서 등록 상품명 오인은 {wrong_names}건, 잘못된 주문 확정은 {wrong_orders}건이었습니다. "
+            + f"{positive}장에서는 미등록 단서를 확인했고 나머지 {photos - positive}장은 판정을 보류했습니다. "
+            + "이 중 핀란드 사과주스 한 장은 오류를 분석한 뒤 다시 시험했습니다.</p>"
+            + '<p><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-print-evidence">옆면 사진별 판정</a> · '
+            + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-unknown-challenge">미등록 유사 상품 사진</a> · '
+            + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/short-retail-codes">서로 다른 바코드가 함께 보일 때의 주문 판정</a></p>')
 
 
 def oblique_photo_study():
@@ -451,9 +463,16 @@ def generate():
         if unknown:
             outcomes.append(f"미등록 {unknown}장 중 오수락 {before['false_accept']} → {after['false_accept']}장")
         others.append((caption, " · ".join(outcomes)))
-    known, unknown, _, after = counts(new_rows)
-    score_summary = (f'<p class="score-summary">등록 {known}장 중 {after["correct"]}장 정답 / '
-                     f'미등록 {unknown}장 중 {after["false_accept"]}장에 등록 이름 부여</p>')
+    with (ROOT / "docs/experiments/market-rival-retry/historical-paired.csv").open(newline="") as stream:
+        current = list(csv.DictReader(stream))
+    if {r["sha256"] for r in current} != {r["sha256"] for r in new_rows} or len(current) != len(new_rows):
+        raise ValueError("latest comparison uses different juice photographs")
+    known = [r for r in current if r["exact_truth"] != "UNKNOWN"]
+    outside = [r for r in current if r["exact_truth"] == "UNKNOWN"]
+    correct = sum(r["after_prediction"] == r["exact_truth"] for r in known)
+    wrong = sum(r["after_prediction"] != "UNKNOWN" for r in outside)
+    score_summary = (f'<p class="score-summary">현재 Python 판독기 · 등록 {len(known)}장 중 {correct}장 정답 / '
+                     f'미등록 {len(outside)}장 중 {wrong}장에 등록 이름 부여</p>')
     with (STUDY / "rescan/labels.csv").open() as stream:
         confirm, = (row for row in csv.DictReader(stream) if row["gtin"] == "6415130089834")
     if sha256((MEDIA / "orange-250ml-original.jpg").read_bytes()).hexdigest() != confirm["sha256"]:

@@ -81,9 +81,9 @@ function samePrintedPanel(a, b) {
 
 // The upright passes stretch along the image axes. A diagonally foreshortened face
 // needs an affine stretch along a tilted axis; map its keypoints back before scoring.
-function affineQuery(own, frame, degrees) {
+function affineQuery(own, frame, degrees, tilt = 2) {
   const angle = degrees*Math.PI/180, c = Math.cos(angle), s = Math.sin(angle);
-  const xx = 1+c*c, xy = -s*c, yy = 1+s*s;
+  const xx = 1+(tilt-1)*c*c, xy = -(tilt-1)*s*c, yy = 1+(tilt-1)*s*s;
   const xs = [0,xx*frame.cols,xy*frame.rows,xx*frame.cols+xy*frame.rows];
   const ys = [0,xy*frame.cols,yy*frame.rows,xy*frame.cols+yy*frame.rows];
   const x = Math.min(...xs), y = Math.min(...ys);
@@ -92,7 +92,7 @@ function affineQuery(own, frame, degrees) {
   cv.warpAffine(frame,raster,affine,new cv.Size(Math.ceil(Math.max(...xs)-x),Math.ceil(Math.max(...ys)-y)),
     cv.INTER_LINEAR,cv.BORDER_CONSTANT);
   const warped = features(own,raster);
-  const points = warped.points.map(([u,v]) => [(yy*(u+x)-xy*(v+y))/2,(-xy*(u+x)+xx*(v+y))/2]);
+  const points = warped.points.map(([u,v]) => [(yy*(u+x)-xy*(v+y))/tilt,(-xy*(u+x)+xx*(v+y))/tilt]);
   return {points,descriptors:warped.descriptors,frame,width:frame.cols,height:frame.rows};
 }
 
@@ -143,7 +143,7 @@ async function readPrintedRegions(rgba, matcher, registry, footprint) {
   }
   if (found.size > 1) return {status:'ambiguous'};
   const [hit] = found.values();
-  if (!hit) return null;
+  if (!hit) return footprint ? null : readSplitCollar(rgba, matcher, registry, gallery);
   const product = registry[hit.gtin];
   return product ? {product, view:hit.view, inliers:hit.inliers} : {status:'incompatible'};
 }

@@ -1,0 +1,118 @@
+{
+  "baseline": {
+    "strict": {
+      "images": 11,
+      "distinct_gtins": 8,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 11,
+      "held_order": 11,
+      "reasons": {
+        "no_evidence_hold": 7,
+        "explicit_unregistered_barcode": 3,
+        "ambiguous_hold": 1
+      },
+      "decoded_outside_gtin": {
+        "correct": 3
+      },
+      "unregistered_barcode_in_product_status": 0
+    },
+    "lookalike_control": {
+      "images": 5,
+      "distinct_gtins": 5,
+      "false_registered_product": 1,
+      "false_order": 0,
+      "held_product": 4,
+      "held_order": 5,
+      "reasons": {
+        "outside_gallery": 3,
+        "no_evidence_hold": 1,
+        "false_registered_photo": 1
+      },
+      "decoded_outside_gtin": {},
+      "unregistered_barcode_in_product_status": 0
+    }
+  },
+  "first_candidate": {
+    "strict": {
+      "images": 11,
+      "distinct_gtins": 8,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 11,
+      "held_order": 11,
+      "reasons": {
+        "no_evidence_hold": 7,
+        "explicit_unregistered_barcode": 3,
+        "ambiguous_hold": 1
+      },
+      "decoded_outside_gtin": {
+        "correct": 3
+      },
+      "unregistered_barcode_in_product_status": 3
+    },
+    "lookalike_control": {
+      "images": 5,
+      "distinct_gtins": 5,
+      "false_registered_product": 1,
+      "false_order": 0,
+      "held_product": 4,
+      "held_order": 5,
+      "reasons": {
+        "outside_gallery": 3,
+        "no_evidence_hold": 1,
+        "false_registered_photo": 1
+      },
+      "decoded_outside_gtin": {},
+      "unregistered_barcode_in_product_status": 0
+    }
+  },
+  "final_retest": {
+    "strict": {
+      "images": 11,
+      "distinct_gtins": 8,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 11,
+      "held_order": 11,
+      "reasons": {
+        "no_evidence_hold": 7,
+        "explicit_unregistered_barcode": 3,
+        "ambiguous_hold": 1
+      },
+      "decoded_outside_gtin": {
+        "correct": 3
+      },
+      "unregistered_barcode_in_product_status": 3
+    },
+    "lookalike_control": {
+      "images": 5,
+      "distinct_gtins": 5,
+      "false_registered_product": 0,
+      "false_order": 0,
+      "held_product": 5,
+      "held_order": 5,
+      "reasons": {
+        "outside_gallery": 3,
+        "no_evidence_hold": 2
+      },
+      "decoded_outside_gtin": {},
+      "unregistered_barcode_in_product_status": 0
+    }
+  },
+  "interpretation": "Same 16 photos were replayed after one Finnish Classic Apple 1 L supplemental control was examined during correction development.",
+  "changed_from_baseline": [
+    {
+      "id": "U29-d09d2b4e2f1b3aad",
+      "before": "false_registered_photo",
+      "after": "no_evidence_hold",
+      "inspected_for_fix": true
+    }
+  ],
+  "ledger_sha256": {
+    "baseline": "9057aad009bdc66c28405150ee37c6d45707c6a413af88ba7f4e41cca6f406f0",
+    "first_candidate": "bbcc22284a479e686775bb95d7c9bac73fc5b6dd8ee04a6f500bede5aeacff15",
+    "final_retest": "0480c629c30bd5849cdfa1f97ad1bddbfa72d92f725262297cc167b3e64226dd"
+  },
+  "final_components_sha256": "a46ead000983d1683d0e1fdb5beaf752d43c6a2d91409876dedb825424ade2fc"
+}

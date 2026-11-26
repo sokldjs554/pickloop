@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/ui-contract.mjs
-      - run: node --test tests/package-reader.mjs tests/subpixel-ean.mjs tests/oblique-lettering.mjs
+      - run: node --test tests/package-reader.mjs tests/subpixel-ean.mjs tests/oblique-lettering.mjs tests/split-collar.mjs tests/orange-side.mjs tests/orange-nutrition.mjs
       - run: python scripts/vendor_package_reader.py
       - run: g++ -std=c++17 -O2 -Wall -Wextra -Werror cpp/modbus_client.cpp -o /tmp/pickloop-device
       - run: python -m pickloop.cli run --seed 8 --fault suction_once --no-record --out runs/ci

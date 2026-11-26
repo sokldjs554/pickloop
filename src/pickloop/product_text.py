@@ -7,7 +7,7 @@ import numpy as np
 
 from .juice_gate import APPLE, MIX, ORANGE, TARGETS, align_panel, ocr
 from .package_size import normalized, printed_size
-from .pack_barcode import REGISTERED_GTINS, read_ean13
+from .pack_barcode import REGISTERED_GTINS, read_retail_codes
 
 
 # The sun in the three-line GOD / MOR / GON logo is commonly transcribed as @, 0 or ®.
@@ -131,7 +131,7 @@ def recognize_exact(baseline, read_rgb):
         return dict(baseline, baseline_prediction=before, recognition_source="baseline", recognition_reason="outside_route",
                     recognition_text=[], recognition_gtins=[])
     rgb = read_rgb()
-    codes = list(read_ean13(rgb))
+    codes = list(read_retail_codes(rgb))
     if len(codes) > 1 or (codes and codes[0] not in REGISTERED_GTINS):
         name, reads, source = None, [], "barcode"
         reason = "multiple_gtins" if len(codes) > 1 else "unregistered_gtin"

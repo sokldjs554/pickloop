@@ -1,0 +1,184 @@
+{
+  "summary": [
+    {
+      "cohort": "archive",
+      "kind": "negative",
+      "metric": "count",
+      "count": 14
+    },
+    {
+      "cohort": "archive",
+      "kind": "positive",
+      "metric": "count",
+      "count": 60
+    },
+    {
+      "cohort": "archive",
+      "kind": "positive",
+      "metric": "new_correct",
+      "count": 37
+    },
+    {
+      "cohort": "archive",
+      "kind": "positive",
+      "metric": "old_correct",
+      "count": 37
+    },
+    {
+      "cohort": "historical-new-photos",
+      "kind": "negative",
+      "metric": "count",
+      "count": 27
+    },
+    {
+      "cohort": "historical-new-photos",
+      "kind": "negative",
+      "metric": "old_false_name",
+      "count": 1
+    },
+    {
+      "cohort": "historical-new-photos",
+      "kind": "positive",
+      "metric": "count",
+      "count": 6
+    },
+    {
+      "cohort": "historical-new-photos",
+      "kind": "positive",
+      "metric": "new_correct",
+      "count": 4
+    },
+    {
+      "cohort": "historical-new-photos",
+      "kind": "positive",
+      "metric": "old_correct",
+      "count": 4
+    },
+    {
+      "cohort": "legacy-validation",
+      "kind": "negative",
+      "metric": "count",
+      "count": 4
+    },
+    {
+      "cohort": "legacy-validation",
+      "kind": "positive",
+      "metric": "count",
+      "count": 16
+    },
+    {
+      "cohort": "legacy-validation",
+      "kind": "positive",
+      "metric": "new_correct",
+      "count": 6
+    },
+    {
+      "cohort": "legacy-validation",
+      "kind": "positive",
+      "metric": "old_correct",
+      "count": 6
+    },
+    {
+      "cohort": "unenrolled-training",
+      "kind": "negative",
+      "metric": "count",
+      "count": 184
+    },
+    {
+      "cohort": "unenrolled-training",
+      "kind": "positive",
+      "metric": "count",
+      "count": 56
+    },
+    {
+      "cohort": "unenrolled-training",
+      "kind": "positive",
+      "metric": "new_correct",
+      "count": 34
+    },
+    {
+      "cohort": "unenrolled-training",
+      "kind": "positive",
+      "metric": "old_correct",
+      "count": 34
+    }
+  ],
+  "changes": [
+    {
+      "split": "historical-new-photos",
+      "id": "NX-128b044de60a6242",
+      "truth": null,
+      "before": {
+        "status": "matched",
+        "product": "God-Morgon-Orange-Juice",
+        "template": "God-Morgon-Orange-Juice_010",
+        "view": "front",
+        "inliers": 257,
+        "coverage": 0.146
+      },
+      "after": {
+        "status": "ambiguous",
+        "product": null,
+        "template": "God-Morgon-Orange-Juice_010",
+        "view": "front",
+        "inliers": 257,
+        "coverage": 0.146
+      },
+      "hits": [
+        {
+          "id": "God-Morgon-Orange-Juice_010",
+          "gtin": "7310860007372",
+          "view": "front",
+          "inliers": 257,
+          "score": 8.222,
+          "appearance": 0.9634,
+          "coverage": 0.146,
+          "votes": [
+            257,
+            0
+          ]
+        },
+        {
+          "id": "NX-128b044de60a6242",
+          "gtin": "6415130050490",
+          "view": "front",
+          "inliers": 102,
+          "score": 5.932,
+          "appearance": 0.9866,
+          "coverage": 0.156,
+          "votes": [
+            101,
+            0
+          ]
+        },
+        {
+          "id": "NX-63455b37f6fb074a",
+          "gtin": "7310865074768",
+          "view": "front",
+          "inliers": 231,
+          "score": 4.715,
+          "appearance": 0.8784,
+          "coverage": 0.124,
+          "votes": [
+            224,
+            0
+          ]
+        },
+        {
+          "id": "God-Morgon-Orange-Red-Grapefruit-Juice_008",
+          "gtin": "7310860007259",
+          "view": "front",
+          "inliers": 102,
+          "score": 2.924,
+          "appearance": 0.8795,
+          "coverage": 0.092,
+          "votes": [
+            102,
+            0
+          ]
+        }
+      ],
+      "sha256": "128b044de60a6242a8c8a7d4e3e0bfc8da71af598b3489f5e025c600df67b689"
+    }
+  ]
+}

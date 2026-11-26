@@ -17,6 +17,25 @@ test('only a distinct verified optical barcode can claim a registry match', () =
   assert.equal(reader.describeBarcodes([symbol('036000291452','UPC-A')], registered).codes[0], '0036000291452');
   assert.equal(reader.describeBarcodes([symbol('3123349011227')], registered).kind, 'unregistered');
 });
+test('reads short retail codes, rejects bad checksums and blocks mixed-package orders', () => {
+  const short = symbol('48512343', 'EAN-8');
+  const upce = symbol('0012345000065', 'UPC-E');
+  assert.deepEqual(reader.describeBarcodes([short], registered), {kind:'unregistered', codes:['48512343']});
+  assert.equal(reader.describeBarcodes([short, symbol('0000048512343')], registered).codes.length, 1);
+  assert.equal(reader.describeBarcodes([short], {'0000048512343':'short SKU'}).product, 'short SKU');
+  assert.deepEqual(reader.describeBarcodes([upce, symbol('012345000065','UPC-A')], registered).codes, ['0012345000065']);
+  assert.equal(reader.describeBarcodes([symbol('48512344','EAN-8')], registered).kind, 'empty');
+  const several = reader.describeBarcodes([short, symbol('7310865074225')], registered);
+  assert.equal(several.kind, 'multiple');
+  assert.equal(reader.photoDecision(several, {product:registered['7310865074225']}, '').kind, 'hold');
+});
+test('the shipped optical decoder sees both retail barcodes on the same raster', async () => {
+  const png = await readFile(new URL('./fixtures/two-retail-codes.png', import.meta.url));
+  const wasm = await readFile(new URL('../web/vendor/package-reader/zxing_reader.wasm', import.meta.url));
+  const symbols = await reader.decodeSymbols(png, wasm);
+  assert.deepEqual(reader.describeBarcodes(symbols, registered),
+    {kind:'multiple', codes:['48512343', '7310865074225']});
+});
 test('enforces pixel limits before creating a browser bitmap', () => {
   assert.ok(reader);
   const header = Uint8Array.from([137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,24,0,0,0,16]);
@@ -196,10 +215,15 @@ test('a recovered front needs fruit-region matches and a foreground panel', asyn
   const worker = createContext({self: {}, importScripts() {}});
   const source = await readFile(new URL('../web/vendor/package-reader/panel-worker.js', import.meta.url), 'utf8');
   runInContext(source, worker);
-  const primary = {gtin: '7310865074225', view: 'front', inliers: 36, votes: [19, 8],
+  const primary = {gtin: '7310865074225', view: 'front', hasIdentityText: true, inliers: 36, votes: [19, 8],
     cover: .3, score: 5, appearance: .95, areaFraction: .25, centerDistance: .03};
   const decide = (...candidates) => worker.panelDecision(candidates, registered, true);
   assert.equal(decide(primary).product, registered[primary.gtin]);
+  assert.equal(decide({...primary, hasIdentityText: false}), null);
+  const blackFlap = {id: 'ARLA-55f09abff8b47d20', width: 100, height: 100};
+  assert.equal(worker.frontIdentityEvidence(blackFlap, [[10,38],[20,38],[30,38],[40,38]]), true);
+  assert.equal(worker.frontIdentityEvidence(blackFlap, [[10,38],[11,38],[12,38],[13,38]]), false);
+  assert.equal(worker.frontIdentityEvidence(blackFlap, [[10,58],[20,58],[30,58],[40,58]]), false);
   assert.equal(decide({...primary, votes: [26, 0]}).product, undefined);
   assert.equal(decide({...primary, centerDistance: -.3, areaFraction: .055}).product, undefined);
   const sibling = {...primary, gtin: 'another-volume', score: 4.8};

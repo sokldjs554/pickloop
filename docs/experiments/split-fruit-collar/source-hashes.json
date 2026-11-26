@@ -1,0 +1,7 @@
+{
+  "scripts/build_split_collar_gallery.py": "d24e91a766dd749b2753725d3a20c0a7cd0933574eb5fd542fa6749c7d2940d2",
+  "web/vendor/package-reader/split-collar.js": "d671a1ba6c7937287d61d92a1b811af9298ef33e6de00c3e40e94218c503c3b1",
+  "web/vendor/package-reader/printed-regions.js": "fa51abce5718535fbd0d4b7abe628d4f17a7dc7a4511a48d46e26f57f1ed6775",
+  "web/data/registered-collar.json": "9573cb1da20633bdd99e26d9976cdd284c54ec2349b31dc4268b8d1bee1d4054",
+  "docs/experiments/split-fruit-collar/enrollment.json": "23ee5c8fc1421e0ce3fe959452e1b96723aa4df79137a2442386f331482e429f"
+}
