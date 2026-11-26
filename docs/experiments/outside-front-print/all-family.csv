@@ -1,0 +1,24 @@
+id,role,name,source,url,sha256
+FAM-65e455524bd717,reg,smooth,Arla Norway,https://images.arla.com/recordid/F98B3A5E-52D6-4123-9799ED81E6D2E891/picture.jpg?width=1200&height=630&mode=max&format=jpg,65e455524bd717f773a91668b07db1598b6f655aeda3b33fa1aa63f57bc09959
+FAM-fe61f06c587c19,reg,fruitcrush,God Morgon,https://a.storyblok.com/f/243238/274x900/158b43a217/5508289_god_morgon_nectar_apple_orange_mango_2.png,fe61f06c587c191e3785b4fc40972824369b529b23bfc8632e1fcfe14865020b
+FAM-1b5948e05309c0,reg,new_lemonade,God Morgon,https://a.storyblok.com/f/243238/548x1800/5c817d1064/5509346_lemonad_redesign_1000ml_2.png,1b5948e05309c09c7547ac5fdfd23a4c9007134db0c16503a8163a131fc574ff
+FAM-4ddebaa3cf7627,reg,shot450,God Morgon,https://a.storyblok.com/f/243238/789x2500/88573074e3/7313619001959.png,4ddebaa3cf76276e9a30ab50d629392bf444c0be9c67d7f16e47f29d2fdd82f5
+FAM-fb438de8e0126e,test,smooth,Sjekkmat,https://bilder.ngdata.no/7310865074829/kmh/large.jpg,fb438de8e0126e9d240ef5f12dad42a8fa453bc7d61b8dcb86817a223cf7acdc
+FAM-1b88e9aa8ffb65,test,lemonade,Natmat,https://images.natmat.se/content/shopimages/N_31994.jpg,1b88e9aa8ffb65366a5d2559bec4298cf1f0e842b4bc5362d2035a4dd5c39f82
+FAM-e72110622ad448,test,blog_1,Annelie Niehoff,https://niehoff.se/wp-content/uploads/2015/05/IMG_0792.jpg,e72110622ad44846460b05d9fc3ded584e2bccf3583edf1d482d2157c3526726
+FAM-b6661b594806b3,test,blog_2,Annelie Niehoff,https://niehoff.se/wp-content/uploads/2015/05/IMG_0793.jpg,b6661b594806b3fb161cd5e7377825ed70c76d968b6e45e1baae5aa4a28e90d4
+FAM-e9ddf16c70dddd,test,matmalin_1,MatMalin,https://www.matmalin.se/wp-content/uploads/2025/09/matmalin-godmorgon-test1.jpg,e9ddf16c70ddddc1760cba957d6da1944a9b5d4d84a9ccf9fb061b114ff514ae
+FAM-1f6950ae93af7b,test,matmalin_2,MatMalin,https://www.matmalin.se/wp-content/uploads/2025/09/matmalin-godmorgon-test2.jpg,1f6950ae93af7b2a0c1bdc160320f0d7c94b55824b9a83b855c24ab448421389
+FAM-2eabe640de5a8d,test,matmalin_4,MatMalin,https://www.matmalin.se/wp-content/uploads/2025/09/matmalin-godmorgon-test4.jpg,2eabe640de5a8d594c0bd8f242c897cd04f4cdc456a4bda7b8a71fca87d4ed6d
+FAM-3c82a5ec849e55,test,foodmon_853,FoodMonitor,https://www.foodmonitor.se/images/bilder2025februari/pIMG_0853.jpg,3c82a5ec849e554c63c831ee96f496f3a42cdcbe567651d1e5e3c8a42bb7d2bc
+FAM-58f5a5caf80a42,test,foodmon_833,FoodMonitor,https://www.foodmonitor.se/images/bilder2025februari/pIMG_0833.jpg,58f5a5caf80a42898e873b07f243b7fe3a1cf7dfb658a823db4eef05dbd0aad4
+FAM-3892cfa2be9222,test,foodmon_836,FoodMonitor,https://www.foodmonitor.se/images/bilder2025februari/pIMG_0836.jpg,3892cfa2be92222296575a0eb84740bb2dcfc10132f520c4555795310b864595
+FAM-2e5fea86913216,test,7310865089045_1,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/508/9045/1.jpg,2e5fea869132167b1c0ebfe7c851fac9592d894fc15d6a16961c8a6e4f20fe54
+FAM-e7e00940995b65,test,7310865089045_4,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/508/9045/4.jpg,e7e00940995b653a3acc5710d9991de41d016226f14da1bd5214f2d29212556a
+FAM-aa51d522aa1907,test,7310865074829_6,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/731/086/507/4829/6.jpg,aa51d522aa19075670756164fa9b0381d7f389abff76fe25f356a0cc5e411944
+FAM-5085815924879a,test,6415130050483_2,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/005/0483/2.jpg,5085815924879a6131899507db1786deb712728a7f58b96484a294fd0535b656
+FAM-b42684cc6e294b,test,6415130050483_3,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/005/0483/3.jpg,b42684cc6e294be471ffe4f12b5e97e2bc8a71ff82e14357575e72c623b4f79a
+FAM-d75466b5f311d7,test,6415130083405_1,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/008/3405/1.jpg,d75466b5f311d7bf1d4552e150ca69b0cc7da43b347293a2e54edef7c07346c8
+FAM-45766eb5a7cf51,test,6415130083405_2,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/008/3405/2.jpg,45766eb5a7cf518abd97b9abf45c3619684fe32afe434f585d057e961ffdab0e
+FAM-66a7609523af63,test,6415130083405_3,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/008/3405/3.jpg,66a7609523af633653349ffc1e7f874735845ea8e305055c945722d7a56edd09
+FAM-ecbf75aa4aa393,test,6415130083405_4,OFF contributor,https://openfoodfacts-images.s3.eu-west-3.amazonaws.com/data/641/513/008/3405/4.jpg,ecbf75aa4aa393988933a52173de4af0d996462f5c2fc6b15287c9765d0b621b

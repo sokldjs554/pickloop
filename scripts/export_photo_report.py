@@ -274,12 +274,12 @@ def side_lettering_study():
         outcomes = selected[group]
         scores.append((label, *(f"{sum(column)} / {len(outcomes)}장"
                                 for column in zip(*outcomes, strict=True))))
-    outside = read(studies / "side-unknown-challenge/final-summary.json")["final_retest"]
+    outside_study = read(studies / "side-unknown-challenge/final-summary.json")
+    outside = outside_study["final_retest"]
     photos = sum(cohort["images"] for cohort in outside.values())
     wrong_names = sum(cohort["false_registered_product"] for cohort in outside.values())
     wrong_orders = sum(cohort["false_order"] for cohort in outside.values())
-    positive = sum(count for cohort in outside.values() for reason, count in cohort["reasons"].items()
-                   if reason in {"explicit_unregistered_barcode", "outside_gallery", "outside_label"})
+    positive = outside_study["final_outside_evidence"]["total"]
     return ("<h3>기존 매장 사진의 상품 인식 비교</h3>"
             "<p>같은 매장 사진을 두 판독기의 파일 선택창에 올렸습니다. 오렌지는 앞면과 이어진 옆면 인쇄를, "
             "혼합주스는 포장 글자 또는 같은 팩의 브랜드·뚜껑 아래 과일 무늬를 대조합니다.</p>"

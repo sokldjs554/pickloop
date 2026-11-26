@@ -57,6 +57,10 @@ def reason(row):
         return "false_registered_photo"
     if "미등록 바코드" in optical:
         return "explicit_unregistered_barcode"
+    if "미등록 용량" in display and "등록 범위 밖의 1.75 L" in display:
+        return "incompatible_foreground_capacity"
+    if "미등록 제품군" in display:
+        return "outside_product_family"
     if "목록 밖" in display:
         return "outside_gallery"
     if "묶음 수량" in display or "품목 또는 맛" in display:
@@ -112,7 +116,7 @@ if __name__ == "__main__":
     commands.add_parser("score").add_argument("ledger", type=Path)
     check = commands.add_parser("check-reader")
     check.add_argument("web", type=Path)
-    check.add_argument("--phase", choices=["candidate", "final"], default="final")
+    check.add_argument("--phase", choices=["candidate", "final", "endpoint"], default="final")
     options = parser.parse_args()
     if options.command == "fetch":
         fetch(options.directory)

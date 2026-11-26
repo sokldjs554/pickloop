@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-26T13:28:15.692351+00:00",
+  "files": {
+    "family_reader.py": "e467fb1155daa94eb900047f3b76a4ff0f47defe3b50d201dc727e857e0a18dd",
+    "family-registrations.json": "4fe5d7711cc6a962b4f3157201be1c784a0e1b3941e05d799ae1f3ba8c6d1212",
+    "family-inputs.csv": "76fd05f27b58809066ef004985dbfc47361645cc6d617842e098df1ba7e6cc23",
+    "family-screen.csv": "b9cc64624f472db2ef48169bd1db50ab4f1d7050bbdc28d7efb3942b38bbf9f1",
+    "all-family.csv": "ae44b78d36ec025120fe73b37a9ae1e512bff49f95e8a28e000e4c0e508af43c"
+  },
+  "source_pdfs": {
+    "https://www.eckes-granini.fi/ammattilaiset/tuotekuvasto/eckes-granini-luettelo-09_2021-03_2022.pdf": "466b2fb906f26932e7abc79dda1b21fecc4267a875267571e6f5d290bcfcc302",
+    "https://a.storyblok.com/f/243238/x/e14cfc3015/eckes_sortimentsbroschyr_2025-v2_high.pdf": "61f2734152cef76d5910f4923da68c0de20d43129b40f0ce21d59ab5a969d720"
+  },
+  "rule": "One aligned dominant plane, independent brand, both full titles or complete out-of-registry quantity, extra Selected header for single citrus. Registered names and orders are never output. No challenge crop enrolled."
+}

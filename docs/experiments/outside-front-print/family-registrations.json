@@ -1,0 +1,380 @@
+[
+  {
+    "id": "P0fe958e10359eea",
+    "sha256": "0fe958e10359eea99ba766618da2986556be450f9a56d9b06fcf8a69c3ceabe3",
+    "family": "Original Lemonade",
+    "provider": "Swedish supplier brochure",
+    "url": "https://a.storyblok.com/f/243238/x/e14cfc3015/eckes_sortimentsbroschyr_2025-v2_high.pdf",
+    "xref": 740,
+    "matte": false,
+    "zones": [
+      [
+        0.3,
+        0.215,
+        0.7,
+        0.336
+      ],
+      [
+        0.16,
+        0.349,
+        0.84,
+        0.401
+      ],
+      [
+        0.024,
+        0.4,
+        0.975,
+        0.462
+      ]
+    ]
+  },
+  {
+    "id": "Pba45a6307d0e240",
+    "sha256": "ba45a6307d0e240303faded7b07a6a26e05890d120e5c851afd6b51ea891440d",
+    "family": "Ginger Shot",
+    "provider": "Swedish supplier brochure",
+    "url": "https://a.storyblok.com/f/243238/x/e14cfc3015/eckes_sortimentsbroschyr_2025-v2_high.pdf",
+    "xref": 806,
+    "matte": false,
+    "zones": [
+      [
+        0.335,
+        0.439,
+        0.68,
+        0.593
+      ],
+      [
+        0.253,
+        0.625,
+        0.8,
+        0.695
+      ],
+      [
+        0.3,
+        0.697,
+        0.755,
+        0.776
+      ]
+    ]
+  },
+  {
+    "id": "FAM-fe61f06c587c19",
+    "sha256": "fe61f06c587c191e3785b4fc40972824369b529b23bfc8632e1fcfe14865020b",
+    "family": "Fruit Crush",
+    "provider": "God Morgon",
+    "url": "https://a.storyblok.com/f/243238/274x900/158b43a217/5508289_god_morgon_nectar_apple_orange_mango_2.png",
+    "xref": "",
+    "matte": true,
+    "zones": [
+      [
+        0.31,
+        0.215,
+        0.71,
+        0.34
+      ],
+      [
+        0.24,
+        0.366,
+        0.763,
+        0.425
+      ],
+      [
+        0.225,
+        0.421,
+        0.78,
+        0.488
+      ]
+    ]
+  },
+  {
+    "id": "FAM-1b5948e05309c0",
+    "sha256": "1b5948e05309c09c7547ac5fdfd23a4c9007134db0c16503a8163a131fc574ff",
+    "family": "Classic Lemonade",
+    "provider": "God Morgon",
+    "url": "https://a.storyblok.com/f/243238/548x1800/5c817d1064/5509346_lemonad_redesign_1000ml_2.png",
+    "xref": "",
+    "matte": true,
+    "zones": [
+      [
+        0.27,
+        0.177,
+        0.75,
+        0.309
+      ],
+      [
+        0.074,
+        0.377,
+        0.976,
+        0.495
+      ],
+      [
+        0.01,
+        0.496,
+        0.84,
+        0.613
+      ]
+    ]
+  },
+  {
+    "id": "FAM-4ddebaa3cf7627",
+    "sha256": "4ddebaa3cf76276e9a30ab50d629392bf444c0be9c67d7f16e47f29d2fdd82f5",
+    "family": "Ginger Shot",
+    "provider": "God Morgon",
+    "url": "https://a.storyblok.com/f/243238/789x2500/88573074e3/7313619001959.png",
+    "xref": "",
+    "matte": true,
+    "zones": [
+      [
+        0.335,
+        0.439,
+        0.68,
+        0.593
+      ],
+      [
+        0.253,
+        0.625,
+        0.8,
+        0.695
+      ],
+      [
+        0.3,
+        0.697,
+        0.755,
+        0.776
+      ]
+    ]
+  },
+  {
+    "id": "FAM-65e455524bd717",
+    "sha256": "65e455524bd717f773a91668b07db1598b6f655aeda3b33fa1aa63f57bc09959",
+    "family": "Smooth Orange 1.75L",
+    "provider": "Arla Norway",
+    "url": "https://images.arla.com/recordid/F98B3A5E-52D6-4123-9799ED81E6D2E891/picture.jpg?width=1200&height=630&mode=max&format=jpg",
+    "xref": "",
+    "matte": true,
+    "zones": [
+      [
+        0.34,
+        0.23,
+        0.68,
+        0.346
+      ],
+      [
+        0.075,
+        0.388,
+        0.922,
+        0.446
+      ],
+      [
+        0.03,
+        0.946,
+        0.213,
+        0.992
+      ]
+    ]
+  },
+  {
+    "id": "FI115",
+    "sha256": "92236002469c93fe3f3d6cbaca44c19fdf71dcc3ab275328ecbe016e84a77f71",
+    "family": "Selected Orange Mango",
+    "provider": "Finnish supplier brochure",
+    "url": "https://www.eckes-granini.fi/ammattilaiset/tuotekuvasto/eckes-granini-luettelo-09_2021-03_2022.pdf",
+    "xref": 115,
+    "matte": false,
+    "zones": [
+      [
+        0.46,
+        0.24,
+        0.725,
+        0.35
+      ],
+      [
+        0.315,
+        0.36,
+        0.832,
+        0.414
+      ],
+      [
+        0.415,
+        0.41,
+        0.764,
+        0.458
+      ],
+      [
+        0.355,
+        0.452,
+        0.815,
+        0.5
+      ]
+    ]
+  },
+  {
+    "id": "FI117",
+    "sha256": "9dfb7474a1259733b3059412a8b1c376acad730b6b03c07da9a27c28e95c2d13",
+    "family": "Selected Blood Orange",
+    "provider": "Finnish supplier brochure",
+    "url": "https://www.eckes-granini.fi/ammattilaiset/tuotekuvasto/eckes-granini-luettelo-09_2021-03_2022.pdf",
+    "xref": 117,
+    "matte": false,
+    "zones": [
+      [
+        0.46,
+        0.24,
+        0.725,
+        0.35
+      ],
+      [
+        0.315,
+        0.36,
+        0.832,
+        0.414
+      ],
+      [
+        0.415,
+        0.41,
+        0.764,
+        0.458
+      ],
+      [
+        0.355,
+        0.452,
+        0.815,
+        0.5
+      ]
+    ]
+  },
+  {
+    "id": "FI119",
+    "sha256": "94968bdcd6326a9ddd7309c8226d6587d736b9ff25880f31073d65ae2874e01f",
+    "family": "Selected Sweet Orange",
+    "provider": "Finnish supplier brochure",
+    "url": "https://www.eckes-granini.fi/ammattilaiset/tuotekuvasto/eckes-granini-luettelo-09_2021-03_2022.pdf",
+    "xref": 119,
+    "matte": false,
+    "zones": [
+      [
+        0.46,
+        0.24,
+        0.725,
+        0.35
+      ],
+      [
+        0.315,
+        0.36,
+        0.832,
+        0.414
+      ],
+      [
+        0.415,
+        0.41,
+        0.764,
+        0.458
+      ],
+      [
+        0.355,
+        0.452,
+        0.815,
+        0.5
+      ]
+    ]
+  },
+  {
+    "id": "FI121",
+    "sha256": "bfa373c3d0fe650d4e3fb84283f6bfe7e6afce62c849b14d5e21404a2d668d03",
+    "family": "Selected Red Grapefruit",
+    "provider": "Finnish supplier brochure",
+    "url": "https://www.eckes-granini.fi/ammattilaiset/tuotekuvasto/eckes-granini-luettelo-09_2021-03_2022.pdf",
+    "xref": 121,
+    "matte": false,
+    "zones": [
+      [
+        0.46,
+        0.24,
+        0.725,
+        0.35
+      ],
+      [
+        0.315,
+        0.36,
+        0.832,
+        0.414
+      ],
+      [
+        0.415,
+        0.41,
+        0.764,
+        0.458
+      ],
+      [
+        0.355,
+        0.452,
+        0.815,
+        0.5
+      ]
+    ]
+  },
+  {
+    "id": "FI123",
+    "sha256": "b85fa3c02f4679428b9607c7c29991867505aade67def6d02721294b3c5d12db",
+    "family": "Selected Mango Passionfruit",
+    "provider": "Finnish supplier brochure",
+    "url": "https://www.eckes-granini.fi/ammattilaiset/tuotekuvasto/eckes-granini-luettelo-09_2021-03_2022.pdf",
+    "xref": 123,
+    "matte": false,
+    "zones": [
+      [
+        0.46,
+        0.24,
+        0.725,
+        0.35
+      ],
+      [
+        0.315,
+        0.36,
+        0.832,
+        0.414
+      ],
+      [
+        0.415,
+        0.41,
+        0.764,
+        0.458
+      ],
+      [
+        0.355,
+        0.452,
+        0.815,
+        0.5
+      ]
+    ]
+  },
+  {
+    "id": "FI97",
+    "sha256": "542e894efe9c99e517dfea5facdf41d29ade29048869277d954e2609e2776ac2",
+    "family": "Orange Mandarin",
+    "provider": "Finnish supplier brochure",
+    "url": "https://www.eckes-granini.fi/ammattilaiset/tuotekuvasto/eckes-granini-luettelo-09_2021-03_2022.pdf",
+    "xref": 97,
+    "matte": false,
+    "zones": [
+      [
+        0.45,
+        0.232,
+        0.733,
+        0.345
+      ],
+      [
+        0.444,
+        0.363,
+        0.743,
+        0.41
+      ],
+      [
+        0.397,
+        0.405,
+        0.778,
+        0.453
+      ]
+    ]
+  }
+]

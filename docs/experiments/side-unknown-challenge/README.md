@@ -4,16 +4,16 @@ This study asks whether a shopper's photo of a similar God Morgon drink can be a
 
 ## v28 baseline and final retest
 
-The final reader was evaluated on the same 16 source files. Developers examined the Finnish Apple 1 L control after the first candidate returned the registered Swedish product name. Its final result measures the targeted correction. All 16 final results are repeat measurements on this frozen set.
+The final reader was evaluated on the same 16 source files. Developers examined the Finnish Apple 1 L control after the first candidate returned the registered Swedish product name. The Norwegian Smooth Orange 1.75 L photograph was also examined while implementing the browser capacity check. Both are targeted retests. All 16 final results are repeat measurements on this frozen set.
 
-| Reader / cohort | Photos | Wrong registered product | Wrong exact order | Read outside barcode | Outside gallery | Insufficient evidence | Ambiguous |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| v28 baseline, strict | 11 | 0 | 0 | 3 | 0 | 7 | 1 |
-| Final retest, strict | 11 | 0 | 0 | 3 | 0 | 7 | 1 |
-| v28 baseline, look-alike controls | 5 | 1 | 0 | 0 | 3 | 1 | 0 |
-| Final retest, look-alike controls | 5 | 0 | 0 | 0 | 3 | 2 | 0 |
+| Reader and cohort | Photos | Wrong registered product | Wrong exact order | Read outside barcode | Outside gallery | Outside capacity on same pack | Insufficient evidence | Ambiguous |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| v28 baseline, strict | 11 | 0 | 0 | 3 | 0 | 0 | 7 | 1 |
+| Final retest, strict | 11 | 0 | 0 | 3 | 0 | 1 | 7 | 0 |
+| v28 baseline, look-alike controls | 5 | 1 | 0 | 0 | 3 | 0 | 1 | 0 |
+| Final retest, look-alike controls | 5 | 0 | 0 | 0 | 3 | 0 | 2 | 0 |
 
-The baseline assigned the Finnish Apple carton to the Swedish Apple SKU. The final reader held it because the photo lacked distinguishing evidence. The baseline and final both held its order. The final browser read the three outside EANs correctly and displayed the unregistered status in the product result. The per-photo ledger records which packages had positive outside evidence and which remained unresolved.
+The baseline assigned the Finnish Apple carton to the Swedish Apple SKU. The final reader held it because the photo lacked distinguishing evidence. The baseline and final both held its order. The final browser read the three outside EANs correctly and displayed the unregistered status in the product result. It also localized the complete Smooth Orange title and 1.75 L capacity on the same foreground face as its ambiguous carton comparison. That observation ruled out the registered capacities while leaving the exact product and order held. In total, seven of the 16 packages had positive outside evidence and nine remained unresolved.
 
 [Final per-photo decisions](final-decisions.csv) · [Final counts and ledger digests](final-summary.json) · [v28 browser output](baseline.jsonl) · [Final browser output](final.jsonl) · [Final component digests](final-reader.json)
 
@@ -68,7 +68,7 @@ python "$study/study.py" score "$run_dir/baseline.jsonl"
 
 A wrong product is a registered name returned on an outside package. A wrong order is a registered GTIN authorized for that package. A visible, decoded unregistered barcode identifies an outside item, and a visual match to the outside gallery identifies a look-alike. A hold for a missing or ambiguous panel leaves the actual identity unresolved. The browser ledger preserves the product, order and both visible status messages.
 
-For the final retest, use the static web tree from this study's release. The following commands verify all 14 final reader components before starting the browser.
+For the final retest, use the static web tree from this study's release. The following commands verify all 19 final reader components before starting the browser.
 
 ```sh
 python "$study/study.py" check-reader web --phase final
@@ -76,3 +76,5 @@ python scripts/evaluate_registered_browser.py "$study/blind.csv" "$run_dir/photo
   --web web --chromium /usr/bin/chromium --out "$run_dir/final.jsonl"
 python "$study/study.py" score "$run_dir/final.jsonl"
 ```
+
+The 14-component initial retest, the 16-component thumb-occlusion endpoint and the 17-component pre-family release produced the same complete 16-row ledger (SHA-256 `0480c629c30bd5849cdfa1f97ad1bddbfa72d92f725262297cc167b3e64226dd`). They yielded six supported outside facts and ten unresolved holds. The final 19-component release changed only the 1.75 L capacity observation. [Pre-family ledger](pre-family.jsonl) · [Initial components](side-front-reader.json) · [Thumb-occlusion endpoint](endpoint-reader.json) · [Pre-family release](pre-family-reader.json) · [Final release](final-reader.json) · [Outside-family method and controls](../outside-front-print/native.md)

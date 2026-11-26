@@ -1,0 +1,17 @@
+id,sha256,cohort,product,barcode_order,source,optical_display,display
+U29-d426ca54b41c11c8,d426ca54b41c11c80bce7bdf4d0efc50782eb2fabc20603b829d6df704e0d9f1,targeted_capacity_retest,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,"미등록 용량 · 같은 포장의 브랜드, 제품명 및 등록 범위 밖의 1.75 L 표기를 확인했습니다. 정확한 상품 판정은 보류합니다."
+FAM-e72110622ad448,e72110622ad44846460b05d9fc3ded584e2bccf3583edf1d482d2157c3526726,new_multi_product,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.
+RR-009da16eaa64ff47,009da16eaa64ff477365691e6c86d0d218e2bc4f042fd86a1fc62774e278cc23,registered_store_target,God-Morgon-Orange-Juice,,visual,주문 규격 확정 보류 · 바코드를 읽지 못했습니다.,등록 상품 사진 판정 · God Morgon 오렌지 주스 1 L · 기준 사진과 앞면 특징 38곳 일치
+RR-08ca71b90b6ea5c7,08ca71b90b6ea5c70f569add5e0b14c9fced485ea8f5168f0bcbb2f69fd07fbd,registered_store_target,God-Morgon-Apple-Juice,,visual,주문 규격 확정 보류 · 바코드를 읽지 못했습니다.,등록 상품 사진 판정 · God Morgon 사과 주스 1 L · 기준 사진과 앞면 특징 217곳 일치
+RR-2356b334cf53ddda,2356b334cf53dddac396d8e4d959c84e6764f2122130f0f22b9fce39e5ed0d40,registered_store_target,God-Morgon-Orange-Red-Grapefruit-Juice,,visual,주문 규격 확정 보류 · 바코드를 읽지 못했습니다.,등록 상품 사진 판정 · God Morgon 오렌지·레드자몽 주스 1 L · 기준 사진과 앞면 특징 64곳 일치
+FAM-2eabe640de5a8d,2eabe640de5a8d594c0bd8f242c897cd04f4cdc456a4bda7b8a71fca87d4ed6d,new_multi_product,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.
+T0ee46e03916e650,0ee46e03916e65048f150c28571748b1643f4a343ab8fada853fff1343f0809b,previous_consumer_photo,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,미등록 제품군 · 한 포장에서 등록 목록 밖의 제품군 표기를 확인했습니다. Original Lemonade.
+Te7c6d591f89f123,e7c6d591f89f123f4a6730b34ed4452d6d8b177f6cb5a47d5581af7c814c651c,previous_consumer_photo,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,미등록 제품군 · 한 포장에서 등록 목록 밖의 제품군 표기를 확인했습니다. Ginger Shot.
+FAM-d75466b5f311d7,d75466b5f311d7bf1d4552e150ca69b0cc7da43b347293a2e54edef7c07346c8,new_consumer_outside,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.
+FAM-3892cfa2be9222,3892cfa2be92222296575a0eb84740bb2dcfc10132f520c4555795310b864595,new_foreign_brand,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.
+neighbor_equal,8e1ddc567bfee7a0ca0d7946506325fd43eba20ee2dc3f966e3ea72aa38acbf2,generated_scene,,,none,상품 확정 보류 · 바코드를 읽지 못했습니다,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+neighbor_behind,846cd9380efa338bd2d391f9c4ba792c699fcfab6ff1c06313445fc0d48649da,generated_scene,God-Morgon-Apple-Juice,,visual,주문 규격 확정 보류 · 바코드를 읽지 못했습니다.,등록 상품 사진 판정 · God Morgon 사과 주스 1 L · 기준 사진과 앞면 특징 464곳 일치
+contradictory_registered_code,63602dfd2cc74c7e0b7eb6f133eac6131af1c17c9b97780ecc1c172b5e391667,generated_scene,,,none,상품 확정 보류 · 읽은 등록 바코드 7310865074225,상품 판정 보류 · 읽힌 용량 또는 묶음 수량이 등록 규격과 다릅니다.
+outside_code,9df09038f722c675babaf9791195f04918c8197dfb98f574c8c05ae504ec74a5,generated_scene,,,none,상품 확정 보류 · 미등록 바코드 7310865074829,미등록 상품 · 읽은 바코드가 등록 목록에 없습니다.
+one-registered,5ff7862a8fb1d8af227db98aef0b228ec067fb5b3836b2dbfab2e3bef6aabd3d,optical_control,God-Morgon-Orange-Juice-250ml,God-Morgon-Orange-Juice-250ml,barcode,상품 확정 · God Morgon 오렌지 주스 250mL · 등록 바코드 6415130089834,
+two-packs,f5cc4027dc6b155d1845c0b46859da60d894e66bf2871ef00c2042be2c5cb637,optical_control,,,none,상품 확정 보류 · 서로 다른 바코드가 여러 개 보입니다. 48512343 · 6415130089834,
