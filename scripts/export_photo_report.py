@@ -214,6 +214,24 @@ def produce_study():
             table(("품목", "집계 기준", "사진 수", "기존 판정", "추가 확인 후"), rows))
 
 
+def store_photo_study():
+    study = ROOT / "docs/experiments/store-package-recovery"
+    records = {row["id"]: row for row in map(json.loads, (study / "field-browser.jsonl").read_text().splitlines())}
+    scenes = [
+        ("L01", "사과 1 L · 앞면 일부와 옆면"),
+        ("L02", "오렌지·레드자몽 1 L · 앞면과 윗면"),
+        ("L03", "미등록 사과 1.75 L · 같은 매대"),
+        ("S01", "오렌지·레드자몽 1 L · 옆에 놓인 팩"),
+        ("S02", "사과 1 L · 바코드가 보이지 않는 옆 팩"),
+    ]
+    rows = [(label, sku(records[key]["product"]) if records[key]["product"] else "보류") for key, label in scenes]
+    return ("<h3>스웨덴 매장 사진 재시험</h3>"
+            "<p>처음 세 입력은 보완에 사용했습니다. 마지막 두 입력은 같은 원본에서 옆에 놓인 팩을 잘라 시험했습니다. "
+            "가격표는 입력에서 제외했습니다.</p>" + table(("촬영 조건", "브라우저 상품 판정"), rows)
+            + "<p>기존 옆면 사진의 정답은 사과 0/2장, 혼합주스 0/5장에서 각각 0/2장과 2/5장으로 바뀌었습니다. "
+            "새 매장에서 두 등록 상품의 옆면 전체가 보이는 사진은 아직 확보하지 못했습니다.</p>")
+
+
 def oblique_photo_study():
     scores = read(ROOT / "docs/experiments/oblique-packages/scores.json")["scores"]
     cohorts = (("archive_registered_side_visible", "옆면이 많이 보인 등록품", "correct_registered"),
@@ -227,7 +245,7 @@ def oblique_photo_study():
             pair = scores[runtime][key]
             row.append(f'{pair["baseline"][outcome]} → {pair["candidate"][outcome]}')
         rows.append(row)
-    return ("<h3>비스듬한 포장 사진의 판독 결과</h3><p>같은 매장 사진을 이전 배포본과 현재 판독기에 각각 넣어 상품명을 비교했습니다. "
+    return ("<h3>이전 옆면 판독 실험 · v23</h3><p>같은 매장 사진을 v23과 그 이전 배포본에 각각 넣어 상품명을 비교했습니다. "
             "마지막 행은 미등록 상품에 등록 이름을 잘못 붙인 장수입니다. 같은 진열대에서 찍은 여러 장과 이전 개발에서 확인한 사진도 포함됩니다.</p>"
             + table(("촬영 조건", "사진 수", "브라우저 · 전 → 후", "Python · 전 → 후"), rows)
             + "<p>이전 버전을 평가한 매장 사진을 같은 조건으로 다시 읽었습니다. 한 상품을 여러 각도에서 찍은 사진이 포함되며, 새로 수집한 등록품 옆면 사진은 0장입니다.</p>"
@@ -287,7 +305,7 @@ def registered_photo_study():
                     "1 L 표기가 반복해 읽히면 다른 용량의 경쟁 후보를 제외하도록 Python 판정을 수정했습니다. "
                     "같은 두 사진을 다시 사용한 결과입니다. 첫 사진은 새 기준 사진과 구도가 같아 독립 성능 집계에서 제외합니다.</p>"
                     + table(("다시 읽은 사진", "당시 브라우저 판정", "당시 Python 판정"), cases))
-    return (oblique_photo_study() + '<details class="score-details"><summary>이전 등록 상품 판독 실험</summary>'
+    return (store_photo_study() + oblique_photo_study() + '<details class="score-details"><summary>이전 등록 상품 판독 실험</summary>'
             + "<p>같은 원본 사진을 수정 전후에 한 장씩 입력했습니다. 매장 표는 바코드 중심 판독기와 옆면 보완 전 배포본의 상품명을 비교합니다. 공개 사진 표는 두 사과 사진을 검토하기 전에 동결한 첫 수정본까지의 비교입니다. "
             "Python은 주문품 외 식료품도 이름을 붙일 수 있습니다. 미등록품 열에는 등록 주문명을 잘못 붙인 경우만 셉니다. 주문 규격은 등록 바코드를 읽었을 때 별도로 확정합니다. 브라우저에는 250mL 시연 상품이 추가 등록돼 있습니다.</p>"
             + "".join(sections)

@@ -205,3 +205,26 @@ test('a recovered front needs fruit-region matches and a foreground panel', asyn
   const sibling = {...primary, gtin: 'another-volume', score: 4.8};
   assert.equal(decide(primary, sibling).status, 'ambiguous');
 });
+
+test('a slanted EAN read identifies the photo while standard order checks and printed size still apply', () => {
+  const gtin = '7310865074225';
+  const panel = {view: 'oblique-ean', product: registered[gtin], gtin, scanLines: 2};
+  const empty = {kind: 'empty', codes: []};
+  assert.deepEqual(reader.photoDecision(empty, panel, ''), {...panel, kind: 'photo'});
+  assert.equal(reader.photoDecision(empty, panel, '1.75 L').reason, 'size');
+  assert.equal(reader.photoDecision({kind: 'unregistered'}, panel, '').kind, 'hold');
+  const differentOptical = {kind: 'registered', product: 'God-Morgon-Orange-Juice'};
+  assert.equal(reader.photoDecision(differentOptical, panel, '').reason, 'mismatch');
+});
+
+test('store retry examples use the same PNG bytes as the measured uploads', async () => {
+  const {createHash} = await import('node:crypto');
+  const html = await readFile(new URL('../web/recognition.html', import.meta.url), 'utf8');
+  const records = (await readFile(new URL('../docs/experiments/oblique-packages/landskrona/browser.jsonl', import.meta.url), 'utf8'))
+    .trim().split('\n').map(line => JSON.parse(line));
+  for (const [id, key] of [['L01', 'apple'], ['L02', 'mixed']]) {
+    const path = html.match(new RegExp('id="package-store-' + key + '"[^>]*data-src="([^"]+)"'))[1];
+    const data = await readFile(new URL('../web/' + path, import.meta.url));
+    assert.equal(createHash('sha256').update(data).digest('hex'), records.find(row => row.id === id).sha256);
+  }
+});

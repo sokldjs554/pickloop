@@ -1,5 +1,5 @@
 // Disposable classic worker. OpenCV's pinned browser distribution uses importScripts.
-importScripts('opencv.js');
+importScripts('opencv.js', 'oblique-ean.js', 'printed-regions.js');
 
 function loadRuntime() {
   // OpenCV 4.10 exposes a self-resolving thenable. Resolve without returning it.
@@ -77,7 +77,7 @@ function hullArea(points) {
   return Math.abs(area([...lower, ...half(sorted.reverse())]));
 }
 
-function correspondences(own, reference, query, matcher) {
+function correspondences(own, reference, query, matcher, ratio = .79, maxDistance = 64) {
   const bytes = Uint8Array.from(atob(reference.descriptors), c => c.charCodeAt(0));
   const features = own(cv.matFromArray(reference.points.length, 32, cv.CV_8U, bytes));
   const nearest = own(new cv.DMatchVectorVector());
@@ -87,7 +87,7 @@ function correspondences(own, reference, query, matcher) {
     const neighbors = nearest.get(i);
     if (neighbors.size() === 2) {
       const best = neighbors.get(0), second = neighbors.get(1);
-      if (best.distance < .79 * second.distance && best.distance <= 64 &&
+      if (best.distance < ratio * second.distance && best.distance <= maxDistance &&
           (!unique.has(best.trainIdx) || best.distance < unique.get(best.trainIdx).distance)) {
         unique.set(best.trainIdx, {source: i, target: best.trainIdx, distance: best.distance});
       }
@@ -244,7 +244,8 @@ async function readPanel(image) {
       seen.push(...candidates);
       if (size === 720) {
         const first = panelDecision(seen, registry);
-        if (first) return first.status === 'off_center' ? null : first;
+        if (first?.status === 'off_center') return await readPrintedRegions(rgba, matcher, registry);
+        if (first) return first;
       }
       for (const candidate of candidates) {
         if (candidate.centerDistance < -.12 || candidate.areaFraction < .04) continue;
@@ -253,7 +254,21 @@ async function readPanel(image) {
       }
     }
     const decision = panelDecision(seen, registry, true);
-    return decision?.status === 'off_center' ? null : decision;
+    if (decision && decision.status !== 'off_center') return decision;
+    // An identified background pack cannot identify the foreground object. A separate
+    // lettering match must place the full set of distinguishing regions near the center.
+    const printed = await readPrintedRegions(rgba, matcher, registry);
+    if (decision?.status === 'off_center' || printed?.status) return printed;
+    const gray = own(new cv.Mat());
+    cv.cvtColor(rgba, gray, cv.COLOR_RGBA2GRAY);
+    const scans = readObliqueEAN(gray.data, gray.cols, gray.rows, Object.keys(registry));
+    if (!scans.length) return printed;
+    const {gtin, scanLines} = scans[0];
+    if (scans.length > 1 || (printed && printed.product !== registry[gtin])) {
+      return {status: 'ambiguous'};
+    }
+    if (registry[gtin].endsWith('250ml')) return {status: 'incompatible'};
+    return {product: registry[gtin], view: 'oblique-ean', gtin, scanLines};
   } finally {
     for (const mat of allocations.reverse()) mat.delete();
   }

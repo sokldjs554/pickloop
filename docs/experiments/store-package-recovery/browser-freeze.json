@@ -1,0 +1,9 @@
+{
+  "package-reader.js": "dd377f7ab7ef1497ae198434785298599bebecf9f40f9e840fc3f0bb54506622",
+  "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b",
+  "data/registered-detail-gallery.json": "418f8a62a249d9d86b6678e66a58254215775ea694a506115ab15eda91ab0f1f",
+  "vendor/package-reader/panel-worker.js": "f57ca05142cfa1df033899da4517f5fcdcfec69ab7fb9718616bbaa7082900dc",
+  "vendor/package-reader/printed-regions.js": "888c89173c2d5f4c1b91f3091a9b8080e30a97feb55c7c72752331126635553f",
+  "vendor/package-reader/oblique-ean.js": "faaa8f1a07871ba3376d7ea07227319e8ccbef1cfe197037c25081736f645f51",
+  "vendor/package-reader/registry.json": "7861094f9666eb57ea0fb116d529641eea148c85f8da3fe7250b12fc442d168c"
+}
