@@ -161,7 +161,7 @@ function assess(own, reference, query, matcher) {
   const face = own(cv.matFromArray(4, 1, cv.CV_32FC2, normalized.flat()));
   const centerDistance = cv.pointPolygonTest(face, new cv.Point(.5, .5), true);
   return {reference, corners, gtin: reference.gtin, view: reference.view, inliers: keep.length,
-    votes, cover, score, appearance, centerDistance, areaFraction: projected / frameArea};
+    votes, cover, score, appearance, centerDistance, footprint: normalized, areaFraction: projected / frameArea};
 }
 
 // Rectification can expose fine lettering on foreshortened panels. Require an
@@ -181,7 +181,8 @@ function refine(own, candidate, frame, matcher) {
   const result = assess(own, reference, query, matcher);
   if (!result || result.corners.some(([x, y], i) =>
     Math.hypot(x - rectangle[i][0], y - rectangle[i][1]) > .12 * Math.max(width, height))) return null;
-  return {...result, centerDistance: candidate.centerDistance, areaFraction: candidate.areaFraction};
+  return {...result, centerDistance: candidate.centerDistance, footprint: candidate.footprint,
+    areaFraction: candidate.areaFraction};
 }
 
 function scoped(run) {
@@ -212,7 +213,9 @@ function panelDecision(seen, registry, recovery = false) {
     ? {product, view: best.view, inliers: best.inliers}
     : {status: 'incompatible'};
   if (best.view === 'front' && best.score >= 2.8 && seen.some(hit =>
-    !enrolled(registry[hit.gtin]) && hit.score >= .65 * best.score)) return {status: 'ambiguous'};
+    !enrolled(registry[hit.gtin]) && hit.score >= .65 * best.score)) {
+    return {status: 'ambiguous', footprint: best.footprint};
+  }
   return null;
 }
 
@@ -245,6 +248,10 @@ async function readPanel(image) {
       if (size === 720) {
         const first = panelDecision(seen, registry);
         if (first?.status === 'off_center') return await readPrintedRegions(rgba, matcher, registry);
+        if (first?.status === 'ambiguous') {
+          const printed = await readPrintedRegions(rgba, matcher, registry, first.footprint);
+          return printed?.product ? printed : first;
+        }
         if (first) return first;
       }
       for (const candidate of candidates) {
@@ -254,6 +261,10 @@ async function readPanel(image) {
       }
     }
     const decision = panelDecision(seen, registry, true);
+    if (decision?.status === 'ambiguous') {
+      const printed = await readPrintedRegions(rgba, matcher, registry, decision.footprint);
+      return printed?.product ? printed : decision;
+    }
     if (decision && decision.status !== 'off_center') return decision;
     // An identified background pack cannot identify the foreground object. A separate
     // lettering match must place the full set of distinguishing regions near the center.

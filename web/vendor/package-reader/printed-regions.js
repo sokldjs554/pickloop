@@ -17,7 +17,7 @@ function printedRegionScore(own, paddedGray, patch) {
   return cv.minMaxLoc(response).maxVal;
 }
 
-function locatePrintedRegions(own, template, query, matcher) {
+function locatePrintedRegions(own, template, query, matcher, focus) {
   const pairs = correspondences(own, template, query, matcher, .83, 70);
   if (pairs.length < 12) return null;
   const matrix = points => own(cv.matFromArray(points.length, 1, cv.CV_32FC2, points.flat()));
@@ -39,6 +39,8 @@ function locatePrintedRegions(own, template, query, matcher) {
       visibleArea(quad, query.width, query.height) < .85 * area(quad)) return null;
   const center = [0,1].map(axis => quad.reduce((sum,p) => sum+p[axis],0)/4);
   if (Math.abs(center[0]/query.width-.5) > .29 || Math.abs(center[1]/query.height-.5) > .30) return null;
+  if (focus && cv.pointPolygonTest(focus,
+      new cv.Point(center[0] / query.width, center[1] / query.height), true) < -.035) return null;
   const aligned = own(new cv.Mat()), gray = own(new cv.Mat()), padded = own(new cv.Mat());
   cv.warpPerspective(query.frame, aligned, transform, new cv.Size(width,height),
     cv.INTER_LINEAR | cv.WARP_INVERSE_MAP);
@@ -52,18 +54,19 @@ function locatePrintedRegions(own, template, query, matcher) {
 }
 
 // All registered candidates in this fallback must agree, including across scales.
-async function readPrintedRegions(rgba, matcher, registry) {
+async function readPrintedRegions(rgba, matcher, registry, footprint) {
   const response = await fetch('../../data/registered-detail-gallery.json');
   if (!response.ok) throw Error('Detail gallery unavailable');
   const gallery = await response.json();
   if (gallery.version !== 1) throw Error('Unknown detail gallery format');
   const found = new Map();
-  for (const [size, stretch] of [[620,1],[900,1],[540,1.6]]) {
+  for (const [size, stretch] of [[620,1],[900,1],[540,1.6],[680,1.6]]) {
     scoped(own => {
       const query = extract(own,rgba,size,stretch);
       if (query.points.length < 12) return;
+      const focus = footprint && own(cv.matFromArray(4, 1, cv.CV_32FC2, footprint.flat()));
       for (const template of gallery.templates) {
-        const hit = scoped(local => locatePrintedRegions(local,template,query,matcher));
+        const hit = scoped(local => locatePrintedRegions(local,template,query,matcher,focus));
         if (hit && (!found.has(hit.gtin) || found.get(hit.gtin).inliers < hit.inliers)) found.set(hit.gtin,hit);
       }
     });
