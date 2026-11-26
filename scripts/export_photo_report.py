@@ -274,22 +274,27 @@ def side_lettering_study():
         outcomes = selected[group]
         scores.append((label, *(f"{sum(column)} / {len(outcomes)}장"
                                 for column in zip(*outcomes, strict=True))))
-    outside_study = read(studies / "side-unknown-challenge/final-summary.json")
-    outside = outside_study["final_retest"]
-    photos = sum(cohort["images"] for cohort in outside.values())
-    wrong_names = sum(cohort["false_registered_product"] for cohort in outside.values())
-    wrong_orders = sum(cohort["false_order"] for cohort in outside.values())
-    positive = outside_study["final_outside_evidence"]["total"]
+    challenge = studies / "side-unknown-challenge"
+    previous = read(challenge / "final-summary.json")["final_outside_evidence"]["total"]
+    outside = [json.loads(line) for line in (challenge / "printed-titles/browser.jsonl").read_text().splitlines()]
+    with (challenge / "blind.csv").open(newline="") as manifest:
+        expected = {row["id"]: row["sha256"] for row in csv.DictReader(manifest)}
+    if len(outside) != len(expected) or {row["id"]: row["sha256"] for row in outside} != expected:
+        raise ValueError("Outside product replays do not match the frozen photo set")
+    photos = len(outside)
+    wrong_names = sum(bool(row["product"]) for row in outside)
+    wrong_orders = sum(bool(row["barcode_order"]) for row in outside)
+    positive = sum("미등록" in row["display"] or "목록 밖" in row["display"] for row in outside)
     return ("<h3>기존 매장 사진의 상품 인식 비교</h3>"
             "<p>같은 매장 사진을 두 판독기의 파일 선택창에 올렸습니다. 오렌지는 앞면과 이어진 옆면 인쇄를, "
             "혼합주스는 포장 글자 또는 같은 팩의 브랜드·뚜껑 아래 과일 무늬를 대조합니다.</p>"
             + table(("사진 조건", "이전 판독기(v28)", "이번 판독기"), scores)
             + "<p>새 매장에서 촬영한 전체 옆면 평가 사진은 사과 0건, 혼합주스 0건입니다.</p>"
             + f"<p>별도로 모은 미등록 유사 상품 사진 {photos}장에서 등록 상품명 오인은 {wrong_names}건, 잘못된 주문 확정은 {wrong_orders}건이었습니다. "
-            + f"{positive}장에서는 미등록 단서를 확인했고 나머지 {photos - positive}장은 판정을 보류했습니다. "
-            + "이 중 핀란드 사과주스 한 장은 오류를 분석한 뒤 다시 시험했습니다.</p>"
+            + f"미등록 근거를 확인한 사진은 {previous}장에서 {positive}장으로 늘었고, {photos - positive}장은 보류했습니다. "
+            + "블러드오렌지와 오렌지·망고 2장은 판독 개선에 사용한 원본을 다시 시험한 결과입니다.</p>"
             + '<p><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-print-evidence">옆면 사진별 판정</a> · '
-            + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-unknown-challenge">미등록 유사 상품 사진</a> · '
+            + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-unknown-challenge/printed-titles">미등록 사진별 결과</a> · <a href="https://colab.research.google.com/github/sokldjs554/pickloop/blob/main/docs/experiments/side-unknown-challenge/printed-titles/replay.ipynb">Colab에서 사진 재시험</a> · '
             + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/short-retail-codes">서로 다른 바코드가 함께 보일 때의 주문 판정</a></p>')
 
 
