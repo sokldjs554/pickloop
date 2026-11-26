@@ -64,3 +64,5 @@ Codex가 옆면 사진 판독을 수정하고 기존 매장 사진과 추가로 
 Codex가 기존 라이다 센서 기록에서 점유 지도를 다시 만들고 A* 경로 및 보류 대조군을 검증했다. ROS 2 DDS로 운반 중 취소를 요청해 정지와 흡착 유지 결과를 확인했다. KiCad 압력 입력 실습 회로와 2층 PCB도 Codex가 설계하여 ERC·DRC를 실행했다. [지도·경로](slam-navigation.md) · [DDS 취소](ros2-integration.md#물체를-운반할-때-dds로-취소) · [KiCad 실습](../hardware/kicad-pressure-bench/)
 
 Codex가 6축 경로, 재구성 지도 주행·온라인 경계 탐색, 24·48개 프로세스의 구역 경합, 추가 DDS 운반 중 취소 3건, 소프트웨어 PLC 재시험을 수행했다. [6축](arm6-planning.md) · [주행](slam-drive.md) · [탐색](slam-exploration.md) · [플릿](fleet-contention.md) · [DDS](ros2-integration.md) · [PLC](plc-interop.md)
+
+Codex가 기존 매장 사진의 사과 바코드와 혼합주스 인쇄 표기 판독을 수정하고 재시험했다. 사용자가 조회한 T4 장치 정보에 맞춰 Isaac Sim 점검 노트북을 작성했다. [브라우저 재시험](experiments/side-panel-retry/) · [GPU 점검 노트북](experiments/isaac-sim/notebook.ipynb)

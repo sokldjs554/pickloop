@@ -1,5 +1,5 @@
 // Disposable classic worker. OpenCV's pinned browser distribution uses importScripts.
-importScripts('opencv.js', 'oblique-ean.js', 'printed-regions.js');
+importScripts('opencv.js', 'oblique-ean.js', 'subpixel-ean.js', 'printed-regions.js');
 
 function loadRuntime() {
   // OpenCV 4.10 exposes a self-resolving thenable. Resolve without returning it.
@@ -219,6 +219,39 @@ function panelDecision(seen, registry, recovery = false) {
   return null;
 }
 
+// Use a blurred side barcode only to distinguish visually competing foreground packs.
+// In face coordinates allow the near quarter-width of an adjacent side, not the next carton.
+function barcodeOnPack(own, footprint, center) {
+  const points = coords => own(cv.matFromArray(coords.length, 1, cv.CV_32FC2, coords.flat()));
+  const face = points(footprint);
+  const unit = points([[0,0],[1,0],[1,1],[0,1]]);
+  const transform = own(cv.getPerspectiveTransform(face, unit));
+  const output = own(new cv.Mat());
+  cv.perspectiveTransform(points([center]), output, transform);
+  const [u, v] = output.data32F;
+  return u >= -.25 && u <= 1.25 && v >= 0 && v <= 1;
+}
+
+async function resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, decision) {
+  const printed = await readPrintedRegions(rgba, matcher, registry, decision.footprint);
+  if (printed) return printed.product ? printed : decision;
+  const faces = seen.filter(hit => hit.view === 'front' && registry[hit.gtin] &&
+    !registry[hit.gtin].endsWith('250ml') && hit.score >= .65 * seen[0].score &&
+    hit.centerDistance >= -.12 && hit.areaFraction >= .04);
+  if (!faces.length) return decision;
+  return scoped(own => {
+    const gray = own(new cv.Mat());
+    cv.cvtColor(rgba, gray, cv.COLOR_RGBA2GRAY);
+    const codes = [...new Set(gallery.templates.map(t => t.gtin).filter(code => /^\d{13}$/.test(code)))];
+    const scans = readSubpixelEAN(gray.data, gray.cols, gray.rows, codes);
+    if (new Set(scans.map(s => s.gtin)).size !== 1) return decision;
+    const hit = scans.find(scan => faces.some(face => face.gtin === scan.gtin &&
+      barcodeOnPack(own, face.footprint, scan.center)));
+    return hit ? {product: registry[hit.gtin], view: 'side-ean-bands', gtin: hit.gtin,
+      scanBands: 2} : decision;
+  });
+}
+
 async function readPanel(image) {
   const [galleryResponse, registryResponse] = await Promise.all([
     fetch('../../data/registered-pack-gallery.json'), fetch('registry.json'), loadRuntime(),
@@ -249,8 +282,7 @@ async function readPanel(image) {
         const first = panelDecision(seen, registry);
         if (first?.status === 'off_center') return await readPrintedRegions(rgba, matcher, registry);
         if (first?.status === 'ambiguous') {
-          const printed = await readPrintedRegions(rgba, matcher, registry, first.footprint);
-          return printed?.product ? printed : first;
+          return await resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, first);
         }
         if (first) return first;
       }
@@ -262,8 +294,7 @@ async function readPanel(image) {
     }
     const decision = panelDecision(seen, registry, true);
     if (decision?.status === 'ambiguous') {
-      const printed = await readPrintedRegions(rgba, matcher, registry, decision.footprint);
-      return printed?.product ? printed : decision;
+      return await resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, decision);
     }
     if (decision && decision.status !== 'off_center') return decision;
     // An identified background pack cannot identify the foreground object. A separate

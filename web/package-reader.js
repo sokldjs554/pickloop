@@ -112,6 +112,9 @@ export function photoDecision(barcodes, panel, transcript) {
   if (conflict) return {kind: 'hold', reason: conflict};
   if (barcodes.kind === 'registered') return {kind: 'barcode', product};
   if (transcript == null) return {kind: 'hold', reason: 'ocr_failed'};
+  if (panel.view === 'side-ean-bands') {
+    return {kind: 'photo', product, view: panel.view, gtin: panel.gtin, scanBands: panel.scanBands};
+  }
   if (panel.view === 'oblique-ean') {
     return {kind: 'photo', product, view: panel.view, gtin: panel.gtin, scanLines: panel.scanLines};
   }
@@ -121,6 +124,10 @@ export function photoDecision(barcodes, panel, transcript) {
 function identityMessage(result) {
   if (result.kind === 'barcode') return '';
   if (result.kind === 'photo') {
+    if (result.view === 'side-ean-bands') {
+      return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 옆면 바코드 ' + result.gtin +
+        ' · 떨어진 두 영역에서 같은 13자리를 판독했습니다.';
+    }
     if (result.view === 'oblique-ean') {
       return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 옆면 바코드 ' +
         result.gtin + ' · ' + result.scanLines + '개 선에서 같은 번호를 읽었습니다.';
@@ -392,7 +399,7 @@ function bindReader() {
         barcode.textContent = decision.kind === 'barcode' ? barcodeMessage(barcodes)
           : '상품 확정 보류 · 읽은 등록 바코드 ' + barcodes.codes[0];
       }
-      if (decision.kind === 'photo') barcode.textContent = decision.view === 'oblique-ean'
+      if (decision.kind === 'photo') barcode.textContent = ['oblique-ean', 'side-ean-bands'].includes(decision.view)
         ? '주문 규격 확정 보류 · 바코드를 정면에서 다시 확인해 주세요.'
         : '주문 규격 확정 보류 · 바코드를 읽지 못했습니다.';
       if (identity) {

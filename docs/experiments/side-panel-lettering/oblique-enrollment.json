@@ -1,0 +1,122 @@
+[
+  {
+    "id": "mixed-front16",
+    "file": "God-Morgon-Orange-Red-Grapefruit-Juice_016.jpg",
+    "gtin": "7310860007259",
+    "sha256": "d6823c0468728b8b6b955a344cd38e49ef9f015c9d01a55f32ae475ffbc8b5e1",
+    "face": {
+      "corners": [
+        [
+          66,
+          70
+        ],
+        [
+          177,
+          40
+        ],
+        [
+          241,
+          322
+        ],
+        [
+          143,
+          347
+        ]
+      ],
+      "coordinate_long_edge": 348
+    },
+    "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_016.jpg",
+    "crop": [
+      2,
+      42,
+      226,
+      526
+    ],
+    "zones": [
+      [
+        75,
+        43,
+        167,
+        126
+      ],
+      [
+        51,
+        132,
+        136,
+        167
+      ],
+      [
+        43,
+        161,
+        205,
+        199
+      ]
+    ],
+    "minima": [
+      0.43,
+      0.5,
+      0.5
+    ],
+    "oblique": true
+  },
+  {
+    "id": "mixed-front8",
+    "file": "God-Morgon-Orange-Red-Grapefruit-Juice_008.jpg",
+    "gtin": "7310860007259",
+    "sha256": "c585c84e63de3a70b376c7446457af91f56fc254d0a1e2b8fc3a4224f5290766",
+    "face": {
+      "corners": [
+        [
+          137,
+          100
+        ],
+        [
+          232,
+          85
+        ],
+        [
+          231,
+          311
+        ],
+        [
+          149,
+          331
+        ]
+      ],
+      "coordinate_long_edge": 348
+    },
+    "source": "https://raw.githubusercontent.com/marcusklasson/GroceryStoreDataset/fc80ba90f803d79d0383df52c5a4ac5de99ff6fc/dataset/train/Packages/Juice/God-Morgon-Orange-Red-Grapefruit-Juice/God-Morgon-Orange-Red-Grapefruit-Juice_008.jpg",
+    "crop": [
+      6,
+      46,
+      235,
+      538
+    ],
+    "zones": [
+      [
+        82,
+        50,
+        186,
+        143
+      ],
+      [
+        29,
+        151,
+        151,
+        188
+      ],
+      [
+        53,
+        181,
+        218,
+        221
+      ]
+    ],
+    "minima": [
+      0.43,
+      0.5,
+      0.5
+    ],
+    "oblique": true
+  }
+]
