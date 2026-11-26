@@ -504,4 +504,20 @@ check('unavailable native playback retries from a Blob and provides a real scene
   assert.equal(stillPlayback.fallback.hidden,false);
   assert.equal(stillPlayback.img.src,'poster.jpg');
 });
+check('role evidence links serve the recorded experiment summaries', () => {
+  const page = readFileSync(resolve(root, 'web/evidence.html'), 'utf8');
+  const records = {
+    'arm6-planning': 'runs/arm6-planning/result.json',
+    'slam-drive': 'runs/slam-drive/summary.json',
+    'slam-exploration': 'runs/slam-exploration/summary.json',
+    'fleet-48': 'runs/fleet-contention/48-robots/result.json',
+    'ros-transport-cancel': 'ros2/evidence/transport-cancel/summary.json',
+    'plc-retest': 'runs/plc-interop-retest/summary.json',
+  };
+  for (const [name, record] of Object.entries(records)) {
+    const url = `data/role/${name}.json`;
+    assert.ok(page.includes(`href="${url}"`), url);
+    assert.deepEqual(readFileSync(resolve(root, 'web', url)), readFileSync(resolve(root, record)), name);
+  }
+});
 console.log(`\n${checks} UI contract checks passed.`);

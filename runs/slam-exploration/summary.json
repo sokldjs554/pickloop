@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "seed": 31,
+  "domain": "bounded sensor-driven frontier exploration in a 2D kinematic simulator",
+  "frame": "first_scan_xy_m_yaw_rad",
+  "preloaded_map": false,
+  "status": "FRONTIER_BUDGET_REACHED",
+  "grid_resolution_m": 0.07,
+  "sensor_keyframes": 653,
+  "initial_free_cells": 5926,
+  "final_free_cells": 8476,
+  "newly_free_cells": 2598,
+  "no_longer_free_cells": 48,
+  "free_cells_by_sweep": [
+    5926,
+    5965,
+    8476
+  ],
+  "truth_travel_m": 2.704062710211557,
+  "truth_min_body_clearance_m": 0.22234484370324448,
+  "truth_collision": false,
+  "estimate_xy_rmse_m": 0.005429810508278362,
+  "stopped": true,
+  "simulated_duration_s": 41.32,
+  "legs": [
+    {
+      "status": "GOAL_REACHED",
+      "route_xy_m": [
+        [
+          0.002022911593348486,
+          0.0001355588842553509
+        ],
+        [
+          1.365,
+          0.31499999999999995
+        ]
+      ],
+      "observed_free_cells": 5926,
+      "map_centerline_clearance_lower_bound_m": 0.4797340879426127,
+      "scan_update_attempts": 17,
+      "accepted_scan_updates": 17
+    },
+    {
+      "status": "GOAL_REACHED",
+      "route_xy_m": [
+        [
+          1.3358779318226235,
+          0.30948233797574237
+        ],
+        [
+          2.625,
+          -0.03500000000000014
+        ]
+      ],
+      "observed_free_cells": 5965,
+      "map_centerline_clearance_lower_bound_m": 0.37473773445177855,
+      "scan_update_attempts": 20,
+      "accepted_scan_updates": 20
+    }
+  ],
+  "trace_sha256": "32cb20ea1bda925eb7aec15a16008e7d1ab804675566e8338e0af112586d1c67",
+  "grids_sha256": "4a0bae1951b8c97168af402878fb37ab76e82b8675a1b68ff4cfca6a467460cb",
+  "source_sha256": {
+    "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd",
+    "scripts/run_slam_drive.py": "081269206c71a99a96576d2cb1789937743d9be263aaae79ed128e78e41b25ba",
+    "scripts/run_slam_exploration.py": "7c6111d29a3259174904a1d09c4214a1637b052c812187afe1ea732f4bfaa3cc",
+    "scripts/run_slam_navigation.py": "a2f5d65da10d5435ed0a834b15ad03b7df11f0ee672aa65d492b9340f95a90be",
+    "src/pickloop/lidar_slam.py": "bbffaa569a6b4efa45efccf89c68bb9b4d04c6f37327561eebcb30e007857795",
+    "src/pickloop/mobile.py": "a95fc8f0e024515b84e3215dfa2266900e560d68f312e524a7f2ce44de4fd402",
+    "src/pickloop/slam_drive.py": "eceb19bbf838302fdc196bb1f55b30b02fd3d072bf74b3bb3412369e561e4513",
+    "src/pickloop/slam_exploration.py": "c86682672341aaf0ea9ae1e8d1ea6fdef0ec126c9587cf575574931bac90c882",
+    "src/pickloop/slam_navigation.py": "013be13a633fbf2ca7c30fce1e07a43f5256fc9ce6d84e059c027a782c75e936"
+  }
+}

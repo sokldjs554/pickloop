@@ -68,3 +68,5 @@ Raw logs and the parsed result summary are preserved in [ros2/evidence](../ros2/
 ```sh
 docker exec pickloop-ros-bridge bash -c 'source /opt/ros/jazzy/setup.bash; source /opt/pickloop_ros/install/setup.bash; ros2 run pickloop_bridge pick_client --job-id cancel-during-transport-demo --seed 7 --cancel-at-phase TRANSPORT'
 ```
+
+시드 11·19의 정상 픽과 시드 41의 일시 흡착 실패 조건에서 같은 DDS 취소를 추가로 실행했다. 시드 41은 첫 흡착 실패 뒤 두 번째 시도에서 물체를 들어 운반한 후 취소했다. 새 3건 모두 감속 정지, 밸브 ON, −55 kPa, 물체 부착 유지 및 해제 명령·낙하 0건을 확인했다. 이전 두 시드를 포함해 총 5건의 액션·제어기 로그와 해시를 보존했다. [다섯 실행의 요약](../ros2/evidence/transport-cancel/summary.json)

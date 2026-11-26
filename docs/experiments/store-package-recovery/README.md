@@ -12,7 +12,7 @@ Willys Landskrona Infarten의 같은 입력을 기본 파일 선택창에서 다
 | 기존 등록품 옆면 전체 15장, 앞면 45장 | 옆면 3 → 5, 앞면 29 → 29 |
 | 기존 미등록 단일 레드자몽 14장 | 등록 이름 오인 0 → 0 |
 
-스웨덴 사진 두 장은 한 매대에서 같은 날 촬영했다. 인접한 팩을 자른 두 건도 같은 원본이다. 노르웨이 사과 1.75 L는 Kiwi Bøhmergaten과 Bunnpris Møllendalsbakken의 서로 다른 사진이다. 기존 아카이브 전체 74장에서는 혼합주스 옆면 두 장의 판정만 바뀌었다. 새 매장에서 촬영한 두 등록 상품의 전체 옆면에 대한 정확도는 미측정이다. [원본·좌표·바코드·해시](field-inputs.csv) · [아카이브 74장](archive-browser.jsonl) · [이전 결과](../oblique-packages/archive-browser.jsonl)
+스웨덴 사진 두 장은 한 매대에서 같은 날 촬영했다. 인접한 팩을 자른 두 건도 같은 원본이다. 노르웨이 사과 1.75 L는 Kiwi Bøhmergaten과 Bunnpris Møllendalsbakken의 서로 다른 사진이다. 기존 아카이브 전체 74장에서는 혼합주스 옆면 두 장의 판정만 바뀌었다. 새 매장에서 촬영한 두 등록 상품의 전체 옆면 평가 사진은 사과 0건, 혼합주스 0건이다. [원본·좌표·바코드·해시](field-inputs.csv) · [아카이브 74장](archive-browser.jsonl) · [이전 결과](../oblique-packages/archive-browser.jsonl)
 
 기존 공개 사진 8장의 판정은 같았다. 과거 검증용 사진 20장에서는 혼합주스 1장이 보류에서 정답으로 바뀌었다. [공개 사진](public-browser.jsonl) · [과거 검증용 사진](legacy-validation-browser.jsonl)
 

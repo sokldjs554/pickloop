@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "run_id": "normal-19-recovery-319e3c",
+  "job_id": "extended-cancel-19-normal",
+  "seed": 19,
+  "fault": "normal",
+  "policy": "recovery",
+  "sku": "SKU-RED-A",
+  "status": "CANCELLED",
+  "success": false,
+  "reason": "CANCELLED",
+  "sim_duration_s": 6.319999999999877,
+  "wall_duration_s": 3.0455225280020386,
+  "retries": 0,
+  "metrics": {
+    "first_attempt_pick_success": true,
+    "first_attempt_success": false,
+    "attempts": 1,
+    "retries": 0,
+    "wrong_placements": 0,
+    "drops": 0,
+    "collisions": 0,
+    "held": false,
+    "cancelled": true,
+    "sim_duration_s": 6.319999999999877,
+    "wall_duration_s": 3.0455225280020386,
+    "recovery_sim_s": null,
+    "selection_correct": true,
+    "selection_attempted": true,
+    "position_error_m": 0.001057469073919998,
+    "inference_wall_s": [
+      0.08402721397578716
+    ],
+    "verified_by_vision": false,
+    "verified_by_truth": false,
+    "max_joint_velocity": [
+      0.7044500884989753,
+      0.02569852535216537,
+      0.20045151278484624,
+      0.6998654306754043
+    ],
+    "max_joint_acceleration": [
+      1.4135655273230574,
+      0.351168735777755,
+      0.4592018032576841,
+      1.430073840180801
+    ],
+    "timeout": false
+  },
+  "initial_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.33617818219759643,
+          -0.16870653276115494,
+          0.0849865591227995
+        ],
+        "speed_m_s": 4.835842716335859e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.4845728797097653,
+          -0.1731985418763502,
+          0.08498655912279951
+        ],
+        "speed_m_s": 4.835842715017469e-07,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.1943163037521436,
+          -0.11476355381122978,
+          0.08498655912279951
+        ],
+        "speed_m_s": 4.835842714462357e-07,
+        "in_bin": false
+      }
+    ],
+    "attached": null,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "final_truth": {
+    "objects": [
+      {
+        "sku": "SKU-RED-A",
+        "position": [
+          0.34091748237804753,
+          -0.16226375336476384,
+          0.27536192411874966
+        ],
+        "speed_m_s": 0.00028425369423417567,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-RED-B",
+        "position": [
+          0.4845728797097653,
+          -0.1731985418763502,
+          0.08498658277545351
+        ],
+        "speed_m_s": 8.953878445859761e-16,
+        "in_bin": false
+      },
+      {
+        "sku": "SKU-UNKNOWN",
+        "position": [
+          0.19431630375214365,
+          -0.11476355381122978,
+          0.0849865827754535
+        ],
+        "speed_m_s": 1.2768576026825955e-15,
+        "in_bin": false
+      }
+    ],
+    "attached": 0,
+    "drop_count": 0,
+    "collision_count": 0
+  },
+  "position_estimates": [
+    {
+      "attempt": 1,
+      "position": [
+        0.3354105155835469,
+        -0.1683865314853701,
+        0.10933346801470889
+      ],
+      "observation_id": "normal-19-recovery-319e3c-obs-0002"
+    }
+  ],
+  "provenance": {
+    "source_sha256": "c24fc0801f5fe62a02de728975cd6865943781784b3b85b1ed0ddebc4ed66e16",
+    "git_commit": "0fde87c3434da5fcf721c8b3af81d696a1540836",
+    "model_sha256": "9a111d8a584cd48a681d80a4a6f0fc7681aedba611f1afbd43fc81d7cf459bec",
+    "source_files": {
+      "src/pickloop/__init__.py": "504cff8eda644dc3740a2324c20628637a00e6a660abbb22ac9e1ee0be81461b",
+      "src/pickloop/bin_perception.py": "cc0153c750e58b18370b3e7d41c8d03ffc47e4a6b21e367b05722c8b52151d7c",
+      "src/pickloop/carton_matcher.py": "9ae3670c1b1a7e46018a201e443b74d8b0e5427e7623ebe101245e6eeb2c3243",
+      "src/pickloop/catalogue_features.py": "f32127e6506e86ab4ecab1983bb20f64d01dc02ce6ca9bdc6d421d1ff4be6957",
+      "src/pickloop/catalogue_model.py": "b8750265dd4a43d085dd0e24e5f972780bbf6fb97b2a29adb925bbb0370839df",
+      "src/pickloop/cli.py": "49df09910f1bcd9dec88e3b5af5065794a06ae3cc171cd0f5dc64e595ba0917c",
+      "src/pickloop/conditions.py": "bfc5f0dd765038d678a0ef5ae654322e38b79895121ff5d4710d8c1ea8e2d7b4",
+      "src/pickloop/data/bravo_carton_panels.npz": "7537c7c13ee7a44635e2fc49c3a21235be712b6b4bcbd2a4bc558bd44a81312c",
+      "src/pickloop/data/grocery_catalogue.npz": "55b1af5108cb748b05702f14976a9bee471872730ce5221ad2c9be16a906fcd1",
+      "src/pickloop/data/juice_gate.npz": "496c81c7de627748b79c7661fa7377d6d5e3a62d2cf0dd09f3e2e3a0050b7aea",
+      "src/pickloop/data/registered_oblique.npz": "4829c5d7179505b121cbbd436797ac900cff6cc1a531e6bd66cd2d60cba29097",
+      "src/pickloop/data/registered_pack.npz": "d0aa8be34cd4e54bf25de00900019357f7995992331b1a62bf437b3001c3dd7e",
+      "src/pickloop/device.py": "4eef1950d95eb30ac9341e24ae1fdf6da24190fe9b8947d522a5ca93851762f0",
+      "src/pickloop/dock_charging.py": "d325db555f6477474dcea1aff30c1b7e5bc996a5750a38050a143e1834c8d6c2",
+      "src/pickloop/engine.py": "3b55de93db906037953ca20656fc774b7b3e719a2db9117b606eb221cdcb8486",
+      "src/pickloop/evaluation.py": "9795d4eb80cf4d522a6b0c22ade561a6b9a6501fee2ee1df5c93a24a63f57ded",
+      "src/pickloop/experiment.py": "633df493a630547080a7126b15f80d18da5b49d6ed474102edd3ac9dca660707",
+      "src/pickloop/geometry.py": "6e220d713df694e67fcf027748d9a7b1028a67be4487825acea4299013c36fbc",
+      "src/pickloop/grocery_catalogue.py": "7c24596878b4e01ab8bb3ce20a9b28ae3970035a8e5f0b763bec705890854a05",
+      "src/pickloop/grocery_evaluation.py": "cae63fa5aea25c300d84d704eb8b40bff7635125062796dae63095fc289d4b58",
+      "src/pickloop/grocery_transfer.py": "05eebc6d8087c5ccb977b649f80a175e653c936e393e12ee6ec6045ac354b5e6",
+      "src/pickloop/hand_eye.py": "3ac1c1c19d24894ac4ca7efa48e43b9a8a3ba786d2530d503761277ea4cee90c",
+      "src/pickloop/journal.py": "24ae827d6af905f958d632a0180d3f0dc247491c7f3fb4f95545ace6d97c540a",
+      "src/pickloop/juice_gate.py": "9b9c2dca045935d794c1bf291426dd4887b57896d31ad2d09f084a79e525aab5",
+      "src/pickloop/lidar_slam.py": "bbffaa569a6b4efa45efccf89c68bb9b4d04c6f37327561eebcb30e007857795",
+      "src/pickloop/mobile.py": "a95fc8f0e024515b84e3215dfa2266900e560d68f312e524a7f2ce44de4fd402",
+      "src/pickloop/oblique_pack.py": "0d611dc715b487974f8e246307bfc1fd1c8a5747231e9a1822731fea12900d61",
+      "src/pickloop/order_pick.py": "d3b0dda2c56c66edb78b8ac84931769b5fe10e818394792f7a2cc8b726bfa365",
+      "src/pickloop/pack_barcode.py": "f38cd2aab03acf1fedb0a6427ea863c4560153f6e84119e78c5e3a0e48602f31",
+      "src/pickloop/package_size.py": "c90c0f6c4b1a5c50b8dbb2f4d7d350c17c2cd4468dddb9fde283cdac8d04414b",
+      "src/pickloop/perception.py": "44db9501a04ee51e17cdb55a981439678cbed54991057ed5c72388a9c008fb35",
+      "src/pickloop/photo_evaluation.py": "ba459a0b4748f93c763249fb984afa18ebfe2c33ba14fcd8dbd7a33fa2b528da",
+      "src/pickloop/photo_readout.py": "202393bf5a11fa12973cc8818b0a4c090ab1d4b453c457e5bde6af27c7c85375",
+      "src/pickloop/photo_upload.py": "a13596a3f4973541e2bb07ce3471f79fdb9b2b389d6326081fa391182ba7eaa0",
+      "src/pickloop/produce_rescue.py": "f818122f0563d19c0d84b2683de328d4755ab7f82ad6662bd8b27b5c4208afd4",
+      "src/pickloop/product_recognition.py": "eee67878305fc44d2f66cb83794b2a29aaccf703cdd056148b91976020c5479d",
+      "src/pickloop/product_text.py": "2bc28cb36a1ebdb26d79277f9d9094cf346028cf4e66e3b137c2aea69f91a692",
+      "src/pickloop/registered_pack.py": "d31fc16d3946abd5f09bca28b47dbd054eb58a8e5f9cf66c5c15010aa3119d91",
+      "src/pickloop/server.py": "6c59345dda42989b6ee43ad4ae411ba703b657057e28ef445d81dc8996ee8440",
+      "src/pickloop/simulation.py": "f55b633dd711fd438615c0902c44c0e7ca7d6dd384a7061688eb810f00a11b17",
+      "src/pickloop/slam_navigation.py": "013be13a633fbf2ca7c30fce1e07a43f5256fc9ce6d84e059c027a782c75e936",
+      "src/pickloop/stop_policy.py": "47895057f10ec7cfbd1787854769bd45094c0334544d3dcc0da2e6bc94849746",
+      "src/pickloop/types.py": "0276ed4c2cbf42e54c06e68453b8e40477862e0b22b5dcbf82a1ba7aecb9ac23",
+      "src/pickloop/vision_model.py": "b2d4b5b96ae18e12821c9119335bfddff037df23c13aba661cbc848e1c497d58",
+      "src/pickloop.egg-info/PKG-INFO": "97975252dd641319ecd3a18ce72d8d1e7fed26274251452728c67fcb37b3e9a9",
+      "src/pickloop.egg-info/SOURCES.txt": "63a39185ad33a9117dbfe0943aac544f4344e7c22b6feaebf77fdb60da56636a",
+      "src/pickloop.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "src/pickloop.egg-info/entry_points.txt": "b1e85b6b73a7bb219ab9b894a354cd2ddf8534e24f5197c840efe38bd9fee18a",
+      "src/pickloop.egg-info/requires.txt": "1d56dfd5213f3f6b0554ec6f23290610b2c9a3a23a34b213910fd2ce4dd60a27",
+      "src/pickloop.egg-info/top_level.txt": "59f92b636959ccdc7cc7181a8b836fc707da94c56f71adeec1ec64b92e2d42e6",
+      "cpp/modbus_client.cpp": "ced0b88e2f507129714d2db6d5657115ef5ef96043a9a767b533af684513c5ea",
+      "assets/order-pick/LICENSE-GroceryStoreDataset.txt": "f43ce58159663a1c903cae5f2b4dfa3cc0e7431cf4406f5b84cd68f312f12e2d",
+      "assets/order-pick/manifest.json": "fdddd41cdaed69a5f8986ec6ea1e2ac443047d3c84c73a89b96ac426703fa746",
+      "assets/order-pick/mint.png": "e53279de294fcef904945eb8e59ab1cddd5ce7e12647d7d01f68e94336cd096c",
+      "assets/order-pick/mixed.png": "82b5cfd5b5a2e7d760d963d091683c9505db87ae07cc2937ad0cf4d8d497b17a",
+      "assets/order-pick/orange-1000ml.png": "5516410c862080241f25718c18bab49a93d46be980174439b13ec962d134334d",
+      "assets/order-pick/orange-500ml.png": "19fa30c3118f0363b4b9119a184898cce4663c0a3422da7506df7d13d4ff162a",
+      "assets/order-pick/orange-obscured.png": "00f37e659906c3bb45b3bd5bee3db23b2db221cace80b018611eb7c5685d57f9",
+      "assets/order-pick/orange.png": "e4f27d87b49506d1fbd092a6dad67b7743f7d8642ebb851424582c3c0088f1a1",
+      "assets/textures/LICENSE.txt": "da9b274cb333a29ed49a5c288b82f9c80753095860e5ce66e560383b7d4892b1",
+      "assets/textures/red_a.png": "32ece1ae5bc00b24008c6afb03a8615f8ce27a8a3eee106cf10714a2e4a2f7a8",
+      "assets/textures/red_b.png": "0dec3718d23785603adefa9b557025bbf464c7b1ba6309ed4f408e5e60daea50",
+      "assets/textures/unknown.png": "57e59db014ff2a172a3875614aafab997e3872b8010607ad6606cfd3ee72e92a",
+      "configs/bravo-template-regions.json": "6c740cbcc5261e0cf62cdcebbea76053f02d3087823bd432be6aa35c2e4750c6",
+      "configs/mobile-map.json": "69aaeacbf8688485eec71bd35bc172aa82dc1492d2d267df1b0c2e7e0b311fcd"
+    }
+  },
+  "condition": null,
+  "condition_id": null,
+  "terminal_policy": {
+    "action": "RETAIN",
+    "reason": "CONTROLLER_LOAD_UNCONFIRMED",
+    "terminal_reason": "CANCELLED",
+    "status_before": {
+      "ack_id": 1,
+      "valve": true,
+      "pressure_kpa": -55.0,
+      "attached": true,
+      "error": "none",
+      "execution_count": 1,
+      "max_command_id": 1,
+      "cancelled": false
+    },
+    "status": {
+      "ack_id": 1,
+      "valve": true,
+      "pressure_kpa": -55.0,
+      "attached": true,
+      "error": "none",
+      "execution_count": 1,
+      "max_command_id": 1,
+      "cancelled": false
+    },
+    "command_id": 1,
+    "next_command_id": 2,
+    "release_attempted": false,
+    "output_uncertain": false
+  }
+}

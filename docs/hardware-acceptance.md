@@ -56,3 +56,16 @@
 | H10 모바일·충전 | 실제 지도/측위/도킹 기준물·전기 연결·BMS | SLAM 지도 품질·정지 오차 실측, 접촉/전류/온도/BMS 상태 증거 필요. battery 숫자 변경을 충전 합격으로 처리하지 않음 |
 
 납품 기록에는 HW revision, schematic/PCB hash, BOM·firmware version, host commit/model hash, 장비/교정/환경·payload, test IDs·시각·원본 파형/압력/영상·실패/재시험을 연결한다. 미제작·미측정 상태에서는 H01–H10을 PASS로 채우지 않는다.
+
+## 실제 토크와 PLC 출력에 필요한 장비
+
+| 확인할 값 | 필요한 장비와 접근 권한 | 남길 기록 |
+|---|---|---|
+| 실물 로봇 관절 토크 | 실제 로봇과 컨트롤러. 제조사 문서에서 단위·갱신률·측정 방식을 확인한 뒤 읽기 전용 토크 또는 관절 effort 피드백을 취득한다. 피드백이 모터 전류 기반 추정이면 추정값으로 기록한다. 독립 실측에는 캘리브레이션된 토크 센서와 측정 장치가 필요하다. | 관절 번호, 시간, 기준 자세, 하중, 명령값, 보고값, 측정 방식과 단위 |
+| 실물 PLC 배선·출력 | 정확한 PLC CPU와 I/O 모듈, 해당 제조사 엔지니어링 도구, 모듈 정격에 맞는 시험 전원·테스트 부하·전압 또는 전류 측정기. 기종에 따라 엔지니어링 소프트웨어 라이선스나 제어기 접근 권한이 필요하다. | 명령과 레지스터, 출력 단자에서 얻은 전압·전류, 차단·응답 유실 시 출력, 측정기와 부하 정격 |
+
+두 시험 모두 생성형 AI API 키를 요구하지 않는다. [소프트웨어 PLC의 13단계 재시험](../runs/plc-interop-retest/)에서는 TCP 교환과 S7 논리의 출력 이미지를 검증했다. 실제 단자 출력·배선 시험의 증거는 위의 전기 측정으로 남겨야 한다.
+
+## Isaac Sim 실행 환경
+
+NVIDIA 공식 요구사항에서 Linux 컨테이너와 RTX 지원 GPU를 확인했다. 현재 실행 환경에서 NVIDIA 장치와 런타임을 찾지 못해 Isaac Sim 실행 증거는 0건이다. Mac에서 GPU 워크스테이션에 접속하는 방식은 NVIDIA가 안내하는 별도 스트리밍 구성이다. 이 저장소의 MuJoCo 결과를 Isaac Sim 실행으로 집계하지 않는다. [시스템 요구사항](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html) · [Linux 컨테이너 설치](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_container.html) · [스트리밍 설명](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_faq.html)
