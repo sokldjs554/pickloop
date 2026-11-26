@@ -9,6 +9,8 @@ The browser identified the reviewed rear-facing Swedish God Morgon Orange 1 L ca
 | Original resaved at JPEG quality 85 | God Morgon Orange 1 L from package print | 52.31 s |
 | Original at 90% brightness and JPEG quality 85 | Held | 68.65 s |
 
+The combined release processed the original photo in **20.55 seconds** in a separate Chromium run. A process check found zero competing Python browser replays at the start and at half-second intervals during the upload. This is one cold-page timing on this instance. [Isolated chooser output](isolated-chooser.jsonl)
+
 Chromium 156.0.8078.79 processed the four inputs in sequence on a four-core shared instance while three other browser replays were running. The darker JPEG retained enough detail to locate the flap, printed title and rear paragraphs. The general OCR engine could not recover the whole flavour word. The two JPEGs derive from one store photo. [Chooser output](chooser.jsonl)
 
 ## What identifies the carton
