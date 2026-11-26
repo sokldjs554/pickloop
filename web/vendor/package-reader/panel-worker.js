@@ -1,5 +1,5 @@
 // Disposable classic worker. OpenCV's pinned browser distribution uses importScripts.
-importScripts('opencv.js', 'oblique-ean.js', 'subpixel-ean.js', 'printed-regions.js', 'split-collar.js', 'orange-side.js', 'orange-nutrition.js', 'orange-values.js', 'orange-rear.js');
+importScripts('opencv.js', 'oblique-ean.js', 'subpixel-ean.js', 'printed-regions.js', 'split-collar.js', 'orange-side.js', 'orange-nutrition.js', 'orange-values.js', 'orange-rear.js','outside-family.js');
 
 function loadRuntime() {
   // OpenCV 4.10 exposes a self-resolving thenable. Resolve without returning it.
@@ -324,7 +324,7 @@ async function readPanel(image) {
         const first = panelDecision(seen, registry);
         if (first?.status === 'off_center') return await readSideEvidence(rgba, matcher, registry);
         if (['ambiguous', 'market_unverified'].includes(first?.status)) {
-          return await resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, first);
+          return await annotateOutsideCapacity(rgba, matcher, await resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, first));
         }
         if (first?.status === 'incompatible') return await resolveSharedOrangeFront(rgba, matcher, registry, seen, first);
         if (first) return first;
@@ -337,7 +337,7 @@ async function readPanel(image) {
     }
     const decision = panelDecision(seen, registry, true);
     if (['ambiguous', 'market_unverified'].includes(decision?.status)) {
-      return await resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, decision);
+      return await annotateOutsideCapacity(rgba, matcher, await resolveAmbiguousPanel(rgba, matcher, registry, gallery, seen, decision));
     }
     if (decision?.status === 'incompatible') return await resolveSharedOrangeFront(rgba, matcher, registry, seen, decision);
     if (decision && decision.status !== 'off_center') return decision;
@@ -348,7 +348,7 @@ async function readPanel(image) {
     const gray = own(new cv.Mat());
     cv.cvtColor(rgba, gray, cv.COLOR_RGBA2GRAY);
     const scans = readObliqueEAN(gray.data, gray.cols, gray.rows, Object.keys(registry));
-    if (!scans.length) return printed || await readOrangeRear(rgba, registry);
+    if (!scans.length) return printed || await readOrangeRear(rgba, registry) || await readOutsideFamily(rgba, matcher);
     const {gtin, scanLines} = scans[0];
     if (scans.length > 1 || (printed && printed.product !== registry[gtin])) {
       return {status: 'ambiguous'};

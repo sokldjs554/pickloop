@@ -1,0 +1,29 @@
+{
+  "per_cohort_observations": {
+    "derived_inputs": 30,
+    "source_photos": 5,
+    "unique_GTINs": 3,
+    "before_worker_wrong_Swedish_orange_1L_names": 2,
+    "release_wrong_Swedish_orange_1L_names": 0,
+    "release_wrong_registered_names": 0,
+    "release_confirmed_orders": 0
+  },
+  "release_wrong_source_ids": [],
+  "runtime": {
+    "chromium": "156.0.8078.79",
+    "derivative_pillow": "13.0.0"
+  },
+  "sha256": {
+    "before": {
+      "package-reader.js": "b94c6f5d20f6e7db3339aa0e370067f437e9e810b1834519c485b05e7c6a1247",
+      "vendor/package-reader/panel-worker.js": "5c8c6cf7cc3197a43a1440085b95c55948781e2bb4f0991f0622c8389da1d495",
+      "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b"
+    },
+    "release": {
+      "package-reader.js": "7ee4715fdab82832df1f360f82c1d7db0fdc0677e78cd84785f46deaa22facd4",
+      "vendor/package-reader/panel-worker.js": "13f47e9fd8d4c13caa83a25b669e3397208e6e8b41cfb67d9a0e7032d7d02ac6",
+      "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b"
+    }
+  },
+  "paired_derivatives_sha256": "b7b4d18ba89ed48930d00765b5364fa881f8df4a94040cb491e1a5add143a223"
+}

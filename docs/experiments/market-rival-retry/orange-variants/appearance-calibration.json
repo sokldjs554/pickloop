@@ -1,0 +1,27 @@
+{
+  "method": "EXIF-oriented original pack front rectified from the enrolled corners; measure drop in front artwork cosine against its own 12 by 32 aligned representation",
+  "input_perturbations": {
+    "long_edge_pixels": [360, 490, 720],
+    "jpeg_quality": [80, 90, 100],
+    "corner_perturbation_pixels": [-1.5, 0, 1.5],
+    "observations_per_reference": 27
+  },
+  "references": [
+    {
+      "enrollment_id": "God-Morgon-Orange-Juice_010",
+      "original_sha256": "88ca3691e305aeb250afc301139402ac4f9225db029c72c5ad4b678fd46a3f1a",
+      "minimum_drop": 0.0002,
+      "median_drop": 0.0005,
+      "maximum_drop": 0.0013
+    },
+    {
+      "enrollment_id": "GMX-7c855061af48",
+      "original_sha256": "7c855061af48db0706cff56b72ae76e85221990dca2f97f72390c4acd4e7548a",
+      "minimum_drop": 0.0012,
+      "median_drop": 0.0018,
+      "maximum_drop": 0.0036
+    }
+  ],
+  "sum_of_two_maximum_observed_drops": 0.0072,
+  "selected_near_tie_tolerance": 0.01
+}

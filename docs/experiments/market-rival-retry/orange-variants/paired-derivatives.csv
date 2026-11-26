@@ -1,0 +1,31 @@
+id,source_photo,gtin,sha256,before_worker_product,before_worker_status,release_upload_product,release_upload_source,release_barcode_order,release_display
+NX-128b044de60a6242-footer-masked,NX-128b044de60a6242,6415130050490,428328de08475a58ad4b3c231913d654e27c5ea5fdbf73c93b5daae8b67ec880,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-128b044de60a6242-footer-masked-dim,NX-128b044de60a6242,6415130050490,beab7855c0b0576e5a166620639ccf79171ad7e309cf062ee25963aa3f11e7a9,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-128b044de60a6242-side-masked,NX-128b044de60a6242,6415130050490,f0e9056095b20ebed43b64125566e51c9df641db904489e3e57396e9f6f740b2,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-128b044de60a6242-side-masked-dim,NX-128b044de60a6242,6415130050490,0c1296302811eb0464a43230dff55bdc5ce9698b0ca473b5b7e2757fc86d5ce5,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-128b044de60a6242-whole,NX-128b044de60a6242,6415130050490,add6004595e892c280b3caa194bed21d5b8c5e2fa208b73837816435f24f8b04,God-Morgon-Orange-Juice,,,none,,상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.
+NX-128b044de60a6242-whole-dim,NX-128b044de60a6242,6415130050490,fa2b148c6111de4a3725c250f7d686c4c633c62ce3a2a2d44575a3cad2f8b4bb,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-2eca27540a00d80d-footer-masked,NX-2eca27540a00d80d,7310865074768,15f64ee4532a49ab441cbc6445a5fa71dd4659899967e3bfc5b33ee7fbea621e,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-2eca27540a00d80d-footer-masked-dim,NX-2eca27540a00d80d,7310865074768,632be1cc7a2a45506e3d4bcebec299e878d42c6f8d77d62e0200082840763491,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-2eca27540a00d80d-side-masked,NX-2eca27540a00d80d,7310865074768,177463f37cb6f996b1ad4970d43e1dca0cf980df97cffabd5108bc0bdeb96239,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-2eca27540a00d80d-side-masked-dim,NX-2eca27540a00d80d,7310865074768,a7f50023537f75e2f07363ec5470b88829bd34ff6fb25888de3d3297ab5bbd94,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-2eca27540a00d80d-whole,NX-2eca27540a00d80d,7310865074768,bf8de6dab4dbe62ae0c2577b81c268a6ef9558552a6d079c597ad68fef65d114,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-2eca27540a00d80d-whole-dim,NX-2eca27540a00d80d,7310865074768,15fb6282676e62e46de282abc972deff54bd505cc60e5e3b7d57e356db381e91,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-63455b37f6fb074a-footer-masked,NX-63455b37f6fb074a,7310865074768,04ef1754d79ed64b142bbf57e12c2e0313064f3dada73321d552a985f7f8421a,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-63455b37f6fb074a-footer-masked-dim,NX-63455b37f6fb074a,7310865074768,be644222fd97781ec6f2baff4cf1eba43d8d42da382bfad9e8664c05aa228607,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+NX-63455b37f6fb074a-side-masked,NX-63455b37f6fb074a,7310865074768,861d9193a43bf662c4cba7d87b9bdafb7d1f6c82a0401f6d59475f0a7b8f282e,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-63455b37f6fb074a-side-masked-dim,NX-63455b37f6fb074a,7310865074768,e581e77e88610c57c5ebd7b162d31cd884f79f1a090c7f726eb2152f4bde7b43,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-63455b37f6fb074a-whole,NX-63455b37f6fb074a,7310865074768,c9ba76cb81763aa81fe3d6611b852eefca4399acc0ad75819bd1996d39c7377c,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-63455b37f6fb074a-whole-dim,NX-63455b37f6fb074a,7310865074768,72cd9ef46950809e73eb340f5b7b409e8bdd77f3032a911e7ed873d0833d2e2a,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-88d58ba6fa70e7e6-footer-masked,NX-88d58ba6fa70e7e6,6415130089834,6af818a6a62baddf9465f96e5c20d5cca19fb3ca0e47627968df60e32671d0e9,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-88d58ba6fa70e7e6-footer-masked-dim,NX-88d58ba6fa70e7e6,6415130089834,887bd49a3afd76c4f9b6b9830c38bade96b756abdbc53522d17e92ac79424531,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-88d58ba6fa70e7e6-side-masked,NX-88d58ba6fa70e7e6,6415130089834,38743dea7561bd38e220fd6b06cbb87f9ec354af4cf59d5689ce88be86f75067,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-88d58ba6fa70e7e6-side-masked-dim,NX-88d58ba6fa70e7e6,6415130089834,64409a1f60fb1f96657f223f4baa148d8125281523a8cc52b7931cdb46089191,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-88d58ba6fa70e7e6-whole,NX-88d58ba6fa70e7e6,6415130089834,9be1aa48ba4e5945a9c09a909e627da23ceba8257957750fb11af926333e3469,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+NX-88d58ba6fa70e7e6-whole-dim,NX-88d58ba6fa70e7e6,6415130089834,786035b7244060530848725033c3d2d6565e08b50c6eaaca539dcbb9b73902e3,,incompatible,,none,,상품 사진 판정 보류 · 등록 목록 밖의 유사 포장과 일치합니다.
+RR-b854b216734297e4-footer-masked,RR-b854b216734297e4,7310865074768,2510bf27c2d009bd65b10107d6e2761fbbfb7d4e6dbb42dbc48d32eb9110a25c,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+RR-b854b216734297e4-footer-masked-dim,RR-b854b216734297e4,7310865074768,e718216d259735ff1b7fe16ada0276079f6878cda442705666f46f8e3a041bac,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+RR-b854b216734297e4-side-masked,RR-b854b216734297e4,7310865074768,38d38b9ad9fbda25e4d0f817c384df2acf186d0923a0a0ff4aa3ff911ad7d9ec,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+RR-b854b216734297e4-side-masked-dim,RR-b854b216734297e4,7310865074768,d73104d1dde2ed36ba74de2142c5490d3ed99a99c0d8e35f909ce5aec4cdb2cd,God-Morgon-Orange-Juice,,,none,,상품 판정 보류 · 읽힌 용량 또는 묶음 수량이 등록 규격과 다릅니다.
+RR-b854b216734297e4-whole,RR-b854b216734297e4,7310865074768,a27f6f74caad74e71b33a91b3ecd9f4924aa96a8e9df7a38e051a795a7b607c9,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.
+RR-b854b216734297e4-whole-dim,RR-b854b216734297e4,7310865074768,df2e17b4dd32bc6065529ad037ff0a14d3cc0fdd149df6839003889fc50c3d77,,ambiguous,,none,,상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.

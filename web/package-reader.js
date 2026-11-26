@@ -117,6 +117,7 @@ function compactFrontCapacityConflict(product, transcript) {
 export function photoDecision(barcodes, panel, transcript) {
   if (barcodes?.kind === 'unregistered') return {kind: 'hold', reason: 'unregistered_code'};
   if (!barcodes || !['empty', 'registered'].includes(barcodes.kind)) return {kind: 'hold', reason: 'barcode'};
+  if (barcodes.kind === 'empty' && panel?.status === 'ambiguous' && panel.outsideCapacity === '1.75 L') return {kind:'hold',reason:'ambiguous_capacity'};
   if (panel?.status === 'incompatible' || panel?.status === 'ambiguous') {
     return {kind: 'hold', reason: panel.status};
   }
@@ -125,6 +126,9 @@ export function photoDecision(barcodes, panel, transcript) {
     return {kind: 'hold', reason: 'mismatch'};
   }
   const product = barcodes.product || panel?.product;
+  if (!product && barcodes.kind === 'empty' && panel?.status === 'outside_family') {
+    return {kind: 'hold', reason: 'outside_family', family: panel.family};
+  }
   if (!product) return {kind: 'hold', reason: 'no_panel'};
   const conflict = conflictingPrint(product, transcript || '');
   if (conflict) return {kind: 'hold', reason: conflict};
@@ -175,6 +179,10 @@ function identityMessage(result) {
     }
     const view = {lettering: '브랜드·맛 표기', front: '앞면', nutrition: '영양 표시', ingredients: '성분 표시'}[result.view] || '포장 면';
     return '등록 상품 사진 판정 · ' + productLabels[result.product] + ' · 기준 사진과 ' + view + ' 특징 ' + result.inliers + '곳 일치';
+  }
+  if (result.reason === 'ambiguous_capacity') return '미등록 용량 · 같은 포장의 브랜드, 제품명 및 등록 범위 밖의 1.75 L 표기를 확인했습니다. 정확한 상품 판정은 보류합니다.';
+  if (result.reason === 'outside_family') {
+    return '미등록 제품군 · 한 포장에서 등록 목록 밖의 제품군 표기를 확인했습니다. ' + result.family + '.';
   }
   return ({
     unregistered_code: '미등록 상품 · 읽은 바코드가 등록 목록에 없습니다.',

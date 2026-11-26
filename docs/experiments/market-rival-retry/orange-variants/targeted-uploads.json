@@ -1,0 +1,143 @@
+{
+  "prior_checkpoint_sha256": {
+    "package-reader.js": "b94c6f5d20f6e7db3339aa0e370067f437e9e810b1834519c485b05e7c6a1247",
+    "vendor/package-reader/panel-worker.js": "5c8c6cf7cc3197a43a1440085b95c55948781e2bb4f0991f0622c8389da1d495",
+    "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b"
+  },
+  "release_sha256": {
+    "package-reader.js": "7ee4715fdab82832df1f360f82c1d7db0fdc0677e78cd84785f46deaa22facd4",
+    "vendor/package-reader/panel-worker.js": "13f47e9fd8d4c13caa83a25b669e3397208e6e8b41cfb67d9a0e7032d7d02ac6",
+    "data/registered-pack-gallery.json": "14ed14cd1f5df7747fcac02ffa31d04c5258c881407af195e449badac3c1859b"
+  },
+  "paired_uploads": [
+    {
+      "id": "NX-128b044de60a6242-whole",
+      "before": {
+        "id": "NX-128b044de60a6242-whole.jpg",
+        "sha256": "add6004595e892c280b3caa194bed21d5b8c5e2fa208b73837816435f24f8b04",
+        "product": "God-Morgon-Orange-Juice",
+        "source": "visual",
+        "barcode_order": null,
+        "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+        "display": "등록 상품 사진 판정 · God Morgon 오렌지 주스 1 L · 기준 사진과 앞면 특징 274곳 일치",
+        "chromium": "156.0.8078.79"
+      },
+      "release": {
+        "id": "NX-128b044de60a6242-whole",
+        "sha256": "add6004595e892c280b3caa194bed21d5b8c5e2fa208b73837816435f24f8b04",
+        "product": null,
+        "source": "none",
+        "barcode_order": null,
+        "optical_display": "상품 확정 보류 · 바코드를 읽지 못했습니다",
+        "display": "상품 사진 판정 보류 · 등록 포장을 구별할 특징이 부족합니다.",
+        "chromium": "156.0.8078.79"
+      }
+    },
+    {
+      "id": "RR-b854b216734297e4-side-masked-dim",
+      "before": {
+        "id": "RR-b854b216734297e4-side-masked-dim.jpg",
+        "sha256": "d73104d1dde2ed36ba74de2142c5490d3ed99a99c0d8e35f909ce5aec4cdb2cd",
+        "product": "God-Morgon-Orange-Juice",
+        "source": "visual",
+        "barcode_order": null,
+        "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+        "display": "등록 상품 사진 판정 · God Morgon 오렌지 주스 1 L · 기준 사진과 앞면 특징 198곳 일치",
+        "chromium": "156.0.8078.79"
+      },
+      "release": {
+        "id": "RR-b854b216734297e4-side-masked-dim",
+        "sha256": "d73104d1dde2ed36ba74de2142c5490d3ed99a99c0d8e35f909ce5aec4cdb2cd",
+        "product": null,
+        "source": "none",
+        "barcode_order": null,
+        "optical_display": "상품 확정 보류 · 바코드를 읽지 못했습니다",
+        "display": "상품 판정 보류 · 읽힌 용량 또는 묶음 수량이 등록 규격과 다릅니다.",
+        "chromium": "156.0.8078.79"
+      }
+    }
+  ],
+  "native_finnish_control": {
+    "original_sha256": "128b044de60a6242a8c8a7d4e3e0bfc8da71af598b3489f5e025c600df67b689",
+    "before": {
+      "id": "NX-128b044de60a6242.jpg",
+      "sha256": "128b044de60a6242a8c8a7d4e3e0bfc8da71af598b3489f5e025c600df67b689",
+      "product": null,
+      "source": "none",
+      "barcode_order": null,
+      "optical_display": "상품 확정 보류 · 바코드를 읽지 못했습니다",
+      "display": "상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.",
+      "chromium": "156.0.8078.79"
+    },
+    "near_tie_guard_checkpoint": {
+      "id": "NX-128b044de60a6242.jpg",
+      "sha256": "128b044de60a6242a8c8a7d4e3e0bfc8da71af598b3489f5e025c600df67b689",
+      "product": null,
+      "source": "none",
+      "barcode_order": null,
+      "optical_display": "상품 확정 보류 · 바코드를 읽지 못했습니다",
+      "display": "상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.",
+      "chromium": "156.0.8078.79"
+    },
+    "release": {
+      "id": "NX-128b044de60a6242",
+      "sha256": "128b044de60a6242a8c8a7d4e3e0bfc8da71af598b3489f5e025c600df67b689",
+      "product": null,
+      "source": "none",
+      "barcode_order": null,
+      "optical_display": "상품 확정 보류 · 바코드를 읽지 못했습니다",
+      "display": "상품 사진 판정 보류 · 등록 규격과 다른 규격의 포장을 구별하기 어렵습니다.",
+      "chromium": "156.0.8078.79"
+    }
+  },
+  "registered_swedish_controls": [
+    {
+      "id": "RR-01bed9f7a6e2d10a",
+      "view": "front",
+      "before": {
+        "id": "RR-01bed9f7a6e2d10a",
+        "sha256": "01bed9f7a6e2d10a5503d56f6813a8b0758abe9e5a570c8c1dc3c90c081487c7",
+        "product": "God-Morgon-Orange-Juice",
+        "source": "visual",
+        "barcode_order": null,
+        "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+        "display": "등록 상품 사진 판정 · God Morgon 오렌지 주스 1 L · 기준 사진과 앞면 특징 261곳 일치",
+        "chromium": "156.0.8078.79"
+      },
+      "release": {
+        "id": "RR-01bed9f7a6e2d10a",
+        "sha256": "01bed9f7a6e2d10a5503d56f6813a8b0758abe9e5a570c8c1dc3c90c081487c7",
+        "product": "God-Morgon-Orange-Juice",
+        "source": "visual",
+        "barcode_order": null,
+        "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+        "display": "등록 상품 사진 판정 · God Morgon 오렌지 주스 1 L · 기준 사진과 앞면 특징 261곳 일치",
+        "chromium": "156.0.8078.79"
+      }
+    },
+    {
+      "id": "RR-74b070980c9ca99f",
+      "view": "adjoining-side",
+      "before": {
+        "id": "RR-74b070980c9ca99f",
+        "sha256": "74b070980c9ca99feb2e60dcdfe241481baa3b45983b38b303afe2896143d547",
+        "product": "God-Morgon-Orange-Juice",
+        "source": "visual",
+        "barcode_order": null,
+        "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+        "display": "등록 상품 사진 판정 · God Morgon 오렌지 주스 1 L · 같은 팩에서 앞면과 이어진 옆면 인쇄를 확인했습니다.",
+        "chromium": "156.0.8078.79"
+      },
+      "release": {
+        "id": "RR-74b070980c9ca99f",
+        "sha256": "74b070980c9ca99feb2e60dcdfe241481baa3b45983b38b303afe2896143d547",
+        "product": "God-Morgon-Orange-Juice",
+        "source": "visual",
+        "barcode_order": null,
+        "optical_display": "주문 규격 확정 보류 · 바코드를 읽지 못했습니다.",
+        "display": "등록 상품 사진 판정 · God Morgon 오렌지 주스 1 L · 같은 팩에서 앞면과 이어진 옆면 인쇄를 확인했습니다.",
+        "chromium": "156.0.8078.79"
+      }
+    }
+  ]
+}
