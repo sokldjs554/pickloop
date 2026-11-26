@@ -28,6 +28,8 @@ PyBrain AI AI Robot Engineer(S/W) 지원 검토용 프로젝트다. MuJoCo CPU �
 - [과거 120회 결과](runs/final/summary.md) · [과거 집계 JSON](runs/final/metrics.json) · [과거 trial CSV](runs/final/trials.csv): 1회 기준/3회 복구 비교이며 복구 판단의 단독 효과를 증명하지 않는다.
 - [학습·변환 평가](docs/vision-model.md) · [ROS2 실제 통신](docs/ros2-integration.md) · [모바일 확장](docs/mobile-extension.md)
 
+지도를 다시 만들고 실제 A* 우회 경로를 계산한 시험, ROS 2 운반 중 취소에서 흡착을 유지한 시험, 저전압 압력 입력의 KiCad 회로·PCB를 추가했다. [직무별 실행 결과](https://pickloop-robot-ops.ykh13571.chatgpt.site/evidence.html#slam-route) · [25개 항목 전체 대조](docs/job-requirements-matrix.md)
+
 ## Mac에서도 브라우저로 실습하기
 
 [GitHub Codespaces에서 PickLoop 열기](https://codespaces.new/sokldjs554/pickloop?ref=main)를 선택하세요. 처음 시작하면 Python과 시뮬레이션 패키지를 설치합니다. 준비가 끝나면 브라우저 터미널에서 아래 명령을 실행하세요.

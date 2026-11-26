@@ -228,8 +228,56 @@ def store_photo_study():
     return ("<h3>스웨덴 매장 사진 재시험</h3>"
             "<p>처음 세 입력은 보완에 사용했습니다. 마지막 두 입력은 같은 원본에서 옆에 놓인 팩을 잘라 시험했습니다. "
             "가격표는 입력에서 제외했습니다.</p>" + table(("촬영 조건", "브라우저 상품 판정"), rows)
-            + "<p>기존 옆면 사진의 정답은 사과 0/2장, 혼합주스 0/5장에서 각각 0/2장과 2/5장으로 바뀌었습니다. "
-            "새 매장에서 두 등록 상품의 옆면 전체가 보이는 사진은 아직 확보하지 못했습니다.</p>")
+            + side_lettering_study())
+
+
+def side_lettering_study():
+    studies = ROOT / "docs/experiments"
+    ledgers = (studies / "store-package-recovery/archive-browser.jsonl",
+               studies / "side-panel-lettering/browser.jsonl")
+    predictions = []
+    for path in ledgers:
+        rows = [json.loads(line) for line in path.read_text().splitlines()]
+        index = {row["id"]: row for row in rows}
+        if len(index) != len(rows):
+            raise ValueError(f"duplicate photo IDs in {path}")
+        predictions.append(index)
+    selected = {group: [] for group in ("apple", "mixed", "side", "front", "control")}
+    with (studies / "registered-recall/archive-labels.csv").open(newline="") as source:
+        for label in csv.DictReader(source):
+            pair = tuple(ledger[label["id"]] for ledger in predictions)
+            if any(row["sha256"] != label["sha256"] for row in pair):
+                raise ValueError(f"photo checksum changed for {label['id']}")
+            truth = label["truth"]
+            if truth == "UNKNOWN":
+                selected["control"].append(tuple(bool(row["product"]) for row in pair))
+                continue
+            outcome = tuple(row["product"] == truth for row in pair)
+            if label["view"] == "front":
+                selected["front"].append(outcome)
+                continue
+            if label["view"] != "side visible":
+                raise ValueError(f"unhandled archive view for {label['id']}")
+            selected["side"].append(outcome)
+            if truth == "God-Morgon-Apple-Juice":
+                selected["apple"].append(outcome)
+            elif truth == "God-Morgon-Orange-Red-Grapefruit-Juice":
+                selected["mixed"].append(outcome)
+
+    labels = (("apple", "사과 1 L 옆면 정답"), ("mixed", "오렌지·레드자몽 1 L 옆면 정답"),
+              ("side", "등록 상품 전체 옆면 정답"), ("front", "등록 상품 전체 앞면 정답"),
+              ("control", "미등록 레드자몽 오인"))
+    scores = []
+    for group, label in labels:
+        outcomes = selected[group]
+        before, after = zip(*outcomes, strict=True)
+        scores.append((label, f"{sum(before)} / {len(outcomes)}장", f"{sum(after)} / {len(outcomes)}장"))
+    return ("<h3>기존 매장 사진의 상품 인식 비교</h3>"
+            "<p>같은 원본을 브라우저에 다시 올려 v24와 v25를 비교했습니다. 포장 후보가 모호할 때 "
+            "같은 위치에서 브랜드와 두 맛 표기가 모두 맞으면 혼합주스를 식별합니다.</p>"
+            + table(("사진 조건", "v24", "v25"), scores)
+            + "<p>사과 옆면 두 장은 1 L 규격을 확인하기 어려워 보류했습니다. "
+            "새 매장에서 촬영한 전체 옆면 성능은 미측정입니다.</p>")
 
 
 def oblique_photo_study():
