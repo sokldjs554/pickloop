@@ -114,6 +114,24 @@ function compactFrontCapacityConflict(product, transcript) {
     /^[ \t]*1[.,]?75[ \t]*[l1][ \t]*(?:\r?\n[ \t]*)+juice (?:partly )?from concentrate\b/im.test(transcript);
 }
 
+// Match declarations from one label line or a compact ingredient paragraph.
+export function outsideDeclaration(transcript) {
+  const words = transcript.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+  const ingredients = words.match(/\bingredienser(?:[ \t]*:|[ \t]*\n)\s*([\s\S]{1,260})/);
+  if (ingredients) {
+    const list = ingredients[1].split(/\b(?:pastoriserad|bast fore)\b/)[0];
+    if (/\bappeljuice\W{1,6}\d{1,2}\s*%/.test(list)) {
+      if (/\bmandarinjuice\b/.test(list) && /\bmorotsjuice\b/.test(list)) return '사과·만다린·당근 성분';
+    }
+    if (/\bdruvjuice\b/.test(list) && /\bfladerblomsextrakt\s*\(\d{1,2}\s*%/.test(list)) return '포도·엘더플라워 성분';
+  }
+  if (/\bekologisk\b/.test(words) && /\b(?:mandarin|handarin)\s*&\s*morot\s*\/\s*gulr[a-z]{2,3}\b/.test(words)) return '유기농 만다린·당근 제품명';
+  // Require one explicit decimal and unit, plus a corresponding second language header.
+  const orange = [...words.matchAll(/(?:^|\n)[^\n]{0,10}?\b(1[,.]?75)\s*l\s*(apelsinjuice|appelsinjuice|appelsiinit[ad]ysmehu)\b/g)];
+  if (orange.some(match => /[.,]/.test(match[1])) && new Set(orange.map(match => match[2])).size >= 2) return '오렌지주스 용량 1.75 L';
+  return null;
+}
+
 export function photoDecision(barcodes, panel, transcript) {
   if (barcodes?.kind === 'unregistered') return {kind: 'hold', reason: 'unregistered_code'};
   if (!barcodes || !['empty', 'registered'].includes(barcodes.kind)) return {kind: 'hold', reason: 'barcode'};
@@ -128,6 +146,10 @@ export function photoDecision(barcodes, panel, transcript) {
   const product = barcodes.product || panel?.product;
   if (!product && barcodes.kind === 'empty' && panel?.status === 'outside_family') {
     return {kind: 'hold', reason: 'outside_family', family: panel.family};
+  }
+  if (!product && panel === null && transcript) {
+    const family = outsideDeclaration(transcript);
+    if (family) return {kind: 'hold', reason: 'outside_family', family};
   }
   if (!product) return {kind: 'hold', reason: 'no_panel'};
   const conflict = conflictingPrint(product, transcript || '');
@@ -268,6 +290,69 @@ async function readText(png, signal, mode = 'transcript') {
 
 export function opticalText(png, signal) {
   return readText(png, signal);
+}
+
+// Tilted text lines create repeated peaks when projected onto their common axis.
+async function tiltedDeclaration(image, signal) {
+  const bitmap = await createImageBitmap(image);
+  try {
+    const canvas = document.createElement('canvas');
+    const scale = Math.min(1, 400 / Math.max(bitmap.width, bitmap.height));
+    const w = canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+    const h = canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+    const ctx = canvas.getContext('2d', {willReadFrequently:true});
+    ctx.drawImage(bitmap, 0, 0, w, h);
+    const pixels = ctx.getImageData(0, 0, w, h).data;
+    const edges = [];
+    for (let y = 1; y < h; y++) {
+      for (let x = 1; x < w - 1; x++) {
+        const i = (y * w + x) * 4 + 1;
+        if (pixels[i - w * 4] - pixels[i] > 35) edges.push([x, y]);
+      }
+    }
+    if (edges.length < 250) return null;
+    let best = 0, bestScore = 0, horizontal = 0;
+    for (let degrees = -20; degrees <= 20; degrees++) {
+      const slope = Math.tan(degrees * Math.PI / 180);
+      const bins = new Uint32Array(h + w + 2);
+      for (const [x,y] of edges) bins[Math.round(y - slope * (x - w / 2) + w / 2)]++;
+      const score = bins.reduce((sum, n) => sum + n * n, 0);
+      if (!degrees) horizontal = score;
+      if (score > bestScore) { best = degrees; bestScore = score; }
+    }
+    if (Math.abs(best) < 3 || bestScore < horizontal * 1.12 || signal.aborted) return null;
+    const angle = -best * Math.PI / 180;
+    const factor = Math.min(1, 1500 / Math.max(bitmap.width, bitmap.height));
+    const width = bitmap.width * factor, height = bitmap.height * factor;
+    canvas.width = Math.ceil(width * Math.cos(angle) + height * Math.abs(Math.sin(angle)));
+    canvas.height = Math.ceil(height * Math.cos(angle) + width * Math.abs(Math.sin(angle)));
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate(angle);
+    ctx.drawImage(bitmap, -width / 2, -height / 2, width, height);
+    // Remove the blank wedges introduced by rotation before page segmentation.
+    const raster = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let left = canvas.width, right = 0, top = canvas.height, bottom = 0;
+    for (let y = 0; y < canvas.height; y += 2) {
+      for (let x = 0; x < canvas.width; x += 2) {
+        const offset = (y * canvas.width + x) * 4;
+        if (Math.min(raster.data[offset], raster.data[offset + 1], raster.data[offset + 2]) > 210) continue;
+        left = Math.min(left, x); right = Math.max(right, x);
+        top = Math.min(top, y); bottom = Math.max(bottom, y);
+      }
+    }
+    if (right <= left || bottom <= top) return null;
+    const trimmed = document.createElement('canvas');
+    trimmed.width = right - left + 1;
+    trimmed.height = bottom - top + 1;
+    trimmed.getContext('2d').drawImage(canvas, -left, -top);
+    const png = await new Promise(resolve => trimmed.toBlob(resolve, 'image/png'));
+    const transcript = await opticalText(new Uint8Array(await png.arrayBuffer()), signal);
+    return outsideDeclaration(transcript);
+  } finally {
+    bitmap.close();
+  }
 }
 
 async function readOutsideTitle(image, signal) {
@@ -466,6 +551,11 @@ function bindReader() {
         const title = await readOutsideTitle(image, signal).catch(() => null);
         if (signal.aborted) return;
         if (title) decision = {kind: 'hold', reason: 'outside_title', family: title};
+        else {
+          const family = await tiltedDeclaration(image, signal).catch(() => null);
+          if (signal.aborted) return;
+          if (family) decision = {kind:'hold', reason:'outside_family', family};
+        }
       }
       if (retake) retake.hidden = panel === undefined || !['no_panel', 'ambiguous'].includes(decision.reason);
       if (barcodes?.kind === 'registered') {

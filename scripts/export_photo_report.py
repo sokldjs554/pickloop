@@ -293,9 +293,9 @@ def side_lettering_study():
             + "<p>새 매장에서 촬영한 전체 옆면 평가 사진은 사과 0건, 혼합주스 0건입니다.</p>"
             + f"<p>별도로 모은 미등록 유사 상품 사진 {photos}장에서 등록 상품명 오인은 {wrong_names}건, 잘못된 주문 확정은 {wrong_orders}건이었습니다. "
             + f"미등록 근거를 확인한 사진은 {previous}장에서 {positive}장으로 늘었고, {photos - positive}장은 보류했습니다. "
-            + "새로 구별한 6장은 개선에 사용한 원본입니다. 별도로 확인한 같은 상품의 다른 사진 9장은 모두 보류했습니다.</p>"
+            + "새로 구별한 6장은 개선에 사용한 원본입니다. 이어 같은 상품의 다른 구도 9장을 재시험했습니다. 성분과 용량을 함께 읽는 판독기의 사진별 결과를 확인할 수 있습니다.</p>"
             + '<p><a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-print-evidence">옆면 사진별 판정</a> · '
-            + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-unknown-challenge/foreground-titles">미등록 사진별 결과</a> · <a href="https://colab.research.google.com/github/sokldjs554/pickloop/blob/main/docs/experiments/side-unknown-challenge/printed-titles/replay.ipynb">Colab에서 사진 재시험</a> · '
+            + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-unknown-challenge/foreground-titles">미등록 앞면 결과</a> · <a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/side-unknown-challenge/alternate-views">다른 구도 9장과 기울기 시험</a> · <a href="https://colab.research.google.com/github/sokldjs554/pickloop/blob/main/docs/experiments/side-unknown-challenge/printed-titles/replay.ipynb">Colab에서 사진 재시험</a> · '
             + '<a href="https://github.com/sokldjs554/pickloop/tree/main/docs/experiments/short-retail-codes">서로 다른 바코드가 함께 보일 때의 주문 판정</a></p>')
 
 
