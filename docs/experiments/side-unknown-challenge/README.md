@@ -2,7 +2,7 @@
 
 This study asks whether a shopper's photo of a similar God Morgon drink can be assigned to a registered product or approved as an exact order. The registry contains four GTINs. Each package in this challenge has a verified GTIN outside those four.
 
-[Latest printed-title retest and runnable notebook](printed-titles/README.md)
+[Latest foreground title retest](foreground-titles/README.md) · [Earlier two-title retest](printed-titles/README.md) · [Runnable notebook](printed-titles/replay.ipynb)
 
 ## v28 baseline and v29 retest
 
