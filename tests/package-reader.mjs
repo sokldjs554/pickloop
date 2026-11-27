@@ -341,3 +341,17 @@ test('isolated foreground juice titles require all aligned flavor words', async 
   assert.equal(drinkFamily(blend.slice(0, -1), 58), null);
   assert.equal(drinkFamily([...blend.slice(0, -1), word('LIME', 160, 57)], 58), null);
 });
+
+test('ingredient evidence keeps quantities, flavour combinations and barcode precedence', () => {
+  const recipe = 'Ingredienser: ekologisk äppeljuice (68%), mandarinjuice (18%), morotsjuice.';
+  const decide = (text, panel = null) => reader.photoDecision({kind:'empty'}, panel, text);
+  assert.equal(decide(recipe).reason, 'outside_family');
+  assert.equal(decide(recipe.replace('(68%)', '')).reason, 'no_panel');
+  assert.equal(decide(recipe.replace('morotsjuice', '')).reason, 'no_panel');
+  assert.equal(decide(recipe, {status:'ambiguous'}).reason, 'ambiguous');
+  assert.equal(reader.photoDecision({kind:'multiple'}, null, recipe).reason, 'barcode');
+  assert.equal(decide('1,75 L Apelsinjuice\n1,75 L Appelsinjuice').reason, 'outside_family');
+  assert.equal(decide('175 L Apelsinjuice\n175 L Appelsinjuice').reason, 'no_panel');
+  assert.equal(decide('1,75 L Apelsinjuice\n1,75 L Apelsinjuice').reason, 'no_panel');
+  assert.equal(decide('Nutrition per 100 ml. FSC certified.').reason, 'no_panel');
+});
