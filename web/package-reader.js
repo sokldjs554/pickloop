@@ -250,14 +250,15 @@ function request(worker, action, payload, signal) {
   });
 }
 
-async function readText(png, signal, title = false) {
+async function readText(png, signal, mode = 'transcript') {
   const worker = new Worker(asset('ocr-worker.js'));
   try {
     await request(worker, 'load', {options: {lstmOnly: true, corePath: asset('tesseract-core-lstm.wasm.js')}}, signal);
+    const title = mode !== 'transcript';
     const langs = title ? ['eng'] : ['kor', 'eng'];
     await request(worker, 'loadLanguage', {langs, options: {langPath: vendor.href, gzip: true, lstmOnly: true, cacheMethod: 'none'}}, signal);
     await request(worker, 'initialize', {langs, oem: 1, config: {}}, signal);
-    await request(worker, 'setParameters', {params: {tessedit_pageseg_mode: title ? '6' : '11'}}, signal);
+    await request(worker, 'setParameters', {params: {tessedit_pageseg_mode: ({block: '6', line: '7', sparse: '11', transcript: '11'})[mode]}}, signal);
     const result = await request(worker, 'recognize', {image: png, options: {}, output: title ? {tsv: true} : {text: true}}, signal);
     return String((title ? result.tsv : result.text) || '').trim();
   } finally {
@@ -272,8 +273,13 @@ export function opticalText(png, signal) {
 async function readOutsideTitle(image, signal) {
   const {titleCrop, outsideTitle} = await import('./outside-title.js');
   const crop = await titleCrop(image);
-  if (!crop || signal.aborted) return null;
-  return outsideTitle(await readText(crop.image, signal, true), crop.width);
+  if (crop && !signal.aborted) {
+    const family = outsideTitle(await readText(crop.image, signal, 'block'), crop.width);
+    if (family) return family;
+  }
+  if (signal.aborted) return null;
+  const {frontLabel} = await import('./front-label.js');
+  return frontLabel(image, (bytes, mode) => readText(bytes, signal, mode), signal);
 }
 
 async function opticalBarcode(png, signal) {

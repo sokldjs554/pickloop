@@ -23,4 +23,4 @@
 
 ## 노트북으로 재현하기
 
-기본 설정은 두 원본을 웹 데모에 입력하고 화면의 상품 판정과 주문 판정을 JSONL 파일에 저장합니다. 전체 16장을 재시험하려면 두 번째 코드 셀에서 `FULL_SET = True`로 바꾸세요. 원본 출처가 바뀌거나 배포 판독기가 갱신되면 지문 검사에서 중단합니다. [Colab에서 열기](https://colab.research.google.com/github/sokldjs554/pickloop/blob/main/docs/experiments/side-unknown-challenge/printed-titles/replay.ipynb) · [노트북 파일](replay.ipynb)
+현재 배포 노트북의 기본 설정은 후속 시험의 사과·엘더플라워와 네 과일 혼합 사진을 웹 데모에 입력하고 화면의 상품 판정과 주문 판정을 JSONL 파일에 저장합니다. 전체 16장을 재시험하려면 두 번째 코드 셀에서 `FULL_SET = True`로 바꾸세요. 원본 출처가 바뀌거나 배포 판독기가 갱신되면 지문 검사에서 중단합니다. [Colab에서 열기](https://colab.research.google.com/github/sokldjs554/pickloop/blob/main/docs/experiments/side-unknown-challenge/printed-titles/replay.ipynb) · [노트북 파일](replay.ipynb)

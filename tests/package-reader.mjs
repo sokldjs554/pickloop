@@ -326,3 +326,18 @@ test('outside titles require a heading and two aligned, legible flavor words', a
   assert.equal(read([selected, citrus, blood, [...orange, 40]]), null);
   assert.equal(read([selected, citrus, blood, orange, orange]), null);
 });
+
+test('isolated foreground juice titles require all aligned flavor words', async () => {
+  const {drinkFamily} = await import('../web/front-label.js');
+  const word = (text, x, y, w = 38) => ({text, x, y, w, h: 12, cx: x + w/2, cy: y + 6, conf: 91});
+  const elder = [word('APPLE', 21, 21), word('ELDERFLOWER', 22, 39, 84)];
+  assert.equal(drinkFamily(elder, 58), '사과·엘더플라워');
+  assert.equal(drinkFamily(elder.slice(1), 58), null);
+  assert.equal(drinkFamily([elder[0], word('ELDERFLOWER', 85, 39, 84)], 58), null);
+  const blend = [word('CRUSH', 20, 0), word('APPLE', 10, 39), word('PEAR', 57, 39),
+    word('KIWI', 12, 57), word('LIME', 59, 57)];
+  assert.equal(drinkFamily(blend, 58), '사과·배·키위·라임');
+  assert.equal(drinkFamily(blend.slice(1), 58), null);
+  assert.equal(drinkFamily(blend.slice(0, -1), 58), null);
+  assert.equal(drinkFamily([...blend.slice(0, -1), word('LIME', 160, 57)], 58), null);
+});
